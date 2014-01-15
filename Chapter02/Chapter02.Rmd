@@ -1,0 +1,63 @@
+Chapter 02 Graphs
+=================================================
+This report creates the chapter graphs.
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
+```{r, echo=FALSE, message=F} 
+opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -espeically one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set_options, echo=FALSE, results='hide'}
+require(knitr)
+opts_chunk$set(
+    comment = NA, 
+    tidy = FALSE,
+    fig.width = 6.0, 
+    fig.height = 1.6, 
+    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+    fig.path = 'figure_rmd/',
+    dpi = 400
+)
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./Chapter02/Chapter02.R") 
+```
+<!-- Load the packages.  Suppress the output when loading packages. --> 
+```{r LoadPackages, echo=FALSE, message=FALSE}
+```
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r DeclareGlobals, echo=FALSE, message=FALSE}
+```
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=FALSE, message=FALSE}
+```
+
+<!-- Load the datasets.   -->
+```{r LoadDatasets, echo=F, results='hide', message=F}
+```
+
+<!-- Tweak the datasets.   -->
+```{r TweakDatasets, echo=F, results='hide', message=F}
+```
+
+## Figure 2-1
+```{r Figure02_01, echo=T, results='show', message=T}
+```
+
+## Figure 2-2
+```{r Figure02_02, echo=T, results='show', message=T}
+```
+
+## Figure 2-3
+```{r Figure02_03, echo=T, results='show', message=T}
+```
+
+## Session Info
+For the sake of documentation and reproducibility, the current vignette was build on a system using the following software.
+
+```{r session_info, echo=FALSE}
+cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%F, %T %z"))
+sessionInfo()
+```

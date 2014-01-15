@@ -1,5 +1,9 @@
+# Copyrighted Information
+UnsharedMaterial/
+
 # History files
 .Rhistory
 
 # Example code in package build process
 *-Ex.R
+.Rproj.user

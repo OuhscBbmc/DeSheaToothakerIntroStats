@@ -19,5 +19,5 @@ Variables in the data set:
  9. **T2_watts**, **T3_watts**, **T4_watts**, **T5_watts**:  Like T1_watts, but measured at Times 2, 3, 4 and 5.
  10. **DelivMethod**:  An indicator of delivery method (1 = vaginal, 0 = cesarean).
  11. **PrimaryC**:  An indicator of whether the delivery was the first time that the participant had a cesarean (1 = yes; 0 = no, the mother previously had a cesarean delivery; missing values = the delivery was vaginal).
- 12. **Babyweigh**t:  Baby’s birth weight in grams.
+ 12. **Babyweight**:  Baby’s birth weight in grams.
  13. **RecovDays**:  Number of days postpartum that the mother returned to being able to perform 3 of 5 listed household tasks (“changing sheets and making beds; sweeping, mopping, vacuuming, or other cleaning; washing and folding clothes; shopping for groceries and putting groceries away; preparing, cooking, and serving meals”).

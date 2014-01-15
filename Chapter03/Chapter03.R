@@ -21,7 +21,7 @@ chapterTheme <- BookTheme
 # 'ds' stands for 'datasets'
 dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv")
 dsObesity <- read.csv("./Data/FoodHardshipObesity.csv")
-dsSmoking <- read.csv("./Data/SmokingTaxes.csv")
+dsSmoking <- read.csv("./Data/SmokingTax.csv")
 
 #####################################
 ## @knitr TweakDatasets

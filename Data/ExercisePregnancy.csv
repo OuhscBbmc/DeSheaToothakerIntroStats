@@ -1,4 +1,4 @@
-ID,Group,T1_lifts,T2_lifts,T3_lifts,T4_lifts,T5_lifts,T1_watts,T2_watts,T3_watts,T4_watts,T5_watts,DelivMethod,PrimaryC,Babyweight,RecovDays
+ID,Group,T1Lifts,T2Lifts,T3Lifts,T4Lifts,T5Lifts,T1Watts,T2Watts,T3Watts,T4Watts,T5Watts,DeliveryMethod,PrimaryC,BabyWeightInG,RecoveryDays
 1,a,31,38,26,26,29,1291,1082,1388,1137,1400,1,.,3742,7
 2,a,22,29,32,31,37,1097,1126,1156,1151,1187,1,.,3289,5
 3,a,8,10,27,31,34,1029,1097,1200,996,1127,1,.,2948,2

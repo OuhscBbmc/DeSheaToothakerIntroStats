@@ -1,4 +1,4 @@
-State,StateAbbrev,AdultCigaretteUse_2009,YouthCigaretteUse_2009,Tax_centsperpack
+StateName,State,AdultCigaretteUse,YouthCigaretteUse,TaxCentsPerPack
 Alaska,AK,20.6,15.7,200
 Alabama,AL,22.5,20.8,42.5
 Arkansas,AR,21.5,20.3,115

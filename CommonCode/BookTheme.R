@@ -12,7 +12,10 @@ require(ggplot2)
 
 
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
-BookTheme <- theme_bw() 
+BookTheme <- theme_bw() +
+  theme(axis.text.x=element_text(colour="gray40")) +
+  theme(axis.title.x=element_text(colour="gray40")) +
+  theme(panel.border = element_rect(colour="gray80"))
  
 ## These three lines will use a nondefault font.
 # extrafont::loadfonts() #Run this once per session.

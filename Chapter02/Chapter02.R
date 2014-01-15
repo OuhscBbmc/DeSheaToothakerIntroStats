@@ -51,6 +51,3 @@ ggplot(dsSkewNegative, aes(x=Systolic)) +
 
 #####################################
 # TODO: Questions for Lise:
-# 1. Are the colors matched closely enough, or do they need to be more exact?
-# 2. Drop or keep x-axis title?
-# 3. Use dots or squares?

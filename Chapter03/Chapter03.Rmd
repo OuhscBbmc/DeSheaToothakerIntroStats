@@ -14,10 +14,9 @@ opts_chunk$set(
     comment = NA, 
     tidy = FALSE,
     fig.width = 5.5, 
-    fig.height = 1.6, 
+    fig.height = 4, 
     out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/', 
-    
+    fig.path = 'figure_rmd/',     
     dev = "png",
 #     dev = "pdf",
     dpi = 400
@@ -54,7 +53,11 @@ read_chunk("./Chapter03/Chapter03.R")
 ```
 
 ## Figure 3-3
-```{r Figure03_03, echo=TRUE, results='show', message=TRUE}
+```{r Figure03_03, echo=TRUE, results='show', message=TRUE, fig.height=1.5}
+```
+
+## Figure 3-4
+```{r Figure03_04, echo=TRUE, results='show', message=TRUE, fig.height=1.5, out.width=NULL, out.height="150px"}
 ```
 
 ## Session Info

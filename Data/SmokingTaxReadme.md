@@ -25,6 +25,7 @@ The excise tax rates are the number of cents per pack of cigarettes taxed by the
  3. **AdultCigaretteUse**:  Percentage of current cigarette smokers in 2009.  Current smokers were were 18 and older and “reported smoking at least 100 cigarettes during their lifetime and who reported smoking every day or some days.”
  4. **YouthCigaretteUse**:  Percentage of high school students in 2009 who said they smoked cigarettes on at least one occasion in the previous month.
  5. **TaxCentsPerPack**:  State or D.C. excise tax (not sales tax), reported as the number of cents per pack of cigarettes as of the end of June 2010. 
+ 6. **Location**: Indicates if the state is commonly thought as of a Southern State or not.  The possible values are `Southern` and `Other`.
 
 Note: missing values in the CSV are coded as `NA`.
 

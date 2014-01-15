@@ -15,14 +15,12 @@ require(epade) #For the 3D bar chart (Please notice that this package includes m
 ## @knitr DeclareGlobals
 source("./CommonCode/BookTheme.R")
 chapterTheme <- BookTheme 
-
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
 dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv")
 dsObesity <- read.csv("./Data/FoodHardshipObesity.csv")
 dsSmoking <- read.csv("./Data/SmokingTax.csv")
-
 #####################################
 ## @knitr TweakDatasets
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
@@ -34,7 +32,7 @@ dsPregnancySummarized$Dummy <- c(1,1)
 
 matPregnancy <- as.matrix((table(dsPregnancy$DeliveryMethod)))
 # dsPregnancyMatrix <- cbind(dsPregnancyMatrix, c(1, 2), c(1,1))[, c(2,3,1)]
-matPregnancy
+# matPregnancy
 
 dsPregnancyLong <- reshape2::melt(dsPregnancy, id.vars=c("SubjectID", "Group"), 
                                   measure.vars=paste0("T", 1:5, "Lifts"), 
@@ -43,7 +41,6 @@ dsPregnancyLong <- reshape2::melt(dsPregnancy, id.vars=c("SubjectID", "Group"),
 dsPregnancyLong$TimePoint <- as.integer(gsub(pattern="T(\\d)Lifts", "\\1", dsPregnancyLong$TimePoint, perl=T))
 
 dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoint", "Group"), summarize, CountMean=mean(LiftCount, na.rm=T))
-
 #####################################
 ## @knitr Figure03_01
 oldPar <- par(mfrow=c(1, 2)) #par(mfrow=c(1, 1))
@@ -54,7 +51,6 @@ pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod
 pie3D(x=dsPregnancySummarized$Count, labels=NULL, #dsPregnancySummarized$DeliveryMethod, 
       edges=1000, start=pi*5/5, theta=pi/10, mar=c(0, 0, 0, 0))
 par(oldPar)
-
 #####################################
 ## @knitr Figure03_02
 dsPregnancy$Dummy <- factor(1, levels=c(1,2))
@@ -63,18 +59,21 @@ epade::bar3d.ade(x=dsPregnancy$DeliveryMethod, y=dsPregnancy$Dummy,
                  col=c("red", NA, "cyan", NA),
                  wall=2)
 
+#bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, alpha=.6, col=c("red", "cyan"))
+bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, alpha=.6, col=c("#FF0000AA", "#00FFFFAA"))
+bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="z", b2=3, ylim=c(20, 80), wall=2, col=c("#FF0000AA", "#00FFFFAA"))
+
 dsPregnancy$Dummy <- NULL
 #####################################
 ## @knitr Figure03_03
-barChartPalette <- adjustcolor(brewer.pal(3, "Accent"), alpha.f=.8)[1:2]
 g3_3 <- ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity") +
-  scale_fill_manual(values=barChartPalette) +
+  scale_fill_manual(values=palettePregancyDelivery) +
   coord_flip() +
   theme_bw() +
+  theme(legend.position = "none") +
   labs(x=NULL, y="Number of Participants")
 g3_3 
-
 #####################################
 ## @knitr Figure03_04
 g3_3 + 
@@ -86,7 +85,6 @@ g3_3 +
   labs(x=NULL, y="Number of Participants")
 
 rm(g3_3)
-
 #####################################
 ## @knitr Figure03_05
 #Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
@@ -101,7 +99,6 @@ ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
   theme(axis.ticks.length = grid::unit(0, "cm")) +
   theme(panel.grid.major.y= element_blank()) +
   labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
-
 #####################################
 ## @knitr Figure03_06
 ggplot(dsPregnancy, aes(x=T1Lifts)) +
@@ -113,7 +110,6 @@ ggplot(dsPregnancy, aes(x=T5Lifts)) +
   geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
-
 #####################################
 ## @knitr Figure03_07
 # dsPregnancy$Dummy <- factor(1, levels=c(1,2))
@@ -121,22 +117,30 @@ ggplot(dsPregnancy, aes(x=T5Lifts)) +
 #                  xlab="", zticks=c("", ""), zlab="", 
 #                  col=c("red", NA, "cyan", NA),
 #                  wall=2)
+CreateFakeMeans <- function( d ) {
+  data.frame(
+    TimePoint = rep(d$TimePoint, times=d$CountMean), 
+    Group = rep(d$Group, times=d$CountMean)
+)}
+dsPregnancyLongSummarizedFakeTable <- ddply(dsPregnancyLongSummarized, .variables=c("TimePoint", "Group"), CreateFakeMeans)
+bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3)
+epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable)
 
-
+dsPregnancyLongSummarizedFakeTable$Group <- factor(dsPregnancyLongSummarizedFakeTable$Group, levels=c("Control", "Active"))
+epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, col=palettePregancyGroupBad, xw=.5, zw=2, wall=1)
 #####################################
 ## @knitr Figure03_08
 g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3) +
   geom_point(size=6) +
   chapterTheme +
-  scale_color_brewer(palette="Dark2") +
+  scale_color_manual(values=palettePregancyGroup) +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Time", y="Average Number of Lifts")
 g3_08
 
 g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.9) 
   #+ scale_color_brewer(palette="Dark2", alpha=.3)
-
 #####################################
 ## @knitr Figure03_09
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
@@ -151,29 +155,145 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Adult Smoking Prevalence (in 2009)")
-
 #####################################
 ## @knitr Figure03_10
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
-  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +  
   scale_x_continuous(breaks=NULL) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
-
 #####################################
-## @knitr Figure03_10
+## @knitr Figure03_11
 ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG)) +
   geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
   chapterTheme +
   labs(x=NULL, y="Baby Birth Weight (in kg)")
-
 #####################################
-## @knitr Figure03_11
+## @knitr Figure03_12
 ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG)) +
   geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
   chapterTheme +
   labs(x=NULL, y="Baby Birth Weight (in kg)")
+#####################################
+## @knitr Figure03_13
+ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
+  geom_point(shape=19, size=3, color="lightblue4") +
+  scale_x_continuous(label=scales::percent) +
+  scale_y_continuous(label=scales::percent) +
+  chapterTheme +
+  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
+
+ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Location)) +
+  geom_text(size=3, alpha=1) +
+  scale_x_continuous(label=scales::percent) +
+  scale_y_continuous(label=scales::percent) +
+  scale_color_manual(values=paletteObesityState) +
+  chapterTheme +
+  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
+  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
+#####################################
+## @knitr Figure03_14
+ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, color=Location)) +
+  geom_point(shape=19, size=3) +
+  scale_x_continuous(label=scales::percent) +
+  scale_y_continuous(label=scales::percent) +
+  scale_color_manual(values=paletteObesityState) +
+  facet_grid( ~ Location) +
+  chapterTheme +
+  theme(legend.position="none") +
+  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
+
+#####################################
+## @knitr Figure03_15
+g03_14 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
+  geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.7 ) +
+#   scale_y_continuous(limits = c(18, 21)) +
+  scale_fill_manual(values=palettePregancyGroup) +
+  chapterTheme +
+  theme(legend.position="none") +
+  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+
+g03_14 + coord_flip(ylim = c(18, 21))
+
+#####################################
+## @knitr Figure03_16
+g03_14 + coord_flip(ylim = c(0, 21))
+
+### Possible Narration:
+### Add observed data to the existing statistical summary (ie, the bar of means).
+### This makes it obvious how the variability dwarfs the difference.
+### This could be a possible callback in a later chapter: the t's denominator dwarfs the numerator.
+
+set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
+ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
+  geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.2, color=NA ) +
+  geom_point(position=position_jitter(w = 0.4, h = 0), na.rm=T, size=2, shape=1) +
+  scale_color_manual(values=palettePregancyGroup) +
+  scale_fill_manual(values=palettePregancyGroup) +
+  coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
+  chapterTheme +
+  theme(legend.position="none") +
+  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+
+### Possible Narration:
+### Layering summarized and observed data can help cognitively reinforce the patterns in the data.
+### Variability/spread is represented by both the box and the points.
+
+set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
+ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
+  geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NA ) +
+  geom_point(position=position_jitter(w = 0.4, h = 0), na.rm=T, size=2, shape=1) +
+  scale_color_manual(values=palettePregancyGroup) +
+  scale_fill_manual(values=palettePregancyGroup) +
+  coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
+  chapterTheme +
+  theme(legend.position="none") +
+  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+
+### Possible Narration:
+### The number of summary layers doesn't need to stop at two.  
+### A diamond below represent the group's mean.
+
+ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
+  stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) +
+  geom_boxplot( alpha=.2, outlier.shape=NA, na.rm=T) +
+  geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=1, na.rm=T) +
+  scale_color_manual(values=palettePregancyGroup) +
+  scale_fill_manual(values=palettePregancyGroup) +
+  coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
+  chapterTheme +
+  theme(legend.position="none") +
+  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+  
+### Possible Narration:
+### Compare this with Fig 3-13 (ie the second bar chart in this section).  These two small diamonds represent *every piece of information* in the bar chart.
+### Consider all the rich information missing from the graph below.  
+### If the graph is constructed sensibly, your brain can manage a more complexity that two summary points.  And so can your audience.
+### Both you and your audience will be benefit from a more complete representation of your study's results.
+
+ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
+  geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.2, color=NA ) +
+  stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=1, na.rm=T) +
+  scale_color_manual(values=palettePregancyGroup) +
+  scale_fill_manual(values=palettePregancyGroup) +
+  coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
+  chapterTheme +
+  theme(legend.position="none") +
+  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+
+### Possible Narration:
+### Consider your audience's starting point.  DOn't just throw a bunch of layers and expect they'll understand the conventions you've chosen.
+### Clearly identify the elements containedin each layer, and what concept/summary/observation each layer is representing.
+
+### Possible Narration:
+### We expect that interactive graphics will become more common in the health sciences, and that the tools will become
+### easier for more people to use.  We don't think they tools are ready for intro stat students yet.
+### Once you're more comfortable with the statistical concepts and programming required of this course, we
+### encourage you to investigate if interactive graphics would contribute towards communicating your research results.
+
+### Possible Narration:
+### Choose colors consistently for the same variables, and differently for different variables
 
 #####################################
 # TODO: 

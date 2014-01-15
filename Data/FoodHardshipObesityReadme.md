@@ -15,6 +15,7 @@ The prevalence of obesity is the proportion or percentage of a population identi
  1. **StateName**: Names of the states.  Includes the 50 states and D.C.
  2. **State**:  Abbreviations for state names.
  3. **FoodHardshipRate**:  Percentage of respondents to the FRAC/Gallup representatives surveys in 2011 who said yes when asked:  “Have there been times in the past 12 months when you did not have enough money to buy food that you or your family needed?”
- 4. **ObesityRate**:  Percentage of respondents to the 2011 BRFSS survey whose self-reported height and weight resulted in a BMI of 30 or higher.
+ 4. **ObesityRate**:  Percentage of respondents to the 2011 BRFSS survey whose self-reported height and weight resulted in a BMI of 30 or higher. 
+ 5. **Location**: Indicates if the state is commonly thought as of a Southern State or not.  The possible values are `Southern` and `Other`.
 
 Note: missing values in the CSV are coded as `NA`.

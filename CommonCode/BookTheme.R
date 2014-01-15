@@ -10,12 +10,31 @@ require(extrafont)
 require(ggplot2)
 
 
-
+#########################################################
+### Define theme elements for ggplot2 graphs
+#########################################################
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
 BookTheme <- theme_bw() +
   theme(axis.text.x=element_text(colour="gray40")) +
   theme(axis.title.x=element_text(colour="gray40")) +
   theme(panel.border = element_rect(colour="gray80"))
+
+#########################################################
+### Define palettes for variable sets, so they're consistent across graphs & chapters
+#########################################################
+
+#palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
+palettePregancyDelivery <-  adjustcolor(brewer.pal(3, "Accent"), alpha.f=.7)[1:2]
+palettePregancyDeliveryBad <- c("FF0000AA", "00FFFFAA") #Translucent red & cyan
+
+palettePregancyGroup <-  adjustcolor(brewer.pal(3, "Dark2"), alpha.f=.7)[1:2]
+palettePregancyGroupBad <- adjustcolor(c("blue", "maroon"), alpha.f=.7)
+
+#paletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
+paletteObesityState <-  adjustcolor(brewer.pal(5, "Set1"))[c(1,2)]
+paletteObesityState <-  adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)]
+# paletteObesityStateBad <- adjustcolor(c("green", "red"), alpha.f=.7)
+
  
 ## These three lines will use a nondefault font.
 # extrafont::loadfonts() #Run this once per session.

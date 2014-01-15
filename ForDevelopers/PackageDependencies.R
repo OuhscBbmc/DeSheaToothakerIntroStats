@@ -19,6 +19,7 @@ packagesToInstall <- c(
   , "plyr" #Important for most of our data manipulation
   , "RColorBrewer" #Explicit control over the Color Brewer colors.  See http://colorbrewer2.org/
   , "reshape2" #Data manipulation not covered in plyr
+  , "scales" #Formating values in graphs
 #   , "stringr" #Consistent/convienent function signatures for manipulating text
   , "testit" #has the useful `assert()` function
 ) 

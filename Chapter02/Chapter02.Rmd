@@ -58,7 +58,7 @@ read_chunk("./Chapter02/Chapter02.R")
 ```
 
 ## Session Info
-For the sake of documentation and reproducibility, the current vignette was build on a system using the following software.
+For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 ```{r session_info, echo=FALSE}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%F, %T %z"))

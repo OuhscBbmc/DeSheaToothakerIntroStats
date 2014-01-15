@@ -58,6 +58,9 @@ par(oldPar)
 ## Figure 3-2
 
 ```r
+#epade::bar3d.ade(matPregnancy, wall=2)
+
+# epade::bar3d.ade(x=dsPregnancySummarized$DeliveryMethod, y=dsPregnancySummarized$Dummy)
 dsPregnancy$Dummy <- factor(1, levels=c(1,2))
 epade::bar3d.ade(x=dsPregnancy$DeliveryMethod, y=dsPregnancy$Dummy, 
                  xlab="", zticks=c("", ""), zlab="", 
@@ -119,87 +122,6 @@ rm(g3_3)
 
 ## Figure 3-5
 
-```r
-stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
-dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
-
-ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
-  geom_segment(aes(yend=State, xend=min(ObesityRate)), color="gray70") +
-  geom_point(size=3, color="blue2") +
-  scale_x_continuous(label=scales::percent) + #, expand=c(0,.005)) +
-  chapterTheme +
-  theme(axis.ticks.length = grid::unit(0, "cm")) +
-  theme(panel.grid.major.y= element_blank()) +
-  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
-```
-
-<img src="figure_rmd/Figure03_05.png" title="plot of chunk Figure03_05" alt="plot of chunk Figure03_05" height="800px" />
-
-```r
-
-#####################################
-```
 
 
-## Figure 3-6
-
-```r
-ggplot(dsPregnancy, aes(x=T1Lifts)) +
-  geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
-  chapterTheme +
-  labs(x="Number of Lifts in 1 min (at Time 1)", y="Number of Participants")
-```
-
-<img src="figure_rmd/Figure03_06.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" />
-
-```r
-
-#####################################
-```
-
-
-## Figure 3-7
-
-```r
-ggplot(dsPregnancy, aes(x=T5Lifts)) +
-  geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
-  chapterTheme +
-  labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
-```
-
-<img src="figure_rmd/Figure03_07.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
-
-```r
-
-#####################################
-```
-
-## Session Info
-For the sake of documentation and reproducibility, the current report was build on a system using the following software.
-
-
-```
-Report created by Will at 2014-01-15, 00:27:58 -0600
-```
-
-```
-R Under development (unstable) (2014-01-13 r64761)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-
-locale:
-[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
-[1] extrafont_0.16     epade_0.3.8        plotrix_3.5-2      ggplot2_0.9.3.1    scales_0.2.3       plyr_1.8.0.99     
-[7] RColorBrewer_1.0-5 knitr_1.5         
-
-loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 dichromat_2.0-0  digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10    
- [7] grid_3.1.0       gtable_0.1.2     labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10    
-[13] Rcpp_0.10.6      reshape2_1.2.2   Rttf2pt1_1.2     stringr_0.6.2    tools_3.1.0     
-```
 

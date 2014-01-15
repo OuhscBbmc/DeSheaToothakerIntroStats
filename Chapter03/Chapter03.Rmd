@@ -60,8 +60,19 @@ read_chunk("./Chapter03/Chapter03.R")
 ```{r Figure03_04, echo=TRUE, results='show', message=TRUE, fig.height=1.5, out.width=NULL, out.height="150px"}
 ```
 
+## Figure 3-5
+```{r Figure03_05, echo=TRUE, results='show', message=TRUE, fig.height=6.5, fig.width=3.5, out.width=NULL, out.height="800px"}
+```
+
+## Figure 3-6
+```{r Figure03_06, echo=TRUE, results='show', message=TRUE}
+```
+
+## Figure 3-7
+```{r Figure03_07, echo=TRUE, results='show', message=TRUE}
+```
 ## Session Info
-For the sake of documentation and reproducibility, the current vignette was build on a system using the following software.
+For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 ```{r session_info, echo=FALSE}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%F, %T %z"))

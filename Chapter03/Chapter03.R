@@ -7,6 +7,7 @@ require(RColorBrewer)
 require(plyr)
 require(scales) #For formating values in graphs
 require(ggplot2)
+require(reshape2) #For convertin wide to long
 require(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
 require(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
 
@@ -20,9 +21,12 @@ chapterTheme <- BookTheme
 # 'ds' stands for 'datasets'
 dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv")
 dsObesity <- read.csv("./Data/FoodHardshipObesity.csv")
+dsSmoking <- read.csv("./Data/SmokingTaxes.csv")
 
 #####################################
 ## @knitr TweakDatasets
+dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
+
 dsPregnancySummarized <- ddply(dsPregnancy, .variables="DeliveryMethod", summarize, Count=length(SubjectID))
 dsPregnancySummarized$Proportion = dsPregnancySummarized$Count/sum(dsPregnancySummarized$Count)
 dsPregnancySummarized$Percentage <- paste0(round(dsPregnancySummarized$Proportion*100), "%")
@@ -31,6 +35,14 @@ dsPregnancySummarized$Dummy <- c(1,1)
 matPregnancy <- as.matrix((table(dsPregnancy$DeliveryMethod)))
 # dsPregnancyMatrix <- cbind(dsPregnancyMatrix, c(1, 2), c(1,1))[, c(2,3,1)]
 matPregnancy
+
+dsPregnancyLong <- reshape2::melt(dsPregnancy, id.vars=c("SubjectID", "Group"), 
+                                  measure.vars=paste0("T", 1:5, "Lifts"), 
+                                  variable.name="TimePoint", value.name="LiftCount")
+#                                   dsPregnancy$SubjectID
+dsPregnancyLong$TimePoint <- as.integer(gsub(pattern="T(\\d)Lifts", "\\1", dsPregnancyLong$TimePoint, perl=T))
+
+dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoint", "Group"), summarize, CountMean=mean(LiftCount, na.rm=T))
 
 #####################################
 ## @knitr Figure03_01
@@ -77,6 +89,7 @@ rm(g3_3)
 
 #####################################
 ## @knitr Figure03_05
+#Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
 stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
 
@@ -96,20 +109,71 @@ ggplot(dsPregnancy, aes(x=T1Lifts)) +
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 1)", y="Number of Participants")
 
-#####################################
-## @knitr Figure03_07
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
   geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
 
 #####################################
+## @knitr Figure03_07
+# dsPregnancy$Dummy <- factor(1, levels=c(1,2))
+# epade::bar3d.ade(x=dsPregnancyLong$DeliveryMethod, y=dsPregnancy$Dummy, 
+#                  xlab="", zticks=c("", ""), zlab="", 
+#                  col=c("red", NA, "cyan", NA),
+#                  wall=2)
+
+
+#####################################
 ## @knitr Figure03_08
-dsPregnancy$Dummy <- factor(1, levels=c(1,2))
-epade::bar3d.ade(x=dsPregnancy$DeliveryMethod, y=dsPregnancy$Dummy, 
-                 xlab="", zticks=c("", ""), zlab="", 
-                 col=c("red", NA, "cyan", NA),
-                 wall=2)
+g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
+  geom_line(size=3) +
+  geom_point(size=6) +
+  chapterTheme +
+  scale_color_brewer(palette="Dark2") +
+  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
+  labs(x="Time", y="Average Number of Lifts")
+g3_08
+
+g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.9) 
+  #+ scale_color_brewer(palette="Dark2", alpha=.3)
+
+#####################################
+## @knitr Figure03_09
+#Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
+outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
+outlierLabels <- dsSmoking$State[which( dsSmoking$AdultCigaretteUse == outlierPrevelances, arr.ind=TRUE)]
+
+ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  scale_x_continuous(breaks=NULL) +
+  scale_y_continuous(label=scales::percent) +
+  annotate(geom="text", x=1L, y=outlierPrevelances, label=outlierLabels, hjust=-.6, color="gray40") +
+  chapterTheme +
+  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
+  labs(x=NULL, y="Adult Smoking Prevalence (in 2009)")
+
+#####################################
+## @knitr Figure03_10
+ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  scale_x_continuous(breaks=NULL) +
+  chapterTheme +
+  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
+  labs(x=NULL, y="Number of Lifts (at Time 1)")
+
+#####################################
+## @knitr Figure03_10
+ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG)) +
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  chapterTheme +
+  labs(x=NULL, y="Baby Birth Weight (in kg)")
+
+#####################################
+## @knitr Figure03_11
+ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG)) +
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  chapterTheme +
+  labs(x=NULL, y="Baby Birth Weight (in kg)")
 
 #####################################
 # TODO: 

@@ -71,6 +71,23 @@ read_chunk("./Chapter03/Chapter03.R")
 ## Figure 3-7
 ```{r Figure03_07, echo=TRUE, results='show', message=TRUE}
 ```
+
+## Figure 3-8
+```{r Figure03_08, echo=TRUE, results='show', message=TRUE}
+```
+
+## Figure 3-9
+```{r Figure03_09, echo=TRUE, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px",}
+```
+
+## Figure 3-10
+```{r Figure03_10, echo=TRUE, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px",}
+```
+
+## Figure 3-11
+```{r Figure03_11, echo=TRUE, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px",}
+```
+
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 

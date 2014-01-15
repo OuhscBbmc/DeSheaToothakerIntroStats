@@ -120,6 +120,7 @@ rm(g3_3)
 ## Figure 3-5
 
 ```r
+#Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
 stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
 
@@ -150,7 +151,17 @@ ggplot(dsPregnancy, aes(x=T1Lifts)) +
   labs(x="Number of Lifts in 1 min (at Time 1)", y="Number of Participants")
 ```
 
-<img src="figure_rmd/Figure03_06.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" />
+<img src="figure_rmd/Figure03_061.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" />
+
+```r
+
+ggplot(dsPregnancy, aes(x=T5Lifts)) +
+  geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
+  chapterTheme +
+  labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
+```
+
+<img src="figure_rmd/Figure03_062.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" />
 
 ```r
 
@@ -161,25 +172,118 @@ ggplot(dsPregnancy, aes(x=T1Lifts)) +
 ## Figure 3-7
 
 ```r
-ggplot(dsPregnancy, aes(x=T5Lifts)) +
-  geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
-  chapterTheme +
-  labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
+# dsPregnancy$Dummy <- factor(1, levels=c(1,2))
+# epade::bar3d.ade(x=dsPregnancyLong$DeliveryMethod, y=dsPregnancy$Dummy, 
+#                  xlab="", zticks=c("", ""), zlab="", 
+#                  col=c("red", NA, "cyan", NA),
+#                  wall=2)
+
+
+#####################################
 ```
 
-<img src="figure_rmd/Figure03_07.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
+
+## Figure 3-8
+
+```r
+g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
+  geom_line(size=3) +
+  geom_point(size=6) +
+  chapterTheme +
+  scale_color_brewer(palette="Dark2") +
+  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
+  labs(x="Time", y="Average Number of Lifts")
+g3_08
+```
+
+<img src="figure_rmd/Figure03_081.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
+
+```r
+
+g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.9) 
+```
+
+```
+Warning: Removed 17 rows containing missing values (geom_path).
+```
+
+<img src="figure_rmd/Figure03_082.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
+
+```r
+  #+ scale_color_brewer(palette="Dark2", alpha=.3)
+
+#####################################
+```
+
+
+## Figure 3-9
+
+```r
+#Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
+outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
+outlierLabels <- dsSmoking$State[which( dsSmoking$AdultCigaretteUse == outlierPrevelances, arr.ind=TRUE)]
+
+ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  scale_x_continuous(breaks=NULL) +
+  scale_y_continuous(label=scales::percent) +
+  annotate(geom="text", x=1L, y=outlierPrevelances, label=outlierLabels, hjust=-.6, color="gray40") +
+  chapterTheme +
+  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
+  labs(x=NULL, y="Adult Smoking Prevalence (in 2009)")
+```
+
+<img src="figure_rmd/Figure03_09.png" title="plot of chunk Figure03_09" alt="plot of chunk Figure03_09" width="200px" />
 
 ```r
 
 #####################################
 ```
 
+
+## Figure 3-10
+
+```r
+ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG)) +
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  chapterTheme +
+  labs(x=NULL, y="Baby Birth Weight (in kg)")
+```
+
+<img src="figure_rmd/Figure03_10.png" title="plot of chunk Figure03_10" alt="plot of chunk Figure03_10" width="200px" />
+
+```r
+
+#####################################
+```
+
+
+## Figure 3-11
+
+```r
+ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG)) +
+  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  chapterTheme +
+  labs(x=NULL, y="Baby Birth Weight (in kg)")
+```
+
+<img src="figure_rmd/Figure03_11.png" title="plot of chunk Figure03_11" alt="plot of chunk Figure03_11" width="200px" />
+
+```r
+
+#####################################
+# TODO: 
+# 1. Pie chart needs a legend
+# 2. Ask Lise what data was used for Fig 3-7
+```
+
+
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-01-15, 00:27:58 -0600
+Report created by Will at 2014-01-15, 01:37:08 -0600
 ```
 
 ```
@@ -194,12 +298,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] extrafont_0.16     epade_0.3.8        plotrix_3.5-2      ggplot2_0.9.3.1    scales_0.2.3       plyr_1.8.0.99     
-[7] RColorBrewer_1.0-5 knitr_1.5         
+[1] extrafont_0.16     epade_0.3.8        plotrix_3.5-2      reshape2_1.2.2     ggplot2_0.9.3.1    scales_0.2.3      
+[7] plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 dichromat_2.0-0  digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10    
  [7] grid_3.1.0       gtable_0.1.2     labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10    
-[13] Rcpp_0.10.6      reshape2_1.2.2   Rttf2pt1_1.2     stringr_0.6.2    tools_3.1.0     
+[13] Rcpp_0.10.6      Rttf2pt1_1.2     stringr_0.6.2    tools_3.1.0     
 ```
 

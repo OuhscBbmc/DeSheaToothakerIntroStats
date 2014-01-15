@@ -4,19 +4,21 @@
 # install.packages("extrafont")
 # require(extrafont) 
 # extrafont::font_import()
-# extrafont::fonts() #This just lists the available fonts for you to read
+# extrafont::fonts() #This just lists the available fonts for you to read; similar to extrafont::fonttable()
 
 require(extrafont) 
 require(ggplot2)
 
-# extrafont::fonttable()
-extrafont::loadfonts() #Run this once per session.
-Sys.setenv(R_GSCMD = "C:/Program Files/gs/gs9.10/bin/gswin64c.exe")
+
 
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
-BookTheme <- theme_bw() +
-  theme(text = element_text(family="Times New Roman"))
-#   theme(text = element_text(family="Times New Roman"))
+BookTheme <- theme_bw() 
+ 
+## These three lines will use a nondefault font.
+# extrafont::loadfonts() #Run this once per session.
+# Sys.setenv(R_GSCMD = "C:/Program Files/gs/gs9.10/bin/gswin64c.exe")
+# BookTheme <- BookTheme +  theme(text = element_text(family="Times New Roman"))
+
 
 #Internal notes:
 # * The “Pre-Press Manager” said the dimensions of the images cannot exceed these dimensions:  33 picas wide x 51 picas tall. (5.5" x 8.5")

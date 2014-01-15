@@ -1,4 +1,4 @@
-Chapter 02 Graphs
+Chapter 03 Graphs
 =================================================
 This report creates the chapter graphs.
 
@@ -23,7 +23,7 @@ opts_chunk$set(
     dpi = 400
 )
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./Chapter02/Chapter02.R") 
+read_chunk("./Chapter03/Chapter03.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 ```{r LoadPackages, echo=FALSE, message=FALSE}
@@ -45,16 +45,16 @@ read_chunk("./Chapter02/Chapter02.R")
 ```{r TweakDatasets, echo=FALSE, results='show', message=FALSE}
 ```
 
-## Figure 2-1
-```{r Figure02_01, echo=TRUE, results='show', message=TRUE}
+## Figure 3-1
+```{r Figure03_01, echo=TRUE, results='show', message=TRUE}
 ```
 
-## Figure 2-2
-```{r Figure02_02, echo=TRUE, results='show', message=TRUE}
+## Figure 3-2
+```{r Figure03_02, echo=TRUE, results='show', message=TRUE}
 ```
 
-## Figure 2-3
-```{r Figure02_03, echo=TRUE, results='show', message=TRUE}
+## Figure 3-3
+```{r Figure03_03, echo=TRUE, results='show', message=TRUE}
 ```
 
 ## Session Info

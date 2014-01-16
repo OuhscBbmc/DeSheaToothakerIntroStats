@@ -24,10 +24,10 @@ BookTheme <- theme_bw() +
 #########################################################
 
 #palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
-palettePregancyDelivery <-  adjustcolor(brewer.pal(3, "Accent"), alpha.f=.7)[1:2]
-palettePregancyDeliveryBad <- c("FF0000AA", "00FFFFAA") #Translucent red & cyan
+palettePregancyDelivery <-  adjustcolor(brewer.pal(3, "Accent"), alpha.f=1)[1:2]
+palettePregancyDeliveryBad <- c("#FF0000CC", "#00FFFFCC") #Translucent red & cyan
 
-palettePregancyGroup <-  adjustcolor(brewer.pal(3, "Dark2"), alpha.f=.7)[1:2]
+palettePregancyGroup <-  adjustcolor(brewer.pal(3, "Dark2"), alpha.f=1)[1:2]
 palettePregancyGroupBad <- adjustcolor(c("blue", "maroon"), alpha.f=.7)
 
 #paletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
@@ -43,6 +43,6 @@ paletteObesityState <-  adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)]
 
 
 #Internal notes:
-# * The “Pre-Press Manager” said the dimensions of the images cannot exceed these dimensions:  33 picas wide x 51 picas tall. (5.5" x 8.5")
+# * The Pre-Press Manager said the dimensions of the images cannot exceed these dimensions: 33 picas wide x 51 picas tall. (5.5" x 8.5")
 
 # list.files(system.file("enc", package="grDevices"))

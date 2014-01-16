@@ -45,10 +45,10 @@ dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoin
 ## @knitr Figure03_01
 oldPar <- par(mfrow=c(1, 2)) #par(mfrow=c(1, 1))
 #Left Panel
-pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, 
+pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, height=.5,
       edges=1000, start=pi*1/5, theta=pi/10, mar=c(0, 0, 0, 0))
 #Right Panel
-pie3D(x=dsPregnancySummarized$Count, labels=NULL, #dsPregnancySummarized$DeliveryMethod, 
+pie3D(x=dsPregnancySummarized$Count, labels=NULL, height=.5, 
       edges=1000, start=pi*5/5, theta=pi/10, mar=c(0, 0, 0, 0))
 par(oldPar)
 #####################################
@@ -60,31 +60,32 @@ epade::bar3d.ade(x=dsPregnancy$DeliveryMethod, y=dsPregnancy$Dummy,
                  wall=2)
 
 #bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, alpha=.6, col=c("red", "cyan"))
-bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, alpha=.6, col=c("#FF0000AA", "#00FFFFAA"))
-bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="z", b2=3, ylim=c(20, 80), wall=2, col=c("#FF0000AA", "#00FFFFAA"))
+bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, col=palettePregancyDeliveryBad)
+bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="z", b2=3, ylim=c(20, 80), wall=2, col=palettePregancyDeliveryBad)
 
 dsPregnancy$Dummy <- NULL
 #####################################
 ## @knitr Figure03_03
-g3_3 <- ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
+ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity") +
   scale_fill_manual(values=palettePregancyDelivery) +
   coord_flip() +
   theme_bw() +
   theme(legend.position = "none") +
   labs(x=NULL, y="Number of Participants")
-g3_3 
 #####################################
 ## @knitr Figure03_04
-g3_3 + 
+ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
+  geom_bar(stat="identity", alpha=.6) +
   geom_text(stat="identity", size=6, hjust=1.1)  +
+  scale_fill_manual(values=palettePregancyDelivery) +
+  coord_flip(ylim = c(0, 1.05*max(dsPregnancySummarized$Count, na.rm=T))) +
   chapterTheme +
   theme(legend.position = "none") +
   theme(axis.text.y=element_text(size=14)) +
   theme(axis.ticks.length = grid::unit(0, "cm")) +
   labs(x=NULL, y="Number of Participants")
 
-rm(g3_3)
 #####################################
 ## @knitr Figure03_05
 #Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
@@ -92,9 +93,9 @@ stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
 
 ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
-  geom_segment(aes(yend=State, xend=min(ObesityRate)), color="gray70") +
-  geom_point(size=3, color="blue2") +
-  scale_x_continuous(label=scales::percent) + #, expand=c(0,.005)) +
+  geom_segment(aes(yend=State, xend=min(ObesityRate)), color="aquamarine4") +
+  geom_point(size=3, color="aquamarine3") +
+  scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   theme(axis.ticks.length = grid::unit(0, "cm")) +
   theme(panel.grid.major.y= element_blank()) +
@@ -102,12 +103,12 @@ ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
 #####################################
 ## @knitr Figure03_06
 ggplot(dsPregnancy, aes(x=T1Lifts)) +
-  geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
+  geom_histogram(binwidth=2.5, fill="coral3", color="gray95", alpha=.6) +
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 1)", y="Number of Participants")
 
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
-  geom_histogram(binwidth=2.5, fill="turquoise4", color="gray80", alpha=.8) +
+  geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
 #####################################
@@ -131,7 +132,7 @@ epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTab
 #####################################
 ## @knitr Figure03_08
 g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
-  geom_line(size=3) +
+  geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
   chapterTheme +
   scale_color_manual(values=palettePregancyGroup) +
@@ -139,8 +140,7 @@ g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=G
   labs(x="Time", y="Average Number of Lifts")
 g3_08
 
-g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.9) 
-  #+ scale_color_brewer(palette="Dark2", alpha=.3)
+g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
 #####################################
 ## @knitr Figure03_09
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
@@ -148,7 +148,7 @@ outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
 outlierLabels <- dsSmoking$State[which( dsSmoking$AdultCigaretteUse == outlierPrevelances, arr.ind=TRUE)]
 
 ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
-  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  geom_boxplot(fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
   scale_x_continuous(breaks=NULL) +
   scale_y_continuous(label=scales::percent) +
   annotate(geom="text", x=1L, y=outlierPrevelances, label=outlierLabels, hjust=-.6, color="gray40") +
@@ -158,29 +158,33 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
 #####################################
 ## @knitr Figure03_10
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
-  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +  
+  geom_boxplot(fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
   scale_x_continuous(breaks=NULL) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
 #####################################
 ## @knitr Figure03_11
-ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG)) +
-  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
+  geom_boxplot( outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  scale_fill_manual(values=palettePregancyGroup) +
   chapterTheme +
+  theme(legend.position="none") + 
   labs(x=NULL, y="Baby Birth Weight (in kg)")
 #####################################
 ## @knitr Figure03_12
-ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG)) +
-  geom_boxplot(fill="lightblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
+  geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5) +  
+  scale_fill_manual(values=palettePregancyDelivery) +
   chapterTheme +
-  labs(x=NULL, y="Baby Birth Weight (in kg)")
+  theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
 #####################################
 ## @knitr Figure03_13
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
-  geom_point(shape=19, size=3, color="lightblue4") +
+  geom_point(shape=1, size=3, color="aquamarine4") + #This color should match the obesity Cleveland dot plot
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
+  coord_fixed() + 
   chapterTheme +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 
@@ -189,21 +193,22 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
   scale_color_manual(values=paletteObesityState) +
+  coord_fixed() + 
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 #####################################
 ## @knitr Figure03_14
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, color=Location)) +
-  geom_point(shape=19, size=3) +
+  geom_point(shape=1, size=3) +
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
   scale_color_manual(values=paletteObesityState) +
   facet_grid( ~ Location) +
+  coord_fixed() + 
   chapterTheme +
   theme(legend.position="none") +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
-
 #####################################
 ## @knitr Figure03_15
 g03_14 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
@@ -215,7 +220,6 @@ g03_14 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
   labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
 
 g03_14 + coord_flip(ylim = c(18, 21))
-
 #####################################
 ## @knitr Figure03_16
 g03_14 + coord_flip(ylim = c(0, 21))
@@ -256,7 +260,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 ### A diamond below represent the group's mean.
 
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
-  stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) +
+  stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
   geom_boxplot( alpha=.2, outlier.shape=NA, na.rm=T) +
   geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=1, na.rm=T) +
   scale_color_manual(values=palettePregancyGroup) +
@@ -293,7 +297,8 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 ### encourage you to investigate if interactive graphics would contribute towards communicating your research results.
 
 ### Possible Narration:
-### Choose colors consistently for the same variables, and differently for different variables
+### Choose colors consistently for the same variable *sets*, and contrastingly for different variables.
+### Think of the cognitive distance between variable *sets* (which is different that between factor levels, or between variables).
 
 #####################################
 # TODO: 

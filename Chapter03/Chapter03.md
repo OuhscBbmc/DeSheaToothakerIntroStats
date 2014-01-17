@@ -52,12 +52,9 @@ source("./CommonCode/BookTheme.R")
 
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
-
 # chapterThemeBar <- chapterTheme
-# 
 # chapterThemeBox <- chapterTheme + 
 #   theme(axis.ticks.x.length = grid::unit(0, "cm"))
-
 #####################################
 ```
 
@@ -175,7 +172,6 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
 <img src="figure_rmd/Figure03_04.png" title="plot of chunk Figure03_04" alt="plot of chunk Figure03_04" height="150px" />
 
 ```r
-
 #####################################
 ```
 
@@ -216,7 +212,6 @@ ggplot(dsPregnancy, aes(x=T5Lifts)) +
 
 ```r
 
-#TODO: give this figure a new number
 ggplot(dsObesity, aes(x=ObesityRate)) +
   geom_histogram(binwidth=.01, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
@@ -252,29 +247,17 @@ bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, 
 ## Figure 3-8
 
 ```r
-g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
+gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
   scale_color_manual(values=palettePregancyGroup) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Time", y="Average Number of Lifts")
-g3_08
+gLongitudinalLifts
 ```
 
-<img src="figure_rmd/Figure03_081.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
-
-```r
-
-##TODO: move to the end.
-g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
-```
-
-```
-Warning: Removed 17 rows containing missing values (geom_path).
-```
-
-<img src="figure_rmd/Figure03_082.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
+<img src="figure_rmd/Figure03_08.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
 
 ```r
 #####################################
@@ -309,7 +292,6 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
 ## Figure 3-10
 
 ```r
-#TODO: find equation of their boxplot/fivenum
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
   geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
   scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
@@ -346,16 +328,62 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
 ## Figure 3-12
 
 ```r
-ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
+g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
   geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5) +  
   scale_fill_manual(values=palettePregancyDelivery) +
   chapterTheme +
   theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
+g
 ```
 
-<img src="figure_rmd/Figure03_12.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" />
+<img src="figure_rmd/Figure03_121.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" />
 
 ```r
+
+greenScores <- sort(dsPregnancy[dsPregnancy$DeliveryMethod=="Cesarean", "BabyWeightInKG"])
+greenScores
+```
+
+```
+ [1] 1.928 2.155 2.722 2.835 3.147 3.202 3.232 3.289 3.317 3.402 3.487 3.540 3.742 3.770 4.082 4.090
+```
+
+```r
+(approach1 <- quantile(greenScores))
+```
+
+```
+   0%   25%   50%   75%  100% 
+1.928 3.069 3.303 3.591 4.090 
+```
+
+```r
+(approach2 <- fivenum(greenScores))
+```
+
+```
+[1] 1.928 2.991 3.303 3.641 4.090
+```
+
+```r
+
+#TODO: Remove this graph.  It's just for our exploration.
+g + annotate(geom="text", x=1, y=approach1, label=round(approach1, 3), hjust=-.1, color="tomato")
+```
+
+<img src="figure_rmd/Figure03_122.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" />
+
+```r
+
+#TODO: Remove this graph.  It's just for our exploration.
+g + annotate(geom="text", x=1, y=approach2, label=round(approach2, 3), hjust=-.1, color="tomato")
+```
+
+<img src="figure_rmd/Figure03_123.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" />
+
+```r
+
+rm(g)
 #####################################
 ```
 
@@ -372,7 +400,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 ```
 
-<img src="figure_rmd/Figure03_13.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="450px" />
+<img src="figure_rmd/Figure03_13.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="600px" />
 
 ```r
 #####################################
@@ -456,7 +484,6 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 ### Layering summarized and observed data can help cognitively reinforce the patterns in the data.
 ### Variability/spread is represented by both the box and the points.
 
-##TODO: add this as a graph
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NA ) +
@@ -528,10 +555,27 @@ Warning: Removed 1 rows containing missing values (stat_summary).
 <img src="figure_rmd/Figure03_165.png" title="plot of chunk Figure03_16" alt="plot of chunk Figure03_16" height="200px" />
 
 ```r
+#####################################
+```
 
+
+## Figure 3-17
+
+```r
 ### Possible Narration:
 ### Consider your audience's starting point.  DOn't just throw a bunch of layers and expect they'll understand the conventions you've chosen.
 ### Clearly identify the elements containedin each layer, and what concept/summary/observation each layer is representing.
+
+gLongitudinalLifts + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
+```
+
+```
+Warning: Removed 17 rows containing missing values (geom_path).
+```
+
+<img src="figure_rmd/Figure03_17.png" title="plot of chunk Figure03_17" alt="plot of chunk Figure03_17" width="600px" />
+
+```r
 
 ### Possible Narration:
 ### We expect that interactive graphics will become more common in the health sciences, and that the tools will become
@@ -554,7 +598,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-16, 18:22:20 -0600
+Report created by Will at 2014-01-16, 20:33:38 -0600
 ```
 
 ```

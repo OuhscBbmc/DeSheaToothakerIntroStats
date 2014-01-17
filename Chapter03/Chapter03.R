@@ -16,12 +16,9 @@ source("./CommonCode/BookTheme.R")
 
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
-
 # chapterThemeBar <- chapterTheme
-# 
 # chapterThemeBox <- chapterTheme + 
 #   theme(axis.ticks.x.length = grid::unit(0, "cm"))
-
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -85,7 +82,6 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme(legend.position = "none") +
   theme(axis.text.y=element_text(size=14)) +
   labs(x=NULL, y="Number of Participants")
-
 #####################################
 ## @knitr Figure03_05
 #Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
@@ -106,7 +102,6 @@ ggplot(dsPregnancy, aes(x=T5Lifts)) +
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
 
-#TODO: give this figure a new number
 ggplot(dsObesity, aes(x=ObesityRate)) +
   geom_histogram(binwidth=.01, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
@@ -122,17 +117,14 @@ dsPregnancyLongSummarizedFakeTable <- ddply(dsPregnancyLongSummarized, .variable
 bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3)
 #####################################
 ## @knitr Figure03_08
-g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
+gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
   scale_color_manual(values=palettePregancyGroup) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Time", y="Average Number of Lifts")
-g3_08
-
-##TODO: move to the end.
-g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
+gLongitudinalLifts
 #####################################
 ## @knitr Figure03_09
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
@@ -150,8 +142,6 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
   labs(x=NULL, y="Adult Smoking Prevalence (in 2009)")
 #####################################
 ## @knitr Figure03_10
-
-#TODO: find equation of their boxplot/fivenum
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
   geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
   scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
@@ -168,11 +158,25 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
   labs(x=NULL, y="Baby Birth Weight (in kg)")
 #####################################
 ## @knitr Figure03_12
-ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
+g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
   geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5) +  
   scale_fill_manual(values=palettePregancyDelivery) +
   chapterTheme +
   theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
+g
+
+greenScores <- sort(dsPregnancy[dsPregnancy$DeliveryMethod=="Cesarean", "BabyWeightInKG"])
+greenScores
+(approach1 <- quantile(greenScores))
+(approach2 <- fivenum(greenScores))
+
+#TODO: Remove this graph.  It's just for our exploration.
+g + annotate(geom="text", x=1, y=approach1, label=round(approach1, 3), hjust=-.1, color="tomato")
+
+#TODO: Remove this graph.  It's just for our exploration.
+g + annotate(geom="text", x=1, y=approach2, label=round(approach2, 3), hjust=-.1, color="tomato")
+
+rm(g)
 #####################################
 ## @knitr Figure03_13
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
@@ -228,7 +232,6 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 ### Layering summarized and observed data can help cognitively reinforce the patterns in the data.
 ### Variability/spread is represented by both the box and the points.
 
-##TODO: add this as a graph
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NA ) +
@@ -270,10 +273,13 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   chapterTheme +
   theme(legend.position="none") +
   labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
-
+#####################################
+## @knitr Figure03_17
 ### Possible Narration:
 ### Consider your audience's starting point.  DOn't just throw a bunch of layers and expect they'll understand the conventions you've chosen.
 ### Clearly identify the elements containedin each layer, and what concept/summary/observation each layer is representing.
+
+gLongitudinalLifts + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
 
 ### Possible Narration:
 ### We expect that interactive graphics will become more common in the health sciences, and that the tools will become

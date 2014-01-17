@@ -94,11 +94,11 @@ read_chunk("./Chapter03/Chapter03.R")
 ```
 
 ## Figure 3-13
-```{r Figure03_13, echo=TRUE, results='show', message=TRUE, fig.height=2.75*1.5, fig.width=2.75*1.5, out.width="450px"}
+```{r Figure03_13, echo=TRUE, results='show', message=TRUE, fig.height=4, fig.width=4, out.width="600px"}
 ```
 
 ## Figure 3-14
-```{r Figure03_14, echo=TRUE, results='show', message=TRUE, fig.height=2.75, fig.width=5.5, out.width="600px"}
+```{r Figure03_14, echo=TRUE, results='show', message=TRUE, fig.height=4, fig.width=4, out.width="600px"}
 ```
 
 ## Figure 3-15
@@ -107,6 +107,10 @@ read_chunk("./Chapter03/Chapter03.R")
 
 ## Figure 3-16
 ```{r Figure03_16, echo=TRUE, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
+```
+
+## Figure 3-17
+```{r Figure03_17, echo=TRUE, results='show', message=TRUE}
 ```
 
 ## Session Info

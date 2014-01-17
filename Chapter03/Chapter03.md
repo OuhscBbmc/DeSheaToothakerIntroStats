@@ -192,7 +192,37 @@ ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
   labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
 ```
 
-<img src="figure_rmd/Figure03_05.png" title="plot of chunk Figure03_05" alt="plot of chunk Figure03_05" height="800px" />
+<img src="figure_rmd/Figure03_05a.png" title="plot of chunk Figure03_05a" alt="plot of chunk Figure03_05a" width="400px" />
+
+```r
+#####################################
+```
+
+
+```r
+ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
+  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=paletteObesityState[2]) +
+  geom_point(size=3, color=paletteObesityState[2]) +
+  scale_x_continuous(label=scales::percent) + 
+  chapterTheme +
+  theme(panel.grid.major.y= element_blank()) +
+  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
+```
+
+<img src="figure_rmd/Figure03_05b1.png" title="plot of chunk Figure03_05b" alt="plot of chunk Figure03_05b" width="400px" />
+
+```r
+
+ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
+  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(paletteObesityState[2], .5)) +
+  geom_point(size=3, shape=19, color=paletteObesityState[2]) +
+  scale_x_continuous(label=scales::percent) + 
+  chapterTheme +
+  theme(panel.grid.major.y= element_blank()) +
+  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
+```
+
+<img src="figure_rmd/Figure03_05b2.png" title="plot of chunk Figure03_05b" alt="plot of chunk Figure03_05b" width="400px" />
 
 ```r
 #####################################
@@ -329,7 +359,7 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
 
 ```r
 g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
-  geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5) +  
+  geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5, type=1) +  
   scale_fill_manual(values=palettePregancyDelivery) +
   chapterTheme +
   theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
@@ -363,6 +393,34 @@ greenScores
 
 ```
 [1] 1.928 2.991 3.303 3.641 4.090
+```
+
+```r
+
+quantile(greenScores, type=3)
+```
+
+```
+   0%   25%   50%   75%  100% 
+1.928 2.835 3.289 3.540 4.090 
+```
+
+```r
+(approach3 <- quantile(greenScores, type=5))
+```
+
+```
+   0%   25%   50%   75%  100% 
+1.928 2.991 3.303 3.641 4.090 
+```
+
+```r
+(approach4 <- quantile(greenScores, type=6))
+```
+
+```
+   0%   25%   50%   75%  100% 
+1.928 2.913 3.303 3.691 4.090 
 ```
 
 ```r
@@ -598,7 +656,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-16, 20:33:38 -0600
+Report created by Will at 2014-01-17, 10:52:50 -0600
 ```
 
 ```

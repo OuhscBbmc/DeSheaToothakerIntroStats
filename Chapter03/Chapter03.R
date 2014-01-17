@@ -83,7 +83,7 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme(axis.text.y=element_text(size=14)) +
   labs(x=NULL, y="Number of Participants")
 #####################################
-## @knitr Figure03_05
+## @knitr Figure03_05a
 #Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
 stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
@@ -91,6 +91,23 @@ dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
 ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
   geom_segment(aes(yend=State, xend=min(ObesityRate)), color="aquamarine4") +
   geom_point(size=3, color="aquamarine3") +
+  scale_x_continuous(label=scales::percent) + 
+  chapterTheme +
+  theme(panel.grid.major.y= element_blank()) +
+  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
+#####################################
+## @knitr Figure03_05b
+ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
+  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=paletteObesityState[2]) +
+  geom_point(size=3, color=paletteObesityState[2]) +
+  scale_x_continuous(label=scales::percent) + 
+  chapterTheme +
+  theme(panel.grid.major.y= element_blank()) +
+  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
+
+ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
+  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(paletteObesityState[2], .5)) +
+  geom_point(size=3, shape=19, color=paletteObesityState[2]) +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   theme(panel.grid.major.y= element_blank()) +
@@ -159,7 +176,7 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
 #####################################
 ## @knitr Figure03_12
 g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
-  geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5) +  
+  geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5, type=1) +  
   scale_fill_manual(values=palettePregancyDelivery) +
   chapterTheme +
   theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
@@ -169,6 +186,10 @@ greenScores <- sort(dsPregnancy[dsPregnancy$DeliveryMethod=="Cesarean", "BabyWei
 greenScores
 (approach1 <- quantile(greenScores))
 (approach2 <- fivenum(greenScores))
+
+quantile(greenScores, type=3)
+(approach3 <- quantile(greenScores, type=5))
+(approach4 <- quantile(greenScores, type=6))
 
 #TODO: Remove this graph.  It's just for our exploration.
 g + annotate(geom="text", x=1, y=approach1, label=round(approach1, 3), hjust=-.1, color="tomato")

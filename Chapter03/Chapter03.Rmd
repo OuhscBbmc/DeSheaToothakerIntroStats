@@ -62,7 +62,9 @@ read_chunk("./Chapter03/Chapter03.R")
 ```
 
 ## Figure 3-5
-```{r Figure03_05, echo=TRUE, results='show', message=TRUE, fig.height=6.5, fig.width=3.5, out.width=NULL, out.height="800px"}
+```{r Figure03_05a, echo=TRUE, results='show', message=TRUE, fig.height=6.5, fig.width=3.5, out.width=NULL, out.width="400px"}
+```
+```{r Figure03_05b, echo=TRUE, results='show', message=TRUE, fig.height=2.5, fig.width=3.5, out.width=NULL, out.width="400px"}
 ```
 
 ## Figure 3-6

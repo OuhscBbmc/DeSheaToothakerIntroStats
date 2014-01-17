@@ -4,17 +4,62 @@ This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
+```r
+opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -espeically one that uses file paths.
+```
 
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
+```r
+require(knitr)
+opts_chunk$set(
+    results='show', 
+    comment = NA, 
+    tidy = FALSE,
+    fig.width = 5.5, 
+    fig.height = 4, 
+    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+    fig.path = 'figure_rmd/',     
+    dev = "png",
+#     dev = "pdf",
+    dpi = 400
+)
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./Chapter03/Chapter03.R") 
+```
 
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 
+```r
+require(knitr)
+require(RColorBrewer)
+require(plyr)
+require(scales) #For formating values in graphs
+require(ggplot2)
+require(reshape2) #For convertin wide to long
+require(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
+require(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
+
+#####################################
+```
 
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
 
+```r
+source("./CommonCode/BookTheme.R")
+
+chapterTheme <- BookTheme  + 
+  theme(axis.ticks.length = grid::unit(0, "cm"))
+
+# chapterThemeBar <- chapterTheme
+# 
+# chapterThemeBox <- chapterTheme + 
+#   theme(axis.ticks.x.length = grid::unit(0, "cm"))
+
+#####################################
+```
 
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -23,10 +68,38 @@ This report creates the chapter graphs.
 
 <!-- Load the datasets.   -->
 
+```r
+# 'ds' stands for 'datasets'
+dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv")
+dsObesity <- read.csv("./Data/FoodHardshipObesity.csv")
+dsSmoking <- read.csv("./Data/SmokingTax.csv")
+#####################################
+```
 
 
 <!-- Tweak the datasets.   -->
 
+```r
+dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
+
+dsPregnancySummarized <- ddply(dsPregnancy, .variables="DeliveryMethod", summarize, Count=length(SubjectID))
+dsPregnancySummarized$Proportion = dsPregnancySummarized$Count/sum(dsPregnancySummarized$Count)
+dsPregnancySummarized$Percentage <- paste0(round(dsPregnancySummarized$Proportion*100), "%")
+dsPregnancySummarized$Dummy <- c(1,1)
+
+matPregnancy <- as.matrix((table(dsPregnancy$DeliveryMethod)))
+# dsPregnancyMatrix <- cbind(dsPregnancyMatrix, c(1, 2), c(1,1))[, c(2,3,1)]
+# matPregnancy
+
+dsPregnancyLong <- reshape2::melt(dsPregnancy, id.vars=c("SubjectID", "Group"), 
+                                  measure.vars=paste0("T", 1:5, "Lifts"), 
+                                  variable.name="TimePoint", value.name="LiftCount")
+#                                   dsPregnancy$SubjectID
+dsPregnancyLong$TimePoint <- as.integer(gsub(pattern="T(\\d)Lifts", "\\1", dsPregnancyLong$TimePoint, perl=T))
+
+dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoint", "Group"), summarize, CountMean=mean(LiftCount, na.rm=T))
+#####################################
+```
 
 
 ## Figure 3-1
@@ -55,28 +128,12 @@ par(oldPar)
 dsPregnancy$Dummy <- factor(1, levels=c(1,2))
 epade::bar3d.ade(x=dsPregnancy$DeliveryMethod, y=dsPregnancy$Dummy, 
                  xlab="", zticks=c("", ""), zlab="", 
-                 col=c("red", NA, "cyan", NA),
-                 wall=2)
+                 col=c("red", NA, "cyan", NA), wall=2)
 ```
 
-<img src="figure_rmd/Figure03_021.png" title="plot of chunk Figure03_02" alt="plot of chunk Figure03_02" width="600px" />
+<img src="figure_rmd/Figure03_02.png" title="plot of chunk Figure03_02" alt="plot of chunk Figure03_02" width="600px" />
 
 ```r
-
-#bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, alpha=.6, col=c("red", "cyan"))
-bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, col=palettePregancyDeliveryBad)
-```
-
-<img src="figure_rmd/Figure03_022.png" title="plot of chunk Figure03_02" alt="plot of chunk Figure03_02" width="600px" />
-
-```r
-bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="z", b2=3, ylim=c(20, 80), wall=2, col=palettePregancyDeliveryBad)
-```
-
-<img src="figure_rmd/Figure03_023.png" title="plot of chunk Figure03_02" alt="plot of chunk Figure03_02" width="600px" />
-
-```r
-
 dsPregnancy$Dummy <- NULL
 #####################################
 ```
@@ -112,7 +169,6 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   chapterTheme +
   theme(legend.position = "none") +
   theme(axis.text.y=element_text(size=14)) +
-  theme(axis.ticks.length = grid::unit(0, "cm")) +
   labs(x=NULL, y="Number of Participants")
 ```
 
@@ -136,7 +192,6 @@ ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
   geom_point(size=3, color="aquamarine3") +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
-  theme(axis.ticks.length = grid::unit(0, "cm")) +
   theme(panel.grid.major.y= element_blank()) +
   labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
 ```
@@ -151,20 +206,21 @@ ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
 ## Figure 3-6
 
 ```r
-ggplot(dsPregnancy, aes(x=T1Lifts)) +
-  geom_histogram(binwidth=2.5, fill="coral3", color="gray95", alpha=.6) +
+ggplot(dsPregnancy, aes(x=T5Lifts)) +
+  geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
-  labs(x="Number of Lifts in 1 min (at Time 1)", y="Number of Participants")
+  labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
 ```
 
 <img src="figure_rmd/Figure03_061.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" />
 
 ```r
 
-ggplot(dsPregnancy, aes(x=T5Lifts)) +
-  geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
+#TODO: give this figure a new number
+ggplot(dsObesity, aes(x=ObesityRate)) +
+  geom_histogram(binwidth=.01, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
-  labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
+  labs(x="Obesity Rate (in 2011)", y="Number of Participants")
 ```
 
 <img src="figure_rmd/Figure03_062.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" />
@@ -177,11 +233,6 @@ ggplot(dsPregnancy, aes(x=T5Lifts)) +
 ## Figure 3-7
 
 ```r
-# dsPregnancy$Dummy <- factor(1, levels=c(1,2))
-# epade::bar3d.ade(x=dsPregnancyLong$DeliveryMethod, y=dsPregnancy$Dummy, 
-#                  xlab="", zticks=c("", ""), zlab="", 
-#                  col=c("red", NA, "cyan", NA),
-#                  wall=2)
 CreateFakeMeans <- function( d ) {
   data.frame(
     TimePoint = rep(d$TimePoint, times=d$CountMean), 
@@ -191,21 +242,7 @@ dsPregnancyLongSummarizedFakeTable <- ddply(dsPregnancyLongSummarized, .variable
 bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3)
 ```
 
-<img src="figure_rmd/Figure03_071.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
-
-```r
-epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable)
-```
-
-<img src="figure_rmd/Figure03_072.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
-
-```r
-
-dsPregnancyLongSummarizedFakeTable$Group <- factor(dsPregnancyLongSummarizedFakeTable$Group, levels=c("Control", "Active"))
-epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, col=palettePregancyGroupBad, xw=.5, zw=2, wall=1)
-```
-
-<img src="figure_rmd/Figure03_073.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
+<img src="figure_rmd/Figure03_07.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
 
 ```r
 #####################################
@@ -218,8 +255,8 @@ epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTab
 g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
-  chapterTheme +
   scale_color_manual(values=palettePregancyGroup) +
+  chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Time", y="Average Number of Lifts")
 g3_08
@@ -229,6 +266,7 @@ g3_08
 
 ```r
 
+##TODO: move to the end.
 g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
 ```
 
@@ -247,12 +285,13 @@ Warning: Removed 17 rows containing missing values (geom_path).
 
 ```r
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
+#See Chang (2013), Recipe 6.6.  We added (arbitrary) x-axis limits to force the box narrower. 
 outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
 outlierLabels <- dsSmoking$State[which( dsSmoking$AdultCigaretteUse == outlierPrevelances, arr.ind=TRUE)]
 
 ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
-  geom_boxplot(fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
-  scale_x_continuous(breaks=NULL) +
+  geom_boxplot(width=.5, fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   scale_y_continuous(label=scales::percent) +
   annotate(geom="text", x=1L, y=outlierPrevelances, label=outlierLabels, hjust=-.6, color="gray40") +
   chapterTheme +
@@ -270,9 +309,10 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
 ## Figure 3-10
 
 ```r
+#TODO: find equation of their boxplot/fivenum
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
-  geom_boxplot(fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
-  scale_x_continuous(breaks=NULL) +
+  geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
+  scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
@@ -332,22 +372,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 ```
 
-<img src="figure_rmd/Figure03_131.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="450px" />
-
-```r
-
-ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Location)) +
-  geom_text(size=3, alpha=1) +
-  scale_x_continuous(label=scales::percent) +
-  scale_y_continuous(label=scales::percent) +
-  scale_color_manual(values=paletteObesityState) +
-  coord_fixed() + 
-  chapterTheme +
-  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
-  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
-```
-
-<img src="figure_rmd/Figure03_132.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="450px" />
+<img src="figure_rmd/Figure03_13.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="450px" />
 
 ```r
 #####################################
@@ -357,15 +382,14 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
 ## Figure 3-14
 
 ```r
-ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, color=Location)) +
-  geom_point(shape=1, size=3) +
+ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Location)) +
+  geom_text(size=3, alpha=1) +
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
   scale_color_manual(values=paletteObesityState) +
-  facet_grid( ~ Location) +
   coord_fixed() + 
   chapterTheme +
-  theme(legend.position="none") +
+  theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 ```
 
@@ -432,6 +456,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 ### Layering summarized and observed data can help cognitively reinforce the patterns in the data.
 ### Variability/spread is represented by both the box and the points.
 
+##TODO: add this as a graph
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NA ) +
@@ -520,8 +545,7 @@ Warning: Removed 1 rows containing missing values (stat_summary).
 
 #####################################
 # TODO: 
-# 1. Pie chart needs a legend
-# 2. Ask Lise what data was used for Fig 3-7
+# 1. Find D3 for health data
 ```
 
 
@@ -530,11 +554,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-15, 21:37:45 -0600
+Report created by Will at 2014-01-16, 18:22:20 -0600
 ```
 
 ```
-R Under development (unstable) (2014-01-13 r64761)
+R Under development (unstable) (2014-01-15 r64790)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:

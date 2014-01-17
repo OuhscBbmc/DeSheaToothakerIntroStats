@@ -1,5 +1,4 @@
-rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run.
-
+rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 #####################################
 ## @knitr LoadPackages
 require(knitr)
@@ -14,7 +13,15 @@ require(epade) #For the 3D bar chart (Please notice that this package includes m
 #####################################
 ## @knitr DeclareGlobals
 source("./CommonCode/BookTheme.R")
-chapterTheme <- BookTheme 
+
+chapterTheme <- BookTheme  + 
+  theme(axis.ticks.length = grid::unit(0, "cm"))
+
+# chapterThemeBar <- chapterTheme
+# 
+# chapterThemeBox <- chapterTheme + 
+#   theme(axis.ticks.x.length = grid::unit(0, "cm"))
+
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -56,13 +63,7 @@ par(oldPar)
 dsPregnancy$Dummy <- factor(1, levels=c(1,2))
 epade::bar3d.ade(x=dsPregnancy$DeliveryMethod, y=dsPregnancy$Dummy, 
                  xlab="", zticks=c("", ""), zlab="", 
-                 col=c("red", NA, "cyan", NA),
-                 wall=2)
-
-#bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, alpha=.6, col=c("red", "cyan"))
-bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="c", b2=3, wall=2, col=palettePregancyDeliveryBad)
-bar.plot.ade(x=dsPregnancy$DeliveryMethod, data=dsPregnancy, form="z", b2=3, ylim=c(20, 80), wall=2, col=palettePregancyDeliveryBad)
-
+                 col=c("red", NA, "cyan", NA), wall=2)
 dsPregnancy$Dummy <- NULL
 #####################################
 ## @knitr Figure03_03
@@ -83,7 +84,6 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   chapterTheme +
   theme(legend.position = "none") +
   theme(axis.text.y=element_text(size=14)) +
-  theme(axis.ticks.length = grid::unit(0, "cm")) +
   labs(x=NULL, y="Number of Participants")
 
 #####################################
@@ -97,27 +97,22 @@ ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
   geom_point(size=3, color="aquamarine3") +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
-  theme(axis.ticks.length = grid::unit(0, "cm")) +
   theme(panel.grid.major.y= element_blank()) +
   labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
 #####################################
 ## @knitr Figure03_06
-ggplot(dsPregnancy, aes(x=T1Lifts)) +
-  geom_histogram(binwidth=2.5, fill="coral3", color="gray95", alpha=.6) +
-  chapterTheme +
-  labs(x="Number of Lifts in 1 min (at Time 1)", y="Number of Participants")
-
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
   geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
-  labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants", title="WARNING: This doesn't match. I don't know what the right variable is")
+  labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
+
+#TODO: give this figure a new number
+ggplot(dsObesity, aes(x=ObesityRate)) +
+  geom_histogram(binwidth=.01, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
+  chapterTheme +
+  labs(x="Obesity Rate (in 2011)", y="Number of Participants")
 #####################################
 ## @knitr Figure03_07
-# dsPregnancy$Dummy <- factor(1, levels=c(1,2))
-# epade::bar3d.ade(x=dsPregnancyLong$DeliveryMethod, y=dsPregnancy$Dummy, 
-#                  xlab="", zticks=c("", ""), zlab="", 
-#                  col=c("red", NA, "cyan", NA),
-#                  wall=2)
 CreateFakeMeans <- function( d ) {
   data.frame(
     TimePoint = rep(d$TimePoint, times=d$CountMean), 
@@ -125,31 +120,29 @@ CreateFakeMeans <- function( d ) {
 )}
 dsPregnancyLongSummarizedFakeTable <- ddply(dsPregnancyLongSummarized, .variables=c("TimePoint", "Group"), CreateFakeMeans)
 bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3)
-epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable)
-
-dsPregnancyLongSummarizedFakeTable$Group <- factor(dsPregnancyLongSummarizedFakeTable$Group, levels=c("Control", "Active"))
-epade::bar3d.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, col=palettePregancyGroupBad, xw=.5, zw=2, wall=1)
 #####################################
 ## @knitr Figure03_08
 g3_08 <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
-  chapterTheme +
   scale_color_manual(values=palettePregancyGroup) +
+  chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Time", y="Average Number of Lifts")
 g3_08
 
+##TODO: move to the end.
 g3_08 + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
 #####################################
 ## @knitr Figure03_09
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
+#See Chang (2013), Recipe 6.6.  We added (arbitrary) x-axis limits to force the box narrower. 
 outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
 outlierLabels <- dsSmoking$State[which( dsSmoking$AdultCigaretteUse == outlierPrevelances, arr.ind=TRUE)]
 
 ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
-  geom_boxplot(fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
-  scale_x_continuous(breaks=NULL) +
+  geom_boxplot(width=.5, fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   scale_y_continuous(label=scales::percent) +
   annotate(geom="text", x=1L, y=outlierPrevelances, label=outlierLabels, hjust=-.6, color="gray40") +
   chapterTheme +
@@ -157,9 +150,11 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
   labs(x=NULL, y="Adult Smoking Prevalence (in 2009)")
 #####################################
 ## @knitr Figure03_10
+
+#TODO: find equation of their boxplot/fivenum
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
-  geom_boxplot(fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
-  scale_x_continuous(breaks=NULL) +
+  geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
+  scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
@@ -187,7 +182,8 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   coord_fixed() + 
   chapterTheme +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
-
+#####################################
+## @knitr Figure03_14
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Location)) +
   geom_text(size=3, alpha=1) +
   scale_x_continuous(label=scales::percent) +
@@ -196,18 +192,6 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   coord_fixed() + 
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
-  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
-#####################################
-## @knitr Figure03_14
-ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, color=Location)) +
-  geom_point(shape=1, size=3) +
-  scale_x_continuous(label=scales::percent) +
-  scale_y_continuous(label=scales::percent) +
-  scale_color_manual(values=paletteObesityState) +
-  facet_grid( ~ Location) +
-  coord_fixed() + 
-  chapterTheme +
-  theme(legend.position="none") +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 #####################################
 ## @knitr Figure03_15
@@ -244,6 +228,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 ### Layering summarized and observed data can help cognitively reinforce the patterns in the data.
 ### Variability/spread is represented by both the box and the points.
 
+##TODO: add this as a graph
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NA ) +
@@ -302,5 +287,4 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 
 #####################################
 # TODO: 
-# 1. Pie chart needs a legend
-# 2. Ask Lise what data was used for Fig 3-7
+# 1. Find D3 for health data

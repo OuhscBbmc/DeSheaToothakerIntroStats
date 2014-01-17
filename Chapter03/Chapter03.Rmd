@@ -3,14 +3,15 @@ Chapter 03 Graphs
 This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
-```{r, echo=FALSE, message=F} 
+```{r, echo=TRUE, message=F} 
 opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -espeically one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
-```{r set_options, echo=FALSE, results='hide'}
+```{r set_options, echo=TRUE}
 require(knitr)
 opts_chunk$set(
+    results='show', 
     comment = NA, 
     tidy = FALSE,
     fig.width = 5.5, 
@@ -25,23 +26,23 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter03/Chapter03.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-```{r LoadPackages, echo=FALSE, message=FALSE}
+```{r LoadPackages, echo=TRUE, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=FALSE, results='show', message=FALSE}
+```{r DeclareGlobals, echo=TRUE, results='show', message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 ```
 
 <!-- Load the datasets.   -->
-```{r LoadDatasets, echo=FALSE, results='show', message=FALSE}
+```{r LoadDatasets, echo=TRUE, results='show', message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r TweakDatasets, echo=FALSE, results='show', message=FALSE}
+```{r TweakDatasets, echo=TRUE, results='show', message=FALSE}
 ```
 
 ## Figure 3-1

@@ -15,9 +15,10 @@ require(ggplot2)
 #########################################################
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
 BookTheme <- theme_bw() +
-  theme(axis.text.x=element_text(colour="gray40")) +
-  theme(axis.title.x=element_text(colour="gray40")) +
-  theme(panel.border = element_rect(colour="gray80"))
+  theme(axis.text=element_text(colour="gray40")) +
+  theme(axis.title=element_text(colour="gray40")) +
+  theme(panel.border = element_rect(colour="gray80")) +
+  theme(axis.ticks = element_line(colour="gray80"))
 
 #########################################################
 ### Define palettes for variable sets, so they're consistent across graphs & chapters
@@ -44,5 +45,6 @@ paletteObesityState <-  adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)]
 
 #Internal notes:
 # * The Pre-Press Manager said the dimensions of the images cannot exceed these dimensions: 33 picas wide x 51 picas tall. (5.5" x 8.5")
+# *Physical Page width 7"x10"
 
 # list.files(system.file("enc", package="grDevices"))

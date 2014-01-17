@@ -1,5 +1,4 @@
-rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run.
-
+rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 #####################################
 ## @knitr LoadPackages
 require(knitr)

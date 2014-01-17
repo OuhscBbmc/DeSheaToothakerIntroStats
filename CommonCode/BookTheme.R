@@ -36,14 +36,20 @@ paletteObesityState <-  adjustcolor(brewer.pal(5, "Set1"))[c(1,2)]
 paletteObesityState <-  adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)]
 # paletteObesityStateBad <- adjustcolor(c("green", "red"), alpha.f=.7)
 
- 
+#Named colors in R:
+# http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf
+
+#########################################################
+### Establish the font
+#########################################################
 ## These three lines will use a nondefault font.
 # extrafont::loadfonts() #Run this once per session.
 # Sys.setenv(R_GSCMD = "C:/Program Files/gs/gs9.10/bin/gswin64c.exe")
 # BookTheme <- BookTheme +  theme(text = element_text(family="Times New Roman"))
 
-
-#Internal notes:
+#########################################################
+### Internal notes
+#########################################################
 # * The Pre-Press Manager said the dimensions of the images cannot exceed these dimensions: 33 picas wide x 51 picas tall. (5.5" x 8.5")
 # *Physical Page width 7"x10"
 

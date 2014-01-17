@@ -83,27 +83,10 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme(axis.text.y=element_text(size=14)) +
   labs(x=NULL, y="Number of Participants")
 #####################################
-## @knitr Figure03_05a
+## @knitr Figure03_05
 #Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
 stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
-
-ggplot(dsObesity, aes(x=ObesityRate, y=State)) +
-  geom_segment(aes(yend=State, xend=min(ObesityRate)), color="aquamarine4") +
-  geom_point(size=3, color="aquamarine3") +
-  scale_x_continuous(label=scales::percent) + 
-  chapterTheme +
-  theme(panel.grid.major.y= element_blank()) +
-  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
-#####################################
-## @knitr Figure03_05b
-ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
-  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=paletteObesityState[2]) +
-  geom_point(size=3, color=paletteObesityState[2]) +
-  scale_x_continuous(label=scales::percent) + 
-  chapterTheme +
-  theme(panel.grid.major.y= element_blank()) +
-  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
 
 ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
   geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(paletteObesityState[2], .5)) +
@@ -111,7 +94,7 @@ ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   theme(panel.grid.major.y= element_blank()) +
-  labs(title="Obesity Rate in 2011", x=NULL, y=NULL)
+  labs(title="Obesity Rate in 2011", x="Percent of Residents in a State", y=NULL)
 #####################################
 ## @knitr Figure03_06
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
@@ -120,9 +103,10 @@ ggplot(dsPregnancy, aes(x=T5Lifts)) +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
 
 ggplot(dsObesity, aes(x=ObesityRate)) +
-  geom_histogram(binwidth=.01, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
+  geom_histogram(binwidth=.01, fill="salmon", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
+  scale_x_continuous(label=scales::percent) + 
   chapterTheme +
-  labs(x="Obesity Rate (in 2011)", y="Number of Participants")
+  labs(x="Obesity Rate (in 2011)", y="Number of States")
 #####################################
 ## @knitr Figure03_07
 CreateFakeMeans <- function( d ) {
@@ -140,8 +124,11 @@ gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=Count
   scale_color_manual(values=palettePregancyGroup) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
-  labs(x="Time", y="Average Number of Lifts")
+  labs(x="Time Point", y="Average Number of Lifts")
+
 gLongitudinalLifts
+
+gLongitudinalLifts + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
 #####################################
 ## @knitr Figure03_09
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
@@ -217,7 +204,30 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   coord_fixed() + 
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
-  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
+  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)") +
+    theme(legend.title=element_text(colour="gray40"), legend.text=element_text(colour="gray40"))  
+  #   theme(legend.text=element_text(colour=paletteObesityState))  
+#   guides(colour=guide_legend(override.aes=list(colour=paletteObesityState)))
+# guides(colour=guide_legend(override.aes=list(colour=paletteObesityState)))
+  
+
+hardshipRange <- range(dsObesity$FoodHardshipRate)
+obesityRange <- range(dsObesity$ObesityRate)
+# obesityDiff <- diff(obesityRange)
+ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Location)) +
+  geom_text(size=3, alpha=1) +
+  scale_x_continuous(label=scales::percent) +
+  scale_y_continuous(label=scales::percent) +
+  scale_color_manual(values=paletteObesityState) +
+  coord_fixed() + 
+  chapterTheme +
+  theme(legend.position="none") +
+  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)") +
+  annotate("text", x=hardshipRange[1], y= obesityRange[2], label="Location", hjust=0, colour="gray40", fontface=2, size=4) +
+  annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n[Southern]", hjust=0, colour=paletteObesityState[2], size=4) +
+  annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n\n\n[Other]", hjust=0, colour=paletteObesityState[1], size=4)
+
+
 #####################################
 ## @knitr Figure03_15
 g03_14 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
@@ -255,8 +265,8 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
-  geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NA ) +
-  geom_point(position=position_jitter(w = 0.4, h = 0), na.rm=T, size=2, shape=1) +
+  geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
+  geom_point(position=position_jitter(w=0.4, h=0), na.rm=T, size=2, shape=1) +
   scale_color_manual(values=palettePregancyGroup) +
   scale_fill_manual(values=palettePregancyGroup) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
@@ -270,7 +280,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
-  geom_boxplot( alpha=.2, outlier.shape=NA, na.rm=T) +
+  geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
   geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=1, na.rm=T) +
   scale_color_manual(values=palettePregancyGroup) +
   scale_fill_manual(values=palettePregancyGroup) +
@@ -294,13 +304,10 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   chapterTheme +
   theme(legend.position="none") +
   labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
-#####################################
-## @knitr Figure03_17
+
 ### Possible Narration:
 ### Consider your audience's starting point.  DOn't just throw a bunch of layers and expect they'll understand the conventions you've chosen.
 ### Clearly identify the elements containedin each layer, and what concept/summary/observation each layer is representing.
-
-gLongitudinalLifts + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
 
 ### Possible Narration:
 ### We expect that interactive graphics will become more common in the health sciences, and that the tools will become

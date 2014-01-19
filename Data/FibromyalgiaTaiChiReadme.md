@@ -15,7 +15,7 @@ The researchers employed an intention-to-treat approach to data analysis.  Among
 
 ### Dataset Variables
  1. **SubjectID**: A unique number assigned to each participant.
- 2. **Group**:  An indicator for the participant’s assignment to a group, where 1 = tai chi and 0 = control.
+ 2. **Group**:  An indicator for the participant’s assignment to a group, where the possible values are `Control` and `Treatment`.
  3.	**FiqT1**:  Total score on the Fibromyalgia Impact Questionnaire (FIQ) at baseline.  Higher numbers mean greater (negative) impact of fibromyalgia on the participant’s daily activities and experience of pain, fatigue and mood.
  4. **FiqT2**:  Total FIQ score at the end of the 12-week intervention (Time 2).
  5. **FiqT3**:  Total FIQ score 24 weeks after the study began (Time 3).

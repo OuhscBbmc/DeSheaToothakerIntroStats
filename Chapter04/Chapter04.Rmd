@@ -1,0 +1,63 @@
+Chapter 04 Graphs
+=================================================
+This report creates the chapter graphs.
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
+```{r, echo=TRUE, message=F} 
+opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -espeically one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set_options, echo=TRUE}
+require(knitr)
+opts_chunk$set(
+    results='show', 
+    comment = NA, 
+    tidy = FALSE,
+    fig.width = 5.5, 
+    fig.height = 4, 
+    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+    fig.path = 'figure_rmd/',     
+    dev = "png",
+#     dev = "pdf",
+    dpi = 400
+)
+echoChunks <- FALSE
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./Chapter04/Chapter04.R") 
+```
+<!-- Load the packages.  Suppress the output when loading packages. --> 
+```{r LoadPackages, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r DeclareGlobals, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load the datasets.   -->
+```{r LoadDatasets, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Tweak the datasets.   -->
+```{r TweakDatasets, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Figure 4-1
+```{r Figure04_01, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+```
+
+## Figure 4-2
+```{r Figure04_02, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+```
+
+## Session Info
+For the sake of documentation and reproducibility, the current report was build on a system using the following software.
+
+```{r session_info, echo=FALSE}
+cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%F, %T %z"))
+sessionInfo()
+```

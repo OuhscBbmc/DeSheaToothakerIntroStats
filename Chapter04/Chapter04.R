@@ -50,9 +50,10 @@ dsFibromyalgiaT1Control$Z <- scale(dsFibromyalgiaT1Control$X)
 # dsFibromyalgiaT1ControlLong <- plyr::rename(dsFibromyalgiaT1ControlLong, replace=c("variable"="Scale", "value"="Value"))
 #####################################
 ## @knitr Figure04_01
+#Colors from http://www.colourlovers.com/palette/3210340/Halcyon_Days
 breaksX <- seq(from=7, to=23, by=1)
 histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
-  geom_histogram(breaks=breaksX, fill="coral4", color="gray95", alpha=.6) + 
+  geom_histogram(breaks=breaksX, fill="#009383", color="gray95", alpha=.6) + 
   chapterTheme +
   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
 
@@ -131,10 +132,19 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
 ## @knitr Figure04_03
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
 breaksZ <- scale(breaksX)
+histogramZ <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
+  geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
+  scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + 
+  labs(x="Z", y=NULL) + 
+  chapterTheme +
+  labs(x="Control Group's Baseline PSQI", y="Number of Participants")
+
+histogramXInset <- histogramX + scale_x_continuous(breaks=breaksX) + labs(x="X", y=NULL)
+
 grid.arrange(
-  histogramX + scale_x_continuous(breaks=breaksX) + labs(x="X", y=NULL),
-  histogramX + scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + labs(x="Z", y=NULL), 
-  left=textGrob(label="Number Of Participants", rot=90, gp=gpar(col="gray40")) #Sync this color with BookTheme
+  histogramXInset, 
+  histogramZInset,   
+  left = textGrob(label="Number Of Participants", rot=90, gp=gpar(col="gray40")) #Sync this color with BookTheme
 )
 #####################################
 ## @knitr Figure04_04
@@ -186,8 +196,8 @@ rm(g)
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #Color scheme from http://www.colourlovers.com/palette/3210340/Halcyon_Days
 g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color="#DD94EE") +
+  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.6, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color="#C9E6EE") +
   annotate(geom="text", x=0, y=.2, label="About 68%\nof the\ndistribution") +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
@@ -195,10 +205,13 @@ g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   chapterTheme +
   labs(x=expression(italic(Z)), y=NULL)
 
+#C9E6EE #Greenish
+#DD94EE #Pinkish
+
 g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=limitRange(dnorm, -2, 2), geom="area", fill="#C9E6EE", alpha=.7, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color="#C9E6EE") +
+  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.4, n=calculatedPointCount) +
+  stat_function(fun=limitRange(dnorm, -2, 2), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color="#DD94EE") +
   annotate(geom="text", x=0, y=.2, label="About 95%\nof the\ndistribution") +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +

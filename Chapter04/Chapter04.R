@@ -6,6 +6,7 @@ require(RColorBrewer)
 require(plyr)
 require(scales) #For formating values in graphs
 require(grid)
+require(gridExtra)
 require(ggplot2)
 require(ggthemes)
 require(reshape2) #For converting wide to long
@@ -85,9 +86,9 @@ dsZ$XEnd <- dsZ$X
 
 ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
   annotate("segment", x=groupMean, xend=groupMean, y=arrowHeight, yend=tickRadius*.1, 
-           arrow = arrow(length = unit(.4,"cm")), color=colorMeanLight, size=2, lineend="round") +
+           arrow = grid::arrow(length = unit(.4,"cm")), color=colorMeanLight, size=2, lineend="round") +
   annotate("segment", x=singleScore, xend=singleScore, y=arrowHeight, yend=tickRadius*.1, 
-           arrow = arrow(length = unit(.4,"cm")), color=colorSingleLight, size=2, lineend="round") +
+           arrow = grid::arrow(length = unit(.4,"cm"), type="closed"), color=colorSingleLight, size=2, lineend="round") +
   
   annotate("segment", x=groupMean, xend=groupMean, y=0, ,yend=yZ, color=colorMeanLight, linetype=2, size=1) +
   annotate("segment", x=singleScore, xend=singleScore, y=0, ,yend=yZ, color=colorSingleLight, linetype=2, size=1) +
@@ -121,28 +122,55 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
 ## @knitr Figure04_03
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
 breaksZ <- scale(breaksX)
-histogramX + scale_x_continuous(breaks=breaksX) + labs(x="X")
-histogramX + scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + labs(x="Z")
+grid.arrange(
+  histogramX + scale_x_continuous(breaks=breaksX) + labs(x="X", y=NULL),
+  histogramX + scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + labs(x="Z", y=NULL), 
+  left=textGrob(label="Number Of Participants", rot=90, gp=gpar(col="gray40")) #Sync this color with BookTheme
+)
+#####################################
+## @knitr Figure04_04
+#For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
+calculatedPointCount <- 401
+lineSizeCurve <- 1
+lineAlpha <- .5
+dsNorm <- data.frame(
+  Mean = c(-.4, 0, 1, 1.2), 
+  SD = c(.5, 1, .8, 1.5),
+  Color = RColorBrewer::brewer.pal(n=5, name="Dark2")[2:5],
+  Label1 = NA_character_,
+  Label2 = NA_character_,
+  stringsAsFactors = FALSE
+)
+dsNorm$Mode <- dnorm(x=dsNorm$Mean, mean=dsNorm$Mean, sd=dsNorm$SD)
+for( i in seq_len(nrow(dsNorm)) ) {
+  dsNorm$Label1[i] <- as.character(as.expression(substitute(italic(N)(mu,sigma), list(mu=dsNorm$Mean[i], sigma=dsNorm$SD[i]))))
+  #dsNorm$Label2[i] <- as.character(as.expression(substitute("mu==mu2*phantom(1)*sigma==sigma2", list(mu2=dsNorm$Mean[i], sigma2=dsNorm$SD[i]))))
+  dsNorm$Label2[i] <- as.character(as.expression(substitute(list(mu==mu2,sigma==sigma2), list(mu2=dsNorm$Mean[i], sigma2=dsNorm$SD[i]))))
+}
 
+g <- ggplot(dsNorm, aes(x=Mean, xend=Mean, y=Mode, yend=0, color=Color)) +
+  stat_function(fun=dnorm, arg=list(mean=dsNorm[1, "Mean"], sd=dsNorm[1, "SD"]), color=dsNorm[1, "Color"], size=lineSizeCurve, n=calculatedPointCount, alpha=lineAlpha) +
+  stat_function(fun=dnorm, arg=list(mean=dsNorm[2, "Mean"], sd=dsNorm[2, "SD"]), color=dsNorm[2, "Color"], size=lineSizeCurve, n=calculatedPointCount, alpha=lineAlpha) +
+  stat_function(fun=dnorm, arg=list(mean=dsNorm[3, "Mean"], sd=dsNorm[3, "SD"]), color=dsNorm[3, "Color"], size=lineSizeCurve, n=calculatedPointCount, alpha=lineAlpha) +
+  stat_function(fun=dnorm, arg=list(mean=dsNorm[4, "Mean"], sd=dsNorm[4, "SD"]), color=dsNorm[4, "Color"], size=lineSizeCurve, n=calculatedPointCount, alpha=lineAlpha) +
+  geom_segment(alpha=lineAlpha) +
+  scale_x_continuous(limits=c(-3, 5)) +
+  scale_color_identity() +
+  expand_limits(y=max(dsNorm$Mode)*1.05) +
+  emptyTheme
 
-# ggplot(dsFibromyalgiaT1ControlLong, aes(x=Value)) +
-#   geom_histogram(binwidth=NULL, fill="coral4", color="gray95", alpha=.6) + 
-#   chapterTheme +
-#   facet_grid(Scale~., scales="free") +
-#   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
-#breaksZ <- scale(breaksX)+.001#, center=13.45, scale=scaleSD)+.01
-# 
-# histogramX <- histogramX + labs(x="X", y="Number of Participants")
-# histogramX
-# str(histogramX)
-# histogramX$layers
-# histogramZ <- ggplot(dsFibromyalgiaT1Control, aes(x=Z)) +
-#   geom_histogram(breaks=breaksZ, fill="coral4", color="gray95", alpha=.6) + 
-#   chapterTheme +
-#   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
-# histogramZ
-
-
+g
+g %+% 
+  aes(label=Label1) + 
+  geom_text(parse=TRUE, vjust=-.1)
+g %+% 
+  aes(label=Label2) + 
+  geom_text(parse=TRUE, vjust=-.1)
+g %+% 
+  aes(label=Label1) + 
+  geom_text(parse=TRUE, vjust=-.1) + 
+  chapterTheme +
+  labs(x=expression(italic(X)), y="Relative Frequency")
 
 
 

@@ -59,7 +59,10 @@ read_chunk("./Chapter04/Chapter04.R")
 
 
 ## Figure 4-3
-<img src="figure_rmd/Figure04_031.png" title="plot of chunk Figure04_03" alt="plot of chunk Figure04_03" width="600px" /><img src="figure_rmd/Figure04_032.png" title="plot of chunk Figure04_03" alt="plot of chunk Figure04_03" width="600px" />
+<img src="figure_rmd/Figure04_03.png" title="plot of chunk Figure04_03" alt="plot of chunk Figure04_03" width="600px" />
+
+## Figure 4-4
+<img src="figure_rmd/Figure04_041.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_042.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_043.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_044.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" />
 
 
 ## Session Info
@@ -67,7 +70,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-18, 23:57:10 -0600
+Report created by Will at 2014-01-19, 14:44:59 -0600
 ```
 
 ```
@@ -82,8 +85,8 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] extrafont_0.16     reshape2_1.2.2     ggthemes_1.6.0     ggplot2_0.9.3.1    scales_0.2.3       plyr_1.8.0.99     
-[7] RColorBrewer_1.0-5 knitr_1.5         
+[1] extrafont_0.16     reshape2_1.2.2     ggthemes_1.6.0     ggplot2_0.9.3.1    gridExtra_0.9.1    scales_0.2.3      
+[7] plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 dichromat_2.0-0  digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10    

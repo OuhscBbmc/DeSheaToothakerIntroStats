@@ -55,7 +55,10 @@ read_chunk("./Chapter04/Chapter04.R")
 ```
 
 ## Figure 4-3
-```{r Figure04_03, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+```{r Figure04_03, echo=echoChunks, results='show', message=TRUE, fig.height=6}
+```
+## Figure 4-4
+```{r Figure04_04, echo=echoChunks, results='show', message=TRUE, fig.height=3}
 ```
 
 ## Session Info

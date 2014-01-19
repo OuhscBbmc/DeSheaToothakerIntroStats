@@ -8,7 +8,7 @@ require(scales) #For formating values in graphs
 require(grid)
 require(ggplot2)
 require(ggthemes)
-# require(reshape2) #For convertin wide to long
+require(reshape2) #For converting wide to long
 
 #####################################
 ## @knitr DeclareGlobals
@@ -31,12 +31,30 @@ dsFibromyalgia <- read.csv("./Data/FibromyalgiaTaiChi.csv")
 #####################################
 ## @knitr TweakDatasets
 
+dsFibromyalgiaT1Control <- dsFibromyalgia[dsFibromyalgia$Group=="Control", "PsqiT1", drop=FALSE]
+dsFibromyalgiaT1Control <- plyr::rename(dsFibromyalgiaT1Control, replace=c("PsqiT1"="X"))
+dsFibromyalgiaT1Control$Z <- scale(dsFibromyalgiaT1Control$X)
+
+# dsFibromyalgiaT1Control$ID <- row.names(dsFibromyalgiaT1Control)
+# dsFibromyalgiaT1ControlLong <- reshape2::melt(dsFibromyalgiaT1Control,id.vars="ID")
+# dsFibromyalgiaT1ControlLong <- plyr::rename(dsFibromyalgiaT1ControlLong, replace=c("variable"="Scale", "value"="Value"))
 #####################################
 ## @knitr Figure04_01
-ggplot(dsFibromyalgia[dsFibromyalgia$Group=="Control", ], aes(x=PsqiT1)) +
-  geom_histogram(binwidth=1, fill="coral4", color="gray95", alpha=.6) + 
+breaksX <- seq(from=7, to=23, by=1)
+histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
+  geom_histogram(breaks=breaksX, fill="coral4", color="gray95", alpha=.6) + 
   chapterTheme +
   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
+
+histogramX 
+
+# ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
+#   stat_bin(fill="coral4", color="gray95", alpha=.6) + 
+#   chapterTheme
+# 
+# ggplot(dsFibromyalgiaT1Control, aes(x=Z)) +
+#   stat_bin(fill="coral4", color="gray95", alpha=.6, right=T) + 
+#   chapterTheme
 
 #####################################
 ## @knitr Figure04_02
@@ -95,10 +113,38 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
   annotate("text", x=singleScore, y=-tickRadius, vjust=1, hjust=0, label=as.character(expression(phantom(2)*italic(x[1])==17)), color=colorSingleDark, parse=TRUE) +
   annotate("text", x=singleScore, y=yZ+tickRadius, vjust=0, hjust=-0, label=as.character(expression(phantom(2)*italic(z[1])==.98)), color=colorSingleDark, parse=TRUE) +
   
-  
   scale_x_continuous(expand=c(0,0), limits=c(12, 18.1)) +
   scale_y_continuous(limits=c((yZ -tickRadius)*1.15, arrowHeight*1.3)) +  
   emptyTheme
+
+#####################################
+## @knitr Figure04_03
+#The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
+breaksZ <- scale(breaksX)
+histogramX + scale_x_continuous(breaks=breaksX) + labs(x="X")
+histogramX + scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + labs(x="Z")
+
+
+# ggplot(dsFibromyalgiaT1ControlLong, aes(x=Value)) +
+#   geom_histogram(binwidth=NULL, fill="coral4", color="gray95", alpha=.6) + 
+#   chapterTheme +
+#   facet_grid(Scale~., scales="free") +
+#   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
+#breaksZ <- scale(breaksX)+.001#, center=13.45, scale=scaleSD)+.01
+# 
+# histogramX <- histogramX + labs(x="X", y="Number of Participants")
+# histogramX
+# str(histogramX)
+# histogramX$layers
+# histogramZ <- ggplot(dsFibromyalgiaT1Control, aes(x=Z)) +
+#   geom_histogram(breaks=breaksZ, fill="coral4", color="gray95", alpha=.6) + 
+#   chapterTheme +
+#   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
+# histogramZ
+
+
+
+
 
 
 #####################################

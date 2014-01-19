@@ -60,6 +60,20 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-4
 ```{r Figure04_04, echo=echoChunks, results='show', message=TRUE, fig.height=3}
 ```
+## Figure 4-5
+```{r Figure04_05, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width="900px"}
+```
+## Figure 4-6
+```{r Figure04_06, echo=echoChunks, results='show', message=TRUE}
+cat("Lise, Let's talk about this one first.")
+```
+## Figure 4-7
+```{r Figure04_07, echo=echoChunks, results='show', message=TRUE}
+cat("Lise, Let's talk about this one first.")
+```
+## Figure 4-8
+```{r Figure04_08, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

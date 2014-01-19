@@ -64,13 +64,31 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-4
 <img src="figure_rmd/Figure04_041.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_042.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_043.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_044.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" />
 
+## Figure 4-5
+<img src="figure_rmd/Figure04_05.png" title="plot of chunk Figure04_05" alt="plot of chunk Figure04_05" width="900px" />
+
+## Figure 4-6
+
+```
+Lise, Let's talk about this one first.
+```
+
+## Figure 4-7
+
+```
+Lise, Let's talk about this one first.
+```
+
+## Figure 4-8
+<img src="figure_rmd/Figure04_08.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" />
+
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-01-19, 14:44:59 -0600
+Report created by Will at 2014-01-19, 15:37:29 -0600
 ```
 
 ```

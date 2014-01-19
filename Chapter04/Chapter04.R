@@ -25,6 +25,15 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
+#This function is directly from Recipe 13.3 in Chang (2013).
+limitRange <- function( fun, min, max ) { 
+  function( x ) {
+    y <- fun(x)
+    y[(x < min) | (max < x)] <- NA
+    return( y )
+  }
+}
+
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -130,6 +139,7 @@ grid.arrange(
 #####################################
 ## @knitr Figure04_04
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
+#For using equations in a plot, see Recipes 5.9 & 7.2 in Chang (2013)
 calculatedPointCount <- 401
 lineSizeCurve <- 1
 lineAlpha <- .5
@@ -144,7 +154,6 @@ dsNorm <- data.frame(
 dsNorm$Mode <- dnorm(x=dsNorm$Mean, mean=dsNorm$Mean, sd=dsNorm$SD)
 for( i in seq_len(nrow(dsNorm)) ) {
   dsNorm$Label1[i] <- as.character(as.expression(substitute(italic(N)(mu,sigma), list(mu=dsNorm$Mean[i], sigma=dsNorm$SD[i]))))
-  #dsNorm$Label2[i] <- as.character(as.expression(substitute("mu==mu2*phantom(1)*sigma==sigma2", list(mu2=dsNorm$Mean[i], sigma2=dsNorm$SD[i]))))
   dsNorm$Label2[i] <- as.character(as.expression(substitute(list(mu==mu2,sigma==sigma2), list(mu2=dsNorm$Mean[i], sigma2=dsNorm$SD[i]))))
 }
 
@@ -156,7 +165,7 @@ g <- ggplot(dsNorm, aes(x=Mean, xend=Mean, y=Mode, yend=0, color=Color)) +
   geom_segment(alpha=lineAlpha) +
   scale_x_continuous(limits=c(-3, 5)) +
   scale_color_identity() +
-  expand_limits(y=max(dsNorm$Mode)*1.05) +
+  expand_limits(y=max(dsNorm$Mode)*1.07) +
   emptyTheme
 
 g
@@ -170,10 +179,56 @@ g %+%
   aes(label=Label1) + 
   geom_text(parse=TRUE, vjust=-.1) + 
   chapterTheme +
-  labs(x=expression(italic(X)), y="Relative Frequency")
+  labs(x=expression(italic(X)), y="Density")
+rm(g)
+#####################################
+## @knitr Figure04_05
+#For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
+#Color scheme from http://www.colourlovers.com/palette/3210340/Halcyon_Days
+g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
+  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color="#DD94EE") +
+  annotate(geom="text", x=0, y=.2, label="About 68%\nof the\ndistribution") +
+  scale_x_continuous(breaks=-2:2) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=dnorm(0) * 1.05) +
+  chapterTheme +
+  labs(x=expression(italic(Z)), y=NULL)
 
+g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
+  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=limitRange(dnorm, -2, 2), geom="area", fill="#C9E6EE", alpha=.7, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color="#C9E6EE") +
+  annotate(geom="text", x=0, y=.2, label="About 95%\nof the\ndistribution") +
+  scale_x_continuous(breaks=-2:2) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=dnorm(0) * 1.05) +
+  chapterTheme +
+  labs(x=expression(italic(Z)), y=NULL)
 
+#Position the two graphs side by side in the same plot
+gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
+#####################################
+## @knitr Figure04_08
+#For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
+#To turn off clipping, see http://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot.
+singleZ <- 1.48
+gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
+  stat_function(fun=limitRange(dnorm, -Inf, singleZ), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue2") +
+  annotate("segment", x=singleZ, xend=singleZ, y=0, yend=Inf, color="dodgerblue4", size=3) +
+  annotate("text", x=singleZ, y=0, label=singleZ, vjust=1.2, color="dodgerblue4", size=8) +
+  scale_x_continuous(breaks=-2:2) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=dnorm(0) * 1.05) +
+  chapterTheme +
+  labs(x=expression(italic(Z)), y=NULL)
 
+gt <- ggplot_gtable(ggplot_build(gSingle))
+
+gt$layout$clip[gt$layout$name == "panel"] <- "off"
+grid.draw(gt)
 
 #####################################
 # TODO: 
+#Create the table & figure combinations

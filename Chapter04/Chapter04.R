@@ -132,7 +132,7 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
 ## @knitr Figure04_03
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
 breaksZ <- scale(breaksX)
-histogramZ <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
+histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
   scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + 
   labs(x="Z", y=NULL) + 

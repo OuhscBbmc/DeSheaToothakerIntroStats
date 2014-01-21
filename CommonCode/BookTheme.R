@@ -8,32 +8,42 @@
 
 require(extrafont) 
 require(ggplot2)
-
+require(dichromat)
+require(RColorBrewer)
 
 #########################################################
 ### Define theme elements for ggplot2 graphs
 #########################################################
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
 BookTheme <- theme_bw() +
-  theme(axis.text=element_text(colour="gray40")) +
-  theme(axis.title=element_text(colour="gray40")) +
+  theme(axis.text = element_text(colour="gray40")) +
+  theme(axis.title = element_text(colour="gray40")) +
   theme(panel.border = element_rect(colour="gray80")) +
   theme(axis.ticks = element_line(colour="gray80"))
 
 #########################################################
 ### Define palettes for variable sets, so they're consistent across graphs & chapters
 #########################################################
+transformColor <- function( palette ) {
+  return( palette )
+#   return( dichromat(palette, "deutan") )
+#   return( dichromat(palette, "protan") )
+#   return( dichromat(palette, "tritan") )
+# Also see The Color Oracle application (http://colororacle.org/)
+}
 
-#palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
-palettePregancyDelivery <-  adjustcolor(brewer.pal(3, "Accent"), alpha.f=1)[1:2]
-palettePregancyDeliveryBad <- c("#FF0000CC", "#00FFFFCC") #Translucent red & cyan
+palettePregancyDelivery <- transformColor(adjustcolor(brewer.pal(3, "Accent"), alpha.f=1)[1:2])
+palettePregancyDeliveryBad <- transformColor( c("#FF0000CC", "#00FFFFCC")) #Translucent red & cyan
 
-palettePregancyGroup <-  adjustcolor(brewer.pal(3, "Dark2"), alpha.f=1)[1:2]
-palettePregancyGroupBad <- adjustcolor(c("blue", "maroon"), alpha.f=.7)
+palettePregancyGroup <- transformColor(adjustcolor(brewer.pal(3, "Dark2"), alpha.f=1)[1:2])
+palettePregancyGroupBad <- transformColor(adjustcolor(c("blue", "maroon"), alpha.f=.7))
 
-#paletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
-paletteObesityState <-  adjustcolor(brewer.pal(5, "Set1"))[c(1,2)]
-paletteObesityState <-  adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)]
+paletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Set1"))[c(1,2)])
+paletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)])
+
+
+# palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
+# paletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
 # paletteObesityStateBad <- adjustcolor(c("green", "red"), alpha.f=.7)
 
 #Named colors in R:
@@ -54,3 +64,10 @@ paletteObesityState <-  adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)]
 # *Physical Page width 7"x10"
 
 # list.files(system.file("enc", package="grDevices"))
+
+#########################################################
+### Palettes to consider for future graphs
+#########################################################
+# https://github.com/jrnold/ggthemes
+# http://www.colourlovers.com/palettes/search?query=excel #This one actually has nothing to do with Miscrosoft Excel.
+# http://www.colourlovers.com/lover/sugar%21

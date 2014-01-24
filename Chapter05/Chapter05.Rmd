@@ -24,7 +24,7 @@ opts_chunk$set(
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./Chapter04/Chapter04.R") 
+read_chunk("./Chapter05/Chapter05.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 ```{r LoadPackages, echo=echoChunks, message=FALSE}
@@ -46,33 +46,24 @@ read_chunk("./Chapter04/Chapter04.R")
 ```{r TweakDatasets, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Figure 4-1
-```{r Figure04_01, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+## Figure 5-1
+```{r Figure05_01, echo=echoChunks, results='show', message=TRUE}
 ```
-## Figure 4-2
-```{r Figure04_02, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+## Figure 5-2
+```{r Figure05_02, echo=echoChunks, results='show', message=TRUE}
 ```
-## Figure 4-3
-```{r Figure04_03, echo=echoChunks, results='show', message=TRUE, fig.height=6}
+## Figure 5-3
+```{r Figure05_03, echo=echoChunks, results='show', message=TRUE}
 ```
-## Figure 4-4
-```{r Figure04_04, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+## Figure 5-4
+```{r Figure05_04, echo=echoChunks, results='show', message=TRUE}
 ```
-## Figure 4-5
-```{r Figure04_05, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width="900px"}
+## Figure 5-5
+```{r Figure05_05, echo=echoChunks, results='show', message=TRUE}
 ```
-## Figure 4-6
-```{r Figure04_06, echo=echoChunks, results='show', message=TRUE}
-cat("Lise, Let's talk about this one first.")
+## Figure 5-6
+```{r Figure05_06, echo=echoChunks, results='show', message=TRUE}
 ```
-## Figure 4-7
-```{r Figure04_07, echo=echoChunks, results='show', message=TRUE}
-cat("Lise, Let's talk about this one first.")
-```
-## Figure 4-8
-```{r Figure04_08, echo=echoChunks, results='show', message=TRUE, fig.height=3}
-```
-
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 

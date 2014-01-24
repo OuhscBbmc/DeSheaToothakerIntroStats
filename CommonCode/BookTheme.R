@@ -49,6 +49,18 @@ paletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)
 #Named colors in R:
 # http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf
 
+
+#########################################################
+### Declare functions used in multiple chapters
+#########################################################
+#This function is directly from Recipe 13.3 in Chang (2013).
+LimitRange <- function( fun, min, max ) { 
+  function( x ) {
+    y <- fun(x)
+    y[(x < min) | (max < x)] <- NA
+    return( y )
+  }
+}
 #########################################################
 ### Establish the font
 #########################################################

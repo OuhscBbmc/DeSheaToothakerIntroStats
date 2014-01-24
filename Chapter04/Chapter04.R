@@ -25,15 +25,6 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-#This function is directly from Recipe 13.3 in Chang (2013).
-limitRange <- function( fun, min, max ) { 
-  function( x ) {
-    y <- fun(x)
-    y[(x < min) | (max < x)] <- NA
-    return( y )
-  }
-}
-
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -196,7 +187,7 @@ rm(g)
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #Color scheme from http://www.colourlovers.com/palette/3210340/Halcyon_Days
 g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.6, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.6, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color="#C9E6EE") +
   annotate(geom="text", x=0, y=.2, label="About 68%\nof the\ndistribution") +
   scale_x_continuous(breaks=-2:2) +
@@ -209,8 +200,8 @@ g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 #DD94EE #Pinkish
 
 g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=limitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.4, n=calculatedPointCount) +
-  stat_function(fun=limitRange(dnorm, -2, 2), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.4, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color="#DD94EE") +
   annotate(geom="text", x=0, y=.2, label="About 95%\nof the\ndistribution") +
   scale_x_continuous(breaks=-2:2) +
@@ -227,7 +218,7 @@ gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
 #To turn off clipping, see http://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot.
 singleZ <- 1.48
 gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=limitRange(dnorm, -Inf, singleZ), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -Inf, singleZ), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue2") +
   annotate("segment", x=singleZ, xend=singleZ, y=0, yend=Inf, color="dodgerblue4", size=3) +
   annotate("text", x=singleZ, y=0, label=singleZ, vjust=1.2, color="dodgerblue4", size=8) +
@@ -244,4 +235,3 @@ grid.draw(gt)
 
 #####################################
 # TODO: 
-#Create the table & figure combinations

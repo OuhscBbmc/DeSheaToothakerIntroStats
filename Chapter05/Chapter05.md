@@ -68,12 +68,18 @@ read_chunk("./Chapter05/Chapter05.R")
 ## Figure 5-6
 <img src="figure_rmd/Figure05_06.png" title="plot of chunk Figure05_06" alt="plot of chunk Figure05_06" width="600px" />
 
+## Figure 5-7
+<img src="figure_rmd/Figure05_07.png" title="plot of chunk Figure05_07" alt="plot of chunk Figure05_07" width="600px" />
+
+## Figure 5-8
+<img src="figure_rmd/Figure05_08.png" title="plot of chunk Figure05_08" alt="plot of chunk Figure05_08" width="600px" />
+
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-01-23, 21:50:28 -0600
+Report created by Will at 2014-01-23, 22:47:22 -0600
 ```
 
 ```

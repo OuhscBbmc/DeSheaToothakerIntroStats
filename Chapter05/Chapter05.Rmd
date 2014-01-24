@@ -64,6 +64,12 @@ read_chunk("./Chapter05/Chapter05.R")
 ## Figure 5-6
 ```{r Figure05_06, echo=echoChunks, results='show', message=TRUE}
 ```
+## Figure 5-7
+```{r Figure05_07, echo=echoChunks, results='show', message=TRUE}
+```
+## Figure 5-8
+```{r Figure05_08, echo=echoChunks, results='show', message=TRUE}
+```
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 

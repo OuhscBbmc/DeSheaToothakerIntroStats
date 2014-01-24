@@ -52,7 +52,7 @@ ggplot(dsPerfectPositive, aes(x=NumberOfLitersBought, y=Price)) +
 #####################################
 ## @knitr Figure05_03
 ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
-  geom_point(shape=1, size=3) +
+  geom_point(shape=1, size=3, alpha=.3) +
   scale_y_continuous(label=scales::dollar) +
   chapterTheme +
   labs(x="Number of Adults Screened for Hypertension", y="Amount Remaining in Gift-Card Budget")
@@ -66,7 +66,7 @@ ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010))
 ## @knitr Figure05_05
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, the lines aren't dotted anymore.
 
-#See Recipe 5.9 in Chang, 2013
+#See Recipe 5.9 in Chang, 2013 for writing the lm equations in the graph.
 dsPlot <- dsObesity
 xName <- "FoodHardshipRate"
 yName <- "ObesityRate"
@@ -93,7 +93,6 @@ rm(m, eqn, gObesity, xName, yName)
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, there are linear & nonlinear lines overlayed.
 #Set seed so the jittering is consistent across versions
 set.seed(789)
-#See Recipe 5.9 in Chang, 2013
 dsPlot <- dsWorldMaternalMortality
 xName <- "LifeExpectancyAtBirth2011"
 yName <- "MaternalMortper100KBirths2010"
@@ -119,14 +118,15 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName)) +
 rm(m, eqn, xName, yName)
 #####################################
 ## @knitr Figure05_07
-#TODO: Lise, if you like these next two graphs, some of the text's description will need to change.  For instance, there are linear & nonlinear lines overlayed.
+#TODO: Lise, if you like these next two graphs, some of the text's description will need to change.  For instance, there are two linear models overlayed.
 
-#See Recipe 5.9 in Chang, 2013
 dsPlot <- dsStork
 xName <- "StorkPairCount"
 yName <- "BirthRate"
 colorName <- "Extreme"
-colorExtreme <- c("FALSE"="#65B8B0", "TRUE"="#E25E4D") #http://www.colourlovers.com/palette/3216214/serenity_now
+colorExtreme <- c("FALSE"="#65B8B0", "TRUE"="#E25E4D") #Darker; http://www.colourlovers.com/palette/3216214/serenity_now
+fillExtreme <- c("FALSE"="#BCD8D7", "TRUE"="#E25E4D") #Green is lighter; http://www.colourlovers.com/palette/3216214/serenity_now
+#fillExtreme <- c("FALSE"="#BCD8D7", "TRUE"="#E2884D") #Both are lighter; http://www.colourlovers.com/palette/3216214/serenity_now
 
 mWithOutlier <- lm(as.formula(paste(yName, "~", xName)), dsPlot)
 eqn <- as.character(as.expression( 
@@ -135,13 +135,14 @@ eqn <- as.character(as.expression(
                   b=format(coef(mWithOutlier)[2], digits=2), #The slope
                   rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
 ))
-ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName)) +
-  annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
-  geom_smooth(method="lm", color="orange", fill=NA, size=2) +
-  geom_point(shape=19, size=4) +  
+ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
+  annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color=colorExtreme[2]) +
+  geom_smooth(method="lm", color=colorExtreme[2], fill=NA, size=2) +
+  geom_point(shape=21, size=4) +  
   scale_x_continuous(label=scales::comma) +
   scale_y_continuous(label=scales::comma) +  
   scale_color_manual(guide=FALSE, values=colorExtreme) + 
+  scale_fill_manual(guide=FALSE, values=fillExtreme) + 
   coord_cartesian(xlim=c(-500, 1.1*max(dsPlot[, xName])), ylim=c(-5, 1.05*max(dsPlot[, yName]))) +
   
   chapterTheme +
@@ -150,28 +151,29 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName)) +
 rm(eqn)
 #####################################
 ## @knitr Figure05_08
-
 dsPlotWithoutOutliers <- dsStork[!dsStork$Extreme, ]
-mWithoutOutliers <- lm(as.formula(paste(yName, "~", xName)), dsPlotWithoutOutliers)
+mWithoutOutlier <- lm(as.formula(paste(yName, "~", xName)), dsPlotWithoutOutliers)
 eqn <- as.character(as.expression( 
   substitute(italic(y)==a + b * italic(x) * ", " ~ ~italic(r) ~ "=" ~ rV,
-             list(a=format(coef(mWithoutOutliers)[1], digits=2),#The intercept
-                  b=format(coef(mWithoutOutliers)[2], digits=2), #The slope
+             list(a=format(coef(mWithoutOutlier)[1], digits=2),#The intercept
+                  b=format(coef(mWithoutOutlier)[2], digits=2), #The slope
                   rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
 ))
-ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName)) +
+ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
-  geom_smooth(data=dsStork, method="lm", color=adjustcolor("orange", alpha.f=.5), fill=NA, size=1) +
+  #geom_smooth(data=dsStork, method="lm", color=adjustcolor(fillExtreme[2], alpha.f=.5), fill=NA, size=1) +
+  geom_smooth(data=dsStork, method="lm", color=colorExtreme[2], fill=NA, size=1) +
   geom_smooth(method="lm", color="orange", fill=NA, size=2) +
-  geom_point(shape=19, size=4) +  
+  geom_point(shape=21, size=4) +  
   scale_x_continuous(label=scales::comma, expand=c(50, 50)) +
   scale_y_continuous(label=scales::comma) +  
   scale_color_manual(guide=FALSE, values=colorExtreme) +  
+  scale_fill_manual(guide=FALSE, values=fillExtreme) + 
   coord_cartesian(xlim=c(-200, 1.1*max(dsPlotWithoutOutliers[, xName])), ylim=c(-5, 1.05*max(dsPlotWithoutOutliers[, yName]))) +
   chapterTheme +
   labs(x="Number of Storks (by Pairs)", y="Number of Human Births")
 
-# rm(mWithOutliers, mWithoutOutliers eqn, xName, yName)
+rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName)
 
 
 #####################################

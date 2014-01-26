@@ -74,12 +74,27 @@ read_chunk("./Chapter05/Chapter05.R")
 ## Figure 5-8
 <img src="figure_rmd/Figure05_08.png" title="plot of chunk Figure05_08" alt="plot of chunk Figure05_08" width="600px" />
 
+## Figure 5-9
+<img src="figure_rmd/Figure05_09.png" title="plot of chunk Figure05_09" alt="plot of chunk Figure05_09" width="600px" />
+
+## Figure 5-10
+<img src="figure_rmd/Figure05_10.png" title="plot of chunk Figure05_10" alt="plot of chunk Figure05_10" width="600px" />
+
+## Figure 5-11
+<img src="figure_rmd/Figure05_11.png" title="plot of chunk Figure05_11" alt="plot of chunk Figure05_11" width="600px" />
+
+## Figure 5-12
+<img src="figure_rmd/Figure05_12.png" title="plot of chunk Figure05_12" alt="plot of chunk Figure05_12" width="600px" />
+
+## Figure 5-13
+<img src="./../Chapter03/figure_rmd/Figure03_141.png" alt="StateCigarette" style="width: 600px;"/>
+
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-01-25, 22:36:36 -0600
+Report created by Will at 2014-01-26, 01:23:35 -0600
 ```
 
 ```

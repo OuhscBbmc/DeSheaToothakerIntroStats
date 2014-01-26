@@ -18,17 +18,28 @@ source("./CommonCode/BookTheme.R")
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
+paletteWorldDeathsRestricted <- c("#558058", "#A3528C") #http://www.colourlovers.com/palette/3219200/newsong
+
+# paletteSmokingRestrictedColor <- c("#83DCFB", "#FFAE45") #http://www.colourlovers.com/palette/3219181/Punch
+# paletteSmokingRestrictedFill <- c("#83DCFB", "#FFAE45") #http://www.colourlovers.com/palette/3219181/Punch
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
-dsObesity <- read.csv("./Data/FoodHardshipObesity.csv")
-dsPerfectPositive <- read.csv("./Data/Chapter05PerfectPositive.csv")
-dsPerfectNegative <- read.csv("./Data/Chapter05PerfectNegative.csv")
-dsStateBirthDeathRates <- read.csv("./Data/StateBirthDeathRates.csv")
-dsWorldMaternalMortality <- read.csv("./Data/WorldMaternalMortality.csv")
-dsStork <- read.csv("./Data/StorkBirth.csv")
+dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
+dsPerfectPositive <- read.csv("./Data/Chapter05PerfectPositive.csv", stringsAsFactors=FALSE)
+dsPerfectNegative <- read.csv("./Data/Chapter05PerfectNegative.csv", stringsAsFactors=FALSE)
+dsStateBirthDeathRates <- read.csv("./Data/StateBirthDeathRates.csv", stringsAsFactors=FALSE)
+dsWorldMaternalMortality <- read.csv("./Data/WorldMaternalMortality.csv", stringsAsFactors=FALSE)
+dsStork <- read.csv("./Data/StorkBirth.csv", stringsAsFactors=FALSE)
+dsWorldBirthDeathRates <- read.csv("./Data/WorldCrudeBirthsDeathsCia.csv", stringsAsFactors=FALSE)
+dsSmoking <- read.csv("./Data/SmokingTax.csv", stringsAsFactors=FALSE)
+
 #####################################
 ## @knitr TweakDatasets
+dsWorldBirthDeathRates <- dsWorldBirthDeathRates[(dsWorldBirthDeathRates$BirthsPer1000Pop > 0) & (dsWorldBirthDeathRates$DeathsPer1000Pop > 0), ]
+dsWorldBirthDeathRates$Omitted <- (dsWorldBirthDeathRates$BirthsPer1000Pop >= 30)
+
+dsSmoking$Omitted <- (dsSmoking$TaxCentsPerPack >= 100)
 
 #####################################
 ## @knitr Figure05_01
@@ -42,6 +53,7 @@ gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 
 gObesity
+
 #####################################
 ## @knitr Figure05_02
 ggplot(dsPerfectPositive, aes(x=NumberOfLitersBought, y=Price)) +
@@ -49,6 +61,7 @@ ggplot(dsPerfectPositive, aes(x=NumberOfLitersBought, y=Price)) +
   scale_y_continuous(label=scales::dollar) +
   chapterTheme +
   labs(x="Number of Liters of Hand Sanitizer Purchased", y="Total Price (excluding taxes & shipping)")
+
 #####################################
 ## @knitr Figure05_03
 ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
@@ -56,12 +69,14 @@ ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
   scale_y_continuous(label=scales::dollar) +
   chapterTheme +
   labs(x="Number of Adults Screened for Hypertension", y="Amount Remaining in Gift-Card Budget")
+
 #####################################
 ## @knitr Figure05_04
 ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010)) +
-  geom_point(shape=1, size=3) +
+  geom_point(shape=1, size=3, color="#755796") + #http://www.colourlovers.com/palette/3219200/newsong
   chapterTheme +
   labs(x="Birth Rate Per 1,000 Population (in 2010)", y="Adge-Adjusted Death Rate\nper 100,000 Population (in 2010)")
+
 #####################################
 ## @knitr Figure05_05
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, the lines aren't dotted anymore.
@@ -88,6 +103,7 @@ gObesity +
 #   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T)
 
 rm(m, eqn, gObesity, xName, yName)
+
 #####################################
 ## @knitr Figure05_06
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, there are linear & nonlinear lines overlayed.
@@ -109,13 +125,14 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName)) +
 #   geom_hline(y=0, color="tomato", size=1) +
 #   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T) +
 #   geom_smooth(method="loess", color="purple", fill="purple", alpha=.2, na.rm=T) +
-  geom_point(shape=1, size=3, na.rm=T, position = position_jitter(w=.4, h=0)) +  
+  geom_point(shape=1, size=3, na.rm=T, color="#A3528C", position=position_jitter(w=.4, h=0)) +  #http://www.colourlovers.com/palette/3219200/newsong
   scale_x_continuous() +
   scale_y_continuous(label=scales::comma) +  
   chapterTheme +
   labs(x="Life Expectancy at Birth (in 2011)", y="Maternal Mortality per 100,000 Births (in 2010)")
 
 rm(m, eqn, xName, yName)
+
 #####################################
 ## @knitr Figure05_07
 #TODO: Lise, if you like these next two graphs, some of the text's description will need to change.  For instance, there are two linear models overlayed.
@@ -125,7 +142,7 @@ xName <- "StorkPairCount"
 yName <- "BirthRate"
 colorName <- "Extreme"
 colorExtreme <- c("FALSE"="#65B8B0", "TRUE"="#E25E4D") #Darker; http://www.colourlovers.com/palette/3216214/serenity_now
-fillExtreme <- c("FALSE"="#BCD8D7", "TRUE"="#E25E4D") #Green is lighter; http://www.colourlovers.com/palette/3216214/serenity_now
+fillExtreme <- c("FALSE"="#BCD8D744", "TRUE"="#E25E4D44") #Green is lighter; http://www.colourlovers.com/palette/3216214/serenity_now
 #fillExtreme <- c("FALSE"="#BCD8D7", "TRUE"="#E2884D") #Both are lighter; http://www.colourlovers.com/palette/3216214/serenity_now
 
 mWithOutlier <- lm(as.formula(paste(yName, "~", xName)), dsPlot)
@@ -149,6 +166,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
   labs(x="Number of Storks (by Pairs)", y="Number of Human Births")
 
 rm(eqn)
+
 #####################################
 ## @knitr Figure05_08
 dsPlotWithoutOutliers <- dsStork[!dsStork$Extreme, ]
@@ -173,8 +191,67 @@ ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fil
   chapterTheme +
   labs(x="Number of Storks (by Pairs)", y="Number of Human Births")
 
-rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName)
+rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName, colorName, colorExtreme, fillExtreme)
 
+#####################################
+## @knitr Figure05_09
+dsWorldRestricted <- dsWorldBirthDeathRates[!dsWorldBirthDeathRates$Omitted, ]
+eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldRestricted)))))
+
+ggplot(dsWorldRestricted, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted)) +
+  annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
+  geom_point(shape=1) +
+  scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
+  scale_colour_manual(values=paletteWorldDeathsRestricted, guide=FALSE) +
+  chapterTheme +
+  labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
+rm(dsWorldRestricted, eqn)
+
+#####################################
+## @knitr Figure05_10
+eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldBirthDeathRates)))))
+ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted)) +
+  annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
+  geom_vline(x=30, color=paletteWorldDeathsRestricted[1], size=3, alpha=.1) +
+  geom_vline(x=30, color=paletteWorldDeathsRestricted[2], size=3, alpha=.1) +
+  geom_point(shape=1) +
+  scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
+  scale_colour_manual(values=paletteWorldDeathsRestricted, guide=FALSE) +
+  chapterTheme +
+  labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
+rm(eqn)
+
+#####################################
+## @knitr Figure05_11
+paletteSmokingRestrictedLight <- c("#38D88D22", "#3CBEE622") #Hand-picked
+paletteSmokingRestrictedDark <- c("#2FB476", "#2F95B4") #Hand-picked
+
+eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsSmoking)))))
+ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
+  annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
+  geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
+  geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
+  geom_point(shape=21, size=4, na.rm=T) + 
+  scale_x_continuous(limits=range(dsSmoking$TaxCentsPerPack)) +
+  scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
+  scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +
+  chapterTheme +
+  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cirgarette Smoking Pervalence (in 2009)")
+rm(eqn)
+
+#####################################
+## @knitr Figure05_12
+eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsSmoking[!dsSmoking$Omitted, ])))))
+ggplot(dsSmoking[!dsSmoking$Omitted, ], aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
+  annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
+  geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
+  geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
+  geom_point(shape=21,  size=4, na.rm=T) + 
+  scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
+  scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +
+  chapterTheme +
+  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cirgarette Smoking Pervalence (in 2009)")
+rm(eqn)
 
 #####################################
 # TODO: 

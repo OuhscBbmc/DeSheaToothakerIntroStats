@@ -22,9 +22,9 @@ chapterTheme <- BookTheme  +
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
-dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv")
-dsObesity <- read.csv("./Data/FoodHardshipObesity.csv")
-dsSmoking <- read.csv("./Data/SmokingTax.csv")
+dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv", stringsAsFactors=FALSE)
+dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
+dsSmoking <- read.csv("./Data/SmokingTax.csv", stringsAsFactors=FALSE)
 #####################################
 ## @knitr TweakDatasets
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
@@ -206,10 +206,6 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)") +
     theme(legend.title=element_text(colour="gray40"), legend.text=element_text(colour="gray40"))  
-  #   theme(legend.text=element_text(colour=paletteObesityState))  
-#   guides(colour=guide_legend(override.aes=list(colour=paletteObesityState)))
-# guides(colour=guide_legend(override.aes=list(colour=paletteObesityState)))
-  
 
 hardshipRange <- range(dsObesity$FoodHardshipRate)
 obesityRange <- range(dsObesity$ObesityRate)

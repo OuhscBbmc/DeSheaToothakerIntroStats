@@ -28,7 +28,7 @@ emptyTheme <- theme_minimal() +
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
-dsFibromyalgia <- read.csv("./Data/FibromyalgiaTaiChi.csv")
+dsFibromyalgia <- read.csv("./Data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 #####################################
 ## @knitr TweakDatasets
 

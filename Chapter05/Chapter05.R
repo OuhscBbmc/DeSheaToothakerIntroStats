@@ -80,12 +80,12 @@ eqn <- as.character(as.expression(
                   r2=round(summary(m)$r.squared, digits=3)))
 ))
 gObesity +
-  annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
+#   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
   annotate("text", label="italic(bar(x))", x=mean(dsPlot[, xName], na.rm=T), y=Inf, hjust=.5, vjust=1.5, parse=TRUE, size=7, color="orange") +
   annotate("text", label="italic(bar(y))", x=Inf, y=mean(dsPlot[, yName], na.rm=T), hjust=1.5, vjust=.5, parse=TRUE, size=7, color="orange") +
   geom_vline(x=mean(dsPlot[, xName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
   geom_hline(y=mean(dsPlot[, yName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
-  geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T)
+#   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T)
 
 rm(m, eqn, gObesity, xName, yName)
 #####################################
@@ -104,11 +104,11 @@ eqn <- as.character(as.expression(
                   rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
 ))
 ggplot(dsPlot,  aes_string(x=xName, y=yName)) +
-  annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
-  annotate("text", label="Should predictions\ndrop below this line?", x=-Inf, y=0, hjust=-0, vjust=.5, parse=F, size=5, color="tomato") +
-  geom_hline(y=0, color="tomato", size=1) +
-  geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T) +
-  geom_smooth(method="loess", color="purple", fill="purple", alpha=.2, na.rm=T) +
+#   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
+#   annotate("text", label="Should predictions\ndrop below this line?", x=-Inf, y=0, hjust=-0, vjust=.5, parse=F, size=5, color="tomato") +
+#   geom_hline(y=0, color="tomato", size=1) +
+#   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T) +
+#   geom_smooth(method="loess", color="purple", fill="purple", alpha=.2, na.rm=T) +
   geom_point(shape=1, size=3, na.rm=T, position = position_jitter(w=.4, h=0)) +  
   scale_x_continuous() +
   scale_y_continuous(label=scales::comma) +  
@@ -136,8 +136,8 @@ eqn <- as.character(as.expression(
                   rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
 ))
 ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
-  annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color=colorExtreme[2]) +
-  geom_smooth(method="lm", color=colorExtreme[2], fill=NA, size=2) +
+#   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color=colorExtreme[2]) +
+#   geom_smooth(method="lm", color=colorExtreme[2], fill=NA, size=2) +
   geom_point(shape=21, size=4) +  
   scale_x_continuous(label=scales::comma) +
   scale_y_continuous(label=scales::comma) +  
@@ -160,10 +160,10 @@ eqn <- as.character(as.expression(
                   rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
 ))
 ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
-  annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
+#   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
   #geom_smooth(data=dsStork, method="lm", color=adjustcolor(fillExtreme[2], alpha.f=.5), fill=NA, size=1) +
-  geom_smooth(data=dsStork, method="lm", color=colorExtreme[2], fill=NA, size=1) +
-  geom_smooth(method="lm", color="orange", fill=NA, size=2) +
+#   geom_smooth(data=dsStork, method="lm", color=colorExtreme[2], fill=NA, size=1) +
+#   geom_smooth(method="lm", color="orange", fill=NA, size=2) +
   geom_point(shape=21, size=4) +  
   scale_x_continuous(label=scales::comma, expand=c(50, 50)) +
   scale_y_continuous(label=scales::comma) +  

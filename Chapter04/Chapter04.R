@@ -14,6 +14,7 @@ require(reshape2) #For converting wide to long
 #####################################
 ## @knitr DeclareGlobals
 source("./CommonCode/BookTheme.R")
+calculatedPointCount <- 401
 
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
@@ -141,7 +142,6 @@ grid.arrange(
 ## @knitr Figure04_04
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #For using equations in a plot, see Recipes 5.9 & 7.2 in Chang (2013)
-calculatedPointCount <- 401
 lineSizeCurve <- 1
 lineAlpha <- .5
 dsNorm <- data.frame(

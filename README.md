@@ -16,6 +16,10 @@ Middle, Spread and Skewness (*Will's graphs are incomplete*)
 
 [Chapter 5](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter05/Chapter05.md): Graphing Data (*Will's graphs are incomplete*)
 
+*(Chapter 6 currently has no graphs)*
+
+[Chapter 7](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter07/Chapter07.md): Graphing Data (*Will's graphs are incomplete*)
+
 ---
 
 ## License

@@ -97,6 +97,7 @@ ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
   labs(title="Obesity Rate in 2011", x="Percent of Residents in a State", y=NULL)
 #####################################
 ## @knitr Figure03_06
+#If this changes, change the Chapter07 histograms too
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
   geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +

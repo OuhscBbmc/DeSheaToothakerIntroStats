@@ -48,6 +48,8 @@ breaksX <- seq(from=7, to=23, by=1)
 histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   geom_histogram(breaks=breaksX, fill=paletteControlPsqi[1], color="gray95", alpha=.6) + 
   chapterTheme +
+  theme(panel.grid.minor=element_blank()) +
+  theme(panel.grid.major.x=element_blank()) +
   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
 
 histogramX 
@@ -133,6 +135,8 @@ histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + 
   labs(x="Z", y=NULL) + 
   chapterTheme +
+  theme(panel.grid.minor=element_blank()) +
+  theme(panel.grid.major.x=element_blank()) +
   labs(x="Z Score for Baseline PSQI", y=NULL)
 
 grid.arrange(

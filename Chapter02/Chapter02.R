@@ -8,7 +8,8 @@ require(ggplot2)
 ## @knitr DeclareGlobals
 source("./CommonCode/BookTheme.R")
 chapterTheme <- BookTheme +
-  theme(axis.title.y=element_blank())
+  theme(axis.title.y=element_blank()) +
+  theme(panel.grid.minor=element_blank()) 
 
 #####################################
 ## @knitr LoadDatasets
@@ -50,4 +51,3 @@ ggplot(dsSkewNegative, aes(x=Systolic)) +
   labs(x="Systolic Blood Pressure")
 
 #####################################
-# TODO: Questions for Lise:

@@ -51,7 +51,19 @@ read_chunk("./Chapter03/Chapter03.R")
 
 
 ## Figure 3-1
+
+```
+The two rotations demonstrate that the nonzero angle favors some slices more than others.
+```
+
 <img src="figure_rmd/Figure03_01.png" title="plot of chunk Figure03_01" alt="plot of chunk Figure03_01" width="600px" />
+
+
+```
+To demonstrate the weaknesses a pie chart, we shouldn't use a dataset that has an angle at 90, 180, or 270 degrees.  Something like this is almost impossible to tell the ratio between the slices.
+```
+
+<img src="figure_rmd/Figure03_01Bad.png" title="plot of chunk Figure03_01Bad" alt="plot of chunk Figure03_01Bad" width="600px" />
 
 
 ## Figure 3-2
@@ -59,7 +71,7 @@ read_chunk("./Chapter03/Chapter03.R")
 
 
 ## Figure 3-3
-<img src="figure_rmd/Figure03_03.png" title="plot of chunk Figure03_03" alt="plot of chunk Figure03_03" height="150px" />
+<img src="figure_rmd/Figure03_03.png" title="plot of chunk Figure03_03" alt="plot of chunk Figure03_03" width="600px" />
 
 
 ## Figure 3-4
@@ -67,29 +79,29 @@ read_chunk("./Chapter03/Chapter03.R")
 
 
 ## Figure 3-5
-<img src="figure_rmd/Figure03_05.png" title="plot of chunk Figure03_05" alt="plot of chunk Figure03_05" width="400px" />
+<img src="figure_rmd/Figure03_05.png" title="plot of chunk Figure03_05" alt="plot of chunk Figure03_05" height="150px" />
 
 
 ## Figure 3-6
-<img src="figure_rmd/Figure03_061.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" /><img src="figure_rmd/Figure03_062.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="600px" />
+<img src="figure_rmd/Figure03_06.png" title="plot of chunk Figure03_06" alt="plot of chunk Figure03_06" width="400px" />
 
 
 ## Figure 3-7
-<img src="figure_rmd/Figure03_07.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
+<img src="figure_rmd/Figure03_071.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" /><img src="figure_rmd/Figure03_072.png" title="plot of chunk Figure03_07" alt="plot of chunk Figure03_07" width="600px" />
 
 
 ## Figure 3-8
-<img src="figure_rmd/Figure03_081.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
+<img src="figure_rmd/Figure03_08.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
+
+
+## Figure 3-9
+<img src="figure_rmd/Figure03_091.png" title="plot of chunk Figure03_09" alt="plot of chunk Figure03_09" width="600px" />
 
 ```
 Warning: Removed 17 rows containing missing values (geom_path).
 ```
 
-<img src="figure_rmd/Figure03_082.png" title="plot of chunk Figure03_08" alt="plot of chunk Figure03_08" width="600px" />
-
-
-## Figure 3-9
-<img src="figure_rmd/Figure03_09.png" title="plot of chunk Figure03_09" alt="plot of chunk Figure03_09" width="200px" />
+<img src="figure_rmd/Figure03_092.png" title="plot of chunk Figure03_09" alt="plot of chunk Figure03_09" width="600px" />
 
 
 ## Figure 3-10
@@ -101,7 +113,11 @@ Warning: Removed 17 rows containing missing values (geom_path).
 
 
 ## Figure 3-12
-<img src="figure_rmd/Figure03_121.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" />
+<img src="figure_rmd/Figure03_12.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" />
+
+
+## Figure 3-13
+<img src="figure_rmd/Figure03_131.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="200px" />
 
 ```
  [1] 1.928 2.155 2.722 2.835 3.147 3.202 3.232 3.289 3.317 3.402 3.487 3.540 3.742 3.770 4.082 4.090
@@ -131,35 +147,35 @@ Warning: Removed 17 rows containing missing values (geom_path).
 1.928 2.913 3.303 3.691 4.090 
 ```
 
-<img src="figure_rmd/Figure03_122.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" /><img src="figure_rmd/Figure03_123.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="200px" />
-
-
-## Figure 3-13
-<img src="figure_rmd/Figure03_13.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="600px" />
+<img src="figure_rmd/Figure03_132.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="200px" /><img src="figure_rmd/Figure03_133.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="200px" />
 
 
 ## Figure 3-14
-<img src="figure_rmd/Figure03_141.png" title="plot of chunk Figure03_14" alt="plot of chunk Figure03_14" width="600px" /><img src="figure_rmd/Figure03_142.png" title="plot of chunk Figure03_14" alt="plot of chunk Figure03_14" width="600px" />
+<img src="figure_rmd/Figure03_14.png" title="plot of chunk Figure03_14" alt="plot of chunk Figure03_14" width="600px" />
 
 
 ## Figure 3-15
-<img src="figure_rmd/Figure03_15.png" title="plot of chunk Figure03_15" alt="plot of chunk Figure03_15" height="200px" />
+<img src="figure_rmd/Figure03_151.png" title="plot of chunk Figure03_15" alt="plot of chunk Figure03_15" width="600px" /><img src="figure_rmd/Figure03_152.png" title="plot of chunk Figure03_15" alt="plot of chunk Figure03_15" width="600px" />
 
 
 ## Figure 3-16
-<img src="figure_rmd/Figure03_161.png" title="plot of chunk Figure03_16" alt="plot of chunk Figure03_16" height="200px" /><img src="figure_rmd/Figure03_162.png" title="plot of chunk Figure03_16" alt="plot of chunk Figure03_16" height="200px" /><img src="figure_rmd/Figure03_163.png" title="plot of chunk Figure03_16" alt="plot of chunk Figure03_16" height="200px" />
+<img src="figure_rmd/Figure03_16.png" title="plot of chunk Figure03_16" alt="plot of chunk Figure03_16" height="200px" />
+
+
+## Figure 3-17
+<img src="figure_rmd/Figure03_171.png" title="plot of chunk Figure03_17" alt="plot of chunk Figure03_17" height="200px" /><img src="figure_rmd/Figure03_172.png" title="plot of chunk Figure03_17" alt="plot of chunk Figure03_17" height="200px" /><img src="figure_rmd/Figure03_173.png" title="plot of chunk Figure03_17" alt="plot of chunk Figure03_17" height="200px" />
 
 ```
 Warning: Removed 1 rows containing missing values (stat_summary).
 ```
 
-<img src="figure_rmd/Figure03_164.png" title="plot of chunk Figure03_16" alt="plot of chunk Figure03_16" height="200px" />
+<img src="figure_rmd/Figure03_174.png" title="plot of chunk Figure03_17" alt="plot of chunk Figure03_17" height="200px" />
 
 ```
 Warning: Removed 1 rows containing missing values (stat_summary).
 ```
 
-<img src="figure_rmd/Figure03_165.png" title="plot of chunk Figure03_16" alt="plot of chunk Figure03_16" height="200px" />
+<img src="figure_rmd/Figure03_175.png" title="plot of chunk Figure03_17" alt="plot of chunk Figure03_17" height="200px" />
 
 
 ## Session Info
@@ -167,11 +183,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-17, 17:36:53 -0600
+Report created by Will at 2014-01-28, 21:00:42 -0600
 ```
 
 ```
-R Under development (unstable) (2014-01-15 r64790)
+R Under development (unstable) (2014-01-24 r64871)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -182,12 +198,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] extrafont_0.16     epade_0.3.8        plotrix_3.5-2      reshape2_1.2.2     ggplot2_0.9.3.1    scales_0.2.3      
-[7] plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
+ [1] dichromat_2.0-0    extrafont_0.16     epade_0.3.8        plotrix_3.5-3      reshape2_1.2.2     ggplot2_0.9.3.1   
+ [7] scales_0.2.3       plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 dichromat_2.0-0  digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10    
- [7] grid_3.1.0       gtable_0.1.2     labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10    
-[13] Rcpp_0.10.6      Rttf2pt1_1.2     stringr_0.6.2    tools_3.1.0     
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     grid_3.1.0      
+ [7] gtable_0.1.2     labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.10.6     
+[13] Rttf2pt1_1.2     stringr_0.6.2    tools_3.1.0     
 ```
 

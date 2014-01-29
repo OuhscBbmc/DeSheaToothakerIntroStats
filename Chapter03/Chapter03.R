@@ -47,6 +47,7 @@ dsPregnancyLong$TimePoint <- as.integer(gsub(pattern="T(\\d)Lifts", "\\1", dsPre
 dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoint", "Group"), summarize, CountMean=mean(LiftCount, na.rm=T))
 #####################################
 ## @knitr Figure03_01
+cat("The two rotations demonstrate that the nonzero angle favors some slices more than others.")
 oldPar <- par(mfrow=c(1, 2)) #par(mfrow=c(1, 1))
 #Left Panel
 pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, height=.5,
@@ -55,15 +56,30 @@ pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod
 pie3D(x=dsPregnancySummarized$Count, labels=NULL, height=.5, 
       edges=1000, start=pi*5/5, theta=pi/10, mar=c(0, 0, 0, 0))
 par(oldPar)
+
+#####################################
+## @knitr Figure03_01Bad
+cat("To demonstrate the weaknesses a pie chart, we shouldn't use a dataset that has an angle at 90, 180, or 270 degrees.  Something like this is almost impossible to tell the ratio between the slices.")
+pieval <- c(2,4,6,8)
+pielabels <- c("We hate\n pies","We oppose\n  pies","We don't\n  care","We just love pies")
+pie3D(pieval, radius=0.9, labels=pielabels, explode=0.1, main="3D PIE OPINIONS") #Documentation example of pie3D
+
 #####################################
 ## @knitr Figure03_02
+oldPar <- par(mar=c(0,0,0,0))
+graphics::pie(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, col=palettePregancyDelivery, clockwise=TRUE)
+par(oldPar)
+
+#####################################
+## @knitr Figure03_03
 dsPregnancy$Dummy <- factor(1, levels=c(1,2))
-epade::bar3d.ade(x=dsPregnancy$DeliveryMethod, y=dsPregnancy$Dummy, 
+epade::bar3d.ade(x=factor(dsPregnancy$DeliveryMethod), y=dsPregnancy$Dummy, 
                  xlab="", zticks=c("", ""), zlab="", 
                  col=c("red", NA, "cyan", NA), wall=2)
 dsPregnancy$Dummy <- NULL
+
 #####################################
-## @knitr Figure03_03
+## @knitr Figure03_04
 ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity") +
   scale_fill_manual(values=palettePregancyDelivery) +
@@ -71,8 +87,9 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme_bw() +
   theme(legend.position = "none") +
   labs(x=NULL, y="Number of Participants")
+
 #####################################
-## @knitr Figure03_04
+## @knitr Figure03_05
 ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity", alpha=.6) +
   geom_text(stat="identity", size=6, hjust=1.1)  +
@@ -82,8 +99,9 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme(legend.position = "none") +
   theme(axis.text.y=element_text(size=14)) +
   labs(x=NULL, y="Number of Participants")
+
 #####################################
-## @knitr Figure03_05
+## @knitr Figure03_06
 #Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
 stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
@@ -95,8 +113,9 @@ ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
   chapterTheme +
   theme(panel.grid.major.y= element_blank()) +
   labs(title="Obesity Rate in 2011", x="Percent of Residents in a State", y=NULL)
+
 #####################################
-## @knitr Figure03_06
+## @knitr Figure03_07
 #If this changes, change the Chapter07 histograms too
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
   geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
@@ -108,17 +127,19 @@ ggplot(dsObesity, aes(x=ObesityRate)) +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   labs(x="Obesity Rate (in 2011)", y="Number of States")
+
 #####################################
-## @knitr Figure03_07
+## @knitr Figure03_08
 CreateFakeMeans <- function( d ) {
   data.frame(
     TimePoint = rep(d$TimePoint, times=d$CountMean), 
     Group = rep(d$Group, times=d$CountMean)
 )}
 dsPregnancyLongSummarizedFakeTable <- ddply(dsPregnancyLongSummarized, .variables=c("TimePoint", "Group"), CreateFakeMeans)
-bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3)
+bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3, alpha=.5, legendon="top", ylim=c(0, 30))
+
 #####################################
-## @knitr Figure03_08
+## @knitr Figure03_09
 gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
@@ -130,8 +151,9 @@ gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=Count
 gLongitudinalLifts
 
 gLongitudinalLifts + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T) 
+
 #####################################
-## @knitr Figure03_09
+## @knitr Figure03_10
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
 #See Chang (2013), Recipe 6.6.  We added (arbitrary) x-axis limits to force the box narrower. 
 outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
@@ -145,24 +167,27 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Adult Smoking Prevalence (in 2009)")
+
 #####################################
-## @knitr Figure03_10
+## @knitr Figure03_11
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
   geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
   scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
+
 #####################################
-## @knitr Figure03_11
+## @knitr Figure03_12
 ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
   geom_boxplot( outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
   scale_fill_manual(values=palettePregancyGroup) +
   chapterTheme +
   theme(legend.position="none") + 
   labs(x=NULL, y="Baby Birth Weight (in kg)")
+
 #####################################
-## @knitr Figure03_12
+## @knitr Figure03_13
 g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
   geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5, type=1) +  
   scale_fill_manual(values=palettePregancyDelivery) +
@@ -187,7 +212,7 @@ g + annotate(geom="text", x=1, y=approach2, label=round(approach2, 3), hjust=-.1
 
 rm(g)
 #####################################
-## @knitr Figure03_13
+## @knitr Figure03_14
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   geom_point(shape=1, size=3, color="aquamarine4") + #This color should match the obesity Cleveland dot plot
   scale_x_continuous(label=scales::percent) +
@@ -196,7 +221,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   chapterTheme +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 #####################################
-## @knitr Figure03_14
+## @knitr Figure03_15
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Location)) +
   geom_text(size=3, alpha=1) +
   scale_x_continuous(label=scales::percent) +
@@ -224,9 +249,8 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n[Southern]", hjust=0, colour=paletteObesityState[2], size=4) +
   annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n\n\n[Other]", hjust=0, colour=paletteObesityState[1], size=4)
 
-
 #####################################
-## @knitr Figure03_15
+## @knitr Figure03_16
 g03_14 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
   geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.7 ) +
 #   scale_y_continuous(limits = c(18, 21)) +
@@ -236,8 +260,9 @@ g03_14 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
   labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
 
 g03_14 + coord_flip(ylim = c(18, 21))
+
 #####################################
-## @knitr Figure03_16
+## @knitr Figure03_17
 g03_14 + coord_flip(ylim = c(0, 21))
 
 ### Possible Narration:
@@ -269,12 +294,13 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
-  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+  labs(x=NULL, y="Number of Lifts (at Time 1)")
 
 ### Possible Narration:
 ### The number of summary layers doesn't need to stop at two.  
 ### A diamond below represent the group's mean.
 
+set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
@@ -284,7 +310,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
-  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+  labs(x=NULL, y="Number of Lifts (at Time 1)")
   
 ### Possible Narration:
 ### Compare this with Fig 3-13 (ie the second bar chart in this section).  These two small diamonds represent *every piece of information* in the bar chart.
@@ -300,7 +326,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
-  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+  labs(x=NULL, y="Number of Lifts (at Time 1)")
 
 ### Possible Narration:
 ### Consider your audience's starting point.  DOn't just throw a bunch of layers and expect they'll understand the conventions you've chosen.

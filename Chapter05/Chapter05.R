@@ -160,7 +160,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
   coord_cartesian(xlim=c(-500, 1.1*max(dsPlot[, xName])), ylim=c(-5, 1.05*max(dsPlot[, yName]))) +
   
   chapterTheme +
-  labs(x="Number of Stork Pairs", y="Number of Human Births")
+  labs(x="Number of Stork Pairs", y="Number of Human Births (in thousands)")
 
 rm(eqn)
 
@@ -186,7 +186,7 @@ ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fil
   scale_fill_manual(guide=FALSE, values=fillExtreme) + 
   coord_cartesian(xlim=c(-200, 1.1*max(dsPlotWithoutOutliers[, xName])), ylim=c(-5, 1.05*max(dsPlotWithoutOutliers[, yName]))) +
   chapterTheme +
-  labs(x="Number of Stork Pairs", y="Number of Human Births")
+  labs(x="Number of Stork Pairs", y="Number of Human Births (in thousands)")
 
 rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName, colorName, colorExtreme, fillExtreme)
 
@@ -225,7 +225,9 @@ rm(eqn)
 paletteSmokingRestrictedLight <- c("#38D88D22", "#3CBEE622") #Hand-picked
 paletteSmokingRestrictedDark <- c("#2FB476", "#2F95B4") #Hand-picked
 
-eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsSmoking)))))
+
+#eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsSmoking)))))
+eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=sum(!is.na(dsSmoking$TaxCentsPerPack) & !is.na(dsSmoking$YouthCigaretteUse))))))
 ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
   geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
@@ -236,13 +238,14 @@ ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fil
   scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
   scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +
   chapterTheme +
-  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Pervalence (in 2009)")
+  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Prevalence (in 2009)")
 rm(eqn)
 
 #####################################
 ## @knitr Figure05_12
-eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsSmoking[!dsSmoking$Omitted, ])))))
-ggplot(dsSmoking[!dsSmoking$Omitted, ], aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
+dsSmokingRestricted <- dsSmoking[!dsSmoking$Omitted, ]
+eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=sum(!is.na(dsSmokingRestricted$TaxCentsPerPack) & !is.na(dsSmokingRestricted$YouthCigaretteUse))))))
+ggplot(dsSmokingRestricted, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
   geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
   geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +

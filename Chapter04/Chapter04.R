@@ -216,7 +216,7 @@ zTableTheme <- theme_minimal() +
   theme(panel.grid = element_blank()) +
   theme(axis.text.x = element_text(size=30, color="dodgerblue4")) +
   theme(panel.border = element_blank()) +
-  theme(plot.margin = grid::unit( c(0,0,0,0), "cm")) +
+  theme(plot.margin = grid::unit( c(0,0,.1,0), "lines")) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 ConstructTableHeader <- function( leftBoundary, rightBoundary, singleZ, label ) {

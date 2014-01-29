@@ -90,7 +90,7 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
   annotate("segment", x=groupMean, xend=groupMean, y=arrowHeight, yend=tickRadius*.1, 
            arrow = grid::arrow(length = unit(.4,"cm")), color=colorMeanLight, size=2, lineend="round") +
   annotate("segment", x=singleScore, xend=singleScore, y=arrowHeight, yend=tickRadius*.1, 
-           arrow = grid::arrow(length = unit(.4,"cm"), type="closed"), color=colorSingleLight, size=2, lineend="round") +
+           arrow = grid::arrow(length = unit(.4,"cm"), type="open"), color=colorSingleLight, size=2, lineend="round") +
   
   annotate("segment", x=groupMean, xend=groupMean, y=0, ,yend=yZ, color=colorMeanLight, linetype=2, size=1) +
   annotate("segment", x=singleScore, xend=singleScore, y=0, ,yend=yZ, color=colorSingleLight, linetype=2, size=1) +
@@ -109,12 +109,12 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
   #annotate("text", x=singleScore, y=arrowHeight, vjust=-.38, label="A person's\nscore = 17", color=colorSingleDark) +
   
   annotate("text", x=groupMean, y=arrowHeight, vjust=-.7, label="Group mean", color=colorMeanDark) +
-  annotate("text", x=groupMean, y=-tickRadius, vjust=1, hjust=0, label=as.character(expression(phantom(2)*bar(italic(X))==13.45)), color=colorMeanDark, parse=TRUE) +
-  annotate("text", x=groupMean, y=yZ+tickRadius, vjust=0, hjust=0, label=as.character(expression(phantom(2)*bar(italic(Z))==0)), color=colorMeanDark, parse=TRUE) +
+  annotate("text", x=groupMean, y=-tickRadius, vjust=1, hjust=0, label=as.character(expression(phantom(2)*italic(M)==13.45)), color=colorMeanDark, parse=TRUE) +
+#   annotate("text", x=groupMean, y=yZ+tickRadius, vjust=0, hjust=0, label=as.character(expression(phantom(2)*bar(italic(Z))==0)), color=colorMeanDark, parse=TRUE) +
   
   annotate("text", x=singleScore, y=arrowHeight, vjust=-.7, label="A person's score", color=colorSingleDark) +
-  annotate("text", x=singleScore, y=-tickRadius, vjust=1, hjust=0, label=as.character(expression(phantom(2)*italic(x[1])==17)), color=colorSingleDark, parse=TRUE) +
-  annotate("text", x=singleScore, y=yZ+tickRadius, vjust=0, hjust=-0, label=as.character(expression(phantom(2)*italic(z[1])==.98)), color=colorSingleDark, parse=TRUE) +
+#   annotate("text", x=singleScore, y=-tickRadius, vjust=1, hjust=0, label=as.character(expression(phantom(2)*italic(x[1])==17)), color=colorSingleDark, parse=TRUE) +
+  annotate("text", x=singleScore, y=yZ+tickRadius, vjust=0, hjust=-0, label=as.character(expression(phantom(2)*italic(z)==.98)), color=colorSingleDark, parse=TRUE) +
   
   scale_x_continuous(expand=c(0,0), limits=c(12, 18.1)) +
   scale_y_continuous(limits=c((yZ -tickRadius)*1.15, arrowHeight*1.3)) +  
@@ -124,14 +124,14 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
 ## @knitr Figure04_03
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
 breaksZ <- scale(breaksX)
+histogramXInset <- histogramX + scale_x_continuous(breaks=breaksX) + labs(x="Control Group's Baseline PSQI", y=NULL)
+
 histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
   scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + 
   labs(x="Z", y=NULL) + 
   chapterTheme +
-  labs(x="Control Group's Baseline PSQI", y="Number of Participants")
-
-histogramXInset <- histogramX + scale_x_continuous(breaks=breaksX) + labs(x="X", y=NULL)
+  labs(x="Z Score for Baseline PSQI", y=NULL)
 
 grid.arrange(
   histogramXInset, 
@@ -166,8 +166,10 @@ g <- ggplot(dsNorm, aes(x=Mean, xend=Mean, y=Mode, yend=0, color=Color)) +
   geom_segment(alpha=lineAlpha) +
   scale_x_continuous(limits=c(-3, 5)) +
   scale_color_identity() +
-  expand_limits(y=max(dsNorm$Mode)*1.07) +
-  emptyTheme
+  scale_y_continuous(limits=c(0, max(dsNorm$Mode)*1.11), expand=c(0,0)) +
+  NoGridOrYLabelsTheme +
+  theme(axis.title.y=element_blank()) +
+  theme(axis.text.y=element_blank()) 
 
 g
 g %+% 
@@ -213,6 +215,10 @@ g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 #Position the two graphs side by side in the same plot
 gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
 #####################################
+## @knitr Figure04_06
+#TODO: add the little shaded pdfs that sit on top of the tables.
+
+#####################################
 ## @knitr Figure04_08
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #To turn off clipping, see http://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot.
@@ -220,7 +226,7 @@ singleZ <- 1.48
 gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -Inf, singleZ), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue2") +
-  annotate("segment", x=singleZ, xend=singleZ, y=0, yend=Inf, color="dodgerblue4", size=3) +
+  annotate("segment", x=singleZ, xend=singleZ, y=0, yend=Inf, color="dodgerblue4", size=1.5) +
   annotate("text", x=singleZ, y=0, label=singleZ, vjust=1.2, color="dodgerblue4", size=8) +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +

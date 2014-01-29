@@ -5,7 +5,7 @@ This report creates the chapter graphs.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
 ```r
-opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -espeically one that uses file paths.
+opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 
@@ -168,7 +168,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-28, 21:30:16 -0600
+Report created by Will at 2014-01-28, 22:50:30 -0600
 ```
 
 ```
@@ -180,15 +180,15 @@ locale:
 [4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
  [1] dichromat_2.0-0    extrafont_0.16     epade_0.3.8        plotrix_3.5-3      reshape2_1.2.2     ggplot2_0.9.3.1   
  [7] scales_0.2.3       plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     grid_3.1.0      
- [7] gtable_0.1.2     labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.10.6     
-[13] Rttf2pt1_1.2     stringr_0.6.2    tools_3.1.0     
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.10.6      Rttf2pt1_1.2    
+[13] stringr_0.6.2    tools_3.1.0     
 ```
 

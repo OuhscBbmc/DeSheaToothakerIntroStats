@@ -19,11 +19,6 @@ calculatedPointCount <- 401
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-noGridTheme <- BookTheme  + 
-  theme(axis.ticks.y = element_blank()) +
-  theme(panel.grid = element_blank()) +
-  theme(plot.margin=unit(c(.1,.2,.2,0),"lines"))
-
 emptyTheme <- theme_minimal() +
   theme(axis.text = element_blank()) +
   theme(axis.title = element_blank()) +
@@ -64,14 +59,14 @@ gSampleShrunk <- gSample +
   geom_histogram(binwidth=2.5, fill="coral4", color=NA, alpha=.6) + 
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   labs(x=NULL, y=NULL) +
-  noGridTheme
+  NoGridOrYLabelsTheme
 
 gMeanSample <- ggplot(data.frame(X=0:45, Y=0:1), aes(x=X, y=Y)) +
   geom_blank() +
   scale_x_continuous(limits=c(0,45), expand=c(0,0), breaks=19.41) +
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   labs(x=NULL, y=NULL) +
-  noGridTheme
+  NoGridOrYLabelsTheme
 # gMeanSample
 
 gMeanPopulation <- ggplot(data.frame(X=0:45, Y=0:1), aes(x=X, y=Y)) +
@@ -79,7 +74,7 @@ gMeanPopulation <- ggplot(data.frame(X=0:45, Y=0:1), aes(x=X, y=Y)) +
   scale_x_continuous(limits=c(0,45), expand=c(0,0), breaks=21) +
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   labs(x=NULL, y=NULL) +
-  noGridTheme
+  NoGridOrYLabelsTheme
 # gMeanPopulation
 
 cat("Lise, is this what you had in mind?  Is the publisher going to add the surrounding text in a table format?  I'm thinking that's the easiest way to get the font size to closely match.")
@@ -100,7 +95,7 @@ ggplot(dsNorm, aes(x=X)) +
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   expand_limits(y=max(dnorm(0)*1.07)) +
   labs(x=expression(mu), y=NULL) +
-  noGridTheme
+  NoGridOrYLabelsTheme
 rm(dsNorm)
 #####################################
 ## @knitr Figure07_04
@@ -132,7 +127,7 @@ ggplot(dsNorm, aes(x=X)) +
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   expand_limits(y=max(dnorm(0)*1.07)) +
   labs(x=expression(italic(z)==0), y=NULL) +
-  noGridTheme
+  NoGridOrYLabelsTheme
 rm(dsNorm)
 
 #####################################

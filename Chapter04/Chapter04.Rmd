@@ -4,7 +4,7 @@ This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 ```{r, echo=TRUE, message=F} 
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -espeically one that uses file paths.
+opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
@@ -61,13 +61,8 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-5
 ```{r Figure04_05, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width="900px"}
 ```
-## Figure 4-6
+## Figures 4-6 & 4-7
 ```{r Figure04_06, echo=echoChunks, results='show', message=TRUE}
-cat("Lise, Let's talk about this one first.")
-```
-## Figure 4-7
-```{r Figure04_07, echo=echoChunks, results='show', message=TRUE}
-cat("Lise, Let's talk about this one first.")
 ```
 ## Figure 4-8
 ```{r Figure04_08, echo=echoChunks, results='show', message=TRUE, fig.height=3}

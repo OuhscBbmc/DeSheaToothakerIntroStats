@@ -5,7 +5,7 @@ This report creates the chapter graphs.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
 ```r
-opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -espeically one that uses file paths.
+opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 
@@ -89,11 +89,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-28, 00:13:19 -0600
+Report created by Will at 2014-01-28, 22:50:53 -0600
 ```
 
 ```
-R Under development (unstable) (2014-01-22 r64855)
+R Under development (unstable) (2014-01-24 r64871)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:

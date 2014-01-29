@@ -57,7 +57,7 @@ gObesity
 #####################################
 ## @knitr Figure05_02
 ggplot(dsPerfectPositive, aes(x=NumberOfLitersBought, y=Price)) +
-  geom_point(shape=1, size=3) +
+  geom_point(shape=21, size=3, color="#68663D", fill="#9BA47533") + #http://colrd.com/palette/17498/
   scale_y_continuous(label=scales::dollar) +
   chapterTheme +
   labs(x="Number of Liters of Hand Sanitizer Purchased", y="Total Price (excluding taxes & shipping)")
@@ -65,7 +65,7 @@ ggplot(dsPerfectPositive, aes(x=NumberOfLitersBought, y=Price)) +
 #####################################
 ## @knitr Figure05_03
 ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
-  geom_point(shape=1, size=3, alpha=.3) +
+  geom_point(shape=21, size=3, color="#68663D", fill="#9BA47533") + #http://colrd.com/palette/17498/
   scale_y_continuous(label=scales::dollar) +
   chapterTheme +
   labs(x="Number of Adults Screened for Hypertension", y="Amount Remaining in Gift-Card Budget")
@@ -82,6 +82,7 @@ ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010))
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, the lines aren't dotted anymore.
 
 #See Recipe 5.9 in Chang, 2013 for writing the lm equations in the graph.
+#TODO: fix this run on syntax.
 dsPlot <- dsObesity
 xName <- "FoodHardshipRate"
 yName <- "ObesityRate"
@@ -96,10 +97,10 @@ eqn <- as.character(as.expression(
 ))
 gObesity +
 #   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
-  annotate("text", label="italic(bar(x))", x=mean(dsPlot[, xName], na.rm=T), y=Inf, hjust=.5, vjust=1.5, parse=TRUE, size=7, color="orange") +
-  annotate("text", label="italic(bar(y))", x=Inf, y=mean(dsPlot[, yName], na.rm=T), hjust=1.5, vjust=.5, parse=TRUE, size=7, color="orange") +
+  annotate("text", label="Mean of\nHardship", x=mean(dsPlot[, xName], na.rm=T), y=Inf, hjust=.5, vjust=1.1, parse=F, size=4, color="orange") +
+  annotate("text", label="Mean of\nObesity", x=Inf, y=mean(dsPlot[, yName], na.rm=T), hjust=1.1, vjust=.5, parse=F, size=4, color="orange") +
   geom_vline(x=mean(dsPlot[, xName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
-  geom_hline(y=mean(dsPlot[, yName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
+  geom_hline(y=mean(dsPlot[, yName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) #+
 #   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T)
 
 rm(m, eqn, gObesity, xName, yName)
@@ -163,7 +164,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
   coord_cartesian(xlim=c(-500, 1.1*max(dsPlot[, xName])), ylim=c(-5, 1.05*max(dsPlot[, yName]))) +
   
   chapterTheme +
-  labs(x="Number of Storks (by Pairs)", y="Number of Human Births")
+  labs(x="Number of Stork Pairs", y="Number of Human Births")
 
 rm(eqn)
 
@@ -189,7 +190,7 @@ ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fil
   scale_fill_manual(guide=FALSE, values=fillExtreme) + 
   coord_cartesian(xlim=c(-200, 1.1*max(dsPlotWithoutOutliers[, xName])), ylim=c(-5, 1.05*max(dsPlotWithoutOutliers[, yName]))) +
   chapterTheme +
-  labs(x="Number of Storks (by Pairs)", y="Number of Human Births")
+  labs(x="Number of Stork Pairs", y="Number of Human Births")
 
 rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName, colorName, colorExtreme, fillExtreme)
 
@@ -233,10 +234,11 @@ ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fil
   geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
   geom_point(shape=21, size=4, na.rm=T) + 
   scale_x_continuous(limits=range(dsSmoking$TaxCentsPerPack)) +
+  scale_y_continuous(label=scales::percent) +
   scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
   scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +
   chapterTheme +
-  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cirgarette Smoking Pervalence (in 2009)")
+  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Pervalence (in 2009)")
 rm(eqn)
 
 #####################################
@@ -247,10 +249,11 @@ ggplot(dsSmoking[!dsSmoking$Omitted, ], aes(x=TaxCentsPerPack, y=YouthCigaretteU
   geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
   geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
   geom_point(shape=21,  size=4, na.rm=T) + 
+  scale_y_continuous(label=scales::percent) +
   scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
   scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +
   chapterTheme +
-  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cirgarette Smoking Pervalence (in 2009)")
+  labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Pervalence (in 2009)")
 rm(eqn)
 
 #####################################

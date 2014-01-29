@@ -32,6 +32,7 @@ This report creates the chapter graphs.
 ## Figure 2-1
 
 ```r
+#Figure03-06 uses this too.
 ggplot(dsSkewZero, aes(x=Systolic)) +
   geom_dotplot(binwidth=1, fill="darkgreen", color=NA, method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewZero$Systolic), to=max(dsSkewZero$Systolic), by=1)) +
@@ -92,11 +93,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-15, 00:27:46 -0600
+Report created by Will at 2014-01-28, 22:50:17 -0600
 ```
 
 ```
-R Under development (unstable) (2014-01-13 r64761)
+R Under development (unstable) (2014-01-24 r64871)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -104,15 +105,14 @@ locale:
 [4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] extrafont_0.16  ggplot2_0.9.3.1 knitr_1.5      
+[1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     ggplot2_0.9.3.1    knitr_1.5         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4   dichromat_2.0-0    digest_0.6.4       evaluate_0.5.1     extrafontdb_1.0    formatR_0.10      
- [7] grid_3.1.0         gtable_0.1.2       labeling_0.2       MASS_7.3-29        munsell_0.4.2      plyr_1.8.0.99     
-[13] proto_0.3-10       RColorBrewer_1.0-5 Rcpp_0.10.6        reshape2_1.2.2     Rttf2pt1_1.2       scales_0.2.3      
-[19] stringr_0.6.2      tools_3.1.0       
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    plyr_1.8.0.99    proto_0.3-10     Rcpp_0.10.6     
+[13] reshape2_1.2.2   Rttf2pt1_1.2     scales_0.2.3     stringr_0.6.2    tools_3.1.0     
 ```
 

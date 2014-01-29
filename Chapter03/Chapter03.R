@@ -302,7 +302,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
-  labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
+  labs(x=NULL, y="Number of Lifts (at Time 1)")
 
 #####################################
 ## @knitr Figure03_22

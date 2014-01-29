@@ -5,7 +5,7 @@ This report creates the chapter graphs.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
 ```r
-opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -espeically one that uses file paths.
+opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 
@@ -87,18 +87,18 @@ read_chunk("./Chapter05/Chapter05.R")
 <img src="figure_rmd/Figure05_12.png" title="plot of chunk Figure05_12" alt="plot of chunk Figure05_12" width="600px" />
 
 ## Figure 5-13
-<img src="./../Chapter03/figure_rmd/Figure03_141.png" alt="StateCigarette" style="width: 600px;"/>
+<img src="./../Chapter03/figure_rmd/Figure03_09.png" alt="StateCigarette" style="width: 600px;"/>
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-01-26, 01:23:35 -0600
+Report created by Will at 2014-01-28, 22:50:47 -0600
 ```
 
 ```
-R Under development (unstable) (2014-01-22 r64855)
+R Under development (unstable) (2014-01-24 r64871)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:

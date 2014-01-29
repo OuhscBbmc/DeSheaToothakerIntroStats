@@ -7,6 +7,7 @@
 # extrafont::fonts() #This just lists the available fonts for you to read; similar to extrafont::fonttable()
 
 require(extrafont) 
+require(grid)
 require(ggplot2)
 require(dichromat)
 require(RColorBrewer)
@@ -20,6 +21,11 @@ BookTheme <- theme_bw() +
   theme(axis.title = element_text(colour="gray40")) +
   theme(panel.border = element_rect(colour="gray80")) +
   theme(axis.ticks = element_line(colour="gray80"))
+
+NoGridOrYLabelsTheme <- BookTheme  + 
+  theme(axis.ticks.y = element_blank()) +
+  theme(panel.grid = element_blank()) +
+  theme(plot.margin=unit(c(.1,.2,.2,0), "lines"))
 
 #########################################################
 ### Define palettes for variable sets, so they're consistent across graphs & chapters

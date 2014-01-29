@@ -26,11 +26,6 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
   
-
-paletteWorldDeathsRestricted <- c("#558058", "#A3528C") #http://www.colourlovers.com/palette/3219200/newsong
-
-# paletteSmokingRestrictedColor <- c("#83DCFB", "#FFAE45") #http://www.colourlovers.com/palette/3219181/Punch
-# paletteSmokingRestrictedFill <- c("#83DCFB", "#FFAE45") #http://www.colourlovers.com/palette/3219181/Punch
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -90,7 +85,7 @@ rm(gSample, gSampleShrunk, gMeanSample, gMeanPopulation)
 ## @knitr Figure07_03
 dsNorm <- data.frame(X=21 + -3:3)
 ggplot(dsNorm, aes(x=X)) + 
-  stat_function(fun=dnorm, arg=list(mean=21, sd=1), color="#5D97BD", size=1, n=calculatedPointCount) + #http://www.colourlovers.com/palette/3221823/Blugre
+  stat_function(fun=dnorm, arg=list(mean=21, sd=1), color="dodgerblue2", size=1, n=calculatedPointCount) + 
   scale_x_continuous(breaks=18:24) + 
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   expand_limits(y=max(dnorm(0)*1.07)) +
@@ -101,28 +96,33 @@ rm(dsNorm)
 ## @knitr Figure07_04
 dsUniform <- data.frame(X=c(1,1,2,2,3,3,4,4,5,5,6,6))
 ggplot(dsUniform, aes(x=X)) +
-  geom_histogram(breaks=c(.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), color="#7C8685", fill="#8EABA7CC") + #http://www.colourlovers.com/palette/3221810/shoefly
+  geom_histogram(breaks=c(.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), color="#62603A", fill="#83805388") + #http://colrd.com/palette/25088/
   scale_x_continuous( breaks=1:6) + 
   scale_y_continuous(breaks=0:2) + 
   labs(title="\nPopulation of 12 Scores", x=expression(italic(X)), y="Frequency") +
-  chapterTheme
+  chapterTheme +
+  theme(panel.grid.minor=element_blank()) +
+  theme(panel.grid.major.x=element_blank())
 
 #####################################
 ## @knitr Figure07_05
 cat("Lise, are the subscripts on the x label too much for the reader at this stage?")
 dsUniform <- data.frame(X=2:12, Y=c(1,2,3,4,5,6,5,4,3,2,1))
 ggplot(dsUniform, aes(x=X, y=Y)) +
-  geom_bar(stat="identity", width=1, color="#7C8685", fill="#8EABA7CC") + #http://www.colourlovers.com/palette/3221810/shoefly
+  geom_bar(stat="identity", width=1, color="#62603A", fill="#83805388") + #http://colrd.com/palette/25088/
   scale_x_continuous( breaks=2:12) + 
   scale_y_continuous(breaks=0:6) + 
   labs(title="All Possible Means (N=2)\nfrom Limited Population", x=expression(italic(X)[1] + italic(X)[2]), y="Frequency") +
-  chapterTheme
+  chapterTheme +
+  theme(panel.grid.minor=element_blank()) +
+  theme(panel.grid.major.x=element_blank())
+
 #####################################
 ## @knitr Figure07_06
-cat("Lise, did you want this to be the same color as Figure 7-03?")
+cat("Lise, did you want this to be the same color as Figure 7-03, or different?")
 dsNorm <- data.frame(X=-3:3)
 ggplot(dsNorm, aes(x=X)) +
-  stat_function(fun=dnorm, arg=list(mean=0, sd=1), color="#5D97BD", size=1, n=calculatedPointCount) + #http://www.colourlovers.com/palette/3221823/Blugre
+  stat_function(fun=dnorm, arg=list(mean=0, sd=1), color="dodgerblue2", size=1, n=calculatedPointCount) + 
   scale_x_continuous(breaks=NULL) + 
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   expand_limits(y=max(dnorm(0)*1.07)) +

@@ -47,6 +47,8 @@ palettePregancyGroupBad <- transformColor(adjustcolor(c("blue", "maroon"), alpha
 paletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Set1"))[c(1,2)])
 paletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)])
 
+paletteWorldDeathsRestricted <- c("#497862", "#A54891") #Hand-picked
+paletteWorldDeathsRestrictedFaint <- adjustcolor(paletteWorldDeathsRestricted, alpha.f=.2)
 
 # palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
 # paletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
@@ -87,5 +89,3 @@ LimitRange <- function( fun, min, max ) {
 ### Palettes to consider for future graphs
 #########################################################
 # https://github.com/jrnold/ggthemes
-# http://www.colourlovers.com/palettes/search?query=excel #This one actually has nothing to do with Miscrosoft Excel.
-# http://www.colourlovers.com/lover/sugar%21

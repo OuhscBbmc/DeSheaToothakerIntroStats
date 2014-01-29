@@ -18,10 +18,7 @@ source("./CommonCode/BookTheme.R")
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-paletteWorldDeathsRestricted <- c("#558058", "#A3528C") #http://www.colourlovers.com/palette/3219200/newsong
 
-# paletteSmokingRestrictedColor <- c("#83DCFB", "#FFAE45") #http://www.colourlovers.com/palette/3219181/Punch
-# paletteSmokingRestrictedFill <- c("#83DCFB", "#FFAE45") #http://www.colourlovers.com/palette/3219181/Punch
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -45,7 +42,7 @@ dsSmoking$Omitted <- (dsSmoking$TaxCentsPerPack >= 100)
 ## @knitr Figure05_01
 ## Figure05_01 is linked to the first scatterplot in Chapter 03.
 gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
-  geom_point(shape=1, size=3, color="aquamarine4") + #This color should match the obesity Cleveland dot plot
+  geom_point(shape=21, size=3, color="aquamarine4", fill=adjustcolor("aquamarine4", alpha.f=.1)) + #This color should match the obesity Cleveland dot plot
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
   coord_fixed() + 
@@ -73,7 +70,7 @@ ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
 #####################################
 ## @knitr Figure05_04
 ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010)) +
-  geom_point(shape=1, size=3, color="#755796") + #http://www.colourlovers.com/palette/3219200/newsong
+  geom_point(shape=21, size=3, color="#8C96FF", fill="#8C96FF22") + #Adapted from http://colrd.com/palette/18974/
   chapterTheme +
   labs(x="Birth Rate Per 1,000 Population (in 2010)", y="Adge-Adjusted Death Rate\nper 100,000 Population (in 2010)")
 
@@ -82,19 +79,18 @@ ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010))
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, the lines aren't dotted anymore.
 
 #See Recipe 5.9 in Chang, 2013 for writing the lm equations in the graph.
-#TODO: fix this run on syntax.
 dsPlot <- dsObesity
 xName <- "FoodHardshipRate"
 yName <- "ObesityRate"
 # m <- lm(as.formula("ObesityRate ~ FoodHardshipRate"), dsPlot)
-m <- lm(as.formula(paste(yName, "~", xName)), dsPlot)
-eqn <- as.character(as.expression( 
-  #substitute(italic(y)==a + b * italic(x) * ", " ~ ~italic(r)^2 ~ "=" ~ r2,
-  substitute(italic(y)==a + b * italic(x),
-             list(a=format(coef(m)[1], digits=2),#The intercept
-                  b=format(coef(m)[2], digits=2), #The slope
-                  r2=round(summary(m)$r.squared, digits=3)))
-))
+# m <- lm(as.formula(paste(yName, "~", xName)), dsPlot)
+# eqn <- as.character(as.expression( 
+#   #substitute(italic(y)==a + b * italic(x) * ", " ~ ~italic(r)^2 ~ "=" ~ r2,
+#   substitute(italic(y)==a + b * italic(x),
+#              list(a=format(coef(m)[1], digits=2),#The intercept
+#                   b=format(coef(m)[2], digits=2), #The slope
+#                   r2=round(summary(m)$r.squared, digits=3)))
+# ))
 gObesity +
 #   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
   annotate("text", label="Mean of\nHardship", x=mean(dsPlot[, xName], na.rm=T), y=Inf, hjust=.5, vjust=1.1, parse=F, size=4, color="orange") +
@@ -126,7 +122,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName)) +
 #   geom_hline(y=0, color="tomato", size=1) +
 #   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T) +
 #   geom_smooth(method="loess", color="purple", fill="purple", alpha=.2, na.rm=T) +
-  geom_point(shape=1, size=3, na.rm=T, color="#A3528C", position=position_jitter(w=.4, h=0)) +  #http://www.colourlovers.com/palette/3219200/newsong
+  geom_point(shape=21, size=3, na.rm=T, color="#88419D", fill="#88419D11", position=position_jitter(w=.4, h=0)) +
   scale_x_continuous() +
   scale_y_continuous(label=scales::comma) +  
   chapterTheme +
@@ -142,9 +138,9 @@ dsPlot <- dsStork
 xName <- "StorkPairCount"
 yName <- "BirthRate"
 colorName <- "Extreme"
-colorExtreme <- c("FALSE"="#65B8B0", "TRUE"="#E25E4D") #Darker; http://www.colourlovers.com/palette/3216214/serenity_now
-fillExtreme <- c("FALSE"="#BCD8D744", "TRUE"="#E25E4D44") #Green is lighter; http://www.colourlovers.com/palette/3216214/serenity_now
-#fillExtreme <- c("FALSE"="#BCD8D7", "TRUE"="#E2884D") #Both are lighter; http://www.colourlovers.com/palette/3216214/serenity_now
+colorExtreme <- c("FALSE"="#3288BD", "TRUE"="#D53E4F") #Darker; http://colrd.com/palette/18893/
+fillExtreme <- c("FALSE"="#66C2A544", "TRUE"="#F46D4344") #Green http://colrd.com/palette/18893/
+
 
 mWithOutlier <- lm(as.formula(paste(yName, "~", xName)), dsPlot)
 eqn <- as.character(as.expression( 
@@ -199,11 +195,12 @@ rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName, colorName, colorExtreme, fi
 dsWorldRestricted <- dsWorldBirthDeathRates[!dsWorldBirthDeathRates$Omitted, ]
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldRestricted)))))
 
-ggplot(dsWorldRestricted, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted)) +
+ggplot(dsWorldRestricted, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
-  geom_point(shape=1) +
+  geom_point(shape=21) +
   scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
   scale_colour_manual(values=paletteWorldDeathsRestricted, guide=FALSE) +
+  scale_fill_manual(values=paletteWorldDeathsRestrictedFaint, guide=FALSE) +
   chapterTheme +
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(dsWorldRestricted, eqn)
@@ -211,13 +208,14 @@ rm(dsWorldRestricted, eqn)
 #####################################
 ## @knitr Figure05_10
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldBirthDeathRates)))))
-ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted)) +
+ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
   geom_vline(x=30, color=paletteWorldDeathsRestricted[1], size=3, alpha=.1) +
   geom_vline(x=30, color=paletteWorldDeathsRestricted[2], size=3, alpha=.1) +
-  geom_point(shape=1) +
+  geom_point(shape=21) +
   scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
   scale_colour_manual(values=paletteWorldDeathsRestricted, guide=FALSE) +
+  scale_fill_manual(values=paletteWorldDeathsRestrictedFaint, guide=FALSE) +
   chapterTheme +
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(eqn)

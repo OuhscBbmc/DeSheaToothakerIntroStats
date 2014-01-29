@@ -65,6 +65,11 @@ read_chunk("./Chapter05/Chapter05.R")
 ## Figure 5-5
 <img src="figure_rmd/Figure05_05.png" title="plot of chunk Figure05_05" alt="plot of chunk Figure05_05" width="600px" />
 
+```
+Warning: object 'm' not found
+Warning: object 'eqn' not found
+```
+
 ## Figure 5-6
 <img src="figure_rmd/Figure05_06.png" title="plot of chunk Figure05_06" alt="plot of chunk Figure05_06" width="600px" />
 
@@ -94,7 +99,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-28, 22:50:47 -0600
+Report created by Will at 2014-01-29, 00:35:42 -0600
 ```
 
 ```

@@ -78,7 +78,7 @@ Lise, are the subscripts on the x label too much for the reader at this stage?
 ## Figure 7-6
 
 ```
-Lise, did you want this to be the same color as Figure 7-03?
+Lise, did you want this to be the same color as Figure 7-03, or different?
 ```
 
 <img src="figure_rmd/Figure07_06.png" title="plot of chunk Figure07_06" alt="plot of chunk Figure07_06" width="300px" />
@@ -89,7 +89,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-28, 22:50:53 -0600
+Report created by Will at 2014-01-29, 00:48:43 -0600
 ```
 
 ```

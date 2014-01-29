@@ -26,6 +26,8 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
+paletteControlPsqi <- c("#1A7F7C", "#1595B2") #From http://colrd.com/palette/22521/; http://colrd.com/palette/18981/
+
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -42,10 +44,9 @@ dsFibromyalgiaT1Control$Z <- scale(dsFibromyalgiaT1Control$X)
 # dsFibromyalgiaT1ControlLong <- plyr::rename(dsFibromyalgiaT1ControlLong, replace=c("variable"="Scale", "value"="Value"))
 #####################################
 ## @knitr Figure04_01
-#Colors from http://www.colourlovers.com/palette/3210340/Halcyon_Days
 breaksX <- seq(from=7, to=23, by=1)
 histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
-  geom_histogram(breaks=breaksX, fill="#009383", color="gray95", alpha=.6) + 
+  geom_histogram(breaks=breaksX, fill=paletteControlPsqi[1], color="gray95", alpha=.6) + 
   chapterTheme +
   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
 
@@ -127,7 +128,8 @@ breaksZ <- scale(breaksX)
 histogramXInset <- histogramX + scale_x_continuous(breaks=breaksX) + labs(x="Control Group's Baseline PSQI", y=NULL)
 
 histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
-  geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
+#   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
+  geom_histogram(breaks=breaksX, fill=paletteControlPsqi[2], color="gray95", alpha=.6) + 
   scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + 
   labs(x="Z", y=NULL) + 
   chapterTheme +
@@ -187,10 +189,11 @@ rm(g)
 #####################################
 ## @knitr Figure04_05
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
-#Color scheme from http://www.colourlovers.com/palette/3210340/Halcyon_Days
+#paletteZ <- c("#1595B2", "#554466") #From http://colrd.com/palette/22521/
+paletteZ <- c("#6CE6C6", "#F04B8D") #From http://colrd.com/palette/24356/
 g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.6, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color="#C9E6EE") +
+  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[1]) +
   annotate(geom="text", x=0, y=.2, label="About 68%\nof the\ndistribution") +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
@@ -202,9 +205,9 @@ g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 #DD94EE #Pinkish
 
 g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill="#C9E6EE", alpha=.4, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill="#DD94EE", alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color="#DD94EE") +
+  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill=paletteZ[2], alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[2]) +
   annotate(geom="text", x=0, y=.2, label="About 95%\nof the\ndistribution") +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +

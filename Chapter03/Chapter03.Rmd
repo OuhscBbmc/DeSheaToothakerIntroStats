@@ -69,51 +69,74 @@ read_chunk("./Chapter03/Chapter03.R")
 ```
 
 ## Figure 3-6
-```{r Figure03_06, echo=echoChunks, results='show', message=TRUE, fig.height=2.8, fig.width=3.5, out.width=NULL, out.width="400px"}
-```
+<img src="./../Chapter02/figure_rmd/Figure02_01.png" alt="Systolic" style="width: 600px;"/>
 
 ## Figure 3-7
-```{r Figure03_07, echo=echoChunks, results='show', message=TRUE}
+```{r Figure03_07, echo=echoChunks, results='show', message=TRUE, fig.height=2.8, fig.width=3.5, out.width=NULL, out.width="400px"}
 ```
 
 ## Figure 3-8
-```{r Figure03_08, echo=echoChunks, results='show', message=TRUE}
+```{r Figure03_08, echo=echoChunks, results='show', message=TRUE, fig.height=4, fig.width=4, out.width="600px"}
 ```
 
 ## Figure 3-9
-```{r Figure03_09, echo=echoChunks, results='show', message=TRUE}
+```{r Figure03_09, echo=echoChunks, results='show', message=TRUE, fig.height=4, fig.width=4, out.width="600px"}
 ```
 
 ## Figure 3-10
-```{r Figure03_10, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
+```{r Figure03_10, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 3-11
-```{r Figure03_11, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
+```{r Figure03_11, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 3-12
-```{r Figure03_12, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
+```{r Figure03_12, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 3-13
-```{r Figure03_13, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
+```{r Figure03_13, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 3-14
-```{r Figure03_14, echo=echoChunks, results='show', message=TRUE, fig.height=4, fig.width=4, out.width="600px"}
+```{r Figure03_14, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 3-15
-```{r Figure03_15, echo=echoChunks, results='show', message=TRUE, fig.height=4, fig.width=4, out.width="600px"}
+```{r Figure03_15, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
 ```
 
 ## Figure 3-16
-```{r Figure03_16, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
+```{r Figure03_16, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
 ```
 
 ## Figure 3-17
-```{r Figure03_17, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
+```{r Figure03_17, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
+```
+
+## Figure 3-18
+```{r Figure03_18, echo=echoChunks, results='show', message=TRUE, fig.height=3.5, fig.width=2, out.width="200px"}
+```
+
+## Figure 3-19
+```{r Figure03_19, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
+```
+
+## Figure 3-20
+```{r Figure03_20, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
+```
+
+## Figure 3-21
+```{r Figure03_21, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
+```
+
+## Figure 3-22
+```{r Figure03_22, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
+```
+
+## Figure 3-23
+```{r Figure03_23, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width=NULL, out.height="200px"}
 ```
 
 ## Session Info

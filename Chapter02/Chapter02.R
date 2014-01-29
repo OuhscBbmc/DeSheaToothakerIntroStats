@@ -23,6 +23,7 @@ dsSkewNegative <- data.frame(Systolic=c(60, 60, 70, 70, 72, 74, 74, 75, 76))
 
 #####################################
 ## @knitr Figure02_01
+#Figure03-06 uses this too.
 ggplot(dsSkewZero, aes(x=Systolic)) +
   geom_dotplot(binwidth=1, fill="darkgreen", color=NA, method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewZero$Systolic), to=max(dsSkewZero$Systolic), by=1)) +

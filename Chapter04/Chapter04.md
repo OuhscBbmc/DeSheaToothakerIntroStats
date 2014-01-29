@@ -65,8 +65,15 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-5
 <img src="figure_rmd/Figure04_05.png" title="plot of chunk Figure04_05" alt="plot of chunk Figure04_05" width="900px" />
 
-## Figures 4-6 & 4-7
+## Figures 4-6 and 4-7
+Here's all four curves in the same graphics file.
 
+<img src="figure_rmd/Figure04_06Together.png" title="plot of chunk Figure04_06Together" alt="plot of chunk Figure04_06Together" width="250px" />
+
+
+Here's is each curve in its own graphics file.
+
+<img src="figure_rmd/Figure04_06Separate1.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate2.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate3.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate4.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" />
 
 ## Figure 4-8
 <img src="figure_rmd/Figure04_08.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" />
@@ -77,7 +84,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-29, 00:54:34 -0600
+Report created by Will at 2014-01-29, 10:28:34 -0600
 ```
 
 ```

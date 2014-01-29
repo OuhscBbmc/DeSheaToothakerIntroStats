@@ -61,8 +61,15 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-5
 ```{r Figure04_05, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width="900px"}
 ```
-## Figures 4-6 & 4-7
-```{r Figure04_06, echo=echoChunks, results='show', message=TRUE}
+## Figures 4-6 and 4-7
+Here's all four curves in the same graphics file.
+
+```{r Figure04_06Together, echo=echoChunks, results='show', message=TRUE, fig.height=3, fig.width=4.5, out.width="250px"}
+```
+
+Here's is each curve in its own graphics file.
+
+```{r Figure04_06Separate, echo=echoChunks, results='show', message=TRUE, fig.height=3/2, fig.width=4.5/2, out.width="125px"}
 ```
 ## Figure 4-8
 ```{r Figure04_08, echo=echoChunks, results='show', message=TRUE, fig.height=3}

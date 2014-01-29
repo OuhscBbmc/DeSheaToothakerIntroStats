@@ -67,7 +67,7 @@ pie3D(pieval, radius=0.9, labels=pielabels, explode=0.1, main="3D PIE OPINIONS")
 #####################################
 ## @knitr Figure03_02
 oldPar <- par(mar=c(0,0,0,0))
-graphics::pie(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, col=palettePregancyDelivery, clockwise=TRUE)
+graphics::pie(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, col=PalettePregancyDelivery, clockwise=TRUE)
 par(oldPar)
 
 #####################################
@@ -82,7 +82,7 @@ dsPregnancy$Dummy <- NULL
 ## @knitr Figure03_04
 ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity") +
-  scale_fill_manual(values=palettePregancyDelivery) +
+  scale_fill_manual(values=PalettePregancyDelivery) +
   coord_flip() +
   theme_bw() +
   theme(legend.position = "none") +
@@ -93,7 +93,7 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
 ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity", alpha=.6) +
   geom_text(stat="identity", size=6, hjust=1.1)  +
-  scale_fill_manual(values=palettePregancyDelivery) +
+  scale_fill_manual(values=PalettePregancyDelivery) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancySummarized$Count, na.rm=T))) +
   chapterTheme +
   theme(legend.position = "none") +
@@ -107,8 +107,8 @@ stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
 
 ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
-  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(paletteObesityState[2], .5)) +
-  geom_point(size=3, shape=19, color=paletteObesityState[2]) +
+  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(PaletteObesityState[2], .5)) +
+  geom_point(size=3, shape=19, color=PaletteObesityState[2]) +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   theme(panel.grid.major.y= element_blank()) +
@@ -121,8 +121,8 @@ stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
 
 ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
-  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(paletteObesityState[2], .5)) +
-  geom_point(size=3, shape=19, color=paletteObesityState[2]) +
+  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(PaletteObesityState[2], .5)) +
+  geom_point(size=3, shape=19, color=PaletteObesityState[2]) +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   theme(panel.grid.major.y= element_blank()) +
@@ -144,7 +144,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
 #   geom_text(size=3, alpha=1) +
 #   scale_x_continuous(label=scales::percent) +
 #   scale_y_continuous(label=scales::percent) +
-#   scale_color_manual(values=paletteObesityState) +
+#   scale_color_manual(values=PaletteObesityState) +
 #   coord_fixed() + 
 #   chapterTheme +
 #   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
@@ -158,14 +158,14 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   geom_text(size=3, alpha=1) +
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
-  scale_color_manual(values=paletteObesityState) +
+  scale_color_manual(values=PaletteObesityState) +
   coord_fixed() + 
   chapterTheme +
   theme(legend.position="none") +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)") +
   annotate("text", x=hardshipRange[1], y= obesityRange[2], label="Location", hjust=0, colour="gray40", fontface=2, size=4) +
-  annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n[Southern]", hjust=0, colour=paletteObesityState[2], size=4) +
-  annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n\n\n[Other]", hjust=0, colour=paletteObesityState[1], size=4)
+  annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n[Southern]", hjust=0, colour=PaletteObesityState[2], size=4) +
+  annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n\n\n[Other]", hjust=0, colour=PaletteObesityState[1], size=4)
 
 #####################################
 ## @knitr Figure03_10
@@ -199,7 +199,7 @@ par(oldPar)
 gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
-  scale_color_manual(values=palettePregancyGroup) +
+  scale_color_manual(values=PalettePregancyGroup) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Time Point", y="Average Number of Lifts")
@@ -239,7 +239,7 @@ ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
 ## @knitr Figure03_17
 ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
   geom_boxplot( outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
-  scale_fill_manual(values=palettePregancyGroup) +
+  scale_fill_manual(values=PalettePregancyGroup) +
   chapterTheme +
   theme(legend.position="none") + 
   labs(x=NULL, y="Baby Birth Weight (in kg)")
@@ -248,7 +248,7 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
 ## @knitr Figure03_18
 g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
   geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5, type=1) +  
-  scale_fill_manual(values=palettePregancyDelivery) +
+  scale_fill_manual(values=PalettePregancyDelivery) +
   chapterTheme +
   theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
 g
@@ -275,7 +275,7 @@ g
 g03_19 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
   geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.7 ) +
 #   scale_y_continuous(limits = c(18, 21)) +
-  scale_fill_manual(values=palettePregancyGroup) +
+  scale_fill_manual(values=PalettePregancyGroup) +
   chapterTheme +
   theme(legend.position="none") +
   labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
@@ -297,8 +297,8 @@ set.seed(seed=789) #Set a seed so the jittered graphs are consistent across rend
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.2, color=NA ) +
   geom_point(position=position_jitter(w = 0.4, h = 0), na.rm=T, size=2, shape=1) +
-  scale_color_manual(values=palettePregancyGroup) +
-  scale_fill_manual(values=palettePregancyGroup) +
+  scale_color_manual(values=PalettePregancyGroup) +
+  scale_fill_manual(values=PalettePregancyGroup) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
@@ -314,8 +314,8 @@ set.seed(seed=789) #Set a seed so the jittered graphs are consistent across rend
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
   geom_point(position=position_jitter(w=0.4, h=0), na.rm=T, size=2, shape=1) +
-  scale_color_manual(values=palettePregancyGroup) +
-  scale_fill_manual(values=palettePregancyGroup) +
+  scale_color_manual(values=PalettePregancyGroup) +
+  scale_fill_manual(values=PalettePregancyGroup) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
@@ -332,8 +332,8 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
   geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=1, na.rm=T) +
-  scale_color_manual(values=palettePregancyGroup) +
-  scale_fill_manual(values=palettePregancyGroup) +
+  scale_color_manual(values=PalettePregancyGroup) +
+  scale_fill_manual(values=PalettePregancyGroup) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
@@ -348,8 +348,8 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 # ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 #   geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.2, color=NA ) +
 #   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=1, na.rm=T) +
-#   scale_color_manual(values=palettePregancyGroup) +
-#   scale_fill_manual(values=palettePregancyGroup) +
+#   scale_color_manual(values=PalettePregancyGroup) +
+#   scale_fill_manual(values=PalettePregancyGroup) +
 #   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
 #   chapterTheme +
 #   theme(legend.position="none") +

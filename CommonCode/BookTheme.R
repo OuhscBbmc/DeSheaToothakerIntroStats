@@ -38,21 +38,23 @@ transformColor <- function( palette ) {
 # Also see The Color Oracle application (http://colororacle.org/)
 }
 
-palettePregancyDelivery <- transformColor(adjustcolor(brewer.pal(3, "Accent"), alpha.f=1)[1:2])
-palettePregancyDeliveryBad <- transformColor( c("#FF0000CC", "#00FFFFCC")) #Translucent red & cyan
+PalettePregancyDelivery <- transformColor(adjustcolor(brewer.pal(3, "Accent"), alpha.f=1)[1:2])
+PalettePregancyDeliveryBad <- transformColor( c("#FF0000CC", "#00FFFFCC")) #Translucent red & cyan
 
-palettePregancyGroup <- transformColor(adjustcolor(brewer.pal(3, "Dark2"), alpha.f=1)[1:2])
-palettePregancyGroupBad <- transformColor(adjustcolor(c("blue", "maroon"), alpha.f=.7))
+PalettePregancyGroup <- transformColor(adjustcolor(brewer.pal(3, "Dark2"), alpha.f=1)[1:2])
+PalettePregancyGroupBad <- transformColor(adjustcolor(c("blue", "maroon"), alpha.f=.7))
 
-paletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Set1"))[c(1,2)])
-paletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)])
+PaletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Set1"))[c(1,2)])
+PaletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)])
 
-paletteWorldDeathsRestricted <- c("#497862", "#A54891") #Hand-picked
-paletteWorldDeathsRestrictedFaint <- adjustcolor(paletteWorldDeathsRestricted, alpha.f=.2)
+PaletteWorldDeathsRestricted <- transformColor(c("#497862", "#A54891")) #Hand-picked
+PaletteWorldDeathsRestrictedFaint <- transformColor(adjustcolor(PaletteWorldDeathsRestricted, alpha.f=.2))
+
+PaletteControlPsqi <- transformColor(c("#1A7F7C", "#1595B2")) #From http://colrd.com/palette/22521/; http://colrd.com/palette/18981/
 
 # palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
-# paletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
-# paletteObesityStateBad <- adjustcolor(c("green", "red"), alpha.f=.7)
+# PaletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
+# PaletteObesityStateBad <- adjustcolor(c("green", "red"), alpha.f=.7)
 
 #Named colors in R:
 # http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf

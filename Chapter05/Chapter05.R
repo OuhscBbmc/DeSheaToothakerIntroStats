@@ -199,8 +199,8 @@ ggplot(dsWorldRestricted, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omit
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
   geom_point(shape=21) +
   scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
-  scale_colour_manual(values=paletteWorldDeathsRestricted, guide=FALSE) +
-  scale_fill_manual(values=paletteWorldDeathsRestrictedFaint, guide=FALSE) +
+  scale_colour_manual(values=PaletteWorldDeathsRestricted, guide=FALSE) +
+  scale_fill_manual(values=PaletteWorldDeathsRestrictedFaint, guide=FALSE) +
   chapterTheme +
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(dsWorldRestricted, eqn)
@@ -210,12 +210,12 @@ rm(dsWorldRestricted, eqn)
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldBirthDeathRates)))))
 ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
-  geom_vline(x=30, color=paletteWorldDeathsRestricted[1], size=3, alpha=.1) +
-  geom_vline(x=30, color=paletteWorldDeathsRestricted[2], size=3, alpha=.1) +
+  geom_vline(x=30, color=PaletteWorldDeathsRestricted[1], size=3, alpha=.1) +
+  geom_vline(x=30, color=PaletteWorldDeathsRestricted[2], size=3, alpha=.1) +
   geom_point(shape=21) +
   scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
-  scale_colour_manual(values=paletteWorldDeathsRestricted, guide=FALSE) +
-  scale_fill_manual(values=paletteWorldDeathsRestrictedFaint, guide=FALSE) +
+  scale_colour_manual(values=PaletteWorldDeathsRestricted, guide=FALSE) +
+  scale_fill_manual(values=PaletteWorldDeathsRestrictedFaint, guide=FALSE) +
   chapterTheme +
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(eqn)

@@ -26,7 +26,6 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-paletteControlPsqi <- c("#1A7F7C", "#1595B2") #From http://colrd.com/palette/22521/; http://colrd.com/palette/18981/
 
 #####################################
 ## @knitr LoadDatasets
@@ -46,37 +45,23 @@ dsFibromyalgiaT1Control$Z <- scale(dsFibromyalgiaT1Control$X)
 ## @knitr Figure04_01
 breaksX <- seq(from=7, to=23, by=1)
 histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
-  geom_histogram(breaks=breaksX, fill=paletteControlPsqi[1], color="gray95", alpha=.6) + 
+  geom_histogram(breaks=breaksX, fill=PaletteControlPsqi[1], color="gray95", alpha=.6) + 
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank()) +
   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
 
 histogramX 
-
-# ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
-#   stat_bin(fill="coral4", color="gray95", alpha=.6) + 
-#   chapterTheme
-# 
-# ggplot(dsFibromyalgiaT1Control, aes(x=Z)) +
-#   stat_bin(fill="coral4", color="gray95", alpha=.6, right=T) + 
-#   chapterTheme
-
 #####################################
 ## @knitr Figure04_02
-# tickRadius = .1
-tickRadius = .05
+tickRadius <- .05
 yZ <- -.5 #the height of the z line
-# yLabel <- abs(yZ) #the height of the annotations of the single score
 groupMean <- 13.45
 singleScore <- 17
 singleZ <- 0.98
 scaleSD <- (singleScore - groupMean) / singleZ
 arrowHeight <- tickRadius * 4
 zTicks <- c(0, .25, .5, .75, 1)
-# zTicks <- c(0,  1)
-# colorMean <- "#998ec3" #Purpleish
-# colorSingle <- "#f1a340" #Orangish
 colorMeanDark <- "#a6611a" #Tanish
 colorMeanLight <- "#dfc27d" #Tanish
 colorSingleDark <- "#018571" #Greenish
@@ -123,6 +108,8 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
   scale_y_continuous(limits=c((yZ -tickRadius)*1.15, arrowHeight*1.3)) +  
   emptyTheme
 
+rm(tickRadius, yZ, groupMean, singleScore, singleZ, scaleSD, arrowHeight, zTicks,
+   colorMeanDark, colorMeanLight, colorSingleDark, colorSingleLight, grayDark, grayLight)
 #####################################
 ## @knitr Figure04_03
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
@@ -131,7 +118,7 @@ histogramXInset <- histogramX + scale_x_continuous(breaks=breaksX) + labs(x="Con
 
 histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
 #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
-  geom_histogram(breaks=breaksX, fill=paletteControlPsqi[2], color="gray95", alpha=.6) + 
+  geom_histogram(breaks=breaksX, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
   scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + 
   labs(x="Z", y=NULL) + 
   chapterTheme +
@@ -144,6 +131,8 @@ grid.arrange(
   histogramZInset,   
   left = textGrob(label="Number Of Participants", rot=90, gp=gpar(col="gray40")) #Sync this color with BookTheme
 )
+
+rm(breaksX, breaksZ, histogramX, histogramXInset, histogramZInset)
 #####################################
 ## @knitr Figure04_04
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
@@ -189,7 +178,8 @@ g %+%
   geom_text(parse=TRUE, vjust=-.1) + 
   chapterTheme +
   labs(x=expression(italic(X)), y="Density")
-rm(g)
+
+rm(g, i, lineSizeCurve, lineAlpha, dsNorm)
 #####################################
 ## @knitr Figure04_05
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
@@ -205,9 +195,6 @@ g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   chapterTheme +
   labs(x=expression(italic(Z)), y=NULL)
 
-#C9E6EE #Greenish
-#DD94EE #Pinkish
-
 g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill=paletteZ[2], alpha=.2, n=calculatedPointCount) +
@@ -221,9 +208,44 @@ g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 
 #Position the two graphs side by side in the same plot
 gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
+
+rm(paletteZ, g1SD, g2SD)
 #####################################
-## @knitr Figure04_06
-#TODO: add the little shaded pdfs that sit on top of the tables.
+## @knitr Figure04_06Together
+zTableTheme <- theme_minimal() +
+  theme(panel.grid = element_blank()) +
+  theme(axis.text.x = element_text(size=30, color="dodgerblue4")) +
+  theme(panel.border = element_blank()) +
+  theme(plot.margin = grid::unit( c(0,0,0,0), "cm")) +
+  theme(axis.ticks.length = grid::unit(0, "cm"))
+
+ConstructTableHeader <- function( leftBoundary, rightBoundary, singleZ, label ) {
+#   singleZ <- ifelse(abs(leftBoundary)==Inf, rightBoundary, leftBoundary)
+  ggplot(data.frame(z=-3:3), aes(x=z)) +
+    stat_function(fun=LimitRange(dnorm, leftBoundary, rightBoundary), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
+    stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue4") +
+    annotate("segment", x=singleZ, xend=singleZ, y=0, yend=dnorm(singleZ), color="dodgerblue4", size=.5) +
+    annotate("segment", x=0, xend=0, y=0, yend=dnorm(0), color="dodgerblue4", size=.5) +
+    scale_x_continuous(breaks=c(0, singleZ), labels=c(0, label)) +
+    scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+    expand_limits(y=dnorm(0) * 1.05) +
+    zTableTheme +
+    labs(x=NULL, y=NULL)
+}
+
+grid.arrange(
+  ConstructTableHeader(0, 1.5, 1.5, "z"),   
+  ConstructTableHeader(1.5, Inf, 1.5, "z"),   
+  ConstructTableHeader(-1.5, 0, -1.5, "-z"),   
+  ConstructTableHeader(-Inf, -1.5, -1.5, "-z"), 
+  ncol=2
+)
+#####################################
+## @knitr Figure04_06Separate
+ConstructTableHeader(0, 1.5, 1.5, "z")
+ConstructTableHeader(1.5, Inf, 1.5, "z")
+ConstructTableHeader(-1.5, 0, -1.5, "-z")
+ConstructTableHeader(-Inf, -1.5, -1.5, "-z")
 
 #####################################
 ## @knitr Figure04_08
@@ -246,5 +268,5 @@ gt <- ggplot_gtable(ggplot_build(gSingle))
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
 grid.draw(gt)
 
+rm(singleZ, gSingle, gt)
 #####################################
-# TODO: 

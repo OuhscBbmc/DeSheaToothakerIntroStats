@@ -2,7 +2,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   geom_text(size=3, alpha=1) +
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
-  scale_color_manual(values=paletteObesityState) +
+  scale_color_manual(values=PaletteObesityState) +
   coord_fixed() + 
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
@@ -25,9 +25,9 @@ grid.ls(x=ggplotGrob(g), grobs=T, recursive=T)
 grob
 
 
-#   theme(legend.text=element_text(colour=paletteObesityState))  
-#   guides(colour=guide_legend(override.aes=list(colour=paletteObesityState)))
-# guides(colour=guide_legend(override.aes=list(colour=paletteObesityState)))
+#   theme(legend.text=element_text(colour=PaletteObesityState))  
+#   guides(colour=guide_legend(override.aes=list(colour=PaletteObesityState)))
+# guides(colour=guide_legend(override.aes=list(colour=PaletteObesityState)))
 
 # grid.ls()
 # k <- grid.gget("guide-box")

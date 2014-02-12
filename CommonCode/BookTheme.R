@@ -93,6 +93,16 @@ TukeyBoxplot <- function(y, width=.9, na.rm = FALSE, coef = 1.5, ...) {
   return( df )
 } # TukeyBoxplot(dsPregnancy$BabyWeightInKG)
 
+RemoveLeadingZero <- function( x ) {
+  #   g <- grep("\\A\\b(?<=0)(\\.\\d{1,})$", x, perl=TRUE, value=TRUE);
+  g <- gsub("\\b(0)(\\.\\d{1,})$", "\\2", x, perl=TRUE);
+  return( g )
+} #
+# RemoveLeadingZero(0.444)
+# RemoveLeadingZero(431.444)
+
+
+
 #########################################################
 ### Establish the font
 #########################################################

@@ -76,12 +76,9 @@ Here's is each curve in its own graphics file.
 <img src="figure_rmd/Figure04_06Separate1.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate2.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate3.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate4.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" />
 
 ## Figure 4-8
-<img src="figure_rmd/Figure04_081.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" /><img src="figure_rmd/Figure04_082.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" /><img src="figure_rmd/Figure04_083.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" />
+<img src="figure_rmd/Figure04_081.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" /><img src="figure_rmd/Figure04_082.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" />
 
-```
-Warning: object 'gSingle' not found
-Warning: object 'gt' not found
-```
+<img src="figure_rmd/Figure04_08b.png" title="plot of chunk Figure04_08b" alt="plot of chunk Figure04_08b" width="600px" />
 
 ## Figure 4-9
 <img src="figure_rmd/Figure04_09.png" title="plot of chunk Figure04_09" alt="plot of chunk Figure04_09" width="600px" />
@@ -92,7 +89,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-11, 23:55:15 -0600
+Report created by Will at 2014-02-12, 11:45:51 -0600
 ```
 
 ```

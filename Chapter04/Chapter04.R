@@ -255,19 +255,21 @@ ConstructTableHeader(-Inf, -1.5, -1.5, "-z")
 # http://colrd.com/palette/27206/
 # paletteYoga <- c("#99EE99", "#77DDEE", "#DDAAEE") #Light purple; turquoise; bright green
 # Slight adaptation of http://colrd.com/palette/28919/
-paletteVss <- c("#387C2B", "#8CF219", "#C6E3FF", "#1E90FF", "#004B99") #Dark green merged to dark blue
-z1 <- 0; z2 <- .15; z3 <- 3
-z1PrettyPositive <- "0"; z2PrettyPositive <- ".15"; z3PrettyPositive <- "infinity";
-z1PrettyNegative <- "0"; z2PrettyNegative <- "-.15"; z3PrettyNegative <- "-infinity";
+# paletteVss <- c("#387C2B", "#8CF219", "#C6E3FF", "#1E90FF", "#004B99") #Dark green merged to dark blue
+paletteVss <- c("#387C2B", "#8CF219", "#C6E3FF", "dodgerblue2", "dodgerblue4") #Dark green merged to dark blue
+sizeTextArea <- 4.5; sizeTextLocation <- 3.5
+z1 <- 0; z2 <- .7; z3 <- 3
+z1PrettyPositive <- "0"; z2PrettyPositive <- ".7"; z3PrettyPositive <- "infinity";
+z1PrettyNegative <- "0"; z2PrettyNegative <- "-.7"; z3PrettyNegative <- "-infinity";
 gRight <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, z1, z2), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, z2, z3), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
-  annotate("text", x=(z1+z2)/2, y=dnorm(0)*.3, label=round(pnorm(z2)-pnorm(z1), 4), vjust=-.2, color=paletteVss[1], size=6) +
-  annotate("text", x=1, y=dnorm(0)*.3, label=round(pnorm(z3)-pnorm(z2), 4), vjust=1.2, color=paletteVss[5], size=6) +
-  annotate("text", x=z1, y=0, label=z1PrettyPositive, hjust=.8, vjust=.5, color="gray40", size=6) +
-  annotate("text", x=z2, y=0, label=z2PrettyPositive, hjust=.3, vjust=.5, color="gray40", size=6) +
-  annotate("text", x=z3, y=0, label=z3PrettyPositive, hjust=0, vjust=.5, color="gray40", size=6, parse=TRUE) +
+  annotate("text", x=(z1+z2)/2, y=dnorm(0)*.3, label=round(pnorm(z2)-pnorm(z1), 3), vjust=-.5, color=paletteVss[1], size=sizeTextArea) +
+  annotate("text", x=1.5, y=dnorm(0)*.3, label=round(pnorm(z3)-pnorm(z2), 3), vjust=1.5, color=paletteVss[5], size=sizeTextArea) +
+  annotate("text", x=z1, y=0, label=z1PrettyPositive, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
+  annotate("text", x=z2, y=0, label=z2PrettyPositive, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
+  annotate("text", x=z3, y=0, label=z3PrettyPositive, hjust=0, vjust=1, color="gray40", size=sizeTextLocation, parse=TRUE) +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
@@ -280,17 +282,18 @@ gLeft <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -z2, -z1), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, -z3, -z2), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
-  annotate("text", x=(-z1-z2)/2, y=dnorm(0)*.3, label=round(pnorm(z2)-pnorm(z1), 4), vjust=-.2, color=paletteVss[1], size=6) +
-  annotate("text", x=-1, y=dnorm(0)*.3, label=round(pnorm(z3)-pnorm(z2), 4), vjust=1.2, color=paletteVss[5], size=6) +
-  annotate("text", x=-z1, y=0, label=z1PrettyNegative, hjust=.3, vjust=.5, color="gray40", size=6) +
-  annotate("text", x=-z2, y=0, label=z2PrettyNegative, hjust=.8, vjust=.5, color="gray40", size=6) +
-  annotate("text", x=-z3, y=0, label=z3PrettyNegative, hjust=1, vjust=.5, color="gray40", size=6, parse=TRUE) +
+  annotate("text", x=(-z1-z2)/2, y=dnorm(0)*.3, label=round(pnorm(z2)-pnorm(z1), 3), vjust=-.5, color=paletteVss[1], size=sizeTextArea) +
+  annotate("text", x=-1.5, y=dnorm(0)*.3, label=round(pnorm(z3)-pnorm(z2), 3), vjust=1.5, color=paletteVss[5], size=sizeTextArea) +
+  annotate("text", x=-z1, y=0, label=z1PrettyNegative, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
+  annotate("text", x=-z2, y=0, label=z2PrettyNegative, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
+  annotate("text", x=-z3, y=0, label=z3PrettyNegative, hjust=1, vjust=1, color="gray40", size=sizeTextLocation, parse=TRUE) +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
   chapterTheme +
   theme(axis.text.x=element_blank()) +
   theme(panel.border = element_blank()) +
+#   theme(plot.margin=unit(c(.1,.2,.4,0), "lines")) +
   labs(x=NULL, y=NULL)
 
 gtRight <- ggplot_gtable(ggplot_build(gRight))
@@ -303,13 +306,15 @@ grid.draw(gtRight)
 grid.newpage()
 grid.draw(gtLeft)
 
+#####################################
+## @knitr Figure04_08b
 grid.arrange(
   gtRight,
   gtLeft, 
   ncol=2
 )
 
-rm(z1, z2, z3, gSingle, gt)
+rm(z1, z2, z3, gRight, gLeft, gtRight, gtLeft)
 
 #####################################
 ## @knitr Figure04_09

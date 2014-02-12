@@ -249,6 +249,70 @@ ConstructTableHeader(-Inf, -1.5, -1.5, "-z")
 
 #####################################
 ## @knitr Figure04_08
+#Figure 4.8 is described in the text as a standard normal distribution showing two areas:  
+#   between z = 0 and z = 0.15, there is an area = .0596.  And from z = 0.15 and beyond, there is an area = .4404.  
+#   This might be a good figure for using contrasting colors for the two areas and a legend explaining the two areas.
+# http://colrd.com/palette/27206/
+# paletteYoga <- c("#99EE99", "#77DDEE", "#DDAAEE") #Light purple; turquoise; bright green
+# Slight adaptation of http://colrd.com/palette/28919/
+paletteVss <- c("#387C2B", "#8CF219", "#C6E3FF", "#1E90FF", "#004B99") #Dark green merged to dark blue
+z1 <- 0; z2 <- .15; z3 <- 3
+z1PrettyPositive <- "0"; z2PrettyPositive <- ".15"; z3PrettyPositive <- "infinity";
+z1PrettyNegative <- "0"; z2PrettyNegative <- "-.15"; z3PrettyNegative <- "-infinity";
+gRight <- ggplot(data.frame(z=-3:3), aes(x=z)) +
+  stat_function(fun=LimitRange(dnorm, z1, z2), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, z2, z3), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
+  annotate("text", x=(z1+z2)/2, y=dnorm(0)*.3, label=round(pnorm(z2)-pnorm(z1), 4), vjust=-.2, color=paletteVss[1], size=6) +
+  annotate("text", x=1, y=dnorm(0)*.3, label=round(pnorm(z3)-pnorm(z2), 4), vjust=1.2, color=paletteVss[5], size=6) +
+  annotate("text", x=z1, y=0, label=z1PrettyPositive, hjust=.8, vjust=.5, color="gray40", size=6) +
+  annotate("text", x=z2, y=0, label=z2PrettyPositive, hjust=.3, vjust=.5, color="gray40", size=6) +
+  annotate("text", x=z3, y=0, label=z3PrettyPositive, hjust=0, vjust=.5, color="gray40", size=6, parse=TRUE) +
+  scale_x_continuous(breaks=-2:2) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=dnorm(0) * 1.05) +
+  chapterTheme +
+  theme(axis.text.x=element_blank()) +
+  theme(panel.border = element_blank()) +
+  labs(x=NULL, y=NULL)
+
+gLeft <- ggplot(data.frame(z=-3:3), aes(x=z)) +
+  stat_function(fun=LimitRange(dnorm, -z2, -z1), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -z3, -z2), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
+  annotate("text", x=(-z1-z2)/2, y=dnorm(0)*.3, label=round(pnorm(z2)-pnorm(z1), 4), vjust=-.2, color=paletteVss[1], size=6) +
+  annotate("text", x=-1, y=dnorm(0)*.3, label=round(pnorm(z3)-pnorm(z2), 4), vjust=1.2, color=paletteVss[5], size=6) +
+  annotate("text", x=-z1, y=0, label=z1PrettyNegative, hjust=.3, vjust=.5, color="gray40", size=6) +
+  annotate("text", x=-z2, y=0, label=z2PrettyNegative, hjust=.8, vjust=.5, color="gray40", size=6) +
+  annotate("text", x=-z3, y=0, label=z3PrettyNegative, hjust=1, vjust=.5, color="gray40", size=6, parse=TRUE) +
+  scale_x_continuous(breaks=-2:2) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=dnorm(0) * 1.05) +
+  chapterTheme +
+  theme(axis.text.x=element_blank()) +
+  theme(panel.border = element_blank()) +
+  labs(x=NULL, y=NULL)
+
+gtRight <- ggplot_gtable(ggplot_build(gRight))
+gtLeft <- ggplot_gtable(ggplot_build(gLeft))
+
+gtRight$layout$clip[gtRight$layout$name == "panel"] <- "off"
+gtLeft$layout$clip[gtLeft$layout$name == "panel"] <- "off"
+grid.newpage()
+grid.draw(gtRight)
+grid.newpage()
+grid.draw(gtLeft)
+
+grid.arrange(
+  gtRight,
+  gtLeft, 
+  ncol=2
+)
+
+rm(z1, z2, z3, gSingle, gt)
+
+#####################################
+## @knitr Figure04_09
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #To turn off clipping, see http://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot.
 singleZ <- 1.48

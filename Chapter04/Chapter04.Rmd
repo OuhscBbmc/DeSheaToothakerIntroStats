@@ -74,6 +74,9 @@ Here's is each curve in its own graphics file.
 ## Figure 4-8
 ```{r Figure04_08, echo=echoChunks, results='show', message=TRUE, fig.height=3}
 ```
+## Figure 4-9
+```{r Figure04_09, echo=echoChunks, results='show', message=TRUE, fig.height=3}
+```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

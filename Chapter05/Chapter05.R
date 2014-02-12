@@ -72,7 +72,7 @@ ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
 ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010)) +
   geom_point(shape=21, size=3, color="#8C96FF", fill="#8C96FF22") + #Adapted from http://colrd.com/palette/18974/
   chapterTheme +
-  labs(x="Birth Rate Per 1,000 Population (in 2010)", y="Adge-Adjusted Death Rate\nper 100,000 Population (in 2010)")
+  labs(x="Birth Rate Per 1,000 Population (in 2010)", y="Age-Adjusted Death Rate\nper 100,000 Population (in 2010)")
 
 #####################################
 ## @knitr Figure05_05

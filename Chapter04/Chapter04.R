@@ -16,7 +16,7 @@ require(reshape2) #For converting wide to long
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401
 
-chapterTheme <- BookTheme  + 
+chapterTheme <- BookTheme + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 emptyTheme <- theme_minimal() +

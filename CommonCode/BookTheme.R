@@ -71,6 +71,28 @@ LimitRange <- function( fun, min, max ) {
     return( y )
   }
 }
+TukeyBoxplot <- function(y, width=.9, na.rm = FALSE, coef = 1.5, ...) {
+  #Adapted from https://github.com/hadley/ggplot2/blob/master/R/stat-boxplot.r
+  qs <- c(0, 0.25, 0.5, 0.75, 1)
+  stats <- as.numeric(quantile(y, qs, type=5))
+  names(stats) <- c("ymin", "lower", "middle", "upper", "ymax")
+  
+  iqr <- diff(stats[c(2, 4)])
+  
+  outliers <- y < (stats[2] - coef * iqr) | y > (stats[4] + coef * iqr)
+  if (any(outliers)) stats[c(1, 5)] <- range(c(stats[2:4], y[!outliers]), na.rm=TRUE)    
+  
+  df <- as.data.frame(as.list(stats))
+  df$outliers <- I(list(y[outliers]))
+  
+  n <- sum(!is.na(y)) 
+  
+  df$notchupper <- df$middle + 1.58 * iqr / sqrt(n)
+  df$notchlower <- df$middle - 1.58 * iqr / sqrt(n)
+  df$width <- width
+  return( df )
+} # TukeyBoxplot(dsPregnancy$BabyWeightInKG)
+
 #########################################################
 ### Establish the font
 #########################################################

@@ -168,11 +168,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-29, 00:57:57 -0600
+Report created by Will at 2014-02-11, 22:48:38 -0600
 ```
 
 ```
-R Under development (unstable) (2014-01-24 r64871)
+R Under development (unstable) (2014-02-10 r64961)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -188,7 +188,7 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.10.6      Rttf2pt1_1.2    
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.0      Rttf2pt1_1.2    
 [13] stringr_0.6.2    tools_3.1.0     
 ```
 

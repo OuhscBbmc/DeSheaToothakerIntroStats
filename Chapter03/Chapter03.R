@@ -50,10 +50,10 @@ dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoin
 cat("The two rotations demonstrate that the nonzero angle favors some slices more than others.")
 oldPar <- par(mfrow=c(1, 2)) #par(mfrow=c(1, 1))
 #Left Panel
-pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, height=.5,
+plotrix::pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, height=.5,
       edges=1000, start=pi*1/5, theta=pi/10, mar=c(0, 0, 0, 0))
 #Right Panel
-pie3D(x=dsPregnancySummarized$Count, labels=NULL, height=.5, 
+plotrix::pie3D(x=dsPregnancySummarized$Count, labels=NULL, height=.5, 
       edges=1000, start=pi*5/5, theta=pi/10, mar=c(0, 0, 0, 0))
 par(oldPar)
 
@@ -218,7 +218,8 @@ outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
 outlierLabels <- dsSmoking$State[which( dsSmoking$AdultCigaretteUse == outlierPrevelances, arr.ind=TRUE)]
 
 ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
-  geom_boxplot(width=.5, fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+#   geom_boxplot(width=.5, fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) + 
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', width=.5, fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +
   scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   scale_y_continuous(label=scales::percent) +
   annotate(geom="text", x=1L, y=outlierPrevelances, label=outlierLabels, hjust=-.6, color="gray40") +
@@ -229,7 +230,8 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
 #####################################
 ## @knitr Figure03_16
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
-  geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
+#   geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', width=.5, fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
   scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
@@ -237,8 +239,9 @@ ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
 
 #####################################
 ## @knitr Figure03_17
+
 ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
-  geom_boxplot( outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +  
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +
   scale_fill_manual(values=PalettePregancyGroup) +
   chapterTheme +
   theme(legend.position="none") + 
@@ -247,7 +250,8 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
 #####################################
 ## @knitr Figure03_18
 g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
-  geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5, type=1) +  
+#   geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5, type=1) +  
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', outlier.shape=1, outlier.size=4, alpha=.5) +
   scale_fill_manual(values=PalettePregancyDelivery) +
   chapterTheme +
   theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
@@ -330,7 +334,8 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
-  geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
+#   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
   geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=1, na.rm=T) +
   scale_color_manual(values=PalettePregancyGroup) +
   scale_fill_manual(values=PalettePregancyGroup) +

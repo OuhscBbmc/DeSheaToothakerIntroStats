@@ -37,7 +37,7 @@ dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 
 #####################################
 ## @knitr Figure07_01
-## Figure07_01 is linked to the first histogram in Chapter 03.
+## No longer true: Figure07_01 is linked to the first histogram in Chapter 03.
 xLimits <- c(0, 35)
 gSample <- ggplot(dsPregnancy, aes(x=T1Lifts)) +
   scale_x_continuous(limits=xLimits, expand=c(0,0)) +

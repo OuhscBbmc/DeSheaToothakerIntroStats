@@ -38,12 +38,14 @@ dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 #####################################
 ## @knitr Figure07_01
 ## Figure07_01 is linked to the first histogram in Chapter 03.
-gSample <- ggplot(dsPregnancy, aes(x=T5Lifts)) +
-  scale_x_continuous(limits=c(0,45), expand=c(0,0)) +
+xLimits <- c(0, 35)
+gSample <- ggplot(dsPregnancy, aes(x=T1Lifts)) +
+  scale_x_continuous(limits=xLimits, expand=c(0,0)) +
   labs(x="Number of Lifts in 1 min", y="Frequency")
 
 gSample + 
-  geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + 
+#   geom_histogram(binwidth=2.5, fill="#94583C", color="#FFF7B6", alpha=.6) + #http://colrd.com/palette/23827/
+  geom_histogram(binwidth=2.5, fill="#94583CAA", color="#601600") + #http://colrd.com/palette/23827/
   scale_y_continuous(expand=c(0,0)) +
   chapterTheme
 
@@ -51,28 +53,27 @@ gSample +
 ## @knitr Figure07_02
 
 gSampleShrunk <- gSample +
-  geom_histogram(binwidth=2.5, fill="coral4", color=NA, alpha=.6) + 
+  geom_histogram(binwidth=2.5, fill="#94583CAA", color="#94583C") + 
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   labs(x=NULL, y=NULL) +
   NoGridOrYLabelsTheme
 
-gMeanSample <- ggplot(data.frame(X=0:45, Y=0:1), aes(x=X, y=Y)) +
+gMeanSample <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
   geom_blank() +
-  scale_x_continuous(limits=c(0,45), expand=c(0,0), breaks=19.41) +
+  scale_x_continuous(limits=xLimits, expand=c(0,0), breaks=19.41) +
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   labs(x=NULL, y=NULL) +
   NoGridOrYLabelsTheme
 # gMeanSample
 
-gMeanPopulation <- ggplot(data.frame(X=0:45, Y=0:1), aes(x=X, y=Y)) +
+gMeanPopulation <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
   geom_blank() +
-  scale_x_continuous(limits=c(0,45), expand=c(0,0), breaks=21) +
+  scale_x_continuous(limits=xLimits, expand=c(0,0), breaks=21) +
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   labs(x=NULL, y=NULL) +
   NoGridOrYLabelsTheme
 # gMeanPopulation
 
-cat("Lise, is this what you had in mind?  Is the publisher going to add the surrounding text in a table format?  I'm thinking that's the easiest way to get the font size to closely match.")
 grid.arrange(
   gSampleShrunk,
   gMeanSample,
@@ -85,7 +86,7 @@ rm(gSample, gSampleShrunk, gMeanSample, gMeanPopulation)
 ## @knitr Figure07_03
 dsNorm <- data.frame(X=21 + -3:3)
 ggplot(dsNorm, aes(x=X)) + 
-  stat_function(fun=dnorm, arg=list(mean=21, sd=1), color="dodgerblue2", size=1, n=calculatedPointCount) + 
+  stat_function(fun=dnorm, arg=list(mean=21, sd=1), color="#DD9954", size=1, n=calculatedPointCount) + 
   scale_x_continuous(breaks=18:24) + 
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   expand_limits(y=max(dnorm(0)*1.07)) +
@@ -95,39 +96,44 @@ rm(dsNorm)
 #####################################
 ## @knitr Figure07_04
 dsUniform <- data.frame(X=c(1,1,2,2,3,3,4,4,5,5,6,6))
-ggplot(dsUniform, aes(x=X)) +
-  geom_histogram(breaks=c(.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), color="#62603A", fill="#83805388") + #http://colrd.com/palette/25088/
-  scale_x_continuous( breaks=1:6) + 
+ggplot(dsUniform, aes(x=X)) +##############################
+  #geom_histogram(breaks=c(.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), color="#601600", fill="#7A7D5855") + #http://colrd.com/palette/23827/
+  geom_histogram(breaks=c(.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), color="#601600", fill="#DD995411") + #http://colrd.com/palette/23827/
+  scale_x_continuous(breaks=1:6) + 
   scale_y_continuous(breaks=0:2) + 
-  labs(title="\nPopulation of 12 Scores", x=expression(italic(X)), y="Frequency") +
+  labs(title="\nPopulation of 12 Scores", x="Scores", y="Frequency") +
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())
 
 #####################################
 ## @knitr Figure07_05
-cat("Lise, are the subscripts on the x label too much for the reader at this stage?")
 dsUniform <- data.frame(X=2:12, Y=c(1,2,3,4,5,6,5,4,3,2,1))
 ggplot(dsUniform, aes(x=X, y=Y)) +
-  geom_bar(stat="identity", width=1, color="#62603A", fill="#83805388") + #http://colrd.com/palette/25088/
-  scale_x_continuous( breaks=2:12) + 
+  #geom_bar(stat="identity", width=1, color="#101B15", fill="#3A392B55") + #http://colrd.com/palette/23827/
+  #geom_bar(stat="identity", width=1, color="#601600", fill="#7A7D5855") + #http://colrd.com/palette/23827/
+  #geom_bar(stat="identity", width=1, color="#601600", fill="#60160055") + #http://colrd.com/palette/23827/
+  geom_bar(stat="identity", width=1, color="#601600", fill="#DD995455") + #http://colrd.com/palette/23827/
+  scale_x_continuous(breaks=2:12) + 
   scale_y_continuous(breaks=0:6) + 
-  labs(title="All Possible Means (N=2)\nfrom Limited Population", x=expression(italic(X)[1] + italic(X)[2]), y="Frequency") +
+  labs(title="All Possible Means (N=2)\nfrom Limited Population", x="Sum of Two Scores", y="Frequency") +
+  #   labs(title=expression(All Possible Means (italic(N)=2)\nfrom Limited Population), x="Sum of Two Scores", y="Frequency", parse=TRUE) +
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())
 
 #####################################
 ## @knitr Figure07_06
-cat("Lise, did you want this to be the same color as Figure 7-03, or different?")
 dsNorm <- data.frame(X=-3:3)
 ggplot(dsNorm, aes(x=X)) +
-  stat_function(fun=dnorm, arg=list(mean=0, sd=1), color="dodgerblue2", size=1, n=calculatedPointCount) + 
-  scale_x_continuous(breaks=NULL) + 
+  stat_function(fun=dnorm, arg=list(mean=0, sd=1), color="#601600", size=1, n=calculatedPointCount) + 
+  #scale_x_continuous(breaks=-2:2, labels=rep("", 5)) + 
+  scale_x_continuous(breaks=-2:2, labels=c("", "", expression(italic(z)==0), "", "")) + 
   scale_y_continuous(expand=c(0,0), labels=NULL) + 
   expand_limits(y=max(dnorm(0)*1.07)) +
-  labs(x=expression(italic(z)==0), y=NULL) +
-  NoGridOrYLabelsTheme
+  labs(x=NULL, y=NULL) +
+  NoGridOrYLabelsTheme +
+  theme(axis.text.x=element_text(size=16))
 rm(dsNorm)
 
 #####################################

@@ -54,11 +54,6 @@ read_chunk("./Chapter07/Chapter07.R")
 <img src="figure_rmd/Figure07_01.png" title="plot of chunk Figure07_01" alt="plot of chunk Figure07_01" width="300px" />
 
 ## Figure 7-2
-
-```
-Lise, is this what you had in mind?  Is the publisher going to add the surrounding text in a table format?  I'm thinking that's the easiest way to get the font size to closely match.
-```
-
 <img src="figure_rmd/Figure07_02.png" title="plot of chunk Figure07_02" alt="plot of chunk Figure07_02" width="600px" />
 
 ## Figure 7-3
@@ -68,19 +63,9 @@ Lise, is this what you had in mind?  Is the publisher going to add the surroundi
 <img src="figure_rmd/Figure07_04.png" title="plot of chunk Figure07_04" alt="plot of chunk Figure07_04" width="600px" />
 
 ## Figure 7-5
-
-```
-Lise, are the subscripts on the x label too much for the reader at this stage?
-```
-
 <img src="figure_rmd/Figure07_05.png" title="plot of chunk Figure07_05" alt="plot of chunk Figure07_05" width="600px" />
 
 ## Figure 7-6
-
-```
-Lise, did you want this to be the same color as Figure 7-03, or different?
-```
-
 <img src="figure_rmd/Figure07_06.png" title="plot of chunk Figure07_06" alt="plot of chunk Figure07_06" width="300px" />
 
 
@@ -89,11 +74,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-29, 00:48:43 -0600
+Report created by Will at 2014-02-17, 22:26:22 -0600
 ```
 
 ```
-R Under development (unstable) (2014-01-24 r64871)
+R Under development (unstable) (2014-02-10 r64961)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -109,7 +94,7 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.10.6      Rttf2pt1_1.2    
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.0      Rttf2pt1_1.2    
 [13] stringr_0.6.2    tools_3.1.0     
 ```
 

@@ -49,6 +49,50 @@ read_chunk("./Chapter12/Chapter12.R")
 <!-- Tweak the datasets. -->
 
 ```
+
+Call:
+lm(formula = SleepScenario1 ~ 1 + Feeding, data = ds)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-243.36 -115.59    2.13   95.89  285.91 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      410.4       20.2   20.36   <2e-16 ***
+FeedingBottle    -17.5       28.5   -0.61     0.54    
+FeedingBoth      -46.3       28.5   -1.62     0.11    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 135 on 132 degrees of freedom
+Multiple R-squared:  0.02,	Adjusted R-squared:  0.00511 
+F-statistic: 1.34 on 2 and 132 DF,  p-value: 0.264
+```
+
+```
+
+Call:
+lm(formula = SleepScenario2 ~ 1 + Feeding, data = ds)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-331.5 -117.4    6.1  113.3  279.6 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      410.4       20.9   19.61   <2e-16 ***
+FeedingBottle    -17.5       29.6   -0.59   0.5555    
+FeedingBoth       91.2       29.6    3.08   0.0025 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 140 on 132 degrees of freedom
+Multiple R-squared:  0.105,	Adjusted R-squared:  0.0918 
+F-statistic: 7.78 on 2 and 132 DF,  p-value: 0.000642
+```
+
+```
   Feeding MeanScenario1 MeanScenario2
 1  Breast         410.4         410.4
 2  Bottle         392.9         392.9
@@ -94,7 +138,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 01:03:58 -0600
+Report created by Will at 2014-02-18, 01:16:44 -0600
 ```
 
 ```

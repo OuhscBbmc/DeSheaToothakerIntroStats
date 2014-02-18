@@ -45,6 +45,11 @@ ds$Feeding <- factor(ds$Feeding, levels=feedingLevels)
 # rangeSleep <- range(c(ds$SleepScenario1, ds$SleepScenario2))
 rangeSleep <-c(100, 700)
 
+mScenario1 <- lm(SleepScenario1 ~ 1 + Feeding, data=ds)
+mScenario2 <- lm(SleepScenario2 ~ 1 + Feeding, data=ds)
+summary(mScenario1)
+summary(mScenario2)
+
 mNoIntScenario1 <- lm(SleepScenario1 ~ 0 + Feeding, data=ds)
 mNoIntScenario2 <- lm(SleepScenario2 ~ 0 + Feeding, data=ds)
 # summary(mNoIntScenario1)

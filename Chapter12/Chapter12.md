@@ -54,20 +54,20 @@ Call:
 lm(formula = SleepScenario1 ~ 1 + Feeding, data = ds)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--243.36 -115.59    2.13   95.89  285.91 
+   Min     1Q Median     3Q    Max 
+-42.04 -14.02   1.04  14.12  48.66 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)      410.4       20.2   20.36   <2e-16 ***
-FeedingBottle    -17.5       28.5   -0.61     0.54    
-FeedingBoth      -46.3       28.5   -1.62     0.11    
+(Intercept)     403.72       2.98  135.57   <2e-16 ***
+FeedingBottle    -2.27       4.21   -0.54     0.59    
+FeedingBoth      -6.40       4.21   -1.52     0.13    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 135 on 132 degrees of freedom
-Multiple R-squared:  0.02,	Adjusted R-squared:  0.00511 
-F-statistic: 1.34 on 2 and 132 DF,  p-value: 0.264
+Residual standard error: 20 on 132 degrees of freedom
+Multiple R-squared:  0.0177,	Adjusted R-squared:  0.00277 
+F-statistic: 1.19 on 2 and 132 DF,  p-value: 0.309
 ```
 
 ```
@@ -77,26 +77,26 @@ lm(formula = SleepScenario2 ~ 1 + Feeding, data = ds)
 
 Residuals:
    Min     1Q Median     3Q    Max 
--331.5 -117.4    6.1  113.3  279.6 
+-49.56 -12.65  -1.47  13.14  44.48 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)      410.4       20.9   19.61   <2e-16 ***
-FeedingBottle    -17.5       29.6   -0.59   0.5555    
-FeedingBoth       91.2       29.6    3.08   0.0025 ** 
+(Intercept)     401.40       2.77  145.16   <2e-16 ***
+FeedingBottle    -1.93       3.91   -0.49     0.62    
+FeedingBoth      99.59       3.91   25.47   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 140 on 132 degrees of freedom
-Multiple R-squared:  0.105,	Adjusted R-squared:  0.0918 
-F-statistic: 7.78 on 2 and 132 DF,  p-value: 0.000642
+Residual standard error: 18.6 on 132 degrees of freedom
+Multiple R-squared:  0.87,	Adjusted R-squared:  0.868 
+F-statistic:  441 on 2 and 132 DF,  p-value: <2e-16
 ```
 
 ```
   Feeding MeanScenario1 MeanScenario2
-1  Breast         410.4         410.4
-2  Bottle         392.9         392.9
-3    Both         364.1         501.5
+1  Breast         403.7         401.4
+2  Bottle         401.4         399.5
+3    Both         397.3         501.0
 ```
 
 
@@ -104,7 +104,10 @@ F-statistic: 7.78 on 2 and 132 DF,  p-value: 0.000642
 Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.
 
 ## Figure 12-2
-<img src="figure_rmd/Figure12_02.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="600px" />
+
+```
+Error: object 'MeanScenario1' not found
+```
 
 
 ## Figure 12-3
@@ -126,7 +129,7 @@ Table of Critical *F* values.  Will be produced by publisher.
  * I think it will be clearer to the student if separate graphs are used instead of trying to put everyone onto one F distribution
 
 ## Figure 12-7
-<img src="figure_rmd/Figure12_07.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" />
+<img src="figure_rmd/Figure12_071.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" /><img src="figure_rmd/Figure12_072.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" /><img src="figure_rmd/Figure12_073.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" />
 
 
 
@@ -138,7 +141,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 01:16:44 -0600
+Report created by Will at 2014-02-18, 15:10:06 -0600
 ```
 
 ```
@@ -153,12 +156,12 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.2.2     ggthemes_1.6.0     ggplot2_0.9.3.1    gridExtra_0.9.1   
- [7] scales_0.2.3       plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
+[1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     ggplot2_0.9.3.1    scales_0.2.3       plyr_1.8.0.99     
+[7] knitr_1.5         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.0      Rttf2pt1_1.2    
-[13] stringr_0.6.2    tools_3.1.0     
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.0      reshape2_1.2.2  
+[13] Rttf2pt1_1.2     stringr_0.6.2    tools_3.1.0     
 ```
 

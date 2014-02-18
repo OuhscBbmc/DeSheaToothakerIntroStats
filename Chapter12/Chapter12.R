@@ -2,14 +2,14 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 #####################################
 ## @knitr LoadPackages
 require(knitr)
-require(RColorBrewer)
+# require(RColorBrewer)
 require(plyr)
 require(scales) #For formating values in graphs
-require(grid)
-require(gridExtra)
+# require(grid)
+# require(gridExtra)
 require(ggplot2)
-require(ggthemes)
-require(reshape2) #For converting wide to long
+# require(ggthemes)
+# require(reshape2) #For converting wide to long
 # require(effects) #For extracting useful info from a linear model
 
 #####################################
@@ -54,6 +54,7 @@ mNoIntScenario1 <- lm(SleepScenario1 ~ 0 + Feeding, data=ds)
 mNoIntScenario2 <- lm(SleepScenario2 ~ 0 + Feeding, data=ds)
 # summary(mNoIntScenario1)
 # summary(mNoIntScenario2)
+# plyr::ddply(ds, .variables="Feeding", .fun=summarise, M1=mean(SleepScenario1), M2=mean(SleepScenario2), M3=mean(SleepScenario3))
 
 dsModel <- data.frame(
   Feeding = gsub("Feeding", replacement="", names(coef(mNoIntScenario1)), perl=TRUE),
@@ -65,11 +66,12 @@ dsModel
 
 #####################################
 ## @knitr Figure12_02
-ggplot(ds, aes(x=SleepScenario1, color=Feeding, fill=Feeding)) +
-  geom_histogram(binwidth=100) +
-  geom_vline(data=dsModel, mapping=aes(xintercept=MeanScenario1, color=Feeding), size=2, alpha=.8) +
-  geom_point(data=dsModel, mapping=aes(x=MeanScenario1, y=5, color=Feeding), fill="white", shape=23, size=8) +
-  geom_rug(sides="t") +
+ggplot(ds, aes(x=SleepScenario1, xintercept=MeanScenario1, color=Feeding, fill=Feeding)) +
+  geom_histogram(binwidth=50) +
+#   geom_vline(data=dsModel, mapping=aes(xintercept=MeanScenario1, color=Feeding), size=2, alpha=.8) +
+  geom_vline(data=dsModel, mapping=aes(, color=Feeding), size=2, alpha=.8) +
+#   geom_point(data=dsModel, mapping=aes(x=MeanScenario1, y=5, color=Feeding), fill="white", shape=23, size=8) +
+#   geom_rug(sides="t") +
   scale_x_continuous(expand=c(0, 0)) +
 #   scale_y_continuous() +
   scale_color_manual(values=palette) +
@@ -83,10 +85,10 @@ ggplot(ds, aes(x=SleepScenario1, color=Feeding, fill=Feeding)) +
 #####################################
 ## @knitr Figure12_03
 ggplot(ds, aes(x=SleepScenario2, color=Feeding, fill=Feeding)) +
-  geom_histogram(binwidth=100) +
+  geom_histogram(binwidth=50) +
   geom_vline(data=dsModel, mapping=aes(xintercept=MeanScenario2, color=Feeding), size=2, alpha=.8) +
-  geom_point(data=dsModel, mapping=aes(x=MeanScenario2, y=5, color=Feeding), fill="white", shape=23, size=8) +
-  geom_rug(sides="t") +
+#   geom_point(data=dsModel, mapping=aes(x=MeanScenario2, y=5, color=Feeding), fill="white", shape=23, size=8) +
+#   geom_rug(sides="t") +
   scale_x_continuous(expand=c(0, 0)) +
   #   scale_y_continuous(expand=c(0, 1)) +
   scale_color_manual(values=palette) +
@@ -102,13 +104,10 @@ ggplot(ds, aes(x=SleepScenario2, color=Feeding, fill=Feeding)) +
 #####################################
 ## @knitr Figure12_07
 set.seed(891) #Set the random number generator seed so the jitters are consistent
-ggplot(ds, aes(x=1, y=SleepScenario2, color=Feeding, fill=Feeding)) +
-  geom_hline(data=dsModel, mapping=aes(yintercept=MeanScenario2, color=Feeding), size=2, alpha=.3) +
-  geom_boxplot() +
-  geom_point(data=dsModel, mapping=aes(x=1, y=MeanScenario2, color=Feeding), fill="white", shape=23, size=8) +
-  geom_point(position=position_jitter(w = 0.2, h = 0), size=5, shape=21) +
-  geom_rug(sides="t") +
-  #   scale_x_discrete(limits=rev(feedingLevels)) +
+g1 <- ggplot(ds, aes(x=1, y=SleepScenario1, color=Feeding, fill=Feeding)) +
+  geom_boxplot(outlier.colour=NA) +
+  stat_summary(fun.y="mean", geom="point", shape=23, size=9, fill="white", alpha=.9, na.rm=T) + #See Chang (2013), Recipe 6.8.
+  geom_point(position=position_jitter(w=0.2, h=0), size=5, shape=21) +
   scale_x_continuous(breaks=10) +
   scale_color_manual(values=palette) +
   scale_fill_manual(values=paletteLight) +
@@ -116,6 +115,12 @@ ggplot(ds, aes(x=1, y=SleepScenario2, color=Feeding, fill=Feeding)) +
   coord_flip(ylim=rangeSleep) +
   chapterTheme +
   theme(legend.position="none") +
-  labs(x="", y="Minutes of sleep in 24 hours", title="Postpartum Scenario 2")
+  labs(x="", y="Minutes of sleep in 24 hours")
 
+g1 + labs(title="Postpartum Scenario 1")
+
+g1 %+% aes(y=SleepScenario2) +
+  labs(title="Postpartum Scenario 2")
+g1 %+% aes(y=SleepScenario3) +
+  labs(title="Postpartum Scenario 3")
 

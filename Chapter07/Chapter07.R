@@ -110,14 +110,20 @@ ggplot(dsUniform, aes(x=X)) +##############################
 ## @knitr Figure07_05
 dsUniform <- data.frame(X=2:12, Y=c(1,2,3,4,5,6,5,4,3,2,1))
 ggplot(dsUniform, aes(x=X, y=Y)) +
-  #geom_bar(stat="identity", width=1, color="#101B15", fill="#3A392B55") + #http://colrd.com/palette/23827/
-  #geom_bar(stat="identity", width=1, color="#601600", fill="#7A7D5855") + #http://colrd.com/palette/23827/
-  #geom_bar(stat="identity", width=1, color="#601600", fill="#60160055") + #http://colrd.com/palette/23827/
+  geom_bar(stat="identity", width=1, color="#601600", fill="#DD995455") + #http://colrd.com/palette/23827/
+  scale_x_continuous(breaks=2:12) + 
+  scale_y_continuous(breaks=0:6) + 
+  #labs(title="All Possible Means (N=2)\nfrom Limited Population", x="Sum of Two Scores", y="Frequency") +
+  labs(title=expression(atop(All*phantom(1)*Possible*phantom(1)*Means*phantom(1)*(italic(N)==2),from*phantom(1)*Limited*phantom(1)*Population)), x="Sum of Two Scores", y="Frequency") +
+  chapterTheme +
+  theme(panel.grid.minor=element_blank()) +
+  theme(panel.grid.major.x=element_blank())
+
+ggplot(dsUniform, aes(x=X, y=Y)) +
   geom_bar(stat="identity", width=1, color="#601600", fill="#DD995455") + #http://colrd.com/palette/23827/
   scale_x_continuous(breaks=2:12) + 
   scale_y_continuous(breaks=0:6) + 
   labs(title="All Possible Means (N=2)\nfrom Limited Population", x="Sum of Two Scores", y="Frequency") +
-  #   labs(title=expression(All Possible Means (italic(N)=2)\nfrom Limited Population), x="Sum of Two Scores", y="Frequency", parse=TRUE) +
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())

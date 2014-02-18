@@ -63,7 +63,7 @@ read_chunk("./Chapter07/Chapter07.R")
 <img src="figure_rmd/Figure07_04.png" title="plot of chunk Figure07_04" alt="plot of chunk Figure07_04" width="600px" />
 
 ## Figure 7-5
-<img src="figure_rmd/Figure07_05.png" title="plot of chunk Figure07_05" alt="plot of chunk Figure07_05" width="600px" />
+<img src="figure_rmd/Figure07_051.png" title="plot of chunk Figure07_05" alt="plot of chunk Figure07_05" width="600px" /><img src="figure_rmd/Figure07_052.png" title="plot of chunk Figure07_05" alt="plot of chunk Figure07_05" width="600px" />
 
 ## Figure 7-6
 <img src="figure_rmd/Figure07_06.png" title="plot of chunk Figure07_06" alt="plot of chunk Figure07_06" width="300px" />
@@ -74,7 +74,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-17, 22:26:22 -0600
+Report created by Will at 2014-02-17, 22:33:57 -0600
 ```
 
 ```

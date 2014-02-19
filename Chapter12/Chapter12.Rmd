@@ -81,7 +81,12 @@ Table of Critical *F* values.  Will be produced by publisher.
 ```{r Figure12_07, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
 ```
 
+## Figure 12-8 through 12-11
+```{r Figure12_08, echo=echoChunks, results='show', message=TRUE}
+```
 
+## Figure 12-7
+Lise, let's talk about this one on the phone before I get into it.
 
 
 

@@ -189,7 +189,17 @@ I think it's more clear how the areas relate to each other.
 <img src="figure_rmd/Figure12_07.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="800px" />
 
 
+## Figure 12-8 through 12-11
 
+```
+Lise, once we get this settle, I'll create Figs 12-08 through 12-10 by removing elements
+```
+
+<img src="figure_rmd/Figure12_08.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="600px" />
+
+
+## Figure 12-7
+Lise, let's talk about this one on the phone before I get into it.
 
 
 
@@ -198,7 +208,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 22:13:10 -0600
+Report created by Will at 2014-02-18, 23:41:45 -0600
 ```
 
 ```

@@ -1,4 +1,4 @@
-Chapter 12 Graphs
+Chapter 10 Graphs
 =================================================
 This report creates the chapter graphs.
 
@@ -24,7 +24,7 @@ opts_chunk$set(
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./Chapter12/Chapter12.R") 
+read_chunk("./Chapter10/Chapter10.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 ```{r LoadPackages, echo=echoChunks, message=FALSE}
@@ -46,48 +46,17 @@ read_chunk("./Chapter12/Chapter12.R")
 ```{r TweakDatasets, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Figure 12-1
-Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.
-
-## Figure 12-2
-```{r Figure12_02, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
+## Figure 10-1
+```{r Figure10_01, echo=echoChunks, results='show', message=TRUE}
 ```
 
-## Figure 12-3
-```{r Figure12_03, echo=echoChunks, results='show', message=TRUE}
+## Figure 10-2
+```{r Figure10_02, echo=echoChunks, results='show', message=TRUE}
 ```
 
-## Figure 12-4
-Text describes an F dist with 1, 30 and another F dist with 2, 93***
- * Will: I am flexible on this figure – if different combinations of df would better illustrate differences in F distributions.
- * Feel free to use different df and let me know
- * We also could have two side-by-side F distributions (separate graphs) instead of overlaying the two distributions in one graph
-
-```{r Figure12_04, echo=echoChunks, results='show', message=TRUE}
+## Figure 10-3
+```{r Figure10_03, echo=echoChunks, results='show', message=TRUE}
 ```
-
-## Figure 12-5
-Table of Critical *F* values.  Will be produced by publisher.
-
-## Figure 12-6
- * Will:  See the two sentences (immediately above) for a description and the note below:
- * Let’s make the two distributions the same color, but use different colors for .05 vs. .01
- * I think it will be clearer to the student if separate graphs are used instead of trying to put everyone onto one F distribution
-
-```{r Figure12_06, echo=echoChunks, results='show', message=TRUE}
-```
-
-## Figure 12-7
-```{r Figure12_07, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
-```
-
-## Figure 12-8 through 12-11
-```{r Figure12_08, echo=echoChunks, results='show', message=TRUE}
-```
-
-## Figure 12-12
-Lise, let's talk about this one on the phone before I get into it.
-
 
 
 ## Session Info

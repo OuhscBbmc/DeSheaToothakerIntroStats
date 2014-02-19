@@ -133,7 +133,7 @@ gCritical <- ggplot(data.frame(f=0:4), aes(x=f)) +
   annotate(geom="text", x=criticalF05, y=f2(criticalF05)+.02, label="alpha==.05", hjust=-.15, parse=TRUE, color=paletteCritical[2]) +
   annotate(geom="text", x=criticalF10, y=0, label=round(criticalF10, 2), hjust=.5, vjust=1.2, color=paletteCritical[3], size=5) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=paletteCritical[2], size=5) +
-  scale_x_continuous(expand=c(0,0)) +
+  scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, "", 3, 4)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f2(.5) * 1.05) +
   chapterTheme +
@@ -167,7 +167,7 @@ ggplot(dsFeed, aes(x=1, y=Sleep, color=Feeding, fill=Feeding)) +
 #####################################
 ## @knitr Figure12_08
 
-cat("Lise, once we get this settle, I'll create Figs 12-08 through 12-10 by removing elements")
+cat("Lise, once we get this figure settled, I'll create Figs 12-08 through 12-10 by removing elements")
 cryMeanOverall <- mean(dsCry$CryingDuration)
 cryMeanControl <- mean(dsCry[dsCry$GroupID==3, "CryingDuration"])
 cryMax <- max(dsCry$CryingDuration)
@@ -178,19 +178,28 @@ paletteCry <- c("#faa818", "#41a30d", "#ffce38", "#367d7d", "#d33502", "#6ebcbc"
 purplish <- "#544A8C"
   
 cushion <- 3
-height1 <- 15
+height1 <- 14.5
 height2 <- 13
-ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
+gCrying <- ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
   geom_histogram(data=dsCryCeiling, binwidth=5, fill=paletteCry[3], color=paletteCry[1]) +
   geom_histogram(binwidth=5, fill=paletteCry[6], color=paletteCry[4]) +
-  annotate("segment", x=cryMeanOverall, xend=cryMeanOverall, y=0, yend=Inf, color=paletteCry[7], size=3, alpha=.8) +
-  annotate("segment", x=cryMeanControl, xend=cryMeanControl, y=0, yend=Inf, color=paletteCry[5], size=3, alpha=.9, linetype="81") +
-  annotate("segment", x=cryMax, xend=cryMax, y=0, yend=Inf, color=paletteCry[1], size=3, alpha=.8) +
-  geom_segment(aes(x=cryMeanOverall + cushion, y=height1, xend=cryMax - cushion, yend=height1), color=paletteCry[1], size=2, arrow=arrow(length=grid::unit(0.4, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMax - cushion, y=height1, xend=cryMeanOverall + cushion, yend=height1), color=paletteCry[1], size=2, arrow=arrow(length=grid::unit(0.4, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMeanOverall + cushion, y=height2, xend=cryMeanControl - cushion, yend=height2), color=paletteCry[5], size=2, arrow=arrow(length=grid::unit(0.4, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMeanControl - cushion, y=height2, xend=cryMeanOverall + cushion, yend=height2), color=paletteCry[5], size=2, arrow=arrow(length=grid::unit(0.4, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMeanControl + cushion, y=height2, xend=cryMax - cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.4, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.4, "cm"), type="closed"), lineend="round") +
-  chapterTheme 
+  annotate("segment", x=cryMeanOverall, xend=cryMeanOverall, y=0, yend=Inf, color=paletteCry[7], size=3, alpha=1) +
+  annotate("segment", x=cryMeanControl, xend=cryMeanControl, y=0, yend=Inf, color=paletteCry[5], size=3, alpha=1, linetype="61") +
+  annotate("segment", x=cryMax, xend=cryMax, y=0, yend=Inf, color=paletteCry[1], size=3, alpha=1, linetype="11") +
+  geom_segment(aes(x=cryMeanOverall + cushion, y=height1, xend=cryMax - cushion, yend=height1), color=paletteCry[1], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMax - cushion, y=height1, xend=cryMeanOverall + cushion, yend=height1), color=paletteCry[1], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMeanOverall + cushion, y=height2, xend=cryMeanControl - cushion, yend=height2), color=paletteCry[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMeanControl - cushion, y=height2, xend=cryMeanOverall + cushion, yend=height2), color=paletteCry[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMeanControl + cushion, y=height2, xend=cryMax - cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  annotate(geom="text", x=cryMeanOverall, y=Inf, label="Sample\nMean", hjust=.5, vjust=-.2, color=paletteCry[7], size=4, lineheight=.8) +
+  annotate(geom="text", x=cryMeanControl, y=Inf, label="Control Group\nMean", hjust=.5, vjust=-.2, color=paletteCry[5], size=4, lineheight=.8) +
+  annotate(geom="text", x=cryMax, y=Inf, label="Biggest\nCrybaby", hjust=.5, vjust=-.1, color=paletteCry[1], size=4, lineheight=.8) +  
+  scale_y_continuous(limits=c(0, 15.2), expand=c(0,0)) +
+  chapterTheme +
+  labs(title="")
 
+gt <- ggplot_gtable(ggplot_build(gCrying))
+
+gt$layout$clip[gt$layout$name == "panel"] <- "off"
+grid.draw(gt)

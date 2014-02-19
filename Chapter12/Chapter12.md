@@ -192,7 +192,7 @@ I think it's more clear how the areas relate to each other.
 ## Figure 12-8 through 12-11
 
 ```
-Lise, once we get this settle, I'll create Figs 12-08 through 12-10 by removing elements
+Lise, once we get this figure settled, I'll create Figs 12-08 through 12-10 by removing elements
 ```
 
 <img src="figure_rmd/Figure12_08.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="600px" />
@@ -208,7 +208,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 23:41:45 -0600
+Report created by Will at 2014-02-19, 00:45:46 -0600
 ```
 
 ```

@@ -56,19 +56,19 @@ lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--46.84 -11.47   0.87  13.20  39.27 
+ -33.0  -16.8   -1.7   10.2   37.1 
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   3.00e+02   3.65e+00    82.2   <2e-16 ***
-FeedingBottle 3.90e-14   5.16e+00     0.0        1    
-FeedingBoth   1.42e-13   5.16e+00     0.0        1    
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    3.00e+02   5.16e+00    58.1   <2e-16 ***
+FeedingBottle -1.03e-13   7.30e+00     0.0        1    
+FeedingBoth   -9.75e-14   7.30e+00     0.0        1    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 20 on 87 degrees of freedom
-Multiple R-squared:  1.37e-28,	Adjusted R-squared:  -0.023 
-F-statistic: 5.95e-27 on 2 and 87 DF,  p-value: 1
+Residual standard error: 20 on 42 degrees of freedom
+Multiple R-squared:  2.67e-29,	Adjusted R-squared:  -0.0476 
+F-statistic: 5.61e-28 on 2 and 42 DF,  p-value: 1
 ```
 
 ```
@@ -79,19 +79,19 @@ lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--46.84 -11.47   0.87  13.20  39.27 
+ -33.0  -16.8   -1.7   10.2   37.1 
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   3.00e+02   3.65e+00    82.2   <2e-16 ***
-FeedingBottle 6.36e-14   5.16e+00     0.0        1    
-FeedingBoth   1.00e+02   5.16e+00    19.4   <2e-16 ***
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    3.00e+02   5.16e+00    58.1   <2e-16 ***
+FeedingBottle -9.89e-14   7.30e+00     0.0        1    
+FeedingBoth    1.00e+02   7.30e+00    13.7   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 20 on 87 degrees of freedom
-Multiple R-squared:  0.852,	Adjusted R-squared:  0.848 
-F-statistic:  250 on 2 and 87 DF,  p-value: <2e-16
+Residual standard error: 20 on 42 degrees of freedom
+Multiple R-squared:  0.856,	Adjusted R-squared:  0.849 
+F-statistic:  125 on 2 and 42 DF,  p-value: <2e-16
 ```
 
 ```
@@ -102,19 +102,19 @@ lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--468.4 -114.7    8.7  132.0  392.7 
+-214.2 -108.8  -11.1   66.0  241.4 
 
 Coefficients:
-               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)    3.00e+02   3.65e+01    8.22  1.8e-12 ***
-FeedingBottle -1.08e-13   5.16e+01    0.00    1.000    
-FeedingBoth    1.00e+02   5.16e+01    1.94    0.056 .  
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   3.00e+02   3.36e+01    8.94  2.9e-11 ***
+FeedingBottle 7.19e-14   4.75e+01    0.00    1.000    
+FeedingBoth   1.00e+02   4.75e+01    2.11    0.041 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 200 on 87 degrees of freedom
-Multiple R-squared:  0.0543,	Adjusted R-squared:  0.0326 
-F-statistic:  2.5 on 2 and 87 DF,  p-value: 0.088
+Residual standard error: 130 on 42 degrees of freedom
+Multiple R-squared:  0.123,	Adjusted R-squared:  0.0817 
+F-statistic: 2.96 on 2 and 42 DF,  p-value: 0.0628
 ```
 
 ```
@@ -125,19 +125,19 @@ lm(formula = Sleep ~ 0 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--46.84 -11.47   0.87  13.20  39.27 
+ -33.0  -16.8   -1.7   10.2   37.1 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-FeedingBreast   300.00       3.65    82.2   <2e-16 ***
-FeedingBottle   300.00       3.65    82.2   <2e-16 ***
-FeedingBoth     400.00       3.65   109.5   <2e-16 ***
+FeedingBreast   300.00       5.16    58.1   <2e-16 ***
+FeedingBottle   300.00       5.16    58.1   <2e-16 ***
+FeedingBoth     400.00       5.16    77.5   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 20 on 87 degrees of freedom
+Residual standard error: 20 on 42 degrees of freedom
 Multiple R-squared:  0.997,	Adjusted R-squared:  0.996 
-F-statistic: 8.5e+03 on 3 and 87 DF,  p-value: <2e-16
+F-statistic: 4.25e+03 on 3 and 42 DF,  p-value: <2e-16
 ```
 
 
@@ -179,7 +179,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 20:22:28 -0600
+Report created by Will at 2014-02-18, 20:30:28 -0600
 ```
 
 ```

@@ -64,7 +64,7 @@ dsScenarioFeeding$LabelSD <- paste0("sigma==", round(dsScenarioFeeding$SD))
 
 #####################################
 ## @knitr Figure12_02
-yLimit <- 8.5
+yLimit <- 4.8
 ggplot(ds, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   geom_histogram(binwidth=10)  +
   geom_vline(aes(xintercept=M), data=dsScenarioFeeding, size=2, color="#55555544")  +

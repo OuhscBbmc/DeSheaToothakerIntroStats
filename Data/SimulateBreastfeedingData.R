@@ -10,7 +10,7 @@ rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 pathOutput <- "./Data/Breastfeeding.csv"
 
 scenarioCount <- 3
-subjectsPerGroup <- 30
+subjectsPerGroup <- 15
 groupLevels <- c("Breast", "Bottle", "Both")
 groupCount <- length(groupLevels)
 
@@ -21,7 +21,7 @@ groupPopulationMeans <- cbind(groupPopulationMeansScenario1, groupPopulationMean
 
 sdScenario1 <- 20
 sdScenario2 <- 20
-sdScenario3 <- 200
+sdScenario3 <- 130
 scenarioSD <- c(sdScenario1, sdScenario2, sdScenario3)
 
 set.seed(3291) #Set the random number generator seed so the points are consistent across generations

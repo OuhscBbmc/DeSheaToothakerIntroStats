@@ -60,7 +60,42 @@ read_chunk("./Chapter10/Chapter10.R")
 
 ## Figure 10-3
 
+```
+Lise, the next time we talk, please tell me how you calculated the critical values for each group.
+    I don't see it when I look ahead to chapter 11 (around page 37).
+    I assume you don't want me to sample from the posterior.
+    Right now, I'm multiplying each group's SD by 2/sqrt(n),
+    but that probably doesn't correspond to how you want to connect it to the t-test.
+```
 
+<img src="figure_rmd/Figure10_03.png" title="plot of chunk Figure10_03" alt="plot of chunk Figure10_03" width="300px" />
+
+```
+
+Call:
+lm(formula = FiqT2 ~ 1 + Group, data = dsTaiChi)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-36.66 -14.79   2.18  15.34  34.72 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       58.60       3.16   18.53  < 2e-16 ***
+GroupTreatment   -23.50       4.47   -5.25  1.8e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 18.2 on 64 degrees of freedom
+Multiple R-squared:  0.301,	Adjusted R-squared:  0.29 
+F-statistic: 27.6 on 1 and 64 DF,  p-value: 1.82e-06
+```
+
+```
+      Group    M    SD Count    SE Upper Lower
+1   Control 58.6 17.56    33 3.056 64.72 52.49
+2 Treatment 35.1 18.76    33 3.266 41.64 28.57
+```
 
 
 ## Session Info
@@ -68,7 +103,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-19, 11:06:37 -0600
+Report created by Will at 2014-02-19, 12:18:56 -0600
 ```
 
 ```

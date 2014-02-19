@@ -27,7 +27,6 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -35,7 +34,6 @@ dsTaiChi <- read.csv("./Data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 
 #####################################
 ## @knitr TweakDatasets
-
 
 #####################################
 ## @knitr Figure10_01
@@ -95,10 +93,37 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
   labs(x=NULL, y=NULL)
 
 gt <- ggplot_gtable(ggplot_build(gCritical))
-
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
 grid.draw(gt)
 
-
 #####################################
 ## @knitr Figure10_03
+cat("Lise, the next time we talk, please tell me how you calculated the critical values for each group.
+    I don't see it when I look ahead to chapter 11 (around page 37).
+    I assume you don't want me to sample from the posterior.
+    Right now, I'm multiplying each group's SD by 2/sqrt(n),
+    but that probably doesn't correspond to how you want to connect it to the t-test.")
+dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
+dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
+dsTaiChiSummary$Upper <- dsTaiChiSummary$M + 2 * dsTaiChiSummary$SE
+dsTaiChiSummary$Lower <- dsTaiChiSummary$M - 2 * dsTaiChiSummary$SE
+
+# =mean(FiqT2)+sd(FiqT2), Lower=mean(FiqT2)-sd(FiqT2)
+# dsTaiChiSummary$Group <- factor(dsTaiChiSummary$Group)
+
+paletteTaiChiDark <- c(Control="#447c69", Treatment="#e16552") #http://colrd.com/palette/28063/
+paletteTaiChiLight <- c(Control="#74c49388", Treatment="#f1967088") #http://colrd.com/palette/28063/
+ggplot(dsTaiChiSummary, aes(x=Group, y=M, color=Group, fill=Group, ymin=Lower, ymax=Upper)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(width=.15, size=2) +
+  scale_y_continuous(expand=c(0,0)) +
+  scale_color_manual(values=paletteTaiChiDark) +
+  scale_fill_manual(values= paletteTaiChiLight) +
+  coord_cartesian(ylim=c(0, max(dsTaiChiSummary$Upper) *1.05)) +
+  chapterTheme + 
+  theme(legend.position="none") +
+  labs(x=NULL, y="Mean Week 24 FIQ")
+
+m <- lm(FiqT2 ~ 1 + Group, data=dsTaiChi )
+summary(m)
+dsTaiChiSummary

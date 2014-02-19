@@ -56,6 +56,43 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
 
 #####################################
 ## @knitr Figure10_02
+#Use the same palette as the F crit graph in Chapter 12
+paletteCritical <- c("#544A8C", "#ce2b18", "#F37615") #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter and the orange darker)
+
+t30 <- function( t ) { return( dt(x=t, df=30) ) }
+critT30 <- qt(p=.025, df=30) #The value in the left tail
+
+areaLeft <- as.character(as.expression("alpha[left]==.025"))
+areaLeft <- gsub(pattern="^0", replacement="", x=areaLeft)
+critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 2)))))
+critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 2)))))
+
+gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +  
+  stat_function(fun=LimitRange(t30, -Inf, critT30), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t30, -critT30, Inf), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
+  annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
+  annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
+  stat_function(fun=t30, n=calculatedPointCount, color=paletteCritical[1], size=2) +
+  annotate(geom="text", x=critT30, y=t30(critT30)+.02, label=areaLeft, hjust=1.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=-critT30, y=t30(-critT30)+.02, label="alpha[right]==.025", hjust=-.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[total]==.05", hjust=.5, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=critT30, y=0, label=critLabelLeft, hjust=1.05, vjust=1.2, parse=TRUE, color=paletteCritical[2], size=5) +
+  annotate(geom="text", x=-critT30, y=0, label=critLabelRight, hjust=-.05, vjust=1.2, parse=TRUE, color=paletteCritical[2], size=5) +
+  
+#   annotate(geom="text", x=2, y=.4, label="Standard Normal\nDistribution", vjust=1.1, parse=F, color=paletteZTDark[1]) +
+#   annotate(geom="text", x=3.5, y=.1, label="italic(t)*phantom(0)*distribution", vjust=-.05, parse=TRUE, color=paletteZTDark[2]) +
+#   annotate(geom="text", x=3.5, y=.1, label="(italic(df)==3)", vjust=1.05, parse=TRUE, color=paletteZTDark[2]) +
+  scale_x_continuous(expand=c(0,0)) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=t30(0) * 1.05) +
+  chapterTheme +
+  labs(x=NULL, y=NULL)
+
+gt <- ggplot_gtable(ggplot_build(gCritical))
+
+gt$layout$clip[gt$layout$name == "panel"] <- "off"
+grid.draw(gt)
+
 
 #####################################
 ## @knitr Figure10_03

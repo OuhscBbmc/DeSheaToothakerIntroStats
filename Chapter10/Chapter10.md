@@ -55,6 +55,7 @@ read_chunk("./Chapter10/Chapter10.R")
 
 
 ## Figure 10-2
+<img src="figure_rmd/Figure10_02.png" title="plot of chunk Figure10_02" alt="plot of chunk Figure10_02" width="600px" />
 
 
 ## Figure 10-3
@@ -67,7 +68,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-19, 01:15:18 -0600
+Report created by Will at 2014-02-19, 10:47:29 -0600
 ```
 
 ```

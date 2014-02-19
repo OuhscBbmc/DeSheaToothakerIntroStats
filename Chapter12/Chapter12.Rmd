@@ -50,7 +50,7 @@ read_chunk("./Chapter12/Chapter12.R")
 Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.
 
 ## Figure 12-2
-```{r Figure12_02, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_02, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
 ```
 
 ## Figure 12-3
@@ -72,7 +72,7 @@ Table of Critical *F* values.  Will be produced by publisher.
  * I think it will be clearer to the student if separate graphs are used instead of trying to put everyone onto one F distribution
 
 ## Figure 12-7
-```{r Figure12_07, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_07, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
 ```
 
 

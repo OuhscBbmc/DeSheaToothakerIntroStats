@@ -51,52 +51,113 @@ read_chunk("./Chapter12/Chapter12.R")
 ```
 
 Call:
-lm(formula = SleepScenario1 ~ 1 + Feeding, data = ds)
+lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID == 
+    1, ])
 
 Residuals:
    Min     1Q Median     3Q    Max 
--42.04 -14.02   1.04  14.12  48.66 
+-45.95 -11.18   0.85  12.94  38.20 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)     403.72       2.98  135.57   <2e-16 ***
-FeedingBottle    -2.27       4.21   -0.54     0.59    
-FeedingBoth      -6.40       4.21   -1.52     0.13    
+(Intercept)     360.34       3.58  100.61   <2e-16 ***
+FeedingBottle    -7.63       5.07   -1.51    0.136    
+FeedingBoth      -9.89       5.07   -1.95    0.054 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 20 on 132 degrees of freedom
-Multiple R-squared:  0.0177,	Adjusted R-squared:  0.00277 
-F-statistic: 1.19 on 2 and 132 DF,  p-value: 0.309
+Residual standard error: 19.6 on 87 degrees of freedom
+Multiple R-squared:  0.0459,	Adjusted R-squared:  0.024 
+F-statistic: 2.09 on 2 and 87 DF,  p-value: 0.13
 ```
 
 ```
 
 Call:
-lm(formula = SleepScenario2 ~ 1 + Feeding, data = ds)
+lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID == 
+    2, ])
 
 Residuals:
    Min     1Q Median     3Q    Max 
--49.56 -12.65  -1.47  13.14  44.48 
+-81.14 -13.89   1.49  12.33  43.55 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)     401.40       2.77  145.16   <2e-16 ***
-FeedingBottle    -1.93       3.91   -0.49     0.62    
-FeedingBoth      99.59       3.91   25.47   <2e-16 ***
+(Intercept)     347.61       3.73    93.1   <2e-16 ***
+FeedingBottle     3.70       5.28     0.7     0.48    
+FeedingBoth      76.11       5.28    14.4   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 18.6 on 132 degrees of freedom
-Multiple R-squared:  0.87,	Adjusted R-squared:  0.868 
-F-statistic:  441 on 2 and 132 DF,  p-value: <2e-16
+Residual standard error: 20.4 on 87 degrees of freedom
+Multiple R-squared:  0.752,	Adjusted R-squared:  0.747 
+F-statistic:  132 on 2 and 87 DF,  p-value: <2e-16
+```
+
+```
+
+Call:
+lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID == 
+    3, ])
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-421.3 -154.1   -0.7  122.0  391.5 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      297.5       34.9    8.53  4.1e-13 ***
+FeedingBottle     13.4       49.3    0.27    0.786    
+FeedingBoth      102.2       49.3    2.07    0.041 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 191 on 87 degrees of freedom
+Multiple R-squared:  0.0551,	Adjusted R-squared:  0.0334 
+F-statistic: 2.54 on 2 and 87 DF,  p-value: 0.085
+```
+
+```
+
+Call:
+lm(formula = Sleep ~ 0 + Feeding, data = ds[ds$ScenarioID == 
+    2, ])
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-81.14 -13.89   1.49  12.33  43.55 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+FeedingBreast   347.61       3.73    93.1   <2e-16 ***
+FeedingBottle   351.32       3.73    94.1   <2e-16 ***
+FeedingBoth     423.72       3.73   113.5   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20.4 on 87 degrees of freedom
+Multiple R-squared:  0.997,	Adjusted R-squared:  0.997 
+F-statistic: 1.01e+04 on 3 and 87 DF,  p-value: <2e-16
+```
+
+```
+    Scenario Feeding     M     SD         LabelM    LabelSD
+1 Scenario 1  Breast 360.3  19.46 italic(M)==360  sigma==19
+2 Scenario 1  Bottle 352.7  19.78 italic(M)==353  sigma==20
+3 Scenario 1    Both 350.5  19.62 italic(M)==350  sigma==20
+4 Scenario 2  Breast 347.6  20.85 italic(M)==348  sigma==21
+5 Scenario 2  Bottle 351.3  17.35 italic(M)==351  sigma==17
+6 Scenario 2    Both 423.7  22.77 italic(M)==424  sigma==23
+7 Scenario 3  Breast 297.5 186.67 italic(M)==298 sigma==187
+8 Scenario 3  Bottle 311.0 179.63 italic(M)==311 sigma==180
+9 Scenario 3    Both 399.7 205.82 italic(M)==400 sigma==206
 ```
 
 ```
   Feeding MeanScenario1 MeanScenario2
-1  Breast         403.7         401.4
-2  Bottle         401.4         399.5
-3    Both         397.3         501.0
+1  Breast         360.3         347.6
+2  Bottle         352.7         351.3
+3    Both         350.5         423.7
 ```
 
 
@@ -104,14 +165,11 @@ F-statistic:  441 on 2 and 132 DF,  p-value: <2e-16
 Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.
 
 ## Figure 12-2
-
-```
-Error: object 'MeanScenario1' not found
-```
+<img src="figure_rmd/Figure12_02.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="800px" />
 
 
 ## Figure 12-3
-<img src="figure_rmd/Figure12_03.png" title="plot of chunk Figure12_03" alt="plot of chunk Figure12_03" width="600px" />
+
 
 
 ## Figure 12-4
@@ -129,7 +187,7 @@ Table of Critical *F* values.  Will be produced by publisher.
  * I think it will be clearer to the student if separate graphs are used instead of trying to put everyone onto one F distribution
 
 ## Figure 12-7
-<img src="figure_rmd/Figure12_071.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" /><img src="figure_rmd/Figure12_072.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" /><img src="figure_rmd/Figure12_073.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" />
+<img src="figure_rmd/Figure12_07.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="800px" />
 
 
 
@@ -141,7 +199,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 15:10:06 -0600
+Report created by Will at 2014-02-18, 19:38:31 -0600
 ```
 
 ```

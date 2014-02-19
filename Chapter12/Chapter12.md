@@ -56,19 +56,19 @@ lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--45.95 -11.18   0.85  12.94  38.20 
+-46.84 -11.47   0.87  13.20  39.27 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)     360.34       3.58  100.61   <2e-16 ***
-FeedingBottle    -7.63       5.07   -1.51    0.136    
-FeedingBoth      -9.89       5.07   -1.95    0.054 .  
+(Intercept)   3.00e+02   3.65e+00    82.2   <2e-16 ***
+FeedingBottle 3.90e-14   5.16e+00     0.0        1    
+FeedingBoth   1.42e-13   5.16e+00     0.0        1    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 19.6 on 87 degrees of freedom
-Multiple R-squared:  0.0459,	Adjusted R-squared:  0.024 
-F-statistic: 2.09 on 2 and 87 DF,  p-value: 0.13
+Residual standard error: 20 on 87 degrees of freedom
+Multiple R-squared:  1.37e-28,	Adjusted R-squared:  -0.023 
+F-statistic: 5.95e-27 on 2 and 87 DF,  p-value: 1
 ```
 
 ```
@@ -79,19 +79,19 @@ lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--81.14 -13.89   1.49  12.33  43.55 
+-46.84 -11.47   0.87  13.20  39.27 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)     347.61       3.73    93.1   <2e-16 ***
-FeedingBottle     3.70       5.28     0.7     0.48    
-FeedingBoth      76.11       5.28    14.4   <2e-16 ***
+(Intercept)   3.00e+02   3.65e+00    82.2   <2e-16 ***
+FeedingBottle 6.36e-14   5.16e+00     0.0        1    
+FeedingBoth   1.00e+02   5.16e+00    19.4   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 20.4 on 87 degrees of freedom
-Multiple R-squared:  0.752,	Adjusted R-squared:  0.747 
-F-statistic:  132 on 2 and 87 DF,  p-value: <2e-16
+Residual standard error: 20 on 87 degrees of freedom
+Multiple R-squared:  0.852,	Adjusted R-squared:  0.848 
+F-statistic:  250 on 2 and 87 DF,  p-value: <2e-16
 ```
 
 ```
@@ -102,19 +102,19 @@ lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--421.3 -154.1   -0.7  122.0  391.5 
+-468.4 -114.7    8.7  132.0  392.7 
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)      297.5       34.9    8.53  4.1e-13 ***
-FeedingBottle     13.4       49.3    0.27    0.786    
-FeedingBoth      102.2       49.3    2.07    0.041 *  
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    3.00e+02   3.65e+01    8.22  1.8e-12 ***
+FeedingBottle -1.08e-13   5.16e+01    0.00    1.000    
+FeedingBoth    1.00e+02   5.16e+01    1.94    0.056 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 191 on 87 degrees of freedom
-Multiple R-squared:  0.0551,	Adjusted R-squared:  0.0334 
-F-statistic: 2.54 on 2 and 87 DF,  p-value: 0.085
+Residual standard error: 200 on 87 degrees of freedom
+Multiple R-squared:  0.0543,	Adjusted R-squared:  0.0326 
+F-statistic:  2.5 on 2 and 87 DF,  p-value: 0.088
 ```
 
 ```
@@ -125,39 +125,19 @@ lm(formula = Sleep ~ 0 + Feeding, data = ds[ds$ScenarioID ==
 
 Residuals:
    Min     1Q Median     3Q    Max 
--81.14 -13.89   1.49  12.33  43.55 
+-46.84 -11.47   0.87  13.20  39.27 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-FeedingBreast   347.61       3.73    93.1   <2e-16 ***
-FeedingBottle   351.32       3.73    94.1   <2e-16 ***
-FeedingBoth     423.72       3.73   113.5   <2e-16 ***
+FeedingBreast   300.00       3.65    82.2   <2e-16 ***
+FeedingBottle   300.00       3.65    82.2   <2e-16 ***
+FeedingBoth     400.00       3.65   109.5   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 20.4 on 87 degrees of freedom
-Multiple R-squared:  0.997,	Adjusted R-squared:  0.997 
-F-statistic: 1.01e+04 on 3 and 87 DF,  p-value: <2e-16
-```
-
-```
-    Scenario Feeding     M     SD         LabelM    LabelSD
-1 Scenario 1  Breast 360.3  19.46 italic(M)==360  sigma==19
-2 Scenario 1  Bottle 352.7  19.78 italic(M)==353  sigma==20
-3 Scenario 1    Both 350.5  19.62 italic(M)==350  sigma==20
-4 Scenario 2  Breast 347.6  20.85 italic(M)==348  sigma==21
-5 Scenario 2  Bottle 351.3  17.35 italic(M)==351  sigma==17
-6 Scenario 2    Both 423.7  22.77 italic(M)==424  sigma==23
-7 Scenario 3  Breast 297.5 186.67 italic(M)==298 sigma==187
-8 Scenario 3  Bottle 311.0 179.63 italic(M)==311 sigma==180
-9 Scenario 3    Both 399.7 205.82 italic(M)==400 sigma==206
-```
-
-```
-  Feeding MeanScenario1 MeanScenario2
-1  Breast         360.3         347.6
-2  Bottle         352.7         351.3
-3    Both         350.5         423.7
+Residual standard error: 20 on 87 degrees of freedom
+Multiple R-squared:  0.997,	Adjusted R-squared:  0.996 
+F-statistic: 8.5e+03 on 3 and 87 DF,  p-value: <2e-16
 ```
 
 
@@ -199,7 +179,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 19:38:31 -0600
+Report created by Will at 2014-02-18, 20:22:28 -0600
 ```
 
 ```

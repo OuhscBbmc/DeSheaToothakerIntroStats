@@ -14,16 +14,15 @@ subjectsPerGroup <- 30
 groupLevels <- c("Breast", "Bottle", "Both")
 groupCount <- length(groupLevels)
 
-groupPopulationMeansScenario1 <- c(350, 350, 350)
-groupPopulationMeansScenario2 <- c(350, 350, 430)
-groupPopulationMeansScenario3 <- c(350, 350, 430)
+groupPopulationMeansScenario1 <- c(300, 300, 300)
+groupPopulationMeansScenario2 <- c(300, 300, 400)
+groupPopulationMeansScenario3 <- c(300, 300, 400)
 groupPopulationMeans <- cbind(groupPopulationMeansScenario1, groupPopulationMeansScenario2, groupPopulationMeansScenario3)
 
 sdScenario1 <- 20
 sdScenario2 <- 20
 sdScenario3 <- 200
 scenarioSD <- c(sdScenario1, sdScenario2, sdScenario3)
-
 
 set.seed(3291) #Set the random number generator seed so the points are consistent across generations
 ############################
@@ -37,11 +36,23 @@ ds <- data.frame(
   stringsAsFactors = F
 )
 
-ds$Sleep <- sapply(X=seq_len(nrow(ds)), FUN=function( i ) { rnorm(
-  n = 1, 
-  mean = groupPopulationMeans[ds$FeedingID[i], ds$ScenarioID[i]], 
-  sd = scenarioSD[ds$ScenarioID[i]]) 
-})
+#Generate the same deviates, so that the distribution only shifts & spreads
+ds$Deviates <- rep(rnorm(n=groupCount*subjectsPerGroup, mean=0, sd=1), times=scenarioCount)
+
+#Further sanitize so they're scaled within each cell
+ds <- plyr::ddply(ds, .variables=c("Scenario", "Feeding"), transform, Deviates=scale(Deviates))
+
+AppendScores <- function( d ) {
+  groupMean <- groupPopulationMeans[, d$ScenarioID][d$FeedingID]
+  scenarioSD <- scenarioSD[d$ScenarioID]
+  d$groupMean <- groupMean 
+  d$scenarioSD <-  scenarioSD
+  d$Sleep <- groupMean + d$Deviates * scenarioSD
+  return( d )
+}
+ds <- plyr::ddply(ds, .variables="ScenarioID", AppendScores)
+
+plyr::ddply(ds, .variables=c("Scenario", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
 
 
 mScenario1 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==1, ], )

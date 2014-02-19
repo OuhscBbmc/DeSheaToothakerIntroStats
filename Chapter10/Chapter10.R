@@ -55,7 +55,8 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
 #####################################
 ## @knitr Figure10_02
 #Use the same palette as the F crit graph in Chapter 12
-paletteCritical <- c("#544A8C", "#ce2b18", "#F37615") #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter and the orange darker)
+bluish <- "#5698c4" #adjustcolor(col="goldenrod", green.f=1)
+paletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter and the orange darker)
 
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
 critT30 <- qt(p=.025, df=30) #The value in the left tail
@@ -68,20 +69,21 @@ critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[cr
 gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +  
   stat_function(fun=LimitRange(t30, -Inf, critT30), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
   stat_function(fun=LimitRange(t30, -critT30, Inf), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
-  annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
-  annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
+  annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[4], size=1) +
+  annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[4], size=1) +
   stat_function(fun=t30, n=calculatedPointCount, color=paletteCritical[1], size=2) +
-  annotate(geom="text", x=critT30-.5, y=t30(critT30), label="alpha[left]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=critT30-.5, y=t30(critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+  annotate(geom="text", x=critT30-.8, y=t30(critT30), label="alpha[left]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=critT30-.8, y=t30(critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
   
-  annotate(geom="text", x=-critT30 +.5, y=t30(-critT30), label="alpha[right]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=-critT30 +.5, y=t30(-critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30), label="alpha[right]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
   
-  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[total]==phantom(0)", hjust=.5, vjust=-.05, parse=T, color=paletteCritical[2]) +
-  annotate(geom="text", x=0, y=t30(-critT30)+.1, label=".05", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[left]+alpha[right]==phantom(0)", hjust=.5, vjust=-.5, parse=T, color=paletteCritical[2]) +
+  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[total]==phantom(0)", hjust=.5, vjust=.5, parse=T, color=paletteCritical[2]) +
+  annotate(geom="text", x=0, y=t30(-critT30)+.1, label=".05", hjust=.5, vjust=2, parse=F, color=paletteCritical[2]) +
   
-  annotate(geom="text", x=critT30, y=0, label=critLabelLeft, hjust=1.05, vjust=1.2, parse=TRUE, color=paletteCritical[2], size=5) +
-  annotate(geom="text", x=-critT30, y=0, label=critLabelRight, hjust=-.05, vjust=1.2, parse=TRUE, color=paletteCritical[2], size=5) +
+  annotate(geom="text", x=critT30, y=0, label=critLabelLeft, hjust=1.05, vjust=1.2, parse=TRUE, color=paletteCritical[4], size=5) +
+  annotate(geom="text", x=-critT30, y=0, label=critLabelRight, hjust=-.05, vjust=1.2, parse=TRUE, color=paletteCritical[4], size=5) +
   
 #   annotate(geom="text", x=2, y=.4, label="Standard Normal\nDistribution", vjust=1.1, parse=F, color=paletteZTDark[1]) +
 #   annotate(geom="text", x=3.5, y=.1, label="italic(t)*phantom(0)*distribution", vjust=-.05, parse=TRUE, color=paletteZTDark[2]) +

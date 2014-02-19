@@ -73,9 +73,15 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
   annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
   annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
   stat_function(fun=t30, n=calculatedPointCount, color=paletteCritical[1], size=2) +
-  annotate(geom="text", x=critT30, y=t30(critT30)+.02, label=areaLeft, hjust=1.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=-critT30, y=t30(-critT30)+.02, label="alpha[right]==.025", hjust=-.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[total]==.05", hjust=.5, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=critT30-.5, y=t30(critT30), label="alpha[left]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=critT30-.5, y=t30(critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+  
+  annotate(geom="text", x=-critT30 +.5, y=t30(-critT30), label="alpha[right]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=-critT30 +.5, y=t30(-critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+  
+  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[total]==phantom(0)", hjust=.5, vjust=-.05, parse=T, color=paletteCritical[2]) +
+  annotate(geom="text", x=0, y=t30(-critT30)+.1, label=".05", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+  
   annotate(geom="text", x=critT30, y=0, label=critLabelLeft, hjust=1.05, vjust=1.2, parse=TRUE, color=paletteCritical[2], size=5) +
   annotate(geom="text", x=-critT30, y=0, label=critLabelRight, hjust=-.05, vjust=1.2, parse=TRUE, color=paletteCritical[2], size=5) +
   

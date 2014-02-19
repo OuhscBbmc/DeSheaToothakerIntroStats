@@ -63,6 +63,9 @@ Text describes an F dist with 1, 30 and another F dist with 2, 93***
  * Feel free to use different df and let me know
  * We also could have two side-by-side F distributions (separate graphs) instead of overlaying the two distributions in one graph
 
+```{r Figure12_04, echo=echoChunks, results='show', message=TRUE}
+```
+
 ## Figure 12-5
 Table of Critical *F* values.  Will be produced by publisher.
 
@@ -70,6 +73,9 @@ Table of Critical *F* values.  Will be produced by publisher.
  * Will:  See the two sentences (immediately above) for a description and the note below:
  * Let’s make the two distributions the same color, but use different colors for .05 vs. .01
  * I think it will be clearer to the student if separate graphs are used instead of trying to put everyone onto one F distribution
+
+```{r Figure12_06, echo=echoChunks, results='show', message=TRUE}
+```
 
 ## Figure 12-7
 ```{r Figure12_07, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}

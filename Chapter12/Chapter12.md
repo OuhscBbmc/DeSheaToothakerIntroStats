@@ -158,6 +158,16 @@ Text describes an F dist with 1, 30 and another F dist with 2, 93***
  * Feel free to use different df and let me know
  * We also could have two side-by-side F distributions (separate graphs) instead of overlaying the two distributions in one graph
 
+
+```
+Lise, I increased the dfModel.  I don't like df=1 for this, because it asymptotes and never intersects the y-axis.
+
+    I increased the second F so the students would see an F with hump.
+```
+
+<img src="figure_rmd/Figure12_04.png" title="plot of chunk Figure12_04" alt="plot of chunk Figure12_04" width="600px" />
+
+
 ## Figure 12-5
 Table of Critical *F* values.  Will be produced by publisher.
 
@@ -165,6 +175,15 @@ Table of Critical *F* values.  Will be produced by publisher.
  * Will:  See the two sentences (immediately above) for a description and the note below:
  * Lets make the two distributions the same color, but use different colors for .05 vs. .01
  * I think it will be clearer to the student if separate graphs are used instead of trying to put everyone onto one F distribution
+
+
+```
+Lise, what do you think about combining them like this?
+I think it's more clear how the areas relate to each other.
+```
+
+<img src="figure_rmd/Figure12_06.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" />
+
 
 ## Figure 12-7
 <img src="figure_rmd/Figure12_07.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="800px" />
@@ -179,7 +198,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 20:30:28 -0600
+Report created by Will at 2014-02-18, 21:49:54 -0600
 ```
 
 ```

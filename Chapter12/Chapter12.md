@@ -51,7 +51,7 @@ read_chunk("./Chapter12/Chapter12.R")
 ```
 
 Call:
-lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID == 
+lm(formula = Sleep ~ 1 + Feeding, data = dsFeed[dsFeed$ScenarioID == 
     1, ])
 
 Residuals:
@@ -74,7 +74,7 @@ F-statistic: 5.61e-28 on 2 and 42 DF,  p-value: 1
 ```
 
 Call:
-lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID == 
+lm(formula = Sleep ~ 1 + Feeding, data = dsFeed[dsFeed$ScenarioID == 
     2, ])
 
 Residuals:
@@ -97,7 +97,7 @@ F-statistic:  125 on 2 and 42 DF,  p-value: <2e-16
 ```
 
 Call:
-lm(formula = Sleep ~ 1 + Feeding, data = ds[ds$ScenarioID == 
+lm(formula = Sleep ~ 1 + Feeding, data = dsFeed[dsFeed$ScenarioID == 
     3, ])
 
 Residuals:
@@ -120,7 +120,7 @@ F-statistic: 2.96 on 2 and 42 DF,  p-value: 0.0628
 ```
 
 Call:
-lm(formula = Sleep ~ 0 + Feeding, data = ds[ds$ScenarioID == 
+lm(formula = Sleep ~ 0 + Feeding, data = dsFeed[dsFeed$ScenarioID == 
     2, ])
 
 Residuals:
@@ -198,7 +198,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 21:49:54 -0600
+Report created by Will at 2014-02-18, 22:13:10 -0600
 ```
 
 ```

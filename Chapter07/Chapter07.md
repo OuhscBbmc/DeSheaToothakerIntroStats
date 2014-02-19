@@ -60,10 +60,20 @@ read_chunk("./Chapter07/Chapter07.R")
 <img src="figure_rmd/Figure07_03.png" title="plot of chunk Figure07_03" alt="plot of chunk Figure07_03" width="300px" />
 
 ## Figure 7-4
+
+```
+Reminder, the publisher needs to add the title `Population of 12 Scores`.
+```
+
 <img src="figure_rmd/Figure07_04.png" title="plot of chunk Figure07_04" alt="plot of chunk Figure07_04" width="600px" />
 
 ## Figure 7-5
-<img src="figure_rmd/Figure07_051.png" title="plot of chunk Figure07_05" alt="plot of chunk Figure07_05" width="600px" /><img src="figure_rmd/Figure07_052.png" title="plot of chunk Figure07_05" alt="plot of chunk Figure07_05" width="600px" />
+
+```
+Reminder, the publisher needs to add the title `All Possible Means (N=2) from Limited Population`, where the `N` is italicized.
+```
+
+<img src="figure_rmd/Figure07_05.png" title="plot of chunk Figure07_05" alt="plot of chunk Figure07_05" width="600px" />
 
 ## Figure 7-6
 <img src="figure_rmd/Figure07_06.png" title="plot of chunk Figure07_06" alt="plot of chunk Figure07_06" width="300px" />
@@ -74,7 +84,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-18, 01:05:57 -0600
+Report created by Will at 2014-02-18, 21:58:44 -0600
 ```
 
 ```

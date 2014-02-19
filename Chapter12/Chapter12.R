@@ -37,27 +37,27 @@ paletteLight <- adjustcolor(palette, alpha.f=.2)
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
-ds <- read.csv("./Data/Breastfeeding.csv", stringsAsFactors=FALSE)
+dsFeed <- read.csv("./Data/Breastfeeding.csv", stringsAsFactors=FALSE)
 
 #####################################
 ## @knitr TweakDatasets
-ds$Feeding <- factor(ds$Feeding, levels=feedingLevels)
-rangeSleep <- range(ds$Sleep)
+dsFeed$Feeding <- factor(dsFeed$Feeding, levels=feedingLevels)
+rangeSleep <- range(dsFeed$Sleep)
 rangeSleep <- c(220, 580) -50
 
 
-mScenario1 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==1, ], )
-mScenario2 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==2, ], )
-mScenario3 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==3, ], )
+mScenario1 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ], )
+mScenario2 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ], )
+mScenario3 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==3, ], )
 summary(mScenario1)
 summary(mScenario2)
 summary(mScenario3)
 
-mNoIntScenario1 <- lm(Sleep ~ 0 + Feeding, data=ds[ds$ScenarioID==1, ], )
-mNoIntScenario2 <- lm(Sleep ~ 0 + Feeding, data=ds[ds$ScenarioID==2, ], )
+mNoIntScenario1 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ], )
+mNoIntScenario2 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ], )
 # summary(mNoIntScenario1)
 summary(mNoIntScenario2)
-dsScenarioFeeding <- plyr::ddply(ds, .variables=c("Scenario", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
+dsScenarioFeeding <- plyr::ddply(dsFeed, .variables=c("Scenario", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
 dsScenarioFeeding$LabelM <- paste0("italic(M)==", round(dsScenarioFeeding$M))
 dsScenarioFeeding$LabelSD <- paste0("sigma==", round(dsScenarioFeeding$SD))
 # dsScenarioFeeding
@@ -65,7 +65,7 @@ dsScenarioFeeding$LabelSD <- paste0("sigma==", round(dsScenarioFeeding$SD))
 #####################################
 ## @knitr Figure12_02
 yLimit <- 4.8
-ggplot(ds, aes(x=Sleep, color=Feeding, fill=Feeding)) +
+ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   geom_histogram(binwidth=10)  +
   geom_vline(aes(xintercept=M), data=dsScenarioFeeding, size=2, color="#55555544")  +
   geom_text(data=dsScenarioFeeding, aes(x=M, y=Inf, label=LabelM), color="gray40", vjust=1.2, hjust=1.1, size=3, parse=TRUE) +
@@ -147,7 +147,7 @@ grid.draw(gt)
 #####################################
 ## @knitr Figure12_07
 set.seed(891) #Set the random number generator seed so the jitters are consistent
-ggplot(ds, aes(x=1, y=Sleep, color=Feeding, fill=Feeding)) +
+ggplot(dsFeed, aes(x=1, y=Sleep, color=Feeding, fill=Feeding)) +
   geom_boxplot(outlier.colour=NA) +
   geom_point(position=position_jitter(w=0.2, h=0), size=2, shape=21) +
   stat_summary(fun.y="mean", geom="point", shape=23, size=7, fill="#FFFFFFCC",  na.rm=T) + #See Chang (2013), Recipe 6.8.

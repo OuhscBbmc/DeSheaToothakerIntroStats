@@ -95,35 +95,32 @@ ggplot(dsNorm, aes(x=X)) +
 rm(dsNorm)
 #####################################
 ## @knitr Figure07_04
+cat("Reminder, the publisher needs to add the title `Population of 12 Scores`.")
+
 dsUniform <- data.frame(X=c(1,1,2,2,3,3,4,4,5,5,6,6))
 ggplot(dsUniform, aes(x=X)) +##############################
   #geom_histogram(breaks=c(.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), color="#601600", fill="#7A7D5855") + #http://colrd.com/palette/23827/
   geom_histogram(breaks=c(.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), color="#601600", fill="#DD995411") + #http://colrd.com/palette/23827/
   scale_x_continuous(breaks=1:6) + 
   scale_y_continuous(breaks=0:2) + 
-  labs(title="\nPopulation of 12 Scores", x="Scores", y="Frequency") +
+  labs(title=NULL, x="Scores", y="Frequency") +
+  #labs(title="\nPopulation of 12 Scores", x="Scores", y="Frequency") +
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())
 
 #####################################
 ## @knitr Figure07_05
+cat("Reminder, the publisher needs to add the title `All Possible Means (N=2) from Limited Population`, where the `N` is italicized.")
+
 dsUniform <- data.frame(X=2:12, Y=c(1,2,3,4,5,6,5,4,3,2,1))
 ggplot(dsUniform, aes(x=X, y=Y)) +
   geom_bar(stat="identity", width=1, color="#601600", fill="#DD995455") + #http://colrd.com/palette/23827/
   scale_x_continuous(breaks=2:12) + 
   scale_y_continuous(breaks=0:6) + 
+  labs(title=NULL, x="Sum of Two Scores", y="Frequency") +
   #labs(title="All Possible Means (N=2)\nfrom Limited Population", x="Sum of Two Scores", y="Frequency") +
-  labs(title=expression(atop(All*phantom(1)*Possible*phantom(1)*Means*phantom(1)*(italic(N)==2),from*phantom(1)*Limited*phantom(1)*Population)), x="Sum of Two Scores", y="Frequency") +
-  chapterTheme +
-  theme(panel.grid.minor=element_blank()) +
-  theme(panel.grid.major.x=element_blank())
-
-ggplot(dsUniform, aes(x=X, y=Y)) +
-  geom_bar(stat="identity", width=1, color="#601600", fill="#DD995455") + #http://colrd.com/palette/23827/
-  scale_x_continuous(breaks=2:12) + 
-  scale_y_continuous(breaks=0:6) + 
-  labs(title="All Possible Means (N=2)\nfrom Limited Population", x="Sum of Two Scores", y="Frequency") +
+  #labs(title=expression(atop(All*phantom(1)*Possible*phantom(1)*Means*phantom(1)*(italic(N)==2),from*phantom(1)*Limited*phantom(1)*Population)), x="Sum of Two Scores", y="Frequency") +
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())

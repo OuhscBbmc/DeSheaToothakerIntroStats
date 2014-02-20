@@ -17,9 +17,9 @@ opts_chunk$set(
     results='show', 
     comment = NA, 
     tidy = FALSE,
-    fig.width = 5.5, 
-    fig.height = 4, 
-    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+    fig.width = 4, 
+    fig.height = 2, 
+    out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
     fig.path = 'figure_rmd/',     
     dev = "png",
     dpi = 400
@@ -51,11 +51,11 @@ read_chunk("./Chapter10/Chapter10.R")
 
 
 ## Figure 10-1
-<img src="figure_rmd/Figure10_01.png" title="plot of chunk Figure10_01" alt="plot of chunk Figure10_01" width="600px" />
+<img src="figure_rmd/Figure10_01.png" title="plot of chunk Figure10_01" alt="plot of chunk Figure10_01" width="400px" />
 
 
 ## Figure 10-2
-<img src="figure_rmd/Figure10_02.png" title="plot of chunk Figure10_02" alt="plot of chunk Figure10_02" width="600px" />
+<img src="figure_rmd/Figure10_02.png" title="plot of chunk Figure10_02" alt="plot of chunk Figure10_02" width="400px" />
 
 
 ## Figure 10-3
@@ -92,9 +92,9 @@ F-statistic: 27.6 on 1 and 64 DF,  p-value: 1.82e-06
 ```
 
 ```
-      Group    M    SD Count    SE Upper Lower
-1   Control 58.6 17.56    33 3.056 64.72 52.49
-2 Treatment 35.1 18.76    33 3.266 41.64 28.57
+      Group    M    SD Count    SE  Crit Upper Lower
+1   Control 58.6 17.56    33 3.056 2.037 64.83 52.38
+2 Treatment 35.1 18.76    33 3.266 2.037 41.76 28.45
 ```
 
 
@@ -103,11 +103,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-19, 13:26:20 -0600
+Report created by Will at 2014-02-20, 00:08:02 -0600
 ```
 
 ```
-R Under development (unstable) (2014-02-10 r64961)
+R Under development (unstable) (2014-02-18 r65029)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:

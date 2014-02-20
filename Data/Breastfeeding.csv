@@ -1,4 +1,4 @@
-"ScenarioID","Scenario","FeedingID","Feeding","Deviates","groupMean","scenarioSD","Sleep"
+"ScenarioID","Scenario","FeedingID","Feeding","Deviates","GroupMean","ScenarioSD","Sleep"
 1,"Scenario 1",1,"Breast",-0.837344167993665,300,20,283.253116640127
 1,"Scenario 1",1,"Breast",1.2819871937986,300,20,325.639743875972
 1,"Scenario 1",1,"Breast",0.146143160906434,300,20,302.922863218129

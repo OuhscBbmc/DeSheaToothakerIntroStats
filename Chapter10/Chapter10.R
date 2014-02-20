@@ -42,9 +42,9 @@ paletteZTLight <- c("#44669988", "#70af81AA") #http://colrd.com/palette/28063/
 ggplot(data.frame(z=-5:5), aes(x=z)) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZTLight[1], size=2) +
   stat_function(fun=dt, args=list(df=3), n=calculatedPointCount, color=paletteZTLight[2], size=2) +
-  annotate(geom="text", x=2, y=.4, label="Standard Normal\nDistribution", vjust=1.1, parse=F, color=paletteZTDark[1]) +
-  annotate(geom="text", x=3.5, y=.1, label="italic(t)*phantom(0)*distribution", vjust=-.05, parse=TRUE, color=paletteZTDark[2]) +
-  annotate(geom="text", x=3.5, y=.1, label="(italic(df)==3)", vjust=1.05, parse=TRUE, color=paletteZTDark[2]) +
+  annotate(geom="text", x=2.5, y=.4, label="Standard Normal\nDistribution", vjust=1.1, parse=F, color=paletteZTDark[1], size=4) +
+  annotate(geom="text", x=3.5, y=.1, label="italic(t)*phantom(0)*distribution", vjust=-.15, parse=TRUE, color=paletteZTDark[2], size=4) +
+  annotate(geom="text", x=3.5, y=.1, label="(italic(df)==3)", vjust=1.15, parse=TRUE, color=paletteZTDark[2], size=4) +
   scale_x_continuous(expand=c(0,0)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
@@ -55,43 +55,34 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
 #####################################
 ## @knitr Figure10_02
 #Use the same palette as the F crit graph in Chapter 12
-bluish <- "#5698c4" #adjustcolor(col="goldenrod", green.f=1)
-paletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter and the orange darker)
+bluish <- "#1d00b2" #"#230ca2" #"#000066" #"#0868ac" ##5698c4" #http://colrd.com/palette/18981/
+paletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter, the orange darker, and added the blue.)
 
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
 critT30 <- qt(p=.025, df=30) #The value in the left tail
 
-areaLeft <- as.character(as.expression("alpha[left]==.025"))
-areaLeft <- gsub(pattern="^0", replacement="", x=areaLeft)
-critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 2)))))
-critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 2)))))
+critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 3)))))
+critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 3)))))
 
 gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +  
   stat_function(fun=LimitRange(t30, -Inf, critT30), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
   stat_function(fun=LimitRange(t30, -critT30, Inf), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
   annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[4], size=1) +
   annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[4], size=1) +
-  stat_function(fun=t30, n=calculatedPointCount, color=paletteCritical[1], size=2) +
-  annotate(geom="text", x=critT30-.8, y=t30(critT30), label="alpha[left]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=critT30-.8, y=t30(critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+  stat_function(fun=t30, n=calculatedPointCount, color=paletteCritical[1], size=1) +
+  annotate(geom="text", x=critT30-.8, y=t30(critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=critT30-.8, y=t30(critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
   
-  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30), label="alpha[right]==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30), label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
-  
-  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[left]+alpha[right]==phantom(0)", hjust=.5, vjust=-.5, parse=T, color=paletteCritical[2]) +
-  annotate(geom="text", x=0, y=t30(-critT30)+.1, label="alpha[total]==phantom(0)", hjust=.5, vjust=.5, parse=T, color=paletteCritical[2]) +
-  annotate(geom="text", x=0, y=t30(-critT30)+.1, label=".05", hjust=.5, vjust=2, parse=F, color=paletteCritical[2]) +
-  
-  annotate(geom="text", x=critT30, y=0, label=critLabelLeft, hjust=1.05, vjust=1.2, parse=TRUE, color=paletteCritical[4], size=5) +
-  annotate(geom="text", x=-critT30, y=0, label=critLabelRight, hjust=-.05, vjust=1.2, parse=TRUE, color=paletteCritical[4], size=5) +
-  
-#   annotate(geom="text", x=2, y=.4, label="Standard Normal\nDistribution", vjust=1.1, parse=F, color=paletteZTDark[1]) +
-#   annotate(geom="text", x=3.5, y=.1, label="italic(t)*phantom(0)*distribution", vjust=-.05, parse=TRUE, color=paletteZTDark[2]) +
-#   annotate(geom="text", x=3.5, y=.1, label="(italic(df)==3)", vjust=1.05, parse=TRUE, color=paletteZTDark[2]) +
-  scale_x_continuous(expand=c(0,0)) +
+  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
+  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
+
+  annotate(geom="text", x=critT30, y=0, label=round(critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[4], size=5) +
+  annotate(geom="text", x=-critT30, y=0, label=round(-critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[4], size=5) +
+  scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c("-3", "", "-1", "0", "1", "", "3")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t30(0) * 1.05) +
   chapterTheme +
+#   theme(axis.text=element_text(colour="white")) +
   labs(x=NULL, y=NULL)
 
 gt <- ggplot_gtable(ggplot_build(gCritical))
@@ -107,8 +98,10 @@ cat("Lise, the next time we talk, please tell me how you calculated the critical
     but that probably doesn't correspond to how you want to connect it to the t-test.")
 dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
 dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
-dsTaiChiSummary$Upper <- dsTaiChiSummary$M + 2 * dsTaiChiSummary$SE
-dsTaiChiSummary$Lower <- dsTaiChiSummary$M - 2 * dsTaiChiSummary$SE
+dsTaiChiSummary$Crit <- qt(p=.975, df=dsTaiChiSummary$Count-1)
+dsTaiChiSummary$Upper <- dsTaiChiSummary$M + dsTaiChiSummary$Crit * dsTaiChiSummary$SE
+dsTaiChiSummary$Lower <- dsTaiChiSummary$M - dsTaiChiSummary$Crit * dsTaiChiSummary$SE
+
 
 # =mean(FiqT2)+sd(FiqT2), Lower=mean(FiqT2)-sd(FiqT2)
 # dsTaiChiSummary$Group <- factor(dsTaiChiSummary$Group)

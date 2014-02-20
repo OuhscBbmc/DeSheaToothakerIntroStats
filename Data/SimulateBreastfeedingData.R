@@ -45,8 +45,8 @@ ds <- plyr::ddply(ds, .variables=c("Scenario", "Feeding"), transform, Deviates=s
 AppendScores <- function( d ) {
   groupMean <- groupPopulationMeans[, d$ScenarioID][d$FeedingID]
   scenarioSD <- scenarioSD[d$ScenarioID]
-  d$groupMean <- groupMean 
-  d$scenarioSD <-  scenarioSD
+  d$GroupMean <- groupMean 
+  d$ScenarioSD <-  scenarioSD
   d$Sleep <- groupMean + d$Deviates * scenarioSD
   return( d )
 }

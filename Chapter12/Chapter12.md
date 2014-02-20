@@ -117,54 +117,21 @@ Multiple R-squared:  0.123,	Adjusted R-squared:  0.0817
 F-statistic: 2.96 on 2 and 42 DF,  p-value: 0.0628
 ```
 
-```
-
-Call:
-lm(formula = Sleep ~ 0 + Feeding, data = dsFeed[dsFeed$ScenarioID == 
-    2, ])
-
-Residuals:
-   Min     1Q Median     3Q    Max 
- -33.0  -16.8   -1.7   10.2   37.1 
-
-Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-FeedingBreast   300.00       5.16    58.1   <2e-16 ***
-FeedingBottle   300.00       5.16    58.1   <2e-16 ***
-FeedingBoth     400.00       5.16    77.5   <2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 20 on 42 degrees of freedom
-Multiple R-squared:  0.997,	Adjusted R-squared:  0.996 
-F-statistic: 4.25e+03 on 3 and 42 DF,  p-value: <2e-16
-```
-
 
 ## Figure 12-1
-Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.
+Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.  ...Lise's response: Agreed.  I can set it up in Word and let them deal with it.
 
 ## Figure 12-2
-<img src="figure_rmd/Figure12_02.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="800px" />
+These are separate images.
+
+<img src="figure_rmd/Figure12_021.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" /><img src="figure_rmd/Figure12_022.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" /><img src="figure_rmd/Figure12_023.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" />
 
 
 ## Figure 12-3
-
+<img src="figure_rmd/Figure12_03.png" title="plot of chunk Figure12_03" alt="plot of chunk Figure12_03" width="800px" />
 
 
 ## Figure 12-4
-Text describes an F dist with 1, 30 and another F dist with 2, 93***
- * Will: I am flexible on this figure  if different combinations of df would better illustrate differences in F distributions.
- * Feel free to use different df and let me know
- * We also could have two side-by-side F distributions (separate graphs) instead of overlaying the two distributions in one graph
-
-
-```
-Lise, I increased the dfModel.  I don't like df=1 for this, because it asymptotes and never intersects the y-axis.
-
-    I increased the second F so the students would see an F with hump.
-```
-
 <img src="figure_rmd/Figure12_04.png" title="plot of chunk Figure12_04" alt="plot of chunk Figure12_04" width="600px" />
 
 
@@ -172,21 +139,11 @@ Lise, I increased the dfModel.  I don't like df=1 for this, because it asymptote
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-6
- * Will:  See the two sentences (immediately above) for a description and the note below:
- * Lets make the two distributions the same color, but use different colors for .05 vs. .01
- * I think it will be clearer to the student if separate graphs are used instead of trying to put everyone onto one F distribution
-
-
-```
-Lise, what do you think about combining them like this?
-I think it's more clear how the areas relate to each other.
-```
-
-<img src="figure_rmd/Figure12_06.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" />
+<img src="figure_rmd/Figure12_061.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" /><img src="figure_rmd/Figure12_062.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" /><img src="figure_rmd/Figure12_063.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" />
 
 
 ## Figure 12-7
-<img src="figure_rmd/Figure12_07.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="800px" />
+<img src="figure_rmd/Figure12_07.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" />
 
 
 ## Figure 12-8 through 12-11
@@ -199,6 +156,12 @@ Lise, once we get this figure settled, I'll create Figs 12-08 through 12-10 by r
 
 
 ## Figure 12-12
+<img src="figure_rmd/Figure12_12.png" title="plot of chunk Figure12_12" alt="plot of chunk Figure12_12" width="350px" />
+
+
+## Figure 12-13
+
+
 Lise, let's talk about this one on the phone before I get into it.
 
 
@@ -208,11 +171,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-19, 01:16:27 -0600
+Report created by Will at 2014-02-20, 00:04:53 -0600
 ```
 
 ```
-R Under development (unstable) (2014-02-10 r64961)
+R Under development (unstable) (2014-02-18 r65029)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:

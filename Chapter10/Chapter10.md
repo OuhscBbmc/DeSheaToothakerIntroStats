@@ -59,15 +59,6 @@ read_chunk("./Chapter10/Chapter10.R")
 
 
 ## Figure 10-3
-
-```
-Lise, the next time we talk, please tell me how you calculated the critical values for each group.
-    I don't see it when I look ahead to chapter 11 (around page 37).
-    I assume you don't want me to sample from the posterior.
-    Right now, I'm multiplying each group's SD by 2/sqrt(n),
-    but that probably doesn't correspond to how you want to connect it to the t-test.
-```
-
 <img src="figure_rmd/Figure10_03.png" title="plot of chunk Figure10_03" alt="plot of chunk Figure10_03" width="300px" />
 
 ```
@@ -103,7 +94,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-20, 00:08:02 -0600
+Report created by Will at 2014-02-20, 00:20:18 -0600
 ```
 
 ```

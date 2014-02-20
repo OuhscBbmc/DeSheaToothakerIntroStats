@@ -17,7 +17,6 @@ require(ggplot2)
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
-
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
@@ -60,12 +59,10 @@ mNoIntScenario2 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ], 
 dsScenarioFeeding <- plyr::ddply(dsFeed, .variables=c("Scenario", "ScenarioID", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
 dsScenarioFeeding$LabelM <- paste0("italic(M)==", round(dsScenarioFeeding$M))
 dsScenarioFeeding$LabelSD <- paste0("italic(SD)==", round(dsScenarioFeeding$SD))
-# dsScenarioFeeding
 
 #####################################
 ## @knitr Figure12_02
 yLimit <- 4.8
-
 
 AnovaSingleScenario <- function( scenarioID ) {
   dsPlot <- dsFeed[dsFeed$ScenarioID==scenarioID, ]
@@ -118,13 +115,11 @@ ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
 fPaletteDark <- c("#eb6c1daa", "#1e96e0aa")# http://colrd.com/palette/23379/
 fPaletteLight <- c("#fe9e4c", "#97d2f6")# http://colrd.com/palette/23379/
 
-f1DfModel <- 2
-f1DfError <- 30
-f2DfModel <- 5
-f2DfError <- 96
+f1DfModel <- 2; f1DfError <- 30
+f2DfModel <- 5; f2DfError <- 96
 
-f1 <- function( x ) { return( df(x, df1=f1DfModel, df2=f1DfError))}
-f2 <- function( x ) { return( df(x, df1=f2DfModel, df2=f2DfError))}
+f1 <- function( x ) { return( df(x, df1=f1DfModel, df2=f1DfError) ) }
+f2 <- function( x ) { return( df(x, df1=f2DfModel, df2=f2DfError) ) }
 
 ggplot(data.frame(f=0:5), aes(x=f)) +
   stat_function(fun=f1, geom="area", fill=fPaletteLight[1], alpha=.3, n=calculatedPointCount) +
@@ -233,8 +228,7 @@ ggplot(dsFeed[dsFeed$ScenarioID==2, ], aes(x=1, y=Sleep, color=Feeding, fill=Fee
   scale_color_manual(values=palette) +
   scale_fill_manual(values=paletteLight) +
   facet_grid(Feeding ~ .) +
-  coord_flip(xlim=c(.65, 1.4)) +
-#   coord_flip(ylim=rangeSleep) +
+  coord_flip(xlim=c(.65, 1.4)) + #ylim=rangeSleep
   chapterTheme +
   theme(legend.position="none") +
   labs(x=NULL, y="Minutes of sleep in 24 hours")
@@ -281,11 +275,10 @@ grid.draw(gt)
 
 #####################################
 ## @knitr Figure12_12
-###
 
-f2_80 <- function( x ) { return( df(x, df1=2, df2=80))}
+f2_80 <- function( x ) { return( df(x, df1=2, df2=80) ) }
 criticalF05 <- qf(p=.95, df1=2, df2=80)
-###
+
 grid.newpage()
 gCritical <- ggplot(data.frame(f=0:4), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=paletteCritical[2], size=1) +
@@ -305,5 +298,3 @@ gt3 <- ggplot_gtable(ggplot_build(gCritical))
 
 gt3$layout$clip[gt3$layout$name == "panel"] <- "off"
 grid.draw(gt3)
-
-

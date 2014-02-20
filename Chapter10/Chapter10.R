@@ -51,15 +51,14 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
   chapterTheme +
   labs(x=NULL, y=NULL)
 
-
 #####################################
 ## @knitr Figure10_02
 #Use the same palette as the F crit graph in Chapter 12
-bluish <- "#1d00b2" #"#230ca2" #"#000066" #"#0868ac" ##5698c4" #http://colrd.com/palette/18981/
+bluish <- "#1d00b2" #"http://colrd.com/color/0xff1d00b2/;  Others I tried: #230ca2" #"#000066" #"#0868ac" ##5698c4"
 paletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter, the orange darker, and added the blue.)
 
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
-critT30 <- qt(p=.025, df=30) #The value in the left tail
+critT30 <- qt(p=.025, df=30) #The value in the left tail.
 
 critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 3)))))
 critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 3)))))
@@ -82,7 +81,6 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t30(0) * 1.05) +
   chapterTheme +
-#   theme(axis.text=element_text(colour="white")) +
   labs(x=NULL, y=NULL)
 
 gt <- ggplot_gtable(ggplot_build(gCritical))
@@ -91,20 +89,11 @@ grid.draw(gt)
 
 #####################################
 ## @knitr Figure10_03
-cat("Lise, the next time we talk, please tell me how you calculated the critical values for each group.
-    I don't see it when I look ahead to chapter 11 (around page 37).
-    I assume you don't want me to sample from the posterior.
-    Right now, I'm multiplying each group's SD by 2/sqrt(n),
-    but that probably doesn't correspond to how you want to connect it to the t-test.")
 dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
 dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
 dsTaiChiSummary$Crit <- qt(p=.975, df=dsTaiChiSummary$Count-1)
 dsTaiChiSummary$Upper <- dsTaiChiSummary$M + dsTaiChiSummary$Crit * dsTaiChiSummary$SE
 dsTaiChiSummary$Lower <- dsTaiChiSummary$M - dsTaiChiSummary$Crit * dsTaiChiSummary$SE
-
-
-# =mean(FiqT2)+sd(FiqT2), Lower=mean(FiqT2)-sd(FiqT2)
-# dsTaiChiSummary$Group <- factor(dsTaiChiSummary$Group)
 
 paletteTaiChiDark <- c(Control="#447c69", Treatment="#e16552") #http://colrd.com/palette/28063/
 paletteTaiChiLight <- c(Control="#74c49388", Treatment="#f1967088") #http://colrd.com/palette/28063/

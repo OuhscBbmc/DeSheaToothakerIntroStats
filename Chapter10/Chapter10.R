@@ -20,13 +20,6 @@ calculatedPointCount <- 401*4
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-emptyTheme <- theme_minimal() +
-  theme(axis.text = element_blank()) +
-  theme(axis.title = element_blank()) +
-  theme(panel.grid = element_blank()) +
-  theme(panel.border = element_blank()) +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
-
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -60,14 +53,14 @@ paletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
 critT30 <- qt(p=.025, df=30) #The value in the left tail.
 
-critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 3)))))
-critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 3)))))
+# critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 3)))))
+# critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 3)))))
 
 gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +  
   stat_function(fun=LimitRange(t30, -Inf, critT30), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
   stat_function(fun=LimitRange(t30, -critT30, Inf), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
-  annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[4], size=1) +
-  annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[4], size=1) +
+  annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
+  annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
   stat_function(fun=t30, n=calculatedPointCount, color=paletteCritical[1], size=1) +
   annotate(geom="text", x=critT30-.8, y=t30(critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
   annotate(geom="text", x=critT30-.8, y=t30(critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
@@ -75,8 +68,8 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
   annotate(geom="text", x=-critT30 +.8, y=t30(-critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
   annotate(geom="text", x=-critT30 +.8, y=t30(-critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
 
-  annotate(geom="text", x=critT30, y=0, label=round(critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[4], size=5) +
-  annotate(geom="text", x=-critT30, y=0, label=round(-critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[4], size=5) +
+  annotate(geom="text", x=critT30, y=0, label=round(critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[2], size=5) +
+  annotate(geom="text", x=-critT30, y=0, label=round(-critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[2], size=5) +
   scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c("-3", "", "-1", "0", "1", "", "3")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t30(0) * 1.05) +

@@ -20,13 +20,6 @@ calculatedPointCount <- 401*4
 chapterTheme <- BookTheme  + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-emptyTheme <- theme_minimal() +
-  theme(axis.text = element_blank()) +
-  theme(axis.title = element_blank()) +
-  theme(panel.grid = element_blank()) +
-  theme(panel.border = element_blank()) +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
-
 feedingLevels <- c("Breast", "Bottle", "Both")
 # paletteFeedingFull <- c("#ea573d", "#d292cd", "#fb9a62", "#fbc063", "#70af81", "#64b0bc", "#446699", "#615b70") #http://colrd.com/palette/28063/
 # paletteFeeding <- paletteFeedingFull[c(6,5,3)]

@@ -1,4 +1,4 @@
-Chapter 10 Graphs
+Chapter 11 Graphs
 =================================================
 This report creates the chapter graphs.
 
@@ -27,7 +27,7 @@ opts_chunk$set(
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./Chapter10/Chapter10.R") 
+read_chunk("./Chapter11/Chapter11.R") 
 ```
 
 <!-- Load the packages.  Suppress the output when loading packages. --> 
@@ -50,43 +50,16 @@ read_chunk("./Chapter10/Chapter10.R")
 
 
 
-## Figure 10-1
-<img src="figure_rmd/Figure10_01.png" title="plot of chunk Figure10_01" alt="plot of chunk Figure10_01" width="400px" />
+## Figure 11-1
+<img src="figure_rmd/Figure11_01.png" title="plot of chunk Figure11_01" alt="plot of chunk Figure11_01" width="400px" />
 
 
-## Figure 10-2
-<img src="figure_rmd/Figure10_02.png" title="plot of chunk Figure10_02" alt="plot of chunk Figure10_02" width="400px" />
+## Figure 11-2
+<img src="figure_rmd/Figure11_02.png" title="plot of chunk Figure11_02" alt="plot of chunk Figure11_02" width="400px" />
 
 
-## Figure 10-3
-<img src="figure_rmd/Figure10_03.png" title="plot of chunk Figure10_03" alt="plot of chunk Figure10_03" width="300px" />
-
-```
-
-Call:
-lm(formula = FiqT2 ~ 1 + Group, data = dsTaiChi)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--36.66 -14.79   2.18  15.34  34.72 
-
-Coefficients:
-               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)       58.60       3.16   18.53  < 2e-16 ***
-GroupTreatment   -23.50       4.47   -5.25  1.8e-06 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 18.2 on 64 degrees of freedom
-Multiple R-squared:  0.301,	Adjusted R-squared:  0.29 
-F-statistic: 27.6 on 1 and 64 DF,  p-value: 1.82e-06
-```
-
-```
-      Group    M    SD Count    SE  Crit Upper Lower
-1   Control 58.6 17.56    33 3.056 2.037 64.83 52.38
-2 Treatment 35.1 18.76    33 3.266 2.037 41.76 28.45
-```
+## Figure 11-3
+<img src="figure_rmd/Figure11_03.png" title="plot of chunk Figure11_03" alt="plot of chunk Figure11_03" width="400px" />
 
 
 ## Session Info
@@ -94,7 +67,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-20, 22:24:41 -0600
+Report created by Will at 2014-02-20, 22:45:31 -0600
 ```
 
 ```

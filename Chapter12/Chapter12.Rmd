@@ -50,44 +50,44 @@ read_chunk("./Chapter12/Chapter12.R")
 Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.  ...Lise's response: Agreed.  I can set it up in Word and let them deal with it.
 
 ## Figure 12-2
-These are separate images.
 
 ```{r Figure12_02, echo=echoChunks, results='show', message=TRUE, out.width = "400px", fig.width = 4}
 ```
-
 ## Figure 12-3
-```{r Figure12_03, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
-```
 
+```{r Figure12_03, echo=echoChunks, results='show', message=TRUE, out.width = "400px", fig.width = 4}
+```
 ## Figure 12-4
-```{r Figure12_04, echo=echoChunks, results='show', message=TRUE}
+
+```{r Figure12_04, echo=echoChunks, results='show', message=TRUE, out.width = "400px", fig.width = 4}
 ```
 
 ## Figure 12-5
-Table of Critical *F* values.  Will be produced by publisher.
+```{r Figure12_05, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
+```
 
 ## Figure 12-6
 ```{r Figure12_06, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 12-7
-```{r Figure12_07, echo=echoChunks, results='show', message=TRUE, out.width = "600px", fig.width = 5}
-```
+Table of Critical *F* values.  Will be produced by publisher.
 
-## Figure 12-8 through 12-11
+## Figure 12-8
 ```{r Figure12_08, echo=echoChunks, results='show', message=TRUE}
 ```
 
-## Figure 12-12
-```{r Figure12_12, echo=echoChunks, results='show', message=TRUE, fig.width=3.0, fig.height=2.0, out.width="350px"}
+## Figure 12-9
+```{r Figure12_09, echo=echoChunks, results='show', message=TRUE, out.width = "600px", fig.width = 5}
 ```
 
-## Figure 12-13
-```{r Figure12_13, echo=echoChunks, results='show', message=TRUE}
+## Figure 12-10 through 12-13
+```{r Figure12_10, echo=echoChunks, results='show', message=TRUE}
 ```
-Lise, let's talk about this one on the phone before I get into it.
 
-
+## Figure 12-14
+```{r Figure12_14, echo=echoChunks, results='show', message=TRUE, fig.width=3.0, fig.height=2.0, out.width="350px"}
+```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

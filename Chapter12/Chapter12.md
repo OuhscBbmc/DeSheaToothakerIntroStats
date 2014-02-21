@@ -122,48 +122,48 @@ F-statistic: 2.96 on 2 and 42 DF,  p-value: 0.0628
 Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.  ...Lise's response: Agreed.  I can set it up in Word and let them deal with it.
 
 ## Figure 12-2
-These are separate images.
 
-<img src="figure_rmd/Figure12_021.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" /><img src="figure_rmd/Figure12_022.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" /><img src="figure_rmd/Figure12_023.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" />
-
+<img src="figure_rmd/Figure12_02.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" />
 
 ## Figure 12-3
-<img src="figure_rmd/Figure12_03.png" title="plot of chunk Figure12_03" alt="plot of chunk Figure12_03" width="800px" />
 
+<img src="figure_rmd/Figure12_03.png" title="plot of chunk Figure12_03" alt="plot of chunk Figure12_03" width="400px" />
 
 ## Figure 12-4
-<img src="figure_rmd/Figure12_04.png" title="plot of chunk Figure12_04" alt="plot of chunk Figure12_04" width="600px" />
+
+<img src="figure_rmd/Figure12_04.png" title="plot of chunk Figure12_04" alt="plot of chunk Figure12_04" width="400px" />
 
 
 ## Figure 12-5
-Table of Critical *F* values.  Will be produced by publisher.
+<img src="figure_rmd/Figure12_05.png" title="plot of chunk Figure12_05" alt="plot of chunk Figure12_05" width="800px" />
+
 
 ## Figure 12-6
-<img src="figure_rmd/Figure12_061.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" /><img src="figure_rmd/Figure12_062.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" /><img src="figure_rmd/Figure12_063.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" />
+<img src="figure_rmd/Figure12_06.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" />
 
 
 ## Figure 12-7
-<img src="figure_rmd/Figure12_07.png" title="plot of chunk Figure12_07" alt="plot of chunk Figure12_07" width="600px" />
+Table of Critical *F* values.  Will be produced by publisher.
+
+## Figure 12-8
+<img src="figure_rmd/Figure12_081.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="600px" /><img src="figure_rmd/Figure12_082.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="600px" /><img src="figure_rmd/Figure12_083.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="600px" />
 
 
-## Figure 12-8 through 12-11
+## Figure 12-9
+<img src="figure_rmd/Figure12_09.png" title="plot of chunk Figure12_09" alt="plot of chunk Figure12_09" width="600px" />
+
+
+## Figure 12-10 through 12-13
 
 ```
 Lise, once we get this figure settled, I'll create Figs 12-08 through 12-10 by removing elements
 ```
 
-<img src="figure_rmd/Figure12_08.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="600px" />
+<img src="figure_rmd/Figure12_10.png" title="plot of chunk Figure12_10" alt="plot of chunk Figure12_10" width="600px" />
 
 
-## Figure 12-12
-<img src="figure_rmd/Figure12_12.png" title="plot of chunk Figure12_12" alt="plot of chunk Figure12_12" width="350px" />
-
-
-## Figure 12-13
-
-
-Lise, let's talk about this one on the phone before I get into it.
-
+## Figure 12-14
+<img src="figure_rmd/Figure12_14.png" title="plot of chunk Figure12_14" alt="plot of chunk Figure12_14" width="350px" />
 
 
 ## Session Info
@@ -171,7 +171,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-20, 15:08:22 -0600
+Report created by Will at 2014-02-20, 21:17:33 -0600
 ```
 
 ```

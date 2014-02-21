@@ -28,10 +28,33 @@ emptyTheme <- theme_minimal() +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 feedingLevels <- c("Breast", "Bottle", "Both")
-paletteFull <- c("#ea573d", "#d292cd", "#fb9a62", "#fbc063", "#70af81", "#64b0bc", "#446699", "#615b70") #http://colrd.com/palette/28063/
-palette <- paletteFull[c(6,5,3)]
-names(palette) <- feedingLevels
-paletteLight <- adjustcolor(palette, alpha.f=.2)
+paletteFeedingFull <- c("#ea573d", "#d292cd", "#fb9a62", "#fbc063", "#70af81", "#64b0bc", "#446699", "#615b70") #http://colrd.com/palette/28063/
+paletteFeeding <- paletteFeedingFull[c(6,5,3)]
+names(paletteFeeding) <- feedingLevels
+paletteFeedingLight <- adjustcolor(paletteFeeding, alpha.f=.2)
+
+cryGroupLevels <- c("Breast", "Bottle", "Control")
+
+
+AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
+  dsPlot <- dsFeed[dsFeed$ScenarioID==scenarioID, ]
+  dsSummary <- dsScenarioFeeding[dsScenarioFeeding$ScenarioID==scenarioID, ]
+  
+  ggplot(dsPlot, aes(x=Sleep, color=Feeding, fill=Feeding)) +
+    geom_histogram(binwidth=10)  +
+    geom_vline(aes(xintercept=M), data=dsSummary, size=2, color="#55555544")  +
+    geom_text(data=dsSummary, aes(x=M, y=Inf, label=LabelM), color="gray40", vjust=1.2, hjust=1.1, size=3, parse=TRUE) +
+    geom_text(data=dsSummary, aes(x=M, y=Inf, label=LabelSD), color="gray40", vjust=1.2, hjust=-.1, size=3, parse=TRUE) +
+    scale_x_continuous(expand=c(0, 0)) +
+    scale_y_continuous(limits=c(0, yLimit), expand=c(0, 0)) +
+    scale_color_manual(values=paletteFeeding) +
+    scale_fill_manual(values=paletteFeedingLight) +
+    coord_cartesian(xlim=rangeSleep) +
+    facet_grid(Feeding ~ .) +
+    chapterTheme +
+    theme(legend.position="none") +
+    labs(x="Minutes of sleep in 24 hours", y="Frequency", title=scenarioName) 
+}
 
 #####################################
 ## @knitr LoadDatasets
@@ -44,6 +67,8 @@ dsCry <- read.csv("./Data/InfantCrying.csv", stringsAsFactors=FALSE)
 dsFeed$Feeding <- factor(dsFeed$Feeding, levels=feedingLevels)
 rangeSleep <- range(dsFeed$Sleep)
 rangeSleep <- c(220, 580) - 50
+
+dsCry$Group <- factor(dsCry$Group, levels=cryGroupLevels)
 
 mScenario1 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ], )
 mScenario2 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ], )
@@ -60,44 +85,34 @@ dsScenarioFeeding <- plyr::ddply(dsFeed, .variables=c("Scenario", "ScenarioID", 
 dsScenarioFeeding$LabelM <- paste0("italic(M)==", round(dsScenarioFeeding$M))
 dsScenarioFeeding$LabelSD <- paste0("italic(SD)==", round(dsScenarioFeeding$SD))
 
+dsCrySummary <- plyr::ddply(dsCry, .variables=c("Group", "GroupID"), .fun=summarise, M=mean(CryingDuration), SD=sd(CryingDuration))
+dsCrySummary$LabelM <- paste0("italic(M)==", round(dsCrySummary$M))
+dsCrySummary$LabelSD <- paste0("italic(SD)==", round(dsCrySummary$SD))
+
 #####################################
 ## @knitr Figure12_02
-yLimit <- 4.8
 
-AnovaSingleScenario <- function( scenarioID ) {
-  dsPlot <- dsFeed[dsFeed$ScenarioID==scenarioID, ]
-  dsSummary <- dsScenarioFeeding[dsScenarioFeeding$ScenarioID==scenarioID, ]
-  
-  ggplot(dsPlot, aes(x=Sleep, color=Feeding, fill=Feeding)) +
-    geom_histogram(binwidth=10)  +
-    geom_vline(aes(xintercept=M), data=dsSummary, size=2, color="#55555544")  +
-    geom_text(data=dsSummary, aes(x=M, y=Inf, label=LabelM), color="gray40", vjust=1.2, hjust=1.1, size=3, parse=TRUE) +
-    geom_text(data=dsSummary, aes(x=M, y=Inf, label=LabelSD), color="gray40", vjust=1.2, hjust=-.1, size=3, parse=TRUE) +
-    scale_x_continuous(expand=c(0, 0)) +
-    scale_y_continuous(limits=c(0, yLimit), expand=c(0, 0)) +
-    scale_color_manual(values=palette) +
-    scale_fill_manual(values=paletteLight) +
-    coord_cartesian(xlim=rangeSleep) +
-    facet_grid(Feeding ~ .) +
-    chapterTheme +
-    theme(legend.position="none") +
-    labs(x="Minutes of sleep in 24 hours", y="Frequency", title=paste("Scenario", scenarioID)) 
-}
-AnovaSingleScenario(1)
-AnovaSingleScenario(2)
-AnovaSingleScenario(3)
+AnovaSingleScenario(scenarioID=1, scenarioName="Scenario A")
 
 #####################################
 ## @knitr Figure12_03
+AnovaSingleScenario(scenarioID=2, scenarioName="Scenario B")
+
+#####################################
+## @knitr Figure12_04
+AnovaSingleScenario(scenarioID=3, scenarioName="Scenario C")
+
+#####################################
+## @knitr Figure12_05
 ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   geom_histogram(binwidth=10)  +
   geom_vline(aes(xintercept=M), data=dsScenarioFeeding, size=2, color="#55555544")  +
   geom_text(data=dsScenarioFeeding, aes(x=M, y=Inf, label=LabelM), color="gray40", vjust=1.2, hjust=1.1, size=3, parse=TRUE) +
   geom_text(data=dsScenarioFeeding, aes(x=M, y=Inf, label=LabelSD), color="gray40", vjust=1.2, hjust=-.1, size=3, parse=TRUE) +
   scale_x_continuous(expand=c(0, 0)) +
-  scale_y_continuous(limits=c(0, yLimit), expand=c(0, 0)) +
-  scale_color_manual(values=palette) +
-  scale_fill_manual(values=paletteLight) +
+  scale_y_continuous(limits=c(0, 4.8), expand=c(0, 0)) + #Coordinate this y limit with the previous anova function.
+  scale_color_manual(values=paletteFeeding) +
+  scale_fill_manual(values=paletteFeedingLight) +
   coord_cartesian(xlim=rangeSleep) +
   facet_grid(Feeding ~ Scenario) +
   chapterTheme +
@@ -105,13 +120,13 @@ ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   labs(x="Minutes of sleep in 24 hours", y="Frequency", title=NULL) 
 
 #####################################
-## @knitr Figure12_04
+## @knitr Figure12_06
 #bb5210    #eb6c1d    #fe8011    
 #fe9e4c    #ffffff    #e5e5e5    
 #c6c6c6    #919191    #97d2f6    
 #63bdf2    #1e96e0    #0c65bf    
 
-# fPaletteDark <- c("#bb5210", "#0c65bf")# http://colrd.com/palette/23379/
+# fpaletteFeedingDark <- c("#bb5210", "#0c65bf")# http://colrd.com/palette/23379/
 fPaletteDark <- c("#eb6c1daa", "#1e96e0aa")# http://colrd.com/palette/23379/
 fPaletteLight <- c("#fe9e4c", "#97d2f6")# http://colrd.com/palette/23379/
 
@@ -135,7 +150,7 @@ ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   labs(x=expression(italic(F)), y=NULL)
 
 #####################################
-## @knitr Figure12_06
+## @knitr Figure12_08
 paletteCritical <- c("#544A8C", "#ce2b18", "#F37615") #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter and the orange darker)
 
 f3DfModel <- 3; f3DfError <- 80
@@ -218,26 +233,36 @@ gt$layout$clip[gt$layout$name == "panel"] <- "off"
 grid.draw(gt)
 
 #####################################
-## @knitr Figure12_07
+## @knitr Figure12_09
+#fea3aa    #f8b88b    #faf884    
+#baed91    #b2cefe    #f2a2e8    
+
+#paletteCryBoxFull <- c("#fea3aa","#f8b88b","#faf884","#baed91","#b2cefe","#f2a2e8") #http://colrd.com/palette/22780/
+paletteCryBoxFull <- c("#dd0011","#f17217","#f0d214","#80da36","#2374fe","#d92bbb") #http://colrd.com/palette/22779/
+paletteCryBox <- paletteCryBoxFull[c(1,5,6)]
+names(paletteCryBox) <- cryGroupLevels
+paletteCryBoxLight <- adjustcolor(paletteCryBox, alpha.f=.2)
+
 set.seed(891) #Set the random number generator seed so the jitters are consistent
-ggplot(dsFeed[dsFeed$ScenarioID==2, ], aes(x=1, y=Sleep, color=Feeding, fill=Feeding)) +
+ggplot(dsCry, aes(x=1, y=CryingDuration, color=Group, fill=Group)) +
   geom_boxplot(width=.8, outlier.colour=NA) +
   geom_point(position=position_jitter(w=0.2, h=0), size=4, shape=21) +
   stat_summary(fun.y="mean", geom="point", shape=23, size=7, fill="#FFFFFFCC",  na.rm=T) + #See Chang (2013), Recipe 6.8.
-  geom_text(data=dsScenarioFeeding[dsScenarioFeeding$ScenarioID==2, ], aes(x=Inf, y=M, label=LabelM), color="gray40", vjust=1.2, hjust=1.1, size=3, parse=TRUE) +
-  geom_text(data=dsScenarioFeeding[dsScenarioFeeding$ScenarioID==2, ], aes(x=Inf, y=M, label=LabelSD), color="gray40", vjust=1.2, hjust=-.1, size=3, parse=TRUE) +
-#   geom_hline(aes(yintercept=M), data=dsScenarioFeeding) +
+#   geom_text(aes(x=Inf, y=M, label=LabelM), color="gray40", vjust=1.2, hjust=1.1, size=3, parse=TRUE) +
+  #   geom_text(data=dsScenarioFeeding[dsScenarioFeeding$ScenarioID==2, ], aes(x=Inf, y=M, label=LabelM), color="gray40", vjust=1.2, hjust=1.1, size=3, parse=TRUE) +
+  #   geom_text(data=dsScenarioFeeding[dsScenarioFeeding$ScenarioID==2, ], aes(x=Inf, y=M, label=LabelSD), color="gray40", vjust=1.2, hjust=-.1, size=3, parse=TRUE) +
+  #   geom_hline(aes(yintercept=M), data=dsScenarioFeeding) +
   scale_x_continuous(breaks=10) +
-  scale_color_manual(values=palette) +
-  scale_fill_manual(values=paletteLight) +
-  facet_grid(Feeding ~ .) +
-  coord_flip(xlim=c(.65, 1.4)) + #ylim=rangeSleep
+  scale_color_manual(values=paletteCryBox) +
+  scale_fill_manual(values=paletteCryBoxLight) +
+  facet_grid(Group ~ .) +
+  coord_flip() + #xlim=c(.65, 1.4)) + #ylim=rangeSleep
   chapterTheme +
   theme(legend.position="none") +
-  labs(x=NULL, y="Minutes of sleep in 24 hours")
+  labs(x=NULL, y="Crying Duration")
 
 #####################################
-## @knitr Figure12_08
+## @knitr Figure12_10
 
 cat("Lise, once we get this figure settled, I'll create Figs 12-08 through 12-10 by removing elements")
 cryMeanOverall <- mean(dsCry$CryingDuration)
@@ -246,30 +271,30 @@ cryMax <- max(dsCry$CryingDuration)
 
 dsCryCeiling <- dsCry[dsCry$CryingDuration == cryMax, ]
 dsCryNotCeiling <- dsCry[dsCry$CryingDuration != cryMax, ]
-paletteCry <- c("#faa818", "#41a30d", "#ffce38", "#367d7d", "#d33502", "#6ebcbc", "#37526d") #http://colrd.com/image-dna/23521/
+paletteCryHistogram <- c("#faa818", "#41a30d", "#ffce38", "#367d7d", "#d33502", "#6ebcbc", "#37526d") #http://colrd.com/image-dna/23521/
 purplish <- "#544A8C"
   
 cushion <- 3
 height1 <- 14.5
 height2 <- 13
 gCrying <- ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
-  geom_histogram(data=dsCryCeiling, binwidth=5, fill=paletteCry[3], color=paletteCry[1]) +
-  geom_histogram(binwidth=5, fill=paletteCry[6], color=paletteCry[4]) +
-  annotate("segment", x=cryMeanOverall, xend=cryMeanOverall, y=0, yend=Inf, color=paletteCry[7], size=3, alpha=1) +
-  annotate("segment", x=cryMeanControl, xend=cryMeanControl, y=0, yend=Inf, color=paletteCry[5], size=3, alpha=1, linetype="61") +
-  annotate("segment", x=cryMax, xend=cryMax, y=0, yend=Inf, color=paletteCry[1], size=3, alpha=1, linetype="11") +
-  geom_segment(aes(x=cryMeanOverall + cushion, y=height1, xend=cryMax - cushion, yend=height1), color=paletteCry[1], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMax - cushion, y=height1, xend=cryMeanOverall + cushion, yend=height1), color=paletteCry[1], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMeanOverall + cushion, y=height2, xend=cryMeanControl - cushion, yend=height2), color=paletteCry[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
-  geom_segment(aes(x=cryMeanControl - cushion, y=height2, xend=cryMeanOverall + cushion, yend=height2), color=paletteCry[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_histogram(data=dsCryCeiling, binwidth=5, fill=paletteCryHistogram[3], color=paletteCryHistogram[1]) +
+  geom_histogram(binwidth=5, fill=paletteCryHistogram[6], color=paletteCryHistogram[4]) +
+  annotate("segment", x=cryMeanOverall, xend=cryMeanOverall, y=0, yend=Inf, color=paletteCryHistogram[7], size=3, alpha=1) +
+  annotate("segment", x=cryMeanControl, xend=cryMeanControl, y=0, yend=Inf, color=paletteCryHistogram[5], size=3, alpha=1, linetype="61") +
+  annotate("segment", x=cryMax, xend=cryMax, y=0, yend=Inf, color=paletteCryHistogram[1], size=3, alpha=1, linetype="11") +
+  geom_segment(aes(x=cryMeanOverall + cushion, y=height1, xend=cryMax - cushion, yend=height1), color=paletteCryHistogram[1], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMax - cushion, y=height1, xend=cryMeanOverall + cushion, yend=height1), color=paletteCryHistogram[1], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMeanOverall + cushion, y=height2, xend=cryMeanControl - cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
+  geom_segment(aes(x=cryMeanControl - cushion, y=height2, xend=cryMeanOverall + cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
   geom_segment(aes(x=cryMeanControl + cushion, y=height2, xend=cryMax - cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
   geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
-  annotate(geom="text", x=cryMeanOverall, y=Inf, label="Grand\nMean", hjust=.5, vjust=-.2, color=paletteCry[7], size=4, lineheight=.8) +
-  annotate(geom="text", x=cryMeanControl, y=Inf, label="Control Group\nMean", hjust=.5, vjust=-.2, color=paletteCry[5], size=4, lineheight=.8) +
-  annotate(geom="text", x=cryMax, y=Inf, label="Baby Who\nCried Most", hjust=.5, vjust=-.1, color=paletteCry[1], size=4, lineheight=.8) +  
+  annotate(geom="text", x=cryMeanOverall, y=Inf, label="Grand\nMean", hjust=.5, vjust=-.2, color=paletteCryHistogram[7], size=4, lineheight=.8) +
+  annotate(geom="text", x=cryMeanControl, y=Inf, label="Control Group\nMean", hjust=.5, vjust=-.2, color=paletteCryHistogram[5], size=4, lineheight=.8) +
+  annotate(geom="text", x=cryMax, y=Inf, label="Baby Who\nCried Most", hjust=.5, vjust=-.1, color=paletteCryHistogram[1], size=4, lineheight=.8) +  
   scale_y_continuous(limits=c(0, 15.2), expand=c(0,0)) +
   chapterTheme +
-  labs(title="")
+  labs(x="Crying Duration", y="Frequency", title="")
 
 gt <- ggplot_gtable(ggplot_build(gCrying))
 
@@ -277,7 +302,7 @@ gt$layout$clip[gt$layout$name == "panel"] <- "off"
 grid.draw(gt)
 
 #####################################
-## @knitr Figure12_12
+## @knitr Figure12_14
 
 f2_80 <- function( x ) { return( df(x, df1=2, df2=80) ) }
 criticalF05 <- qf(p=.95, df1=2, df2=80)

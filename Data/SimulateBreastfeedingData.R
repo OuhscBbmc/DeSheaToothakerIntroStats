@@ -2,7 +2,7 @@ rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 #####################################
 ## @knitr LoadPackages
 # require(knitr)
-# require(plyr)
+require(plyr)
 # require(ggplot2)
 
 ############################
@@ -14,15 +14,15 @@ subjectsPerGroup <- 15
 groupLevels <- c("Breast", "Bottle", "Both")
 groupCount <- length(groupLevels)
 
-groupPopulationMeansScenario1 <- c(300, 300, 300)
-groupPopulationMeansScenario2 <- c(300, 300, 400)
-groupPopulationMeansScenario3 <- c(300, 300, 400)
-groupPopulationMeans <- cbind(groupPopulationMeansScenario1, groupPopulationMeansScenario2, groupPopulationMeansScenario3)
+groupPopulationMeansScenarioA <- c(300, 300, 300)
+groupPopulationMeansScenarioB <- c(300, 300, 400)
+groupPopulationMeansScenarioC <- c(300, 300, 400)
+groupPopulationMeans <- cbind(groupPopulationMeansScenarioA, groupPopulationMeansScenarioB, groupPopulationMeansScenarioC)
 
-sdScenario1 <- 20
-sdScenario2 <- 20
-sdScenario3 <- 130
-scenarioSD <- c(sdScenario1, sdScenario2, sdScenario3)
+sdScenarioA <- 20
+sdScenarioB <- 20
+sdScenarioC <- 130
+scenarioSD <- c(sdScenarioA, sdScenarioB, sdScenarioC)
 
 set.seed(3291) #Set the random number generator seed so the points are consistent across generations
 ############################
@@ -30,11 +30,12 @@ set.seed(3291) #Set the random number generator seed so the points are consisten
 ds <- data.frame(
 #   SubjectID = seq_len(subjectsPerGroup * groupCount),
   ScenarioID = rep(x=seq_len(scenarioCount), each=subjectsPerGroup* groupCount),
-  Scenario = paste("Scenario", rep(x=seq_len(scenarioCount), each=subjectsPerGroup* groupCount)),
+  Scenario = NA_character_,
   FeedingID = rep(x=seq_len(groupCount), each=subjectsPerGroup, times=scenarioCount),
   Feeding = rep(gl(n=groupCount, k=subjectsPerGroup, labels=groupLevels), times=scenarioCount),
-  stringsAsFactors = F
+  stringsAsFactors = FALSE
 )
+ds$Scenario <- paste("Scenario", LETTERS[ds$ScenarioID])
 
 #Generate the same deviates, so that the distribution only shifts & spreads
 ds$Deviates <- rep(rnorm(n=groupCount*subjectsPerGroup, mean=0, sd=1), times=scenarioCount)

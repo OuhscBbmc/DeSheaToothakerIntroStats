@@ -78,11 +78,23 @@ Table of Critical *F* values.  Will be produced by publisher.
 ```
 
 ## Figure 12-9
-```{r Figure12_09, echo=echoChunks, results='show', message=TRUE, out.width = "600px", fig.width = 5}
+```{r Figure12_09, echo=echoChunks, results='show', message=TRUE, out.width = "400px",  fig.height = 2.5, fig.width = 4}
 ```
 
-## Figure 12-10 through 12-13
+## Figure 12-10
 ```{r Figure12_10, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 12-11
+```{r Figure12_11, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 12-12
+```{r Figure12_12, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 12-13
+```{r Figure12_13, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 12-14

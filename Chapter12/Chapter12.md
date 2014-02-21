@@ -49,6 +49,10 @@ read_chunk("./Chapter12/Chapter12.R")
 <!-- Tweak the datasets. -->
 
 ```
+#####  ANOVAs for Feeding dataset #####
+```
+
+```
 
 Call:
 lm(formula = Sleep ~ 1 + Feeding, data = dsFeed[dsFeed$ScenarioID == 
@@ -117,6 +121,32 @@ Multiple R-squared:  0.123,	Adjusted R-squared:  0.0817
 F-statistic: 2.96 on 2 and 42 DF,  p-value: 0.0628
 ```
 
+```
+##### ANOVAs for Crying dataset #####
+```
+
+```
+
+Call:
+lm(formula = CryingDuration ~ 1 + Group, data = dsCry)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-23.906  -8.906  -0.453   9.094  27.094 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     34.00       1.96   17.33  < 2e-16 ***
+GroupBottle      6.28       2.77    2.26    0.026 *  
+GroupControl    25.91       2.77    9.34  5.1e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 11.1 on 93 degrees of freedom
+Multiple R-squared:  0.505,	Adjusted R-squared:  0.494 
+F-statistic: 47.5 on 2 and 93 DF,  p-value: 6.23e-15
+```
+
 
 ## Figure 12-1
 Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.  ...Lise's response: Agreed.  I can set it up in Word and let them deal with it.
@@ -150,16 +180,23 @@ Table of Critical *F* values.  Will be produced by publisher.
 
 
 ## Figure 12-9
-<img src="figure_rmd/Figure12_09.png" title="plot of chunk Figure12_09" alt="plot of chunk Figure12_09" width="600px" />
+<img src="figure_rmd/Figure12_09.png" title="plot of chunk Figure12_09" alt="plot of chunk Figure12_09" width="400px" />
 
 
-## Figure 12-10 through 12-13
-
-```
-Lise, once we get this figure settled, I'll create Figs 12-08 through 12-10 by removing elements
-```
-
+## Figure 12-10
 <img src="figure_rmd/Figure12_10.png" title="plot of chunk Figure12_10" alt="plot of chunk Figure12_10" width="600px" />
+
+
+## Figure 12-11
+<img src="figure_rmd/Figure12_11.png" title="plot of chunk Figure12_11" alt="plot of chunk Figure12_11" width="600px" />
+
+
+## Figure 12-12
+<img src="figure_rmd/Figure12_12.png" title="plot of chunk Figure12_12" alt="plot of chunk Figure12_12" width="600px" />
+
+
+## Figure 12-13
+<img src="figure_rmd/Figure12_13.png" title="plot of chunk Figure12_13" alt="plot of chunk Figure12_13" width="600px" />
 
 
 ## Figure 12-14
@@ -171,7 +208,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-20, 21:17:33 -0600
+Report created by Will at 2014-02-20, 21:42:59 -0600
 ```
 
 ```

@@ -123,4 +123,5 @@ RemoveLeadingZero <- function( x ) {
 ### Palettes to consider for future graphs
 #########################################################
 # https://github.com/jrnold/ggthemes
-# paletteCryBoxFull <- c("#043227", "#097168", "#ffcc88", "#fa482e", "#f4a32e") #http://colrd.com/palette/22444/
+# c("#043227", "#097168", "#ffcc88", "#fa482e", "#f4a32e") #http://colrd.com/palette/22444/
+# c("#fea3aa","#f8b88b","#faf884","#baed91","#b2cefe","#f2a2e8") #http://colrd.com/palette/22780/

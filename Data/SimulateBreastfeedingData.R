@@ -35,7 +35,7 @@ ds <- data.frame(
   Feeding = rep(gl(n=groupCount, k=subjectsPerGroup, labels=groupLevels), times=scenarioCount),
   stringsAsFactors = FALSE
 )
-ds$Scenario <- paste("Scenario", LETTERS[ds$ScenarioID])
+ds$Scenario <- paste0("Scenario 12-", LETTERS[ds$ScenarioID])
 
 #Generate the same deviates, so that the distribution only shifts & spreads
 ds$Deviates <- rep(rnorm(n=groupCount*subjectsPerGroup, mean=0, sd=1), times=scenarioCount)

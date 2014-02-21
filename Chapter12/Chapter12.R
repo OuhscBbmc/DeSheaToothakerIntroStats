@@ -97,15 +97,15 @@ dsCrySummary$LabelSD <- paste0("italic(SD)==", round(dsCrySummary$SD))
 #####################################
 ## @knitr Figure12_02
 
-AnovaSingleScenario(scenarioID=1, scenarioName="Scenario A")
+AnovaSingleScenario(scenarioID=1, scenarioName="Scenario 12-A")
 
 #####################################
 ## @knitr Figure12_03
-AnovaSingleScenario(scenarioID=2, scenarioName="Scenario B")
+AnovaSingleScenario(scenarioID=2, scenarioName="Scenario 12-B")
 
 #####################################
 ## @knitr Figure12_04
-AnovaSingleScenario(scenarioID=3, scenarioName="Scenario C")
+AnovaSingleScenario(scenarioID=3, scenarioName="Scenario 12-C")
 
 #####################################
 ## @knitr Figure12_05

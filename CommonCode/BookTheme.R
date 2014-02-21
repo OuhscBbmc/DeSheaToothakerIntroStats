@@ -52,6 +52,14 @@ PaletteWorldDeathsRestrictedFaint <- transformColor(adjustcolor(PaletteWorldDeat
 
 PaletteControlPsqi <- transformColor(c("#1A7F7C", "#1595B2")) #From http://colrd.com/palette/22521/; http://colrd.com/palette/18981/
 
+#Use the same palette as the crit graphs in Chapters 10-12.
+#  * Purple is the distribution line
+#  * Blue corresponds to the observed values
+#  * Red corresponds to a 5% alpha
+#  * Orange corresponds to a 1% alpha
+bluish <- "#1d00b2" #"http://colrd.com/color/0xff1d00b2/;  Others I tried: #230ca2" #"#000066" #"#0868ac" ##5698c4"
+PaletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter, the orange darker, and added the blue.)
+rm(bluish)
 # palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
 # PaletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
 # PaletteObesityStateBad <- adjustcolor(c("green", "red"), alpha.f=.7)
@@ -70,6 +78,11 @@ LimitRange <- function( fun, min, max ) {
     y[(x < min) | (max < x)] <- NA
     return( y )
   }
+}
+DrawWithoutPanelClipping <- function( g ) {
+  gt <- ggplot_gtable(ggplot_build(g))
+  gt$layout$clip[gt$layout$name == "panel"] <- "off"
+  grid.draw(gt)
 }
 TukeyBoxplot <- function(y, width=.9, na.rm = FALSE, coef = 1.5, ...) {
   #Adapted from https://github.com/hadley/ggplot2/blob/master/R/stat-boxplot.r

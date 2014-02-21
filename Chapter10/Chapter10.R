@@ -46,39 +46,27 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
 
 #####################################
 ## @knitr Figure10_02
-#Use the same palette as the F crit graph in Chapter 12
-bluish <- "#1d00b2" #"http://colrd.com/color/0xff1d00b2/;  Others I tried: #230ca2" #"#000066" #"#0868ac" ##5698c4"
-paletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter, the orange darker, and added the blue.)
-
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
-critT30 <- qt(p=.025, df=30) #The value in the left tail.
+critT30 <- qt(p=.975, df=30) #The value in the right tail.
 
 # critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 3)))))
 # critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 3)))))
 
 gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +  
-  stat_function(fun=LimitRange(t30, -Inf, critT30), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(t30, -critT30, Inf), geom="area", fill=paletteCritical[2], alpha=1, n=calculatedPointCount) +
-  annotate("segment", x=critT30, xend=critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
-  annotate("segment", x=-critT30, xend=-critT30, y=0, yend=Inf, color=paletteCritical[2], size=1) +
-  stat_function(fun=t30, n=calculatedPointCount, color=paletteCritical[1], size=1) +
-  annotate(geom="text", x=critT30-.8, y=t30(critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=critT30-.8, y=t30(critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
-  
-  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=paletteCritical[2]) +
-  annotate(geom="text", x=-critT30 +.8, y=t30(-critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=paletteCritical[2]) +
-
-  annotate(geom="text", x=critT30, y=0, label=round(critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[2], size=5) +
-  annotate(geom="text", x=-critT30, y=0, label=round(-critT30, 3), hjust=.5, vjust=1.2, parse=F, color=paletteCritical[2], size=5) +
+  stat_function(fun=LimitRange(t30, -Inf, -critT30), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t30, critT30, Inf), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount) +
+  annotate("segment", x=c(-1,1)*critT30, xend=c(-1,1)*critT30, y=0, yend=Inf, color=PaletteCritical[2]) +
+  stat_function(fun=t30, n=calculatedPointCount, color=PaletteCritical[1], size=1) +
+  annotate(geom="text", x=c(-1,1)*critT30+c(-1,1)*.8, y=t30(critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=c(-1,1)*critT30+c(-1,1)*.8, y=t30(critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
+  annotate(geom="text", x=c(-1,1)*critT30, y=0, label=round(c(-1,1)*critT30, 3), hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[2], size=5) +
   scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c("-3", "", "-1", "0", "1", "", "3")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t30(0) * 1.05) +
   chapterTheme +
   labs(x=NULL, y=NULL)
 
-gt <- ggplot_gtable(ggplot_build(gCritical))
-gt$layout$clip[gt$layout$name == "panel"] <- "off"
-grid.draw(gt)
+DrawWithoutPanelClipping(gCritical)
 
 #####################################
 ## @knitr Figure10_03

@@ -47,11 +47,11 @@ read_chunk("./Chapter13/Chapter13.R")
 ```
 
 ## Figure 13-1
-```{r Figure13_02, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_01, echo=echoChunks, results='show', message=TRUE}
 ```
 ## Figure 13-2
 
-```{r Figure13_02, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_02, echo=echoChunks, results='show', message=TRUE, fig.height = 2}
 ```
 
 

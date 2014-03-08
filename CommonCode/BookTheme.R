@@ -79,6 +79,12 @@ LimitRange <- function( fun, min, max ) {
     return( y )
   }
 }
+LimitRangeOfPoints <- function( y, min, max ) { 
+  function( x ) {
+    y[(x < min) | (max < x)] <- NA
+    return( y )
+  }
+}
 DrawWithoutPanelClipping <- function( g ) {
   gt <- ggplot_gtable(ggplot_build(g))
   gt$layout$clip[gt$layout$name == "panel"] <- "off"

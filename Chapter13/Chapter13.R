@@ -247,16 +247,9 @@ ggplot(dsBarb, aes(x=X, y=Y)) +
 #####################################
 ## @knitr Figure13_13
 cat("Lise, this line truncates at the observed data points for two reasons.  First, it's a tad easier for me.  Second, I'm a little worried we'd be criticized for teaching them to extrapolate beyond the domain of the observed X values.")
-gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
-  geom_smooth(method="lm", color=palettePlacidSeasMedium[3], size=1.5, se=F) +
-  geom_point(shape=21, size=3, color="aquamarine4", fill=adjustcolor("aquamarine4", alpha.f=.1)) + #This color should match the obesity Cleveland dot plot
-  scale_x_continuous(label=scales::percent) +
-  scale_y_continuous(label=scales::percent) +
-  coord_fixed() + 
-  chapterTheme +
-  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
-
-gObesity
+gObesityWithLine <- gObesity +
+  geom_smooth(method="lm", color=palettePlacidSeasMedium[3], size=1.5, se=F)
+gObesityWithLine
 #####################################
 ## @knitr Figure13_14
 fit <- lm(ObesityRate ~ 1 + FoodHardshipRate, data=dsObesity)
@@ -265,17 +258,16 @@ yObs <- max(dsObesity$ObesityRate) #0.349
 yHat <- predict.lm(fit, data.frame(FoodHardshipRate=xNew))
 residual <- (yObs - yHat)
 
-gObesity +
+gObesityWithLine +
   annotate("segment", x=xNew, xend=xNew, y=yHat, yend=-Inf, color=palettePlacidSeasMedium[6], size=2, lineend="round") +
   annotate("segment", x=-Inf, xend=xNew, y=yHat, yend=yHat, color=palettePlacidSeasMedium[6], size=2, lineend="round")
 
 #####################################
 ## @knitr Figure13_15
-gObesity +
+gObesityWithLine +
   annotate("segment", x=xNew, xend=xNew, y=yHat, yend=yObs, color=palettePlacidSeasMedium[7], size=1, lineend="round")
 
 #####################################
 ## @knitr Figure13_16
-gObesity +
+gObesityWithLine +
   annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7], size=1, lineend="round")
-

@@ -164,27 +164,69 @@ ggplot(dsMV, aes(x=X, y=Y)) +
   geom_point(shape=21, size=3, color=palettePlacidSeasMedium[3], fill=palettePlacidSeasLight[3]) +
   coord_equal(xlim=c(-2.5, 2.5), ylim=c(-2.5, 2.5)) +  
   chapterTheme +
-  labs(x=expression(italic(X)), y=expression(italic(Y)))
+  labs(x=expression(italic(X)), y=expression(italic(Y)), parse=T)
 
 #####################################
 ## @knitr Figure13_04
 dsStairsUp <- data.frame(X=1:10, Y=1:10)
 
-gStraight <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
-  geom_path(color=palettePlacidSeasMedium[6], size=1.5, lineend="round") +
-  geom_point(shape=21, size=3, color=palettePlacidSeas[2], fill=palettePlacidSeasMedium[2]) +
+gStraightUp <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
+  geom_path(color=palettePlacidSeasMedium[3], size=1.5, lineend="round") +
+  geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
   scale_x_continuous(breaks=dsStairsUp$X) +
   scale_y_continuous(breaks=dsStairsUp$Y) +
   coord_equal() +
-  chapterTheme
-gStraight
+  chapterTheme +
+  labs(x=expression(italic(X)), y=expression(italic(Y)), parse=T)
+gStraightUp
 
 #####################################
 ## @knitr Figure13_05
-gStraight +
-  geom_step(direction="vh", size=1.5, color=palettePlacidSeasMedium[3])
+gStraightUp +
+  geom_step(direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
 
 #####################################
 ## @knitr Figure13_06
-gStraight +
-  geom_step(data=data.frame(X=c(1,10),Y=c(1,10)), direction="vh", size=1.5, color=palettePlacidSeasMedium[3])
+gStraightUp +
+  geom_step(data=data.frame(X=c(1,10),Y=c(1,10)), direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
+
+#####################################
+## @knitr Figure13_07
+cat("Lise, does this cross the y axis the way you'd like?")
+dsStairsDown <- data.frame(X=0:20, Y=20:0)
+
+gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
+  geom_abline(intercept=20, slope=-1, color=palettePlacidSeasMedium[3], size=1.5) +
+  geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
+  scale_y_continuous(labels=scales::dollar) +
+  coord_equal(xlim=c(-1, 21), ylim=c(-1, 21)) +
+  chapterTheme +
+  labs(x="Number of Newspapers Picked Up", y="Amount Left in Fund")
+gStraightDown
+
+#####################################
+## @knitr Figure13_08
+gStraightDown +
+  geom_step(data=data.frame(X=c(15,20),Y=c(5,0)), direction="hv", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
+
+#####################################
+## @knitr Figure13_09
+gStraightDown +
+  annotate("segment", x=4, xend=1, y=20, yend=20, arrow=grid::arrow(length=unit(.4,"cm")), color=palettePlacidSeas[2], size=2, lineend="round")
+
+#####################################
+## @knitr Figure13_10
+cat("Lise, I extended the plot so the -2 y intercept is visible.  Does this help?  Is the arrow too much?")
+dsNewspaperDelay <- data.frame(X=2:10, Y=0:8)
+
+ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
+  geom_abline(intercept=-2, slope=1, color=palettePlacidSeasMedium[3], size=1.5) +
+  geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
+  annotate("segment", x=2, xend=.5, y=-2, yend=-2, arrow=grid::arrow(length=unit(.4,"cm")), color=palettePlacidSeas[2], size=2, lineend="round") +
+  scale_x_continuous(breaks=seq(0, 10, by=2)) +
+  scale_y_continuous(breaks=seq(-2, 8, by=2)) +
+  coord_equal(xlim=c(-1, 10.5), ylim=c(-3, 8.5)) +
+  chapterTheme +
+  labs(x="Number of Days Out of Town", y="Number of Newspapers Picked Up")
+
+

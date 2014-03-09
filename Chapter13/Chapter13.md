@@ -2454,13 +2454,42 @@ Lise, would you like to keep the critical values, or hide them?
 <img src="figure_rmd/Figure13_06.png" title="plot of chunk Figure13_06" alt="plot of chunk Figure13_06" width="600px" />
 
 
+## Figure 13-7
+
+```
+Lise, does this cross the y axis the way you'd like?
+```
+
+<img src="figure_rmd/Figure13_07.png" title="plot of chunk Figure13_07" alt="plot of chunk Figure13_07" width="600px" />
+
+
+## Figure 13-8
+<img src="figure_rmd/Figure13_08.png" title="plot of chunk Figure13_08" alt="plot of chunk Figure13_08" width="600px" />
+
+
+## Figure 13-9
+<img src="figure_rmd/Figure13_09.png" title="plot of chunk Figure13_09" alt="plot of chunk Figure13_09" width="600px" />
+
+
+## Figure 13-10
+
+```
+Lise, I extended the plot so the -2 y intercept is visible.  Does this help?  Is the arrow too much?
+```
+
+<img src="figure_rmd/Figure13_10.png" title="plot of chunk Figure13_10" alt="plot of chunk Figure13_10" width="600px" />
+
+
+## Figure 13-11
+
+
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-03-08, 22:02:25 -0600
+Report created by Will at 2014-03-08, 22:34:31 -0600
 ```
 
 ```

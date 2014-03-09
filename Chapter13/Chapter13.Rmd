@@ -77,6 +77,25 @@ read_chunk("./Chapter13/Chapter13.R")
 ```{r Figure13_06, echo=echoChunks, results='show', message=TRUE}
 ```
 
+## Figure 13-7
+```{r Figure13_07, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 13-8
+```{r Figure13_08, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 13-9
+```{r Figure13_09, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 13-10
+```{r Figure13_10, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 13-11
+```{r Figure13_11, echo=echoChunks, results='show', message=TRUE}
+```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

@@ -113,17 +113,21 @@ DrawWithoutPanelClipping(gCriticalR)
 require(MASS)
 require(mnormt)
 
+palettePlacidSeas <- c("#fefefe","#1c5f83","#7ebea5","#f3d6a8","#3c765f","#5cbddd","#986a46")
+palettePlacidSeasMedium <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.4)
+palettePlacidSeasLight <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.1)
+
 boundary <- 2.5
 points <- seq(-boundary, boundary, by=.2)
-dsMV <- data.frame(
+dsMVGrid <- data.frame(
   X = rep(points, each=length(points)),
   Y = rep(points, times=length(points))
 )
 rObserved <- .6
 mu <- c(0,0)
 sigma <- matrix(c(1, rObserved, rObserved, 1), 2, 2)
-dsMV$Z <- dmnorm(dsMV, mu, sigma)
-zMatrix <- matrix(dsMV$Z, nrow=length(points))
+dsMVGrid$Z <- dmnorm(dsMVGrid, mu, sigma)
+zMatrix <- matrix(dsMVGrid$Z, nrow=length(points))
 zScale <- 10
 
 colorTheme <- "gray40"
@@ -137,13 +141,33 @@ Graph3DMVNorm <- function( theta=0, phi=-35 ) {
   rgl.viewpoint(theta=theta, phi=phi, zoom=1) #A zoom smaller than one enlarges the graph's relative size.
   # bg3d(color="#887777")
   light3d()
-  terrain3d(points, points, zMatrix * zScale, color="#CCCCFF", front="lines", back="fill") 
+  terrain3d(points, points, zMatrix * zScale, color=palettePlacidSeas[3], front="lines", back="fill") 
   axis3d("x-", col=colorTheme)
   axis3d("y-", col=colorTheme)
   rgl::mtext3d(text="X", edge="x-", labels=TRUE, line=2)
   rgl::mtext3d(text="Y", edge="y-", labels=TRUE, line=2)
-  rgl.lines(x=c(-boundary,boundary), y=c(0,0), z=c(0,0), color=colorTheme, lwd=3)
-  rgl.lines(x=c(0,0), y=c(-boundary,boundary), z=c(0,0), color=colorTheme, lwd=3)
+  rgl.lines(x=c(-boundary,boundary), y=c(0,0), z=c(0,0), color=palettePlacidSeas[5], lwd=3)
+  rgl.lines(x=c(0,0), y=c(-boundary,boundary), z=c(0,0), color=palettePlacidSeas[5], lwd=3)
 }
 Graph3DMVNorm()
 # Graph3DMVNorm(theta=5, phi=-85)
+
+#####################################
+## @knitr Figure13_03b
+set.seed(3242) #Set seed so plots are consistent overtime.
+
+
+dsMV <- data.frame(MASS::mvrnorm(n=1000, mu=mu, Sigma=sigma))
+colnames(dsMV) <- c("X", "Y")
+ggplot(dsMV, aes(x=X, y=Y)) +
+  geom_hline(color=palettePlacidSeas[5], size=1) +
+  geom_vline(color=palettePlacidSeas[5], size=1) +
+  geom_point(shape=21, size=3, color=palettePlacidSeasMedium[3], fill=palettePlacidSeasLight[3]) +
+  coord_equal(xlim=c(-2.5, 2.5), ylim=c(-2.5, 2.5)) +  
+  chapterTheme +
+  labs(x=expression(italic(X)), y=expression(italic(Y)))
+
+
+
+
+

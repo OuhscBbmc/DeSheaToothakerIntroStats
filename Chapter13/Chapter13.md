@@ -55,8 +55,8 @@ read_chunk("./Chapter13/Chapter13.R")
 ## Figure 13-1
 <img src="figure_rmd/Figure13_01.png" title="plot of chunk Figure13_01" alt="plot of chunk Figure13_01" width="600px" />
 
-## Figure 13-2
 
+## Figure 13-2
 
 ```
 Lise, would you like to keep the critical values, or hide them?
@@ -64,8 +64,8 @@ Lise, would you like to keep the critical values, or hide them?
 
 <img src="figure_rmd/Figure13_02.png" title="plot of chunk Figure13_02" alt="plot of chunk Figure13_02" width="600px" />
 
-## Figure 13-3
 
+## Figure 13-3
 <script src="CanvasMatrix.js" type="text/javascript"></script>
 <canvas id="Figure13_03textureCanvas" style="display: none;" width="256" height="256">
 <img src="Figure13_03snapshot.png" alt="Figure13_03snapshot" width=401/><br>
@@ -2191,7 +2191,7 @@ Lise, would you like to keep the critical values, or hide them?
 	     gl.uniformMatrix4fv( normMatLoc9, false, new Float32Array(normMatrix.getAsArray()) );
 	     gl.enableVertexAttribArray( posLoc );
 	     gl.disableVertexAttribArray( colLoc );
-	     gl.vertexAttrib4f( colLoc, 0.8, 0.8, 1, 1 );
+	     gl.vertexAttrib4f( colLoc, 0.4941176, 0.7450981, 0.6470588, 1 );
 	     gl.enableVertexAttribArray( normLoc9 );
 	     gl.vertexAttribPointer(normLoc9, 3, gl.FLOAT, false, 24, 12);
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 24,  0);
@@ -2297,7 +2297,7 @@ Lise, would you like to keep the critical values, or hide them?
 	     gl.uniformMatrix4fv( mvMatLoc16, false, new Float32Array(mvMatrix.getAsArray()) );
 	     gl.enableVertexAttribArray( posLoc );
 	     gl.disableVertexAttribArray( colLoc );
-	     gl.vertexAttrib4f( colLoc, 0.4, 0.4, 0.4, 1 );
+	     gl.vertexAttrib4f( colLoc, 0.2352941, 0.4627451, 0.372549, 1 );
 	     gl.lineWidth( 3 );
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
 	     gl.drawArrays(gl.LINES, 0, 2);
@@ -2308,7 +2308,7 @@ Lise, would you like to keep the critical values, or hide them?
 	     gl.uniformMatrix4fv( mvMatLoc17, false, new Float32Array(mvMatrix.getAsArray()) );
 	     gl.enableVertexAttribArray( posLoc );
 	     gl.disableVertexAttribArray( colLoc );
-	     gl.vertexAttrib4f( colLoc, 0.4, 0.4, 0.4, 1 );
+	     gl.vertexAttrib4f( colLoc, 0.2352941, 0.4627451, 0.372549, 1 );
 	     gl.lineWidth( 3 );
 	     gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
 	     gl.drawArrays(gl.LINES, 0, 2);
@@ -2438,6 +2438,10 @@ Lise, would you like to keep the critical values, or hide them?
 <script>Figure13_03webGLStart();</script>
 
 
+## Figure 13-3b
+<img src="figure_rmd/Figure13_03b.png" title="plot of chunk Figure13_03b" alt="plot of chunk Figure13_03b" width="600px" />
+
+
 
 
 ## Session Info
@@ -2445,7 +2449,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-03-08, 21:01:55 -0600
+Report created by Will at 2014-03-08, 21:41:52 -0600
 ```
 
 ```

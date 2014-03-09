@@ -234,6 +234,7 @@ ConstructTableHeader <- function( leftBoundary, rightBoundary, singleZ, label ) 
 }
 
 grid.arrange(
+#   heights = unit(c(1.5,.5), "null"),
   ConstructTableHeader(0, 1.5, 1.5, "z"),   
   ConstructTableHeader(1.5, Inf, 1.5, "z"),   
   ConstructTableHeader(-1.5, 0, -1.5, "-z"),   

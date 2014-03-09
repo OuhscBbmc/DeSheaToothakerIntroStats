@@ -113,7 +113,7 @@ DrawWithoutPanelClipping(gCriticalR)
 require(MASS)
 require(mnormt)
 
-palettePlacidSeas <- c("#fefefe","#1c5f83","#7ebea5","#f3d6a8","#3c765f","#5cbddd","#986a46")
+palettePlacidSeas <- c("#fefefe","#1c5f83","#7ebea5","#f3d6a8","#3c765f","#5cbddd","#986a46") #http://colrd.com/image-dna/23557/
 palettePlacidSeasMedium <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.4)
 palettePlacidSeasLight <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.1)
 
@@ -229,4 +229,53 @@ ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
   chapterTheme +
   labs(x="Number of Days Out of Town", y="Number of Newspapers Picked Up")
 
+#####################################
+## @knitr Figure13_11
+cat("Lise, this is the only graph in the chapter whose x:y aspect ratio isn't 1:1.  Is there any reason you'd want to mention that?")
+dsBarb <- data.frame(X=seq(0, 8, by=2))
+dsBarb$Y <- 20 + (5 * dsBarb$X)
+
+ggplot(dsBarb, aes(x=X, y=Y)) +
+  geom_abline(intercept=20, slope=5, color=palettePlacidSeasMedium[3], size=1.5) +
+  geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
+  scale_x_continuous(breaks=seq(0, 8, by=2)) +
+  scale_y_continuous(breaks=seq(0, 60, by=10), labels=scales::dollar) +
+  coord_cartesian(ylim=c(-1, 61)) +
+  chapterTheme +
+  labs(x="Number of Days Out of Town", y="Amount Owed to Barb")
+
+#####################################
+## @knitr Figure13_13
+cat("Lise, this line truncates at the observed data points for two reasons.  First, it's a tad easier for me.  Second, I'm a little worried we'd be criticized for teaching them to extrapolate beyond the domain of the observed X values.")
+gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
+  geom_smooth(method="lm", color=palettePlacidSeasMedium[3], size=1.5, se=F) +
+  geom_point(shape=21, size=3, color="aquamarine4", fill=adjustcolor("aquamarine4", alpha.f=.1)) + #This color should match the obesity Cleveland dot plot
+  scale_x_continuous(label=scales::percent) +
+  scale_y_continuous(label=scales::percent) +
+  coord_fixed() + 
+  chapterTheme +
+  labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
+
+gObesity
+#####################################
+## @knitr Figure13_14
+fit <- lm(ObesityRate ~ 1 + FoodHardshipRate, data=dsObesity)
+xNew <- max(dsObesity$FoodHardshipRate) #.245
+yObs <- max(dsObesity$ObesityRate) #0.349
+yHat <- predict.lm(fit, data.frame(FoodHardshipRate=xNew))
+residual <- (yObs - yHat)
+
+gObesity +
+  annotate("segment", x=xNew, xend=xNew, y=yHat, yend=-Inf, color=palettePlacidSeasMedium[6], size=2, lineend="round") +
+  annotate("segment", x=-Inf, xend=xNew, y=yHat, yend=yHat, color=palettePlacidSeasMedium[6], size=2, lineend="round")
+
+#####################################
+## @knitr Figure13_15
+gObesity +
+  annotate("segment", x=xNew, xend=xNew, y=yHat, yend=yObs, color=palettePlacidSeasMedium[7], size=1, lineend="round")
+
+#####################################
+## @knitr Figure13_16
+gObesity +
+  annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7], size=1, lineend="round")
 

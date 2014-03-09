@@ -2482,6 +2482,38 @@ Lise, I extended the plot so the -2 y intercept is visible.  Does this help?  Is
 
 ## Figure 13-11
 
+```
+Lise, this is the only graph in the chapter whose x:y aspect ratio isn't 1:1.  Is there any reason you'd want to mention that?
+```
+
+<img src="figure_rmd/Figure13_11.png" title="plot of chunk Figure13_11" alt="plot of chunk Figure13_11" width="600px" />
+
+
+## Figure 13-12
+*Lise*, where is Figure 13-12?  Am I overlooking something?
+
+
+
+
+## Figure 13-13
+
+```
+Lise, this line truncates at the observed data points for two reasons.  First, it's a tad easier for me.  Second, I'm a little worried we'd be criticized for teaching them to extrapolate beyond the domain of the observed X values.
+```
+
+<img src="figure_rmd/Figure13_13.png" title="plot of chunk Figure13_13" alt="plot of chunk Figure13_13" width="600px" />
+
+
+## Figure 13-14
+<img src="figure_rmd/Figure13_14.png" title="plot of chunk Figure13_14" alt="plot of chunk Figure13_14" width="600px" />
+
+
+## Figure 13-15
+<img src="figure_rmd/Figure13_15.png" title="plot of chunk Figure13_15" alt="plot of chunk Figure13_15" width="600px" />
+
+
+## Figure 13-16
+<img src="figure_rmd/Figure13_16.png" title="plot of chunk Figure13_16" alt="plot of chunk Figure13_16" width="600px" />
 
 
 ## Session Info
@@ -2489,7 +2521,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-03-08, 22:34:31 -0600
+Report created by Will at 2014-03-08, 23:08:57 -0600
 ```
 
 ```

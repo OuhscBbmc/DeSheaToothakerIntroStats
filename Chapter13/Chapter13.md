@@ -2442,6 +2442,17 @@ Lise, would you like to keep the critical values, or hide them?
 <img src="figure_rmd/Figure13_03b.png" title="plot of chunk Figure13_03b" alt="plot of chunk Figure13_03b" width="600px" />
 
 
+## Figure 13-4
+<img src="figure_rmd/Figure13_04.png" title="plot of chunk Figure13_04" alt="plot of chunk Figure13_04" width="600px" />
+
+
+## Figure 13-5
+<img src="figure_rmd/Figure13_05.png" title="plot of chunk Figure13_05" alt="plot of chunk Figure13_05" width="600px" />
+
+
+## Figure 13-6
+<img src="figure_rmd/Figure13_06.png" title="plot of chunk Figure13_06" alt="plot of chunk Figure13_06" width="600px" />
+
 
 
 ## Session Info
@@ -2449,7 +2460,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-03-08, 21:41:52 -0600
+Report created by Will at 2014-03-08, 22:02:25 -0600
 ```
 
 ```

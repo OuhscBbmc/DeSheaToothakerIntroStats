@@ -156,7 +156,6 @@ Graph3DMVNorm()
 ## @knitr Figure13_03b
 set.seed(3242) #Set seed so plots are consistent overtime.
 
-
 dsMV <- data.frame(MASS::mvrnorm(n=1000, mu=mu, Sigma=sigma))
 colnames(dsMV) <- c("X", "Y")
 ggplot(dsMV, aes(x=X, y=Y)) +
@@ -167,7 +166,25 @@ ggplot(dsMV, aes(x=X, y=Y)) +
   chapterTheme +
   labs(x=expression(italic(X)), y=expression(italic(Y)))
 
+#####################################
+## @knitr Figure13_04
+dsStairsUp <- data.frame(X=1:10, Y=1:10)
 
+gStraight <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
+  geom_path(color=palettePlacidSeasMedium[6], size=1.5, lineend="round") +
+  geom_point(shape=21, size=3, color=palettePlacidSeas[2], fill=palettePlacidSeasMedium[2]) +
+  scale_x_continuous(breaks=dsStairsUp$X) +
+  scale_y_continuous(breaks=dsStairsUp$Y) +
+  coord_equal() +
+  chapterTheme
+gStraight
 
+#####################################
+## @knitr Figure13_05
+gStraight +
+  geom_step(direction="vh", size=1.5, color=palettePlacidSeasMedium[3])
 
-
+#####################################
+## @knitr Figure13_06
+gStraight +
+  geom_step(data=data.frame(X=c(1,10),Y=c(1,10)), direction="vh", size=1.5, color=palettePlacidSeasMedium[3])

@@ -18,13 +18,16 @@ opts_chunk$set(
     fig.height = 4, 
     out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
     fig.path = 'figure_rmd/',     
-    dev = "png",
-    dpi = 400
-    #dev = "pdf"
+    dpi = 400,
+    dev = "png"
+#     dev = "pdf"
 )
+knit_hooks$set(webgl = hook_webgl)
+
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter13/Chapter13.R") 
+
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 ```{r LoadPackages, echo=echoChunks, message=FALSE}
@@ -52,6 +55,10 @@ read_chunk("./Chapter13/Chapter13.R")
 ## Figure 13-2
 
 ```{r Figure13_02, echo=echoChunks, results='show', message=TRUE, fig.height = 2}
+```
+## Figure 13-3
+
+```{r Figure13_03, echo=echoChunks, results='show', message=TRUE, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
 ```
 
 

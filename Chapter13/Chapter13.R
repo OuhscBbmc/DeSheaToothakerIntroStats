@@ -9,8 +9,9 @@ require(scales) #For formating values in graphs
 # require(gridExtra)
 require(ggplot2)
 # require(ggthemes)
-# require(reshape2) #For converting wide to long
-# require(effects) #For extracting useful info from a linear model
+require(MASS) 
+require(mnormt)
+require(rgl)
 
 #####################################
 ## @knitr DeclareGlobals
@@ -106,3 +107,43 @@ gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
   labs(x=expression(italic(R)), y=NULL)
 
 DrawWithoutPanelClipping(gCriticalR)
+
+#####################################
+## @knitr Figure13_03
+require(MASS)
+require(mnormt)
+
+boundary <- 2.5
+points <- seq(-boundary, boundary, by=.2)
+dsMV <- data.frame(
+  X = rep(points, each=length(points)),
+  Y = rep(points, times=length(points))
+)
+rObserved <- .6
+mu <- c(0,0)
+sigma <- matrix(c(1, rObserved, rObserved, 1), 2, 2)
+dsMV$Z <- dmnorm(dsMV, mu, sigma)
+zMatrix <- matrix(dsMV$Z, nrow=length(points))
+zScale <- 10
+
+colorTheme <- "gray40"
+# open3d() # New window
+
+# rgl.viewpoint(theta=0, phi=-35)
+
+# rgl.viewpoint(theta=0,phi=-85)
+Graph3DMVNorm <- function( theta=0, phi=-35 ) {
+  clear3d("all") # clear scene
+  rgl.viewpoint(theta=theta, phi=phi, zoom=1) #A zoom smaller than one enlarges the graph's relative size.
+  # bg3d(color="#887777")
+  light3d()
+  terrain3d(points, points, zMatrix * zScale, color="#CCCCFF", front="lines", back="fill") 
+  axis3d("x-", col=colorTheme)
+  axis3d("y-", col=colorTheme)
+  rgl::mtext3d(text="X", edge="x-", labels=TRUE, line=2)
+  rgl::mtext3d(text="Y", edge="y-", labels=TRUE, line=2)
+  rgl.lines(x=c(-boundary,boundary), y=c(0,0), z=c(0,0), color=colorTheme, lwd=3)
+  rgl.lines(x=c(0,0), y=c(-boundary,boundary), z=c(0,0), color=colorTheme, lwd=3)
+}
+Graph3DMVNorm()
+# Graph3DMVNorm(theta=5, phi=-85)

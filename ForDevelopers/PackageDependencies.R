@@ -15,9 +15,12 @@ packagesToInstall <- c(
 #   , "gridBase" #Additional grid functions
   , "knitr" #For reporting
   , "lubridate" #Consistent/convienent function signatures for manipulating dates
+  , "MASS" #for generating multivariate normal distributions, among other things
+  , "mnormt" #For calculating density of multivariate normal distribution
   , "plotrix" #Has extra graphing functions
   , "plyr" #Important for most of our data manipulation
   , "RColorBrewer" #Explicit control over the Color Brewer colors.  See http://colorbrewer2.org/
+  , "rgl" #3D plotting
   , "reshape2" #Data manipulation not covered in plyr
   , "scales" #Formating values in graphs
 #   , "stringr" #Consistent/convienent function signatures for manipulating text

@@ -42,7 +42,6 @@ parallelLineHeight <- -.08
 g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
   annotate("segment", x=-Inf, xend=Inf, y=parallelLineHeight, yend=parallelLineHeight, color="gray80") +
   annotate("text", label="italic(H)[0]:mu <= 33", x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
-  annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") +
   annotate("text", label="mu", x=0, y=parallelLineHeight, parse=T, vjust=2.25, color="gray40") +
   stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
@@ -52,7 +51,10 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
   #   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
   labs(x=expression(italic(z)), y=NULL)
 
-DrawWithoutPanelClipping(g1 + scale_x_continuous(expand=c(0,0), breaks=-3:3))
+DrawWithoutPanelClipping(g1 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3) +
+                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                         )
 #####################################
 ## @knitr Figure08_02
 cat("Lise, I added the `39.251`; tell me if you'd like it removed.")
@@ -70,11 +72,15 @@ g2 <- g1 +
   annotate("text", label=39.251, x=criticalZ05, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
   stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount)
 
-DrawWithoutPanelClipping(g2 + scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)))
+DrawWithoutPanelClipping(g2 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
+                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                         )
 #####################################
 ## @knitr Figure08_03
+cat("Lise, this blue is barely visible, and I don't have any other tricks left.  Any desire to bring +3 closer to zero?")
 
-zObs3 <- 3.0
+zObs3 <- 3.0; # 1- pnorm(q=zObs3)
 g3 <- g2 + 
   annotate("segment", x=zObs3, xend=zObs3, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=zObs3, xend=zObs3, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
@@ -87,5 +93,56 @@ g3 <- g2 +
   annotate("text", label=44.4, x=zObs3, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
   stat_function(fun=LimitRange(dnorm, zObs3, Inf), geom="area", fill=PaletteCritical[4], alpha=1, n=calculatedPointCount)
 
-DrawWithoutPanelClipping(g3 + scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", "")))
+DrawWithoutPanelClipping(g3 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", "")) +
+                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                         )
+#####################################
+## @knitr Figure08_04
+cat("Lise, I added the `.4476`; tell me if you'd like it removed.")
 
+zObs013 <- 0.1316; # 1- pnorm(q=zObs013)
+g4 <- g2 + 
+  annotate("segment", x=zObs013, xend=zObs013, y=0, yend=Inf, color=PaletteCritical[4]) +
+  annotate("segment", x=zObs013, xend=zObs013, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
+  annotate("segment", x=zObs013, xend=xLimitBuffer, y=dnorm(zObs013)+.01, yend=dnorm(zObs013)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label="italic(p)==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label=".4476", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObs013, y=0, label=round(zObs013, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
+  
+  annotate("text", label=33.5, x=zObs013, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
+  stat_function(fun=LimitRange(dnorm, zObs013, Inf), geom="area", fill=PaletteCritical[4], alpha=1, n=calculatedPointCount) +
+  #Draw it again on top
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount)
+
+DrawWithoutPanelClipping(g4 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, "", 1, "", 3))
+                         )
+#####################################
+## @knitr Figure08_05
+
+zObsNeg25 <- -2.5; # pnorm(q=zObsNeg25)
+g5 <- g2 + 
+  annotate("segment", x=zObsNeg25, xend=zObsNeg25, y=0, yend=Inf, color=PaletteCritical[4]) +
+  annotate("segment", x=zObsNeg25, xend=zObsNeg25, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
+  annotate("segment", x=zObsNeg25, xend=-xLimitBuffer, y=dnorm(zObsNeg25)+.02, yend=dnorm(zObsNeg25)+.02, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate(geom="text", x=zObsNeg25-.05, y=dnorm(zObsNeg25)+.06, label="italic(p)==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObsNeg25-.05, y=dnorm(zObsNeg25)+.06, label=".0062", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObsNeg25, y=0, label=round(zObsNeg25, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
+  
+  annotate("text", label=23.5, x=zObsNeg25, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
+  stat_function(fun=LimitRange(dnorm, -Inf, zObsNeg25), geom="area", fill=PaletteCritical[4], alpha=1, n=calculatedPointCount)
+
+DrawWithoutPanelClipping(g5 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
+                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+)
+#####################################
+## @knitr Figure08_06
+
+DrawWithoutPanelClipping(g3 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", "")) +
+                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+)

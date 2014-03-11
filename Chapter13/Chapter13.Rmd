@@ -62,7 +62,7 @@ read_chunk("./Chapter13/Chapter13.R")
 ```
 
 ## Figure 13-3b
-```{r Figure13_03b, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_03b, echo=echoChunks, results='show', message=TRUE, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
 ```
 
 ## Figure 13-4
@@ -98,8 +98,6 @@ read_chunk("./Chapter13/Chapter13.R")
 ```
 
 ## Figure 13-12
-*Lise*, where is Figure 13-12?  Am I overlooking something?
-
 ```{r Figure13_12, echo=echoChunks, results='show', message=TRUE}
 ```
 
@@ -113,10 +111,6 @@ read_chunk("./Chapter13/Chapter13.R")
 
 ## Figure 13-15
 ```{r Figure13_15, echo=echoChunks, results='show', message=TRUE}
-```
-
-## Figure 13-16
-```{r Figure13_16, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Session Info

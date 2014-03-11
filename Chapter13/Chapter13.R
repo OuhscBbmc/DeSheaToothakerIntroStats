@@ -105,7 +105,7 @@ gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
   expand_limits(y=max(dsRho$PriorR) * 1.05) +
   
   chapterTheme +
-  labs(x=expression(italic(R)), y=NULL)
+  labs(x=expression(italic(r)), y=NULL)
 
 DrawWithoutPanelClipping(gCriticalR)
 
@@ -275,4 +275,4 @@ gObesityWithLine +
 #####################################
 ## @knitr Figure13_15
 gObesityWithLine +
-  annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7], size=1, lineend="round")
+  annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7], lineend="round")

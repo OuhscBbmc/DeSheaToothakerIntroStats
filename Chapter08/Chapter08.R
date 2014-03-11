@@ -26,6 +26,14 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
   
+mu <- 33
+sigma <- 19
+nObs <- 33
+se <- sigma / sqrt(33)
+ConvertFromZToM <- function( z ) {
+  return( mu + (z * se) )
+}
+
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'
@@ -41,7 +49,7 @@ parallelLineHeight <- -.08
 
 g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
   annotate("segment", x=-Inf, xend=Inf, y=parallelLineHeight, yend=parallelLineHeight, color="gray80") +
-  annotate("text", label="italic(H)[0]:mu <= 33", x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
+  annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
   annotate("text", label="mu", x=0, y=parallelLineHeight, parse=T, vjust=2.25, color="gray40") +
   stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
@@ -53,7 +61,7 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 
 DrawWithoutPanelClipping(g1 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3) +
-                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
                          )
 #####################################
 ## @knitr Figure08_02
@@ -74,7 +82,7 @@ g2 <- g1 +
 
 DrawWithoutPanelClipping(g2 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
-                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
                          )
 #####################################
 ## @knitr Figure08_03
@@ -95,7 +103,7 @@ g3 <- g2 +
 
 DrawWithoutPanelClipping(g3 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", "")) +
-                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
                          )
 #####################################
 ## @knitr Figure08_04
@@ -137,12 +145,44 @@ g5 <- g2 +
 
 DrawWithoutPanelClipping(g5 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
-                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )
 #####################################
 ## @knitr Figure08_06
 
 DrawWithoutPanelClipping(g3 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", "")) +
-                           annotate("text", label=33, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+)
+#####################################
+## @knitr Figure08_07
+
+criticalZ025 <- qnorm(p=.975) #1.959964
+critM025 <- ConvertFromZToM(criticalZ025) #39.48253
+g7 <- g1 + 
+  annotate("segment", x=criticalZ025, xend=criticalZ025, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=criticalZ025, xend=criticalZ025, y=-.03, yend=parallelLineHeight, color=PaletteCritical[2]) +
+  annotate("segment", x=criticalZ025, xend=xLimitBuffer, y=dnorm(criticalZ025)+.02, yend=dnorm(criticalZ025)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate("segment", x=-criticalZ025, xend=-criticalZ025, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=-criticalZ025, xend=-criticalZ025, y=-.03, yend=parallelLineHeight, color=PaletteCritical[2]) +
+  annotate("segment", x=-criticalZ025, xend=-xLimitBuffer, y=dnorm(-criticalZ025)+.02, yend=dnorm(-criticalZ025)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate(geom="text", x=criticalZ025+.05, y=dnorm(criticalZ025)+.06, label="phantom(0)*alpha/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalZ025+.05, y=dnorm(criticalZ025)+.06, label="phantom(0)*.025*phantom(0)", hjust=0, vjust=1.15, parse=T, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalZ025, y=0, label=round(criticalZ025, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
+
+  annotate(geom="text", x=-criticalZ025-.05, y=dnorm(-criticalZ025)+.06, label="phantom(0)*alpha/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=-criticalZ025-.05, y=dnorm(-criticalZ025)+.06, label="phantom(0)*.025*phantom(0)", hjust=1, vjust=1.15, parse=T, color=PaletteCritical[2]) +
+  annotate(geom="text", x=-criticalZ025, y=0, label=round(-criticalZ025, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
+  
+  annotate("text", label=round(critM025, 3), x=criticalZ025, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
+  stat_function(fun=LimitRange(dnorm, criticalZ025, Inf), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount) +
+
+  annotate("text", label=round(-critM025, 3), x=-criticalZ025, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
+  stat_function(fun=LimitRange(dnorm, -Inf, -criticalZ025), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount)
+
+DrawWithoutPanelClipping(g7 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )

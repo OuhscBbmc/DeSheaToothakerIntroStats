@@ -106,6 +106,14 @@ Lise, I added the `.4476`; tell me if you'd like it removed.
 
 
 ## Figure 8-11
+<img src="figure_rmd/Figure08_11.png" title="plot of chunk Figure08_11" alt="plot of chunk Figure08_11" width="350px" />
+
+
+## Figure 8-12
+
+
+
+## Figure 8-13
 
 
 
@@ -114,7 +122,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-03-11, 14:00:29 -0500
+Report created by Will at 2014-03-11, 15:25:20 -0500
 ```
 
 ```

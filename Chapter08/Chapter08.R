@@ -318,3 +318,46 @@ DrawWithoutPanelClipping(g10 +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )
+
+#####################################
+## @knitr Figure08_10
+DrawWithoutPanelClipping(g7 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+)
+
+#####################################
+## @knitr Figure08_11
+ci <- c(36.952, 51.848)
+obs <- 44.4
+ticksSmall <- 20:60
+ticksBig <- seq(20, 60, by=5)
+dsNumberLine <- data.frame(Mu=mu, Obs=obs, CILower=ci[1], CIUpper=ci[2])
+bandHeight <- .18
+tickHeightSmall <- .025
+tickHeightBig <- .05
+yText <- -.3
+
+ggplot(dsNumberLine, aes(x=Mu)) +  
+  geom_hline(yintercept=0, color="gray40") +
+  annotate("segment", x=ticksSmall, xend=ticksSmall, y=-tickHeightSmall, yend=tickHeightSmall, color="gray80") +
+  annotate("segment", x=ticksBig, xend=ticksBig, y=-tickHeightBig, yend=tickHeightBig, color="gray40") +
+#   annotate("segment", x=zObs0184, xend=zObs0184, y=0, yend=Inf, color=PaletteCritical[4])  +
+  annotate("rect", xmin=ci[1], xmax=ci[2], ymin=-bandHeight, ymax=bandHeight, fill=PaletteCritical[3], alpha=.2) +
+  annotate("segment", x=ci[1], xend=ci[1], y=-bandHeight, yend=bandHeight, color=PaletteCritical[3]) +
+  annotate("segment", x=ci[2], xend=ci[2], y=-bandHeight, yend=bandHeight, color=PaletteCritical[3]) +
+  annotate("text", x=ci[1], y=yText, label=ci[1], size=5 ,color=PaletteCritical[3])  +
+  annotate("text", x=ci[2], y=yText, label=ci[2], size=5 ,color=PaletteCritical[3])  +
+  
+  annotate("point", x=obs, y=0, shape=23, size=5,color=PaletteCritical[4], fill=PaletteCriticalLight[4])  +
+  annotate("text", x=obs, y=-yText, label=paste0("italic(M)==", obs), parse=T, size=5 ,color=PaletteCritical[4])  +
+  
+  annotate("point", x=mu, y=0, shape=21, size=5,color=PaletteCritical[1], fill=PaletteCriticalLight[1])  +
+  annotate("text", x=mu, y=-yText, label=paste0("italic(mu)==", mu), parse=T, size=5 ,color=PaletteCritical[1])  +
+  scale_x_continuous(expand=c(0,0)) +
+  scale_y_continuous( expand=c(0,0)) +
+  coord_cartesian(ylim=c(-.4, .4), xlim=c(29.5, 55.5)) +
+#   chapterTheme +
+  emptyTheme +
+  labs(x=NULL, y=NULL)
+

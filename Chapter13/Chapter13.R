@@ -37,7 +37,7 @@ paletteCryBox <- paletteCryBoxFull[c(6,5,3)]
 names(paletteCryBox) <- cryGroupLevels
 paletteCryBoxLight <- adjustcolor(paletteCryBox, alpha.f=.2)
 
-colorAxes <- "gray40"
+colorAxes <- "black"
 
 #####################################
 ## @knitr LoadDatasets
@@ -147,6 +147,8 @@ Graph3DMVNorm <- function( rho=0, theta=0, phi=-35 ) {
 #   rgl.lines(x=c(0,0), y=c(-boundary,boundary), z=c(0,0), color=palettePlacidSeas[5], lwd=3)
 }
 Graph3DMVNorm()
+# Graph3DMVNorm(phi=-60 )
+# Graph3DMVNorm(phi=-85 )
 # Graph3DMVNorm(theta=5, phi=-85)
 
 #####################################
@@ -194,8 +196,8 @@ gStraightUp +
 dsStairsDown <- data.frame(X=0:20, Y=20:0)
 
 gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
-  geom_hline(color=colorAxes, size=1) +
-  geom_vline(color=colorAxes, size=1) +
+  geom_hline(color=colorAxes) +
+  geom_vline(color=colorAxes) +
   geom_abline(intercept=20, slope=-1, color=palettePlacidSeasMedium[3], size=1.5) +
   geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
   scale_y_continuous(labels=scales::dollar) +
@@ -219,8 +221,8 @@ gStraightDown +
 dsNewspaperDelay <- data.frame(X=2:10, Y=0:8)
 
 ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
-  geom_hline() +
-  geom_vline() +
+  geom_hline(color=colorAxes) +
+  geom_vline(color=colorAxes) +
   geom_abline(intercept=-2, slope=1, color=palettePlacidSeasMedium[3], size=1.5) +
   geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
   annotate("segment", x=2, xend=.5, y=-2, yend=-2, arrow=grid::arrow(length=unit(.4,"cm")), color=palettePlacidSeas[2], size=2, lineend="round") +

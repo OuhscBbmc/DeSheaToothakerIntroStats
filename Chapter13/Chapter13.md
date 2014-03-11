@@ -4634,7 +4634,6 @@ Lise, this is the only graph in the chapter whose x:y aspect ratio isn't 1:1.  I
 
 
 ## Figure 13-12
-
 <img src="figure_rmd/Figure13_12.png" title="plot of chunk Figure13_12" alt="plot of chunk Figure13_12" width="600px" />
 
 
@@ -4655,7 +4654,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-03-10, 21:18:33 -0500
+Report created by Will at 2014-03-10, 21:42:19 -0500
 ```
 
 ```

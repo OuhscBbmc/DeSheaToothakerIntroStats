@@ -95,7 +95,7 @@ read_chunk("./Chapter08/Chapter08.R")
 ```
 
 ## Figure 8-13
-```{r Figure08_13, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_13, echo=echoChunks, results='show', message=TRUE, fig.width=3.5, fig.height=1.5, out.width="350px"}
 ```
 
 ## Session Info

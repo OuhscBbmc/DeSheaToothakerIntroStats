@@ -54,12 +54,41 @@ read_chunk("./Chapter08/Chapter08.R")
 <img src="figure_rmd/Figure08_01.png" title="plot of chunk Figure08_01" alt="plot of chunk Figure08_01" width="550px" />
 
 
+## Figure 8-2
+
+```
+Lise, I added the `39.251`; tell me if you'd like it removed.
+```
+
+<img src="figure_rmd/Figure08_02.png" title="plot of chunk Figure08_02" alt="plot of chunk Figure08_02" width="550px" />
+
+
+## Figure 8-3
+<img src="figure_rmd/Figure08_03.png" title="plot of chunk Figure08_03" alt="plot of chunk Figure08_03" width="550px" />
+
+
+## Figure 8-4
+
+
+
+## Figure 8-5
+
+
+
+## Figure 8-6
+
+
+
+## Figure 8-7
+
+
+
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-03-09, 18:10:13 -0500
+Report created by Will at 2014-03-10, 22:24:51 -0500
 ```
 
 ```

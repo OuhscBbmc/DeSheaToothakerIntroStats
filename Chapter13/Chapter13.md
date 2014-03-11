@@ -19,7 +19,7 @@ opts_chunk$set(
     tidy = FALSE,
     fig.width = 4, 
     fig.height = 4, 
-    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+    out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
     fig.path = 'figure_rmd/',     
     dpi = 400,
     dev = "png"
@@ -53,20 +53,68 @@ read_chunk("./Chapter13/Chapter13.R")
 
 
 ## Figure 13-1
-<img src="figure_rmd/Figure13_01.png" title="plot of chunk Figure13_01" alt="plot of chunk Figure13_01" width="600px" />
+<img src="figure_rmd/Figure13_01.png" title="plot of chunk Figure13_01" alt="plot of chunk Figure13_01" width="400px" />
 
 
 ## Figure 13-2
-<img src="figure_rmd/Figure13_02.png" title="plot of chunk Figure13_02" alt="plot of chunk Figure13_02" width="600px" />
+<img src="figure_rmd/Figure13_02.png" title="plot of chunk Figure13_02" alt="plot of chunk Figure13_02" width="550px" />
 
 
 ## Figure 13-3
+<img src="figure_rmd/Figure13_03.png" title="plot of chunk Figure13_03" alt="plot of chunk Figure13_03" width="400px" />
+
+
+## Figure 13-4
+<img src="figure_rmd/Figure13_04.png" title="plot of chunk Figure13_04" alt="plot of chunk Figure13_04" width="400px" />
+
+
+## Figure 13-5
+<img src="figure_rmd/Figure13_05.png" title="plot of chunk Figure13_05" alt="plot of chunk Figure13_05" width="400px" />
+
+
+## Figure 13-6
+<img src="figure_rmd/Figure13_06.png" title="plot of chunk Figure13_06" alt="plot of chunk Figure13_06" width="400px" />
+
+
+## Figure 13-7
+<img src="figure_rmd/Figure13_07.png" title="plot of chunk Figure13_07" alt="plot of chunk Figure13_07" width="400px" />
+
+
+## Figure 13-8
+<img src="figure_rmd/Figure13_08.png" title="plot of chunk Figure13_08" alt="plot of chunk Figure13_08" width="400px" />
+
+
+## Figure 13-09
+<img src="figure_rmd/Figure13_09.png" title="plot of chunk Figure13_09" alt="plot of chunk Figure13_09" width="400px" />
+
+
+## Figure 13-10
+<img src="figure_rmd/Figure13_10.png" title="plot of chunk Figure13_10" alt="plot of chunk Figure13_10" width="400px" />
+
+
+## Figure 13-11
+<img src="figure_rmd/Figure13_11.png" title="plot of chunk Figure13_11" alt="plot of chunk Figure13_11" width="400px" />
+
+
+## Figure 13-12
+<img src="figure_rmd/Figure13_12.png" title="plot of chunk Figure13_12" alt="plot of chunk Figure13_12" width="400px" />
+
+
+## Figure 13-13
+<img src="figure_rmd/Figure13_13.png" title="plot of chunk Figure13_13" alt="plot of chunk Figure13_13" width="400px" />
+
+
+## Figure 13-14
+<img src="figure_rmd/Figure13_14.png" title="plot of chunk Figure13_14" alt="plot of chunk Figure13_14" width="400px" />
+
+
+## Not used #1 
 <script src="CanvasMatrix.js" type="text/javascript"></script>
-<canvas id="Figure13_03textureCanvas" style="display: none;" width="256" height="256">
-<img src="Figure13_03snapshot.png" alt="Figure13_03snapshot" width=401/><br>
+<canvas id="NotUsed13_01textureCanvas" style="display: none;" width="256" height="256">
+<img src="NotUsed13_01snapshot.png" alt="NotUsed13_01snapshot" width=401/><br>
 	Your browser does not support the HTML5 canvas element.</canvas>
 <!-- ****** surface object 9 ****** -->
-<script id="Figure13_03vshader9" type="x-shader/x-vertex">
+<script id="NotUsed13_01vshader9" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -83,7 +131,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	  vNormal = normalize((normMatrix * vec4(aNorm, 1.)).xyz);
 	}
 </script>
-<script id="Figure13_03fshader9" type="x-shader/x-fragment"> 
+<script id="NotUsed13_01fshader9" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -111,7 +159,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	}
 </script> 
 <!-- ****** lines object 10 ****** -->
-<script id="Figure13_03vshader10" type="x-shader/x-vertex">
+<script id="NotUsed13_01vshader10" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -124,7 +172,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	  vCol = aCol;
 	}
 </script>
-<script id="Figure13_03fshader10" type="x-shader/x-fragment"> 
+<script id="NotUsed13_01fshader10" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -137,7 +185,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	}
 </script> 
 <!-- ****** text object 11 ****** -->
-<script id="Figure13_03vshader11" type="x-shader/x-vertex">
+<script id="NotUsed13_01vshader11" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -155,7 +203,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03fshader11" type="x-shader/x-fragment"> 
+<script id="NotUsed13_01fshader11" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -174,7 +222,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	}
 </script> 
 <!-- ****** lines object 12 ****** -->
-<script id="Figure13_03vshader12" type="x-shader/x-vertex">
+<script id="NotUsed13_01vshader12" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -187,7 +235,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	  vCol = aCol;
 	}
 </script>
-<script id="Figure13_03fshader12" type="x-shader/x-fragment"> 
+<script id="NotUsed13_01fshader12" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -200,7 +248,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	}
 </script> 
 <!-- ****** text object 13 ****** -->
-<script id="Figure13_03vshader13" type="x-shader/x-vertex">
+<script id="NotUsed13_01vshader13" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -218,7 +266,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03fshader13" type="x-shader/x-fragment"> 
+<script id="NotUsed13_01fshader13" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -237,7 +285,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	}
 </script> 
 <!-- ****** text object 14 ****** -->
-<script id="Figure13_03vshader14" type="x-shader/x-vertex">
+<script id="NotUsed13_01vshader14" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -255,7 +303,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03fshader14" type="x-shader/x-fragment"> 
+<script id="NotUsed13_01fshader14" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -274,7 +322,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	}
 </script> 
 <!-- ****** text object 15 ****** -->
-<script id="Figure13_03vshader15" type="x-shader/x-vertex">
+<script id="NotUsed13_01vshader15" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -292,7 +340,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03fshader15" type="x-shader/x-fragment"> 
+<script id="NotUsed13_01fshader15" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -341,14 +389,14 @@ read_chunk("./Chapter13/Chapter13.R")
 	var PI = Math.PI;
 	var log = Math.log;
 	var exp = Math.exp;
-	function Figure13_03webGLStart() {
+	function NotUsed13_01webGLStart() {
 	   var debug = function(msg) {
-	     document.getElementById("Figure13_03debug").innerHTML = msg;
+	     document.getElementById("NotUsed13_01debug").innerHTML = msg;
 	   }
 	   debug("");
-	   var canvas = document.getElementById("Figure13_03canvas");
+	   var canvas = document.getElementById("NotUsed13_01canvas");
 	   if (!window.WebGLRenderingContext){
-	     debug("<img src=\"Figure13_03snapshot.png\" alt=\"Figure13_03snapshot\" width=401/><br> Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+	     debug("<img src=\"NotUsed13_01snapshot.png\" alt=\"NotUsed13_01snapshot\" width=401/><br> Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
 	     return;
 	   }
 	   var gl;
@@ -359,7 +407,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	   }
 	   catch(e) {}
 	   if ( !gl ) {
-	     debug("<img src=\"Figure13_03snapshot.png\" alt=\"Figure13_03snapshot\" width=401/><br> Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+	     debug("<img src=\"NotUsed13_01snapshot.png\" alt=\"NotUsed13_01snapshot\" width=401/><br> Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
 	     return;
 	   }
 	   var width = 401;  var height = 401;
@@ -399,7 +447,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	     gl.bindTexture(gl.TEXTURE_2D, null);
 	   }
 	   function loadImageToTexture(filename, texture) {   
-	     var canvas = document.getElementById("Figure13_03textureCanvas");
+	     var canvas = document.getElementById("NotUsed13_01textureCanvas");
 	     var ctx = canvas.getContext("2d");
 	     var image = new Image();
 	     image.onload = function() {
@@ -423,7 +471,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	     var textColour = "white";
 	     var fontFamily = "Arial";
 	     var backgroundColour = "rgba(0,0,0,0)";
-	     var canvas = document.getElementById("Figure13_03textureCanvas");
+	     var canvas = document.getElementById("NotUsed13_01textureCanvas");
 	     var ctx = canvas.getContext("2d");
 	     ctx.font = textHeight+"px "+fontFamily;
              canvasX = 1;
@@ -454,8 +502,8 @@ read_chunk("./Chapter13/Chapter13.R")
 	   }
 	   // ****** surface object 9 ******
 	   var prog9  = gl.createProgram();
-	   gl.attachShader(prog9, getShader( gl, "Figure13_03vshader9" ));
-	   gl.attachShader(prog9, getShader( gl, "Figure13_03fshader9" ));
+	   gl.attachShader(prog9, getShader( gl, "NotUsed13_01vshader9" ));
+	   gl.attachShader(prog9, getShader( gl, "NotUsed13_01fshader9" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog9, 0, "aPos");
 	   gl.bindAttribLocation(prog9, 1, "aCol");
@@ -1777,8 +1825,8 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var normMatLoc9 = gl.getUniformLocation(prog9,"normMatrix");
 	   // ****** lines object 10 ******
 	   var prog10  = gl.createProgram();
-	   gl.attachShader(prog10, getShader( gl, "Figure13_03vshader10" ));
-	   gl.attachShader(prog10, getShader( gl, "Figure13_03fshader10" ));
+	   gl.attachShader(prog10, getShader( gl, "NotUsed13_01vshader10" ));
+	   gl.attachShader(prog10, getShader( gl, "NotUsed13_01fshader10" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog10, 0, "aPos");
 	   gl.bindAttribLocation(prog10, 1, "aCol");
@@ -1804,8 +1852,8 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var prMatLoc10 = gl.getUniformLocation(prog10,"prMatrix");
 	   // ****** text object 11 ******
 	   var prog11  = gl.createProgram();
-	   gl.attachShader(prog11, getShader( gl, "Figure13_03vshader11" ));
-	   gl.attachShader(prog11, getShader( gl, "Figure13_03fshader11" ));
+	   gl.attachShader(prog11, getShader( gl, "NotUsed13_01vshader11" ));
+	   gl.attachShader(prog11, getShader( gl, "NotUsed13_01fshader11" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog11, 0, "aPos");
 	   gl.bindAttribLocation(prog11, 1, "aCol");
@@ -1824,7 +1872,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var texture11 = gl.createTexture();
 	   var texLoc11 = gl.getAttribLocation(prog11, "aTexcoord");
 	   var sampler11 = gl.getUniformLocation(prog11,"uSampler");
-    	   handleLoadedTexture(texture11, document.getElementById("Figure13_03textureCanvas"));
+    	   handleLoadedTexture(texture11, document.getElementById("NotUsed13_01textureCanvas"));
 	   var v=new Float32Array([
 	    -2, -2.96125, -0.1420037, 0, -0.5, 0.5, 0.5,
 	    -2, -2.96125, -0.1420037, 1, -0.5, 0.5, 0.5,
@@ -1873,8 +1921,8 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var prMatLoc11 = gl.getUniformLocation(prog11,"prMatrix");
 	   // ****** lines object 12 ******
 	   var prog12  = gl.createProgram();
-	   gl.attachShader(prog12, getShader( gl, "Figure13_03vshader12" ));
-	   gl.attachShader(prog12, getShader( gl, "Figure13_03fshader12" ));
+	   gl.attachShader(prog12, getShader( gl, "NotUsed13_01vshader12" ));
+	   gl.attachShader(prog12, getShader( gl, "NotUsed13_01fshader12" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog12, 0, "aPos");
 	   gl.bindAttribLocation(prog12, 1, "aCol");
@@ -1900,8 +1948,8 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var prMatLoc12 = gl.getUniformLocation(prog12,"prMatrix");
 	   // ****** text object 13 ******
 	   var prog13  = gl.createProgram();
-	   gl.attachShader(prog13, getShader( gl, "Figure13_03vshader13" ));
-	   gl.attachShader(prog13, getShader( gl, "Figure13_03fshader13" ));
+	   gl.attachShader(prog13, getShader( gl, "NotUsed13_01vshader13" ));
+	   gl.attachShader(prog13, getShader( gl, "NotUsed13_01fshader13" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog13, 0, "aPos");
 	   gl.bindAttribLocation(prog13, 1, "aCol");
@@ -1920,7 +1968,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var texture13 = gl.createTexture();
 	   var texLoc13 = gl.getAttribLocation(prog13, "aTexcoord");
 	   var sampler13 = gl.getUniformLocation(prog13,"uSampler");
-    	   handleLoadedTexture(texture13, document.getElementById("Figure13_03textureCanvas"));
+    	   handleLoadedTexture(texture13, document.getElementById("NotUsed13_01textureCanvas"));
 	   var v=new Float32Array([
 	    -2.96125, -2, -0.1420037, 0, -0.5, 0.5, 0.5,
 	    -2.96125, -2, -0.1420037, 1, -0.5, 0.5, 0.5,
@@ -1969,8 +2017,8 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var prMatLoc13 = gl.getUniformLocation(prog13,"prMatrix");
 	   // ****** text object 14 ******
 	   var prog14  = gl.createProgram();
-	   gl.attachShader(prog14, getShader( gl, "Figure13_03vshader14" ));
-	   gl.attachShader(prog14, getShader( gl, "Figure13_03fshader14" ));
+	   gl.attachShader(prog14, getShader( gl, "NotUsed13_01vshader14" ));
+	   gl.attachShader(prog14, getShader( gl, "NotUsed13_01fshader14" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog14, 0, "aPos");
 	   gl.bindAttribLocation(prog14, 1, "aCol");
@@ -1985,7 +2033,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var texture14 = gl.createTexture();
 	   var texLoc14 = gl.getAttribLocation(prog14, "aTexcoord");
 	   var sampler14 = gl.getUniformLocation(prog14,"uSampler");
-    	   handleLoadedTexture(texture14, document.getElementById("Figure13_03textureCanvas"));
+    	   handleLoadedTexture(texture14, document.getElementById("NotUsed13_01textureCanvas"));
 	   var v=new Float32Array([
 	    0, -3.3475, -0.2634902, 0, -0.5, 0.5, 0.5,
 	    0, -3.3475, -0.2634902, 1, -0.5, 0.5, 0.5,
@@ -2014,8 +2062,8 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var prMatLoc14 = gl.getUniformLocation(prog14,"prMatrix");
 	   // ****** text object 15 ******
 	   var prog15  = gl.createProgram();
-	   gl.attachShader(prog15, getShader( gl, "Figure13_03vshader15" ));
-	   gl.attachShader(prog15, getShader( gl, "Figure13_03fshader15" ));
+	   gl.attachShader(prog15, getShader( gl, "NotUsed13_01vshader15" ));
+	   gl.attachShader(prog15, getShader( gl, "NotUsed13_01fshader15" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog15, 0, "aPos");
 	   gl.bindAttribLocation(prog15, 1, "aCol");
@@ -2030,7 +2078,7 @@ read_chunk("./Chapter13/Chapter13.R")
 	   var texture15 = gl.createTexture();
 	   var texLoc15 = gl.getAttribLocation(prog15, "aTexcoord");
 	   var sampler15 = gl.getUniformLocation(prog15,"uSampler");
-    	   handleLoadedTexture(texture15, document.getElementById("Figure13_03textureCanvas"));
+    	   handleLoadedTexture(texture15, document.getElementById("NotUsed13_01textureCanvas"));
 	   var v=new Float32Array([
 	    -3.3475, 0, -0.2634902, 0, -0.5, 0.5, 0.5,
 	    -3.3475, 0, -0.2634902, 1, -0.5, 0.5, 0.5,
@@ -2318,14 +2366,14 @@ read_chunk("./Chapter13/Chapter13.R")
 	   canvas.addEventListener("mousewheel", wheelHandler, false);
 	}
 </script>
-<canvas id="Figure13_03canvas" width="1" height="1"></canvas> 
-<p id="Figure13_03debug">
-<img src="Figure13_03snapshot.png" alt="Figure13_03snapshot" width=401/><br>
+<canvas id="NotUsed13_01canvas" width="1" height="1"></canvas> 
+<p id="NotUsed13_01debug">
+<img src="NotUsed13_01snapshot.png" alt="NotUsed13_01snapshot" width=401/><br>
 	You must enable Javascript to view this page properly.</p>
-<script>Figure13_03webGLStart();</script>
+<script>NotUsed13_01webGLStart();</script>
 
 
-## Figure 13-3b
+## Not used #2 
 
 ```
 wgl 
@@ -2333,11 +2381,11 @@ wgl
 ```
 
 <script src="CanvasMatrix.js" type="text/javascript"></script>
-<canvas id="Figure13_03btextureCanvas" style="display: none;" width="256" height="256">
-<img src="Figure13_03bsnapshot.png" alt="Figure13_03bsnapshot" width=401/><br>
+<canvas id="NotUsed13_02textureCanvas" style="display: none;" width="256" height="256">
+<img src="NotUsed13_02snapshot.png" alt="NotUsed13_02snapshot" width=401/><br>
 	Your browser does not support the HTML5 canvas element.</canvas>
 <!-- ****** surface object 23 ****** -->
-<script id="Figure13_03bvshader23" type="x-shader/x-vertex">
+<script id="NotUsed13_02vshader23" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -2354,7 +2402,7 @@ wgl
 	  vNormal = normalize((normMatrix * vec4(aNorm, 1.)).xyz);
 	}
 </script>
-<script id="Figure13_03bfshader23" type="x-shader/x-fragment"> 
+<script id="NotUsed13_02fshader23" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -2382,7 +2430,7 @@ wgl
 	}
 </script> 
 <!-- ****** lines object 24 ****** -->
-<script id="Figure13_03bvshader24" type="x-shader/x-vertex">
+<script id="NotUsed13_02vshader24" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -2395,7 +2443,7 @@ wgl
 	  vCol = aCol;
 	}
 </script>
-<script id="Figure13_03bfshader24" type="x-shader/x-fragment"> 
+<script id="NotUsed13_02fshader24" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -2408,7 +2456,7 @@ wgl
 	}
 </script> 
 <!-- ****** text object 25 ****** -->
-<script id="Figure13_03bvshader25" type="x-shader/x-vertex">
+<script id="NotUsed13_02vshader25" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -2426,7 +2474,7 @@ wgl
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03bfshader25" type="x-shader/x-fragment"> 
+<script id="NotUsed13_02fshader25" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -2445,7 +2493,7 @@ wgl
 	}
 </script> 
 <!-- ****** lines object 26 ****** -->
-<script id="Figure13_03bvshader26" type="x-shader/x-vertex">
+<script id="NotUsed13_02vshader26" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -2458,7 +2506,7 @@ wgl
 	  vCol = aCol;
 	}
 </script>
-<script id="Figure13_03bfshader26" type="x-shader/x-fragment"> 
+<script id="NotUsed13_02fshader26" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -2471,7 +2519,7 @@ wgl
 	}
 </script> 
 <!-- ****** text object 27 ****** -->
-<script id="Figure13_03bvshader27" type="x-shader/x-vertex">
+<script id="NotUsed13_02vshader27" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -2489,7 +2537,7 @@ wgl
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03bfshader27" type="x-shader/x-fragment"> 
+<script id="NotUsed13_02fshader27" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -2508,7 +2556,7 @@ wgl
 	}
 </script> 
 <!-- ****** text object 28 ****** -->
-<script id="Figure13_03bvshader28" type="x-shader/x-vertex">
+<script id="NotUsed13_02vshader28" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -2526,7 +2574,7 @@ wgl
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03bfshader28" type="x-shader/x-fragment"> 
+<script id="NotUsed13_02fshader28" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -2545,7 +2593,7 @@ wgl
 	}
 </script> 
 <!-- ****** text object 29 ****** -->
-<script id="Figure13_03bvshader29" type="x-shader/x-vertex">
+<script id="NotUsed13_02vshader29" type="x-shader/x-vertex">
 	attribute vec3 aPos;
 	attribute vec4 aCol;
 	uniform mat4 mvMatrix;
@@ -2563,7 +2611,7 @@ wgl
 	  gl_Position = pos + vec4(aOfs, 0.,0.);
 	}
 </script>
-<script id="Figure13_03bfshader29" type="x-shader/x-fragment"> 
+<script id="NotUsed13_02fshader29" type="x-shader/x-fragment"> 
 	#ifdef GL_ES
 	precision highp float;
 	#endif
@@ -2612,14 +2660,14 @@ wgl
 	var PI = Math.PI;
 	var log = Math.log;
 	var exp = Math.exp;
-	function Figure13_03bwebGLStart() {
+	function NotUsed13_02webGLStart() {
 	   var debug = function(msg) {
-	     document.getElementById("Figure13_03bdebug").innerHTML = msg;
+	     document.getElementById("NotUsed13_02debug").innerHTML = msg;
 	   }
 	   debug("");
-	   var canvas = document.getElementById("Figure13_03bcanvas");
+	   var canvas = document.getElementById("NotUsed13_02canvas");
 	   if (!window.WebGLRenderingContext){
-	     debug("<img src=\"Figure13_03bsnapshot.png\" alt=\"Figure13_03bsnapshot\" width=401/><br> Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+	     debug("<img src=\"NotUsed13_02snapshot.png\" alt=\"NotUsed13_02snapshot\" width=401/><br> Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
 	     return;
 	   }
 	   var gl;
@@ -2630,7 +2678,7 @@ wgl
 	   }
 	   catch(e) {}
 	   if ( !gl ) {
-	     debug("<img src=\"Figure13_03bsnapshot.png\" alt=\"Figure13_03bsnapshot\" width=401/><br> Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+	     debug("<img src=\"NotUsed13_02snapshot.png\" alt=\"NotUsed13_02snapshot\" width=401/><br> Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
 	     return;
 	   }
 	   var width = 401;  var height = 401;
@@ -2670,7 +2718,7 @@ wgl
 	     gl.bindTexture(gl.TEXTURE_2D, null);
 	   }
 	   function loadImageToTexture(filename, texture) {   
-	     var canvas = document.getElementById("Figure13_03btextureCanvas");
+	     var canvas = document.getElementById("NotUsed13_02textureCanvas");
 	     var ctx = canvas.getContext("2d");
 	     var image = new Image();
 	     image.onload = function() {
@@ -2694,7 +2742,7 @@ wgl
 	     var textColour = "white";
 	     var fontFamily = "Arial";
 	     var backgroundColour = "rgba(0,0,0,0)";
-	     var canvas = document.getElementById("Figure13_03btextureCanvas");
+	     var canvas = document.getElementById("NotUsed13_02textureCanvas");
 	     var ctx = canvas.getContext("2d");
 	     ctx.font = textHeight+"px "+fontFamily;
              canvasX = 1;
@@ -2725,8 +2773,8 @@ wgl
 	   }
 	   // ****** surface object 23 ******
 	   var prog23  = gl.createProgram();
-	   gl.attachShader(prog23, getShader( gl, "Figure13_03bvshader23" ));
-	   gl.attachShader(prog23, getShader( gl, "Figure13_03bfshader23" ));
+	   gl.attachShader(prog23, getShader( gl, "NotUsed13_02vshader23" ));
+	   gl.attachShader(prog23, getShader( gl, "NotUsed13_02fshader23" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog23, 0, "aPos");
 	   gl.bindAttribLocation(prog23, 1, "aCol");
@@ -4048,8 +4096,8 @@ wgl
 	   var normMatLoc23 = gl.getUniformLocation(prog23,"normMatrix");
 	   // ****** lines object 24 ******
 	   var prog24  = gl.createProgram();
-	   gl.attachShader(prog24, getShader( gl, "Figure13_03bvshader24" ));
-	   gl.attachShader(prog24, getShader( gl, "Figure13_03bfshader24" ));
+	   gl.attachShader(prog24, getShader( gl, "NotUsed13_02vshader24" ));
+	   gl.attachShader(prog24, getShader( gl, "NotUsed13_02fshader24" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog24, 0, "aPos");
 	   gl.bindAttribLocation(prog24, 1, "aCol");
@@ -4075,8 +4123,8 @@ wgl
 	   var prMatLoc24 = gl.getUniformLocation(prog24,"prMatrix");
 	   // ****** text object 25 ******
 	   var prog25  = gl.createProgram();
-	   gl.attachShader(prog25, getShader( gl, "Figure13_03bvshader25" ));
-	   gl.attachShader(prog25, getShader( gl, "Figure13_03bfshader25" ));
+	   gl.attachShader(prog25, getShader( gl, "NotUsed13_02vshader25" ));
+	   gl.attachShader(prog25, getShader( gl, "NotUsed13_02fshader25" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog25, 0, "aPos");
 	   gl.bindAttribLocation(prog25, 1, "aCol");
@@ -4095,7 +4143,7 @@ wgl
 	   var texture25 = gl.createTexture();
 	   var texLoc25 = gl.getAttribLocation(prog25, "aTexcoord");
 	   var sampler25 = gl.getUniformLocation(prog25,"uSampler");
-    	   handleLoadedTexture(texture25, document.getElementById("Figure13_03btextureCanvas"));
+    	   handleLoadedTexture(texture25, document.getElementById("NotUsed13_02textureCanvas"));
 	   var v=new Float32Array([
 	    -2, -2.96125, -0.1823817, 0, -0.5, 0.5, 0.5,
 	    -2, -2.96125, -0.1823817, 1, -0.5, 0.5, 0.5,
@@ -4144,8 +4192,8 @@ wgl
 	   var prMatLoc25 = gl.getUniformLocation(prog25,"prMatrix");
 	   // ****** lines object 26 ******
 	   var prog26  = gl.createProgram();
-	   gl.attachShader(prog26, getShader( gl, "Figure13_03bvshader26" ));
-	   gl.attachShader(prog26, getShader( gl, "Figure13_03bfshader26" ));
+	   gl.attachShader(prog26, getShader( gl, "NotUsed13_02vshader26" ));
+	   gl.attachShader(prog26, getShader( gl, "NotUsed13_02fshader26" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog26, 0, "aPos");
 	   gl.bindAttribLocation(prog26, 1, "aCol");
@@ -4171,8 +4219,8 @@ wgl
 	   var prMatLoc26 = gl.getUniformLocation(prog26,"prMatrix");
 	   // ****** text object 27 ******
 	   var prog27  = gl.createProgram();
-	   gl.attachShader(prog27, getShader( gl, "Figure13_03bvshader27" ));
-	   gl.attachShader(prog27, getShader( gl, "Figure13_03bfshader27" ));
+	   gl.attachShader(prog27, getShader( gl, "NotUsed13_02vshader27" ));
+	   gl.attachShader(prog27, getShader( gl, "NotUsed13_02fshader27" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog27, 0, "aPos");
 	   gl.bindAttribLocation(prog27, 1, "aCol");
@@ -4191,7 +4239,7 @@ wgl
 	   var texture27 = gl.createTexture();
 	   var texLoc27 = gl.getAttribLocation(prog27, "aTexcoord");
 	   var sampler27 = gl.getUniformLocation(prog27,"uSampler");
-    	   handleLoadedTexture(texture27, document.getElementById("Figure13_03btextureCanvas"));
+    	   handleLoadedTexture(texture27, document.getElementById("NotUsed13_02textureCanvas"));
 	   var v=new Float32Array([
 	    -2.96125, -2, -0.1823817, 0, -0.5, 0.5, 0.5,
 	    -2.96125, -2, -0.1823817, 1, -0.5, 0.5, 0.5,
@@ -4240,8 +4288,8 @@ wgl
 	   var prMatLoc27 = gl.getUniformLocation(prog27,"prMatrix");
 	   // ****** text object 28 ******
 	   var prog28  = gl.createProgram();
-	   gl.attachShader(prog28, getShader( gl, "Figure13_03bvshader28" ));
-	   gl.attachShader(prog28, getShader( gl, "Figure13_03bfshader28" ));
+	   gl.attachShader(prog28, getShader( gl, "NotUsed13_02vshader28" ));
+	   gl.attachShader(prog28, getShader( gl, "NotUsed13_02fshader28" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog28, 0, "aPos");
 	   gl.bindAttribLocation(prog28, 1, "aCol");
@@ -4256,7 +4304,7 @@ wgl
 	   var texture28 = gl.createTexture();
 	   var texLoc28 = gl.getAttribLocation(prog28, "aTexcoord");
 	   var sampler28 = gl.getUniformLocation(prog28,"uSampler");
-    	   handleLoadedTexture(texture28, document.getElementById("Figure13_03btextureCanvas"));
+    	   handleLoadedTexture(texture28, document.getElementById("NotUsed13_02textureCanvas"));
 	   var v=new Float32Array([
 	    0, -3.3475, -0.3351082, 0, -0.5, 0.5, 0.5,
 	    0, -3.3475, -0.3351082, 1, -0.5, 0.5, 0.5,
@@ -4285,8 +4333,8 @@ wgl
 	   var prMatLoc28 = gl.getUniformLocation(prog28,"prMatrix");
 	   // ****** text object 29 ******
 	   var prog29  = gl.createProgram();
-	   gl.attachShader(prog29, getShader( gl, "Figure13_03bvshader29" ));
-	   gl.attachShader(prog29, getShader( gl, "Figure13_03bfshader29" ));
+	   gl.attachShader(prog29, getShader( gl, "NotUsed13_02vshader29" ));
+	   gl.attachShader(prog29, getShader( gl, "NotUsed13_02fshader29" ));
 	   //  Force aPos to location 0, aCol to location 1 
 	   gl.bindAttribLocation(prog29, 0, "aPos");
 	   gl.bindAttribLocation(prog29, 1, "aCol");
@@ -4301,7 +4349,7 @@ wgl
 	   var texture29 = gl.createTexture();
 	   var texLoc29 = gl.getAttribLocation(prog29, "aTexcoord");
 	   var sampler29 = gl.getUniformLocation(prog29,"uSampler");
-    	   handleLoadedTexture(texture29, document.getElementById("Figure13_03btextureCanvas"));
+    	   handleLoadedTexture(texture29, document.getElementById("NotUsed13_02textureCanvas"));
 	   var v=new Float32Array([
 	    -3.3475, 0, -0.3351082, 0, -0.5, 0.5, 0.5,
 	    -3.3475, 0, -0.3351082, 1, -0.5, 0.5, 0.5,
@@ -4589,72 +4637,18 @@ wgl
 	   canvas.addEventListener("mousewheel", wheelHandler, false);
 	}
 </script>
-<canvas id="Figure13_03bcanvas" width="1" height="1"></canvas> 
-<p id="Figure13_03bdebug">
-<img src="Figure13_03bsnapshot.png" alt="Figure13_03bsnapshot" width=401/><br>
+<canvas id="NotUsed13_02canvas" width="1" height="1"></canvas> 
+<p id="NotUsed13_02debug">
+<img src="NotUsed13_02snapshot.png" alt="NotUsed13_02snapshot" width=401/><br>
 	You must enable Javascript to view this page properly.</p>
-<script>Figure13_03bwebGLStart();</script>
-
-
-## Figure 13-4
-<img src="figure_rmd/Figure13_04.png" title="plot of chunk Figure13_04" alt="plot of chunk Figure13_04" width="600px" />
-
-
-## Figure 13-5
-<img src="figure_rmd/Figure13_05.png" title="plot of chunk Figure13_05" alt="plot of chunk Figure13_05" width="600px" />
-
-
-## Figure 13-6
-<img src="figure_rmd/Figure13_06.png" title="plot of chunk Figure13_06" alt="plot of chunk Figure13_06" width="600px" />
-
-
-## Figure 13-7
-<img src="figure_rmd/Figure13_07.png" title="plot of chunk Figure13_07" alt="plot of chunk Figure13_07" width="600px" />
-
-
-## Figure 13-8
-<img src="figure_rmd/Figure13_08.png" title="plot of chunk Figure13_08" alt="plot of chunk Figure13_08" width="600px" />
-
-
-## Figure 13-9
-<img src="figure_rmd/Figure13_09.png" title="plot of chunk Figure13_09" alt="plot of chunk Figure13_09" width="600px" />
-
-
-## Figure 13-10
-<img src="figure_rmd/Figure13_10.png" title="plot of chunk Figure13_10" alt="plot of chunk Figure13_10" width="600px" />
-
-
-## Figure 13-11
-
-```
-Lise, this is the only graph in the chapter whose x:y aspect ratio isn't 1:1.  Is there any reason you'd want to mention that?
-```
-
-<img src="figure_rmd/Figure13_11.png" title="plot of chunk Figure13_11" alt="plot of chunk Figure13_11" width="600px" />
-
-
-## Figure 13-12
-<img src="figure_rmd/Figure13_12.png" title="plot of chunk Figure13_12" alt="plot of chunk Figure13_12" width="600px" />
-
-
-## Figure 13-13
-<img src="figure_rmd/Figure13_13.png" title="plot of chunk Figure13_13" alt="plot of chunk Figure13_13" width="600px" />
-
-
-## Figure 13-14
-<img src="figure_rmd/Figure13_14.png" title="plot of chunk Figure13_14" alt="plot of chunk Figure13_14" width="600px" />
-
-
-## Figure 13-15
-<img src="figure_rmd/Figure13_15.png" title="plot of chunk Figure13_15" alt="plot of chunk Figure13_15" width="600px" />
-
+<script>NotUsed13_02webGLStart();</script>
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-03-11, 10:48:37 -0500
+Report created by Will at 2014-03-11, 11:46:29 -0500
 ```
 
 ```

@@ -66,7 +66,7 @@ Lise, I added the `39.251`; tell me if you'd like it removed.
 ## Figure 8-3
 
 ```
-Lise, this blue is barely visible, and I don't have any other tricks left.  Any desire to bring +3 closer to zero?
+Lise, this blue area is barely visible, and I don't have any other tricks left.  Any desire to bring +3 closer to zero?
 ```
 
 <img src="figure_rmd/Figure08_03.png" title="plot of chunk Figure08_03" alt="plot of chunk Figure08_03" width="550px" />
@@ -110,7 +110,7 @@ Lise, I added the `.4476`; tell me if you'd like it removed.
 
 
 ## Figure 8-12
-
+<img src="figure_rmd/Figure08_12.png" title="plot of chunk Figure08_12" alt="plot of chunk Figure08_12" width="550px" />
 
 
 ## Figure 8-13
@@ -122,7 +122,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-03-11, 15:31:09 -0500
+Report created by Will at 2014-03-11, 15:55:51 -0500
 ```
 
 ```

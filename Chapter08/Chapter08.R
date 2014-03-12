@@ -208,25 +208,25 @@ DrawWithoutPanelClipping(g7 +
 g8 <- g7 + 
   annotate("segment", x=zObs3, xend=zObs3, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=zObs3, xend=zObs3, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
-  annotate("segment", x=zObs3, xend=xLimitBuffer, y=dnorm(zObs3)+.02, yend=dnorm(zObs3)+.02, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+#   annotate("segment", x=zObs3, xend=xLimitBuffer, y=dnorm(zObs3)+.02, yend=dnorm(zObs3)+.02, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   
-  annotate("segment", x=-zObs3, xend=-zObs3, y=0, yend=Inf, color=PaletteCritical[4]) +
-  annotate("segment", x=-zObs3, xend=-zObs3, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
-  annotate("segment", x=-zObs3, xend=-xLimitBuffer, y=dnorm(zObs3)+.02, yend=dnorm(zObs3)+.02, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+#   annotate("segment", x=-zObs3, xend=-zObs3, y=0, yend=Inf, color=PaletteCritical[4]) +
+#   annotate("segment", x=-zObs3, xend=-zObs3, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
+#   annotate("segment", x=-zObs3, xend=-xLimitBuffer, y=dnorm(zObs3)+.02, yend=dnorm(zObs3)+.02, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   
-  annotate(geom="text", x=zObs3+.05, y=dnorm(zObs3)+.06, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=zObs3+.05, y=dnorm(zObs3)+.06, label=".0013", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+#   annotate(geom="text", x=zObs3+.05, y=dnorm(zObs3)+.06, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+#   annotate(geom="text", x=zObs3+.05, y=dnorm(zObs3)+.06, label=".0013", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
   annotate(geom="text", x=zObs3, y=0, label=round(zObs3, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
   
-  annotate(geom="text", x=-xLimitBuffer, y=dnorm(-zObs3)+.06, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=-xLimitBuffer, y=dnorm(-zObs3)+.06, label=".0013 ", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
-  annotate(geom="text", x=-zObs3, y=0, label=round(-zObs3, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
+#   annotate(geom="text", x=-xLimitBuffer, y=dnorm(-zObs3)+.06, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+#   annotate(geom="text", x=-xLimitBuffer, y=dnorm(-zObs3)+.06, label=".0013 ", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+#   annotate(geom="text", x=-zObs3, y=0, label=round(-zObs3, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
+#   
+  annotate("text", label=mObs3Pretty, x=zObs3, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) #+
+#   stat_function(fun=LimitRange(dnorm, zObs3, Inf), geom="area", color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount)+
   
-  annotate("text", label=mObs3Pretty, x=zObs3, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
-  stat_function(fun=LimitRange(dnorm, zObs3, Inf), geom="area", color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount) +
-  
-  annotate("text", label=mObs3Pretty, x=-zObs3, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
-  stat_function(fun=LimitRange(dnorm, -Inf, -zObs3), geom="area", color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount)
+#   annotate("text", label=mObs3Pretty, x=-zObs3, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
+#   stat_function(fun=LimitRange(dnorm, -Inf, -zObs3), geom="area", color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount)
 
 DrawWithoutPanelClipping(g8 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c("", "", -1, 0, 1, "", "")) +
@@ -239,29 +239,29 @@ DrawWithoutPanelClipping(g8 +
 g9 <- g7 + 
   annotate("segment", x=zObs013, xend=zObs013, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=zObs013, xend=zObs013, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
-  annotate("segment", x=zObs013, xend=xLimitBuffer, y=dnorm(zObs013)+.01, yend=dnorm(zObs013)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+#   annotate("segment", x=zObs013, xend=xLimitBuffer, y=dnorm(zObs013)+.01, yend=dnorm(zObs013)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   
-  annotate("segment", x=-zObs013, xend=-zObs013, y=0, yend=Inf, color=PaletteCritical[4]) +
-  annotate("segment", x=-zObs013, xend=-zObs013, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
-  annotate("segment", x=-zObs013, xend=-xLimitBuffer, y=dnorm(zObs013)+.01, yend=dnorm(zObs013)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+#   annotate("segment", x=-zObs013, xend=-zObs013, y=0, yend=Inf, color=PaletteCritical[4]) +
+#   annotate("segment", x=-zObs013, xend=-zObs013, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
+#   annotate("segment", x=-zObs013, xend=-xLimitBuffer, y=dnorm(zObs013)+.01, yend=dnorm(zObs013)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   
-  annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label=".4476", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
-  annotate(geom="text", x=zObs013, y=0, label=round(zObs013, 3), hjust=.1, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
+#   annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+#   annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label=".4476", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObs013, y=0, label=round(zObs013, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
   
-  annotate(geom="text", x=-zObs013-.55, y=dnorm(zObs013)-.03, label="italic(p)/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=-zObs013-.55, y=dnorm(zObs013)-.03, label=".4476   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[4]) +
-  annotate(geom="text", x=-zObs013, y=0, label=-round(zObs013, 3), hjust=.9, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
+#   annotate(geom="text", x=-zObs013-.55, y=dnorm(zObs013)-.03, label="italic(p)/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+#   annotate(geom="text", x=-zObs013-.55, y=dnorm(zObs013)-.03, label=".4476   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+#   annotate(geom="text", x=-zObs013, y=0, label=-round(zObs013, 3), hjust=.9, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
   
-  annotate("text", label=mObs013Pretty, x=zObs013, y=parallelLineHeight, size=4, hjust=.1, vjust=1.05, color=PaletteCritical[4]) +
-  stat_function(fun=LimitRange(dnorm, zObs013, Inf), geom="area",  color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount) +
+  annotate("text", label=mObs013Pretty, x=zObs013, y=parallelLineHeight, size=4, hjust=.5, vjust=1.05, color=PaletteCritical[4]) #+
+#   stat_function(fun=LimitRange(dnorm, zObs013, Inf), geom="area",  color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount) +
   
-  annotate("text", label=mObsNeg013Pretty, x=-zObs013, y=parallelLineHeight, size=4, hjust=.9, vjust=1.05, color=PaletteCritical[4]) +
-  stat_function(fun=LimitRange(dnorm, -Inf, -zObs013), geom="area", color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount) +
+#   annotate("text", label=mObsNeg013Pretty, x=-zObs013, y=parallelLineHeight, size=4, hjust=.9, vjust=1.05, color=PaletteCritical[4]) #+
+#   stat_function(fun=LimitRange(dnorm, -Inf, -zObs013), geom="area", color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount) +
   
-  #Draw it again on top
-  stat_function(fun=LimitRange(dnorm, criticalZ025, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCritical[2], n=calculatedPointCount) +
-  stat_function(fun=LimitRange(dnorm, -Inf, -criticalZ025), geom="area", color=PaletteCritical[2], fill=PaletteCritical[2], n=calculatedPointCount)
+#   #Draw it again on top
+#   stat_function(fun=LimitRange(dnorm, criticalZ025, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCritical[2], n=calculatedPointCount) +
+#   stat_function(fun=LimitRange(dnorm, -Inf, -criticalZ025), geom="area", color=PaletteCritical[2], fill=PaletteCritical[2], n=calculatedPointCount)
 
 DrawWithoutPanelClipping(g9 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, "", 1, "", 3)) +

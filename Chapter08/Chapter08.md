@@ -55,29 +55,14 @@ read_chunk("./Chapter08/Chapter08.R")
 
 
 ## Figure 8-2
-
-```
-Lise, I added the `39.251`; tell me if you'd like it removed.
-```
-
 <img src="figure_rmd/Figure08_02.png" title="plot of chunk Figure08_02" alt="plot of chunk Figure08_02" width="550px" />
 
 
 ## Figure 8-3
-
-```
-Lise, this blue area is barely visible, and I don't have any other tricks left.  Any desire to bring +3 closer to zero?
-```
-
 <img src="figure_rmd/Figure08_03.png" title="plot of chunk Figure08_03" alt="plot of chunk Figure08_03" width="550px" />
 
 
 ## Figure 8-4
-
-```
-Lise, I added the `.4476`; tell me if you'd like it removed.
-```
-
 <img src="figure_rmd/Figure08_04.png" title="plot of chunk Figure08_04" alt="plot of chunk Figure08_04" width="550px" />
 
 
@@ -122,7 +107,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-03-11, 19:04:11 -0500
+Report created by Will at 2014-03-11, 21:05:42 -0500
 ```
 
 ```

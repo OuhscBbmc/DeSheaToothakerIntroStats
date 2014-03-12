@@ -33,6 +33,13 @@ se <- sigma / sqrt(nObs)
 ConvertFromZToM <- function( z, roundedDigits=2) {
   return( round(mu + (z * se), digits=roundedDigits) )
 }
+ConvertFromMToZ <- function( m) {
+  return( (m - mu) / se )
+}
+ticksSmall <- 19:47
+ticksBig <- seq(20, 45, by=5)
+tickHeightSmall <- .0025
+tickHeightBig <- .005
 
 #####################################
 ## @knitr LoadDatasets
@@ -49,10 +56,12 @@ parallelLineHeight <- -.08
 
 g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
   annotate("segment", x=-Inf, xend=Inf, y=parallelLineHeight, yend=parallelLineHeight, color="gray80") +
-  annotate("text", label="mu", x=0, y=parallelLineHeight, parse=T, vjust=2.25, color="gray40") +
+  annotate("segment", x=ConvertFromMToZ(ticksSmall), xend=ConvertFromMToZ(ticksSmall), y=parallelLineHeight-tickHeightSmall, yend=parallelLineHeight+tickHeightSmall, color="gray80") +
+  annotate("segment", x=ConvertFromMToZ(ticksBig), xend=ConvertFromMToZ(ticksBig), y=parallelLineHeight-tickHeightBig, yend=parallelLineHeight+tickHeightBig, color="gray40") +
+  annotate("text", label="Maze Completion Time", x=0, y=parallelLineHeight, parse=F, vjust=2.25, size=4, color="gray40") +
   stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
-  coord_cartesian(ylim=c(0, dnorm(0)*1.10)) +
+  coord_cartesian(xlim=c(-3.9, 3.9), ylim=c(0, dnorm(0)*1.10)) +
   chapterTheme +
   theme(plot.margin=grid::unit(x=c(1,1,2.6,1), units="lines")) +
   #   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
@@ -65,7 +74,6 @@ DrawWithoutPanelClipping(g1 +
                          )
 #####################################
 ## @knitr Figure08_02
-cat("Lise, I added the `39.251`; tell me if you'd like it removed.")
 
 criticalZ05 <- 1.645 #qnorm(p=.95) --Use the slightly less accurate version (ie, 1.645) so that it matches their manual arithmetic
 criticalM05Pretty <- ConvertFromZToM(criticalZ05, roundedDigits=3) #39.251
@@ -89,8 +97,6 @@ DrawWithoutPanelClipping(g2 +
                          )
 #####################################
 ## @knitr Figure08_03
-cat("Lise, this blue area is barely visible, and I don't have any other tricks left.  Any desire to bring +3 closer to zero?")
-
 zObs3 <- 3.0; # 1- pnorm(q=zObs3)
 mObs3Pretty <- ConvertFromZToM(zObs3, roundedDigits=3) #44.4
 
@@ -113,8 +119,6 @@ DrawWithoutPanelClipping(g3 +
                          )
 #####################################
 ## @knitr Figure08_04
-cat("Lise, I added the `.4476`; tell me if you'd like it removed.")
-
 zObs013 <- 0.1316; # 1- pnorm(q=zObs013)
 mObs013Pretty <- ConvertFromZToM(zObs013, roundedDigits=3) #33.5
 mObsNeg013Pretty <- ConvertFromZToM(-zObs013, roundedDigits=3) #32.5
@@ -342,13 +346,13 @@ DrawWithoutPanelClipping(g7 +
 # xLimits <- c(29.5, 55.5)
 
 NumberLine <- function( ci, obs, xLimits=xLimits) {
-  ticksSmall <- 20:60
-  ticksBig <- seq(20, 60, by=5)
   dsNumberLine <- data.frame(Mu=mu, Obs=obs, CILower=ci[1], CIUpper=ci[2])
   bandHeight <- .18
+  yText <- -.3
+  ticksSmall <- 20:60
+  ticksBig <- seq(20, 60, by=5)
   tickHeightSmall <- .025
   tickHeightBig <- .05
-  yText <- -.3
   
   ggplot(dsNumberLine, aes(x=Mu)) +  
     geom_hline(yintercept=0, color="gray40") +

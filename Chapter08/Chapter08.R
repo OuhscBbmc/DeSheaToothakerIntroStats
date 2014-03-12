@@ -298,18 +298,18 @@ g10 <- g1 +
 
   annotate("segment", x=zObs0184, xend=zObs0184, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=zObs0184, xend=zObs0184, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
-  annotate("segment", x=zObs0184, xend=xLimitBuffer, y=dnorm(zObs0184)+.01, yend=dnorm(zObs0184)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  annotate("segment", x=zObs0184, xend=xLimitBuffer, y=dnorm(zObs0184)+.04, yend=dnorm(zObs0184)+.04, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   
   annotate("segment", x=-zObs0184, xend=-zObs0184, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=-zObs0184, xend=-zObs0184, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
-  annotate("segment", x=-zObs0184, xend=-xLimitBuffer, y=dnorm(zObs0184)+.01, yend=dnorm(zObs0184)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  annotate("segment", x=-zObs0184, xend=-xLimitBuffer, y=dnorm(zObs0184)+.04, yend=dnorm(zObs0184)+.04, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   
-  annotate(geom="text", x=zObs0184+.15, y=dnorm(zObs0184)+.06, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=zObs0184+.15, y=dnorm(zObs0184)+.06, label=".0329", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObs0184+.15, y=dnorm(zObs0184)+.08, label="phantom(0)*italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObs0184+.15, y=dnorm(zObs0184)+.08, label="   .0329", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
   annotate(geom="text", x=zObs0184, y=0, label=round(zObs0184, 3), hjust=.9, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
   
-  annotate(geom="text", x=-zObs0184-.15, y=dnorm(zObs0184)+.06, label="italic(p)/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=-zObs0184-.15, y=dnorm(zObs0184)+.06, label=".0329   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+  annotate(geom="text", x=-zObs0184-.15, y=dnorm(zObs0184)+.08, label="italic(p)/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+  annotate(geom="text", x=-zObs0184-.15, y=dnorm(zObs0184)+.08, label=".0329   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[4]) +
   annotate(geom="text", x=-zObs0184, y=0, label=-round(zObs0184, 3), hjust=.1, vjust=1.2, fill="blue", color=PaletteCritical[4], size=5) +
   
   annotate("text", label=mObs0184Pretty, x=zObs0184, y=parallelLineHeight, size=4, hjust=.9, vjust=1.05, color=PaletteCritical[4]) +

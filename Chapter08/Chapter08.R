@@ -345,12 +345,14 @@ DrawWithoutPanelClipping(g7 +
 # obs <- 44.4
 # xLimits <- c(29.5, 55.5)
 
-NumberLine <- function( ci, obs, xLimits=xLimits) {
+NumberLine <- function( ci) {
+  obs <- 44.4
+  xLimits <- c(10.5, 55.5)
   dsNumberLine <- data.frame(Mu=mu, Obs=obs, CILower=ci[1], CIUpper=ci[2])
   bandHeight <- .18
   yText <- -.3
-  ticksSmall <- 20:60
-  ticksBig <- seq(20, 60, by=5)
+  ticksSmall <- 6:60
+  ticksBig <- seq(10, 60, by=5)
   tickHeightSmall <- .025
   tickHeightBig <- .05
   
@@ -371,13 +373,13 @@ NumberLine <- function( ci, obs, xLimits=xLimits) {
     annotate("point", x=mu, y=0, shape=21, size=5,color=PaletteCritical[1], fill=PaletteCriticalLight[1])  +
     annotate("text", x=mu, y=-yText, label=paste0("italic(mu)==", mu), parse=T, size=5 ,color=PaletteCritical[1])  +
     scale_x_continuous(expand=c(0,0)) +
-    scale_y_continuous( expand=c(0,0)) +
+    scale_y_continuous(expand=c(0,0)) +
     coord_cartesian(ylim=c(-.4, .4), xlim=xLimits) +
   #   chapterTheme +
     emptyTheme +
     labs(x=NULL, y=NULL)
 }
-NumberLine(ci=c(36.952, 51.848), obs=44.4, xLimits=c(29.5, 55.5))
+NumberLine(ci=c(36.952, 51.848))
 
 #####################################
 ## @knitr Figure08_12
@@ -388,4 +390,4 @@ DrawWithoutPanelClipping(g2 +
 )
 #####################################
 ## @knitr Figure08_13
-NumberLine(ci=c(38.149, 50.651), obs=44.4, xLimits=c(29.5, 55.5))
+NumberLine(ci=c(38.149, 50.651))

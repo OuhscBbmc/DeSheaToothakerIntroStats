@@ -102,12 +102,16 @@ read_chunk("./Chapter08/Chapter08.R")
 <img src="figure_rmd/Figure08_13.png" title="plot of chunk Figure08_13" alt="plot of chunk Figure08_13" width="550px" />
 
 
+## Figure 8-14
+<img src="figure_rmd/Figure08_14.png" title="plot of chunk Figure08_14" alt="plot of chunk Figure08_14" width="550px" />
+
+
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-03-11, 21:16:17 -0500
+Report created by Will at 2014-03-11, 21:30:24 -0500
 ```
 
 ```

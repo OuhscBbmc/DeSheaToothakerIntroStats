@@ -233,7 +233,7 @@ g8 <- g7 +
 #   stat_function(fun=LimitRange(dnorm, -Inf, -zObs3), geom="area", color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount)
 
 DrawWithoutPanelClipping(g8 + 
-                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c("", "", -1, 0, 1, "", "")) +
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(3, "", -1, 0, 1, "", "")) +
                            annotate("text", label=paste("italic(H)[0]:mu ==", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )
@@ -332,7 +332,7 @@ DrawWithoutPanelClipping(g10 +
 )
 
 #####################################
-## @knitr Figure08_10
+## @knitr Figure08_11
 DrawWithoutPanelClipping(g7 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
                            annotate("text", label=paste("italic(H)[0]:mu ==", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
@@ -340,7 +340,7 @@ DrawWithoutPanelClipping(g7 +
 )
 
 #####################################
-## @knitr Figure08_11
+## @knitr Figure08_12
 # ci <- c(36.952, 51.848)
 # obs <- 44.4
 # xLimits <- c(29.5, 55.5)
@@ -382,12 +382,12 @@ NumberLine <- function( ci) {
 NumberLine(ci=c(36.952, 51.848))
 
 #####################################
-## @knitr Figure08_12
+## @knitr Figure08_13
 DrawWithoutPanelClipping(g2 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
                            annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )
 #####################################
-## @knitr Figure08_13
+## @knitr Figure08_14
 NumberLine(ci=c(38.149, 50.651))

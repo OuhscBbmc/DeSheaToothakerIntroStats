@@ -87,15 +87,19 @@ read_chunk("./Chapter08/Chapter08.R")
 ```
 
 ## Figure 8-11
-```{r Figure08_11, echo=echoChunks, results='show', message=TRUE, fig.height=1.5}
+```{r Figure08_11, echo=echoChunks, results='show', message=TRUE}
 ```
 
 ## Figure 8-12
-```{r Figure08_12, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_12, echo=echoChunks, results='show', message=TRUE, fig.height=1.5}
 ```
 
 ## Figure 8-13
-```{r Figure08_13, echo=echoChunks, results='show', message=TRUE, fig.height=1.5}
+```{r Figure08_13, echo=echoChunks, results='show', message=TRUE}
+```
+
+## Figure 8-14
+```{r Figure08_14, echo=echoChunks, results='show', message=TRUE, fig.height=1.5}
 ```
 
 ## Session Info

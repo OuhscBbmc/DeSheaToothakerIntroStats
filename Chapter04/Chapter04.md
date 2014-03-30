@@ -19,7 +19,7 @@ opts_chunk$set(
     tidy = FALSE,
     fig.width = 5.5, 
     fig.height = 4, 
-    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+    out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
     fig.path = 'figure_rmd/',     
     dev = "png",
 #     dev = "pdf",
@@ -36,6 +36,9 @@ read_chunk("./Chapter04/Chapter04.R")
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
 
+```
+Warning: package 'extrafont' was built under R version 3.1.0
+```
 
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -51,19 +54,19 @@ read_chunk("./Chapter04/Chapter04.R")
 
 
 ## Figure 4-1
-<img src="figure_rmd/Figure04_01.png" title="plot of chunk Figure04_01" alt="plot of chunk Figure04_01" width="600px" />
+<img src="figure_rmd/Figure04_01.png" title="plot of chunk Figure04_01" alt="plot of chunk Figure04_01" width="550px" />
 
 ## Figure 4-2
-<img src="figure_rmd/Figure04_02.png" title="plot of chunk Figure04_02" alt="plot of chunk Figure04_02" width="600px" />
+<img src="figure_rmd/Figure04_02.png" title="plot of chunk Figure04_02" alt="plot of chunk Figure04_02" width="550px" />
 
 ## Figure 4-3
-<img src="figure_rmd/Figure04_03.png" title="plot of chunk Figure04_03" alt="plot of chunk Figure04_03" width="600px" />
+<img src="figure_rmd/Figure04_03.png" title="plot of chunk Figure04_03" alt="plot of chunk Figure04_03" width="550px" />
 
 ## Figure 4-4
-<img src="figure_rmd/Figure04_041.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_042.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_043.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" /><img src="figure_rmd/Figure04_044.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="600px" />
+<img src="figure_rmd/Figure04_041.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" /><img src="figure_rmd/Figure04_042.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" /><img src="figure_rmd/Figure04_043.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" /><img src="figure_rmd/Figure04_044.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" />
 
 ## Figure 4-5
-<img src="figure_rmd/Figure04_05.png" title="plot of chunk Figure04_05" alt="plot of chunk Figure04_05" width="900px" />
+<img src="figure_rmd/Figure04_05.png" title="plot of chunk Figure04_05" alt="plot of chunk Figure04_05" width="550px" />
 
 ## Figures 4-6 and 4-7
 Here's all four curves in the same graphics file.
@@ -76,12 +79,12 @@ Here's is each curve in its own graphics file.
 <img src="figure_rmd/Figure04_06Separate1.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate2.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate3.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate4.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" />
 
 ## Figure 4-8
-<img src="figure_rmd/Figure04_081.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" /><img src="figure_rmd/Figure04_082.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="600px" />
+<img src="figure_rmd/Figure04_081.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="550px" /><img src="figure_rmd/Figure04_082.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="550px" />
 
-<img src="figure_rmd/Figure04_08b.png" title="plot of chunk Figure04_08b" alt="plot of chunk Figure04_08b" width="600px" />
+<img src="figure_rmd/Figure04_08b.png" title="plot of chunk Figure04_08b" alt="plot of chunk Figure04_08b" width="550px" />
 
 ## Figure 4-9
-<img src="figure_rmd/Figure04_09.png" title="plot of chunk Figure04_09" alt="plot of chunk Figure04_09" width="600px" />
+<img src="figure_rmd/Figure04_09.png" title="plot of chunk Figure04_09" alt="plot of chunk Figure04_09" width="550px" />
 
 
 ## Session Info
@@ -89,11 +92,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-12, 12:14:47 -0600
+Report created by Will at 
 ```
 
 ```
-R Under development (unstable) (2014-02-10 r64961)
+R version 3.0.3 Patched (2014-03-06 r65320)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -105,11 +108,11 @@ attached base packages:
 
 other attached packages:
  [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.2.2     ggthemes_1.6.0     ggplot2_0.9.3.1    gridExtra_0.9.1   
- [7] scales_0.2.3       plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
+ [7] scales_0.2.3       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.5         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.0      Rttf2pt1_1.2    
-[13] stringr_0.6.2    tools_3.1.0     
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      Rttf2pt1_1.3    
+[13] stringr_0.6.2    tools_3.0.3     
 ```
 

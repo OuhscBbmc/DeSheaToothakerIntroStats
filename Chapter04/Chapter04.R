@@ -69,7 +69,6 @@ colorSingleLight <- "#80cdc1" #Greenish
 grayDark <- "gray40"
 grayLight <- "gray70"
 
-
 dsPsqi <- data.frame(X=13:17, XEnd=13:17, Y=+tickRadius, YEnd=-tickRadius, Label=13:17)
 dsZ <- data.frame(X=groupMean + zTicks* scaleSD, Y=yZ-tickRadius, YEnd=yZ+tickRadius, Label=zTicks)
 dsZ$XEnd <- dsZ$X
@@ -185,26 +184,27 @@ rm(g, i, lineSizeCurve, lineAlpha, dsNorm)
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #paletteZ <- c("#1595B2", "#554466") #From http://colrd.com/palette/22521/
 paletteZ <- c("#6CE6C6", "#F04B8D") #From http://colrd.com/palette/24356/
+mu <- 69; sigma <- 3
 g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[1]) +
   annotate(geom="text", x=0, y=.2, label="About 68%\nof the\ndistribution") +
-  scale_x_continuous(breaks=-2:2) +
+  scale_x_continuous(breaks=-2:2, labels=-2:2*sigma+mu) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
   chapterTheme +
-  labs(x=expression(italic(Z)), y=NULL)
+  labs(x="Height (in inches)", y=NULL)
 
 g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill=paletteZ[2], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[2]) +
   annotate(geom="text", x=0, y=.2, label="About 95%\nof the\ndistribution") +
-  scale_x_continuous(breaks=-2:2) +
+  scale_x_continuous(breaks=-2:2, labels=-2:2*sigma+mu) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
   chapterTheme +
-  labs(x=expression(italic(Z)), y=NULL)
+  labs(x="Height (in inches)", y=NULL)
 
 #Position the two graphs side by side in the same plot
 gridExtra::grid.arrange(g1SD, g2SD, ncol=2)

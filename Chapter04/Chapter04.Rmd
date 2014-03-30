@@ -16,7 +16,7 @@ opts_chunk$set(
     tidy = FALSE,
     fig.width = 5.5, 
     fig.height = 4, 
-    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+    out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
     fig.path = 'figure_rmd/',     
     dev = "png",
 #     dev = "pdf",
@@ -59,7 +59,7 @@ read_chunk("./Chapter04/Chapter04.R")
 ```{r Figure04_04, echo=echoChunks, results='show', message=TRUE, fig.height=3}
 ```
 ## Figure 4-5
-```{r Figure04_05, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width="900px"}
+```{r Figure04_05, echo=echoChunks, results='show', message=TRUE, fig.height=2, out.width="550px"}
 ```
 ## Figures 4-6 and 4-7
 Here's all four curves in the same graphics file.

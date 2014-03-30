@@ -345,6 +345,7 @@ gBox
 
 #####################################
 ## @knitr Figure03_23
+set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 gBox +   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) #See Chang (2013), Recipe 6.8.
 #   
 # ### Possible Narration:

@@ -58,6 +58,10 @@ read_chunk("./Chapter09/Chapter09.R")
 <img src="figure_rmd/Figure09_02.png" title="plot of chunk Figure09_02" alt="plot of chunk Figure09_02" width="550px" />
 
 
+## Figure 9-3
+<img src="figure_rmd/Figure09_03.png" title="plot of chunk Figure09_03" alt="plot of chunk Figure09_03" width="550px" />
+
+
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

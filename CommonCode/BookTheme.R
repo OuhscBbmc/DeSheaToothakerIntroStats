@@ -58,9 +58,10 @@ PaletteControlPsqi <- transformColor(c("#1A7F7C", "#1595B2")) #From http://colrd
 #  * Red corresponds to a 5% alpha
 #  * Orange corresponds to a 1% alpha
 bluish <- "#1d00b2" #"http://colrd.com/color/0xff1d00b2/;  Others I tried: #230ca2" #"#000066" #"#0868ac" ##5698c4"
-PaletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish) #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter, the orange darker, and added the blue.)
+greenish <- "#097168" #http://colrd.com/palette/22444/
+PaletteCritical <- c("#544A8C", "#ce2b18", "#F37615", bluish, greenish, "gray60") #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter, the orange darker, and added the blue.)
 PaletteCriticalLight <- adjustcolor(PaletteCritical, alpha.f=.5)
-rm(bluish)
+rm(bluish, greenish)
 # palettePregancy <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
 # PaletteObesityState <-  adjustcolor(brewer.pal(4, "Set2"))[3:4]
 # PaletteObesityStateBad <- adjustcolor(c("green", "red"), alpha.f=.7)

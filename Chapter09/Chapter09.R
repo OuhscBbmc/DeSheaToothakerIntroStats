@@ -84,7 +84,7 @@ g1b <- g1a +
   annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
   
   annotate("text", label=criticalM05Pretty, x=criticalZ05, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
-  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCritical[2], n=calculatedPointCount)
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
 
 DrawWithoutPanelClipping(g1b + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
@@ -95,11 +95,11 @@ DrawWithoutPanelClipping(g1b +
 #####################################
 ## @knitr Figure09_02
 g2 <- g1b +   
-  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ05 ), geom="area", color=PaletteCritical[1], fill="gray80", n=calculatedPointCount) +
-  annotate("segment", x=criticalZ05, xend=-xLimitBuffer, y=dnorm(criticalZ05)+.02, yend=dnorm(criticalZ05)+.02, color="gray20", arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
+  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ05 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount) +
+  annotate("segment", x=criticalZ05, xend=-xLimitBuffer, y=dnorm(criticalZ05)+.02, yend=dnorm(criticalZ05)+.02, color=PaletteCritical[6], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
   
-  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ05)+.06, label="1-alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color="gray20") +
-  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ05)+.06, label=".95", hjust=0, vjust=1.15, parse=F, color="gray20")
+  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ05)+.06, label="1-alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[6]) +
+  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ05)+.06, label=".95", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[6])
 
 DrawWithoutPanelClipping(g2 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
@@ -110,11 +110,11 @@ DrawWithoutPanelClipping(g2 +
 #####################################
 ## @knitr Figure09_03
 g3 <- g1a + 
-  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ01 ), geom="area", color=PaletteCritical[1], fill="gray80", n=calculatedPointCount) +
-  annotate("segment", x=criticalZ01, xend=-xLimitBuffer, y=dnorm(criticalZ01)+.02, yend=dnorm(criticalZ01)+.02, color="gray20", arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
+  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ01 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount) +
+  annotate("segment", x=criticalZ01, xend=-xLimitBuffer, y=dnorm(criticalZ01)+.02, yend=dnorm(criticalZ01)+.02, color=PaletteCritical[6], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
   
-  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ01)+.06, label="1-alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color="gray20") +
-  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ01)+.06, label=".99", hjust=0, vjust=1.15, parse=F, color="gray20") +
+  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ01)+.06, label="1-alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[6]) +
+  annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ01)+.06, label=".99", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[6]) +
 
   annotate("segment", x=criticalZ01, xend=criticalZ01, y=0, yend=Inf, color=PaletteCritical[3]) +
   annotate("segment", x=criticalZ01, xend=criticalZ01, y=-.03, yend=parallelLineHeight, color=PaletteCritical[3]) +
@@ -125,9 +125,29 @@ g3 <- g1a +
   annotate(geom="text", x=criticalZ01, y=0, label=round(criticalZ01, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[3], size=5) +
   
   annotate("text", label=criticalM05Pretty, x=criticalZ01, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[3]) +
-  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", color=PaletteCritical[3], fill=PaletteCritical[3], n=calculatedPointCount)
+  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", color=PaletteCritical[3], fill=PaletteCriticalLight[3], n=calculatedPointCount)
 
 DrawWithoutPanelClipping(g3 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
+                           annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+)
+
+#####################################
+## @knitr Figure09_04
+dnorm16 <- function(x) dnorm(x, mean=1.6)
+  
+g4 <- g1a + 
+  annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=criticalZ05, xend=criticalZ05, y=-.03, yend=parallelLineHeight, color=PaletteCritical[2]) +
+  
+  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
+  
+  annotate("text", label=criticalM05Pretty, x=criticalZ05, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
+  stat_function(fun=dnorm16, n=calculatedPointCount, color=PaletteCritical[5], size=.5) +
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
+
+DrawWithoutPanelClipping(g4 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
                            annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 

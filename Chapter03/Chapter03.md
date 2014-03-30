@@ -59,13 +59,6 @@ The two rotations demonstrate that the nonzero angle favors some slices more tha
 <img src="figure_rmd/Figure03_01.png" title="plot of chunk Figure03_01" alt="plot of chunk Figure03_01" width="600px" />
 
 
-```
-To demonstrate the weaknesses a pie chart, we shouldn't use a dataset that has an angle at 90, 180, or 270 degrees.  Something like this is almost impossible to tell the ratio between the slices.
-```
-
-<img src="figure_rmd/Figure03_01Bad.png" title="plot of chunk Figure03_01Bad" alt="plot of chunk Figure03_01Bad" width="600px" />
-
-
 ## Figure 3-2
 <img src="figure_rmd/Figure03_02.png" title="plot of chunk Figure03_02" alt="plot of chunk Figure03_02" width="600px" />
 
@@ -151,16 +144,16 @@ Warning: Removed 17 rows containing missing values (geom_path).
 
 
 ## Figure 3-22
-
-```
-Warning: Removed 1 rows containing missing values (stat_summary).
-```
-
 <img src="figure_rmd/Figure03_22.png" title="plot of chunk Figure03_22" alt="plot of chunk Figure03_22" height="200px" />
 
 
 ## Figure 3-23
 
+```
+Warning: Removed 1 rows containing missing values (stat_summary).
+```
+
+<img src="figure_rmd/Figure03_23.png" title="plot of chunk Figure03_23" alt="plot of chunk Figure03_23" height="200px" />
 
 
 ## Session Info
@@ -168,11 +161,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-02-11, 22:48:38 -0600
+Report created by Will at 
 ```
 
 ```
-R Under development (unstable) (2014-02-10 r64961)
+R version 3.0.3 Patched (2014-03-06 r65320)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -183,12 +176,12 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] dichromat_2.0-0    extrafont_0.16     epade_0.3.8        plotrix_3.5-3      reshape2_1.2.2     ggplot2_0.9.3.1   
- [7] scales_0.2.3       plyr_1.8.0.99      RColorBrewer_1.0-5 knitr_1.5         
+ [1] dichromat_2.0-0    extrafont_0.16     epade_0.3.8        plotrix_3.5-5      reshape2_1.2.2     ggplot2_0.9.3.1   
+ [7] scales_0.2.3       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.5         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.0      Rttf2pt1_1.2    
-[13] stringr_0.6.2    tools_3.1.0     
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      Rttf2pt1_1.3    
+[13] stringr_0.6.2    tools_3.0.3     
 ```
 

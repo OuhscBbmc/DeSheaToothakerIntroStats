@@ -49,8 +49,6 @@ read_chunk("./Chapter03/Chapter03.R")
 ## Figure 3-1
 ```{r Figure03_01, echo=echoChunks, results='show', message=TRUE, fig.height=2}
 ```
-```{r Figure03_01Bad, echo=echoChunks, results='show', message=TRUE}
-```
 
 ## Figure 3-2
 ```{r Figure03_02, echo=echoChunks, results='show', message=TRUE}

@@ -57,12 +57,10 @@ plotrix::pie3D(x=dsPregnancySummarized$Count, labels=NULL, height=.5,
       edges=1000, start=pi*5/5, theta=pi/10, mar=c(0, 0, 0, 0))
 par(oldPar)
 
-#####################################
-## @knitr Figure03_01Bad
-cat("To demonstrate the weaknesses a pie chart, we shouldn't use a dataset that has an angle at 90, 180, or 270 degrees.  Something like this is almost impossible to tell the ratio between the slices.")
-pieval <- c(2,4,6,8)
-pielabels <- c("We hate\n pies","We oppose\n  pies","We don't\n  care","We just love pies")
-pie3D(pieval, radius=0.9, labels=pielabels, explode=0.1, main="3D PIE OPINIONS") #Documentation example of pie3D
+# cat("To demonstrate the weaknesses a pie chart, we shouldn't use a dataset that has an angle at 90, 180, or 270 degrees.  Something like this is almost impossible to tell the ratio between the slices.")
+# pieval <- c(2,4,6,8)
+# pielabels <- c("We hate\n pies","We oppose\n  pies","We don't\n  care","We just love pies")
+# pie3D(pieval, radius=0.9, labels=pielabels, explode=0.1, main="3D PIE OPINIONS") #Documentation example of pie3D
 
 #####################################
 ## @knitr Figure03_02
@@ -332,8 +330,8 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 ### A diamond below represent the group's mean.
 
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
-ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
-  stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
+gBox <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
+#   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
 #   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
   stat_summary(fun.data=TukeyBoxplot, geom='boxplot', na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
   geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=1, na.rm=T) +
@@ -343,6 +341,11 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   chapterTheme +
   theme(legend.position="none") +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
+gBox
+
+#####################################
+## @knitr Figure03_23
+gBox +   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) #See Chang (2013), Recipe 6.8.
 #   
 # ### Possible Narration:
 # ### Compare this with Fig 3-13 (ie the second bar chart in this section).  These two small diamonds represent *every piece of information* in the bar chart.

@@ -36,7 +36,9 @@ dsFibromyalgia <- read.csv("./Data/FibromyalgiaTaiChi.csv", stringsAsFactors=FAL
 
 dsFibromyalgiaT1Control <- dsFibromyalgia[dsFibromyalgia$Group=="Control", "PsqiT1", drop=FALSE]
 dsFibromyalgiaT1Control <- plyr::rename(dsFibromyalgiaT1Control, replace=c("PsqiT1"="X"))
-dsFibromyalgiaT1Control$Z <- scale(dsFibromyalgiaT1Control$X)
+biasedSDPsqiT1 <- sd(dsFibromyalgiaT1Control$X) * sqrt((length(dsFibromyalgiaT1Control$X)-1)/length(dsFibromyalgiaT1Control$X))
+dsFibromyalgiaT1Control$Z <- scale(dsFibromyalgiaT1Control$X, scale=biasedSDPsqiT1)
+dsFibromyalgiaT1Control <- dsFibromyalgiaT1Control[order(dsFibromyalgiaT1Control$X), ,drop=F]
 
 # dsFibromyalgiaT1Control$ID <- row.names(dsFibromyalgiaT1Control)
 # dsFibromyalgiaT1ControlLong <- reshape2::melt(dsFibromyalgiaT1Control,id.vars="ID")
@@ -112,13 +114,27 @@ rm(tickRadius, yZ, groupMean, singleScore, singleZ, scaleSD, arrowHeight, zTicks
 #####################################
 ## @knitr Figure04_03
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
-breaksZ <- scale(breaksX)
-histogramXInset <- histogramX + scale_x_continuous(breaks=breaksX) + labs(x="Control Group's Baseline PSQI", y=NULL)
+#breaksXSparse <- breaksX[c(2,4,6,8,10,12,14,16)]
+breaksXSparse <- breaksX[c(1,3,5,7,9,11,13,15,17)]
+breaksZ <- as.numeric(scale(breaksX, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
+breaksZSparse <- as.numeric(scale(breaksXSparse, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
+histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(x="Control Group's Baseline PSQI", y=NULL)
+# histogramZInset %+% aes(x=Z)
+
+
+# histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=Z)) +
+#   geom_histogram(breaks=breaksZ, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
+#   labs(x="Z", y=NULL) + 
+#   chapterTheme +
+#   theme(panel.grid.minor=element_blank()) +
+#   theme(panel.grid.major.x=element_blank()) +
+#   labs(x="Z Score for Baseline PSQI", y=NULL)
+
 
 histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
 #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
   geom_histogram(breaks=breaksX, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
-  scale_x_continuous(breaks=breaksX, labels=round(breaksZ, 1)) + 
+  scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 4)) + 
   labs(x="Z", y=NULL) + 
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +

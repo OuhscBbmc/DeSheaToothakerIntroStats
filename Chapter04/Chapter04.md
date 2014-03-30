@@ -36,9 +36,6 @@ read_chunk("./Chapter04/Chapter04.R")
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
 
-```
-Warning: package 'extrafont' was built under R version 3.1.0
-```
 
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 

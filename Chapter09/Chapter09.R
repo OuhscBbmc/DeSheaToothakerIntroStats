@@ -136,18 +136,41 @@ DrawWithoutPanelClipping(g3 +
 #####################################
 ## @knitr Figure09_04
 dnorm16 <- function(x) dnorm(x, mean=1.6)
-  
+locationExplanation <- "One possible location of\nan alternative distribution if\nTrue State of the World is"  
+
 g4 <- g1a + 
+  annotate("segment", x=1.2, xend=1.6, y=.04, yend=0, color=PaletteCriticalLight[5], size=1) +
+  annotate("text", x=1.1, y=.05, label="1.6", color=PaletteCritical[5], size=5) +
+  annotate("point", x=1.6, y=0,color=PaletteCritical[5], fill=PaletteCriticalLight[5], size=5, shape=21) +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=-.03, yend=parallelLineHeight, color=PaletteCritical[2]) +
   
-  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
+  annotate("text", x=1.6, y=.3, label=locationExplanation, color=PaletteCritical[5], vjust=-.1, size=5, lineheight=.8) +
+  annotate(geom="text", x=1.6, y=.3, label="italic(H)[1]: mu>33", vjust=1.1, parse=T, color=PaletteCritical[5], size=5) +
+  
+  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
   
   annotate("text", label=criticalM05Pretty, x=criticalZ05, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
   stat_function(fun=dnorm16, n=calculatedPointCount, color=PaletteCritical[5], size=.5) +
   stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
 
 DrawWithoutPanelClipping(g4 + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
+                           annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+)
+
+#####################################
+## @knitr Figure09_05
+cat("Lise, is it ok to leave the red area?  The way the code is are layered for consistency (between graphs), it makes things a little easier on me.")
+shadedExplanation <- "Shaded area:\nprobability of\na Type II error"
+g5 <- g4 + 
+  annotate("segment", x=-1, xend=1, y=.2, yend=.2, color=PaletteCriticalLight[5], size=1) +
+  annotate("text", x=-2, y=.2, label=shadedExplanation, color=PaletteCritical[5], vjust=.5, size=5, lineheight=.8) +
+  annotate(geom="text", x=1.6, y=.3, label="italic(H)[1]: mu>33", vjust=1.1, parse=T, color=PaletteCritical[5], size=5) +
+  stat_function(fun=LimitRange(dnorm16, -Inf, criticalZ05), geom="area", color=NA, fill=PaletteCriticalLight[5], n=calculatedPointCount)
+
+DrawWithoutPanelClipping(g5 + 
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
                            annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 

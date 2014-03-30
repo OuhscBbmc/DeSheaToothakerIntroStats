@@ -66,6 +66,15 @@ read_chunk("./Chapter09/Chapter09.R")
 <img src="figure_rmd/Figure09_04.png" title="plot of chunk Figure09_04" alt="plot of chunk Figure09_04" width="550px" />
 
 
+## Figure 9-5
+
+```
+Lise, is it ok to leave the red area?  The way the code is are layered for consistency (between graphs), it makes things a little easier on me.
+```
+
+<img src="figure_rmd/Figure09_05.png" title="plot of chunk Figure09_05" alt="plot of chunk Figure09_05" width="550px" />
+
+
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

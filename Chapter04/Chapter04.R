@@ -116,8 +116,8 @@ rm(tickRadius, yZ, groupMean, singleScore, singleZ, scaleSD, arrowHeight, zTicks
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
 #breaksXSparse <- breaksX[c(2,4,6,8,10,12,14,16)]
 breaksXSparse <- breaksX[c(1,3,5,7,9,11,13,15,17)]
-breaksZ <- as.numeric(scale(breaksX, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
-breaksZSparse <- as.numeric(scale(breaksXSparse, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
+breaksZ <- as.numeric(scale(breaksX-.01, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
+breaksZSparse <- as.numeric(scale(breaksXSparse-.05, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
 histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(x="Control Group's Baseline PSQI", y=NULL)
 # histogramZInset %+% aes(x=Z)
 
@@ -131,10 +131,21 @@ histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(
 #   labs(x="Z Score for Baseline PSQI", y=NULL)
 
 
+# ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
+#   #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
+#   geom_histogram(breaks=breaksX-.01, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
+# #   scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 2)) + 
+#   labs(x="Z", y=NULL) + 
+#   chapterTheme +
+#   theme(panel.grid.minor=element_blank()) +
+#   theme(panel.grid.major.x=element_blank()) +
+#   labs(x="Z Score for Baseline PSQI", y=NULL)
+
+
 histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
-#   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
+  #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
   geom_histogram(breaks=breaksX, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
-  scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 4)) + 
+  scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 2)) + 
   labs(x="Z", y=NULL) + 
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +

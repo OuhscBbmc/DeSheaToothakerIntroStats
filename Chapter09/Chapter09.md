@@ -100,7 +100,7 @@ other attached packages:
  [7] scales_0.2.3       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.5         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.3   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
  [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      Rttf2pt1_1.3    
 [13] stringr_0.6.2    tools_3.0.3     
 ```

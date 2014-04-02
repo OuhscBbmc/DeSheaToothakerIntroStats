@@ -70,6 +70,16 @@ read_chunk("./Chapter09/Chapter09.R")
 <img src="figure_rmd/Figure09_05.png" title="plot of chunk Figure09_05" alt="plot of chunk Figure09_05" width="550px" />
 
 
+## Figure 9-6
+
+```
+Warning: Removed 74 rows containing missing values (geom_path).
+Warning: Removed 74 rows containing missing values (geom_path).
+```
+
+<img src="figure_rmd/Figure09_06.png" title="plot of chunk Figure09_06" alt="plot of chunk Figure09_06" width="550px" />
+
+
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

@@ -176,3 +176,43 @@ DrawWithoutPanelClipping(g5 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )
 
+#####################################
+## @knitr Figure09_06
+
+dnorm27 <- function(x) dnorm(x, mean=2.7)                
+g6a <- ggplot(data.frame(f=c(-2.9, 4.9)), aes(x=f)) +
+  annotate("segment", x=-Inf, xend=Inf, y=parallelLineHeight, yend=parallelLineHeight, color="gray80") +
+  annotate("segment", x=ConvertFromMToZ(ticksSmall), xend=ConvertFromMToZ(ticksSmall), y=parallelLineHeight-tickHeightSmall, yend=parallelLineHeight+tickHeightSmall, color="gray80") +
+  annotate("segment", x=ConvertFromMToZ(ticksBig), xend=ConvertFromMToZ(ticksBig), y=parallelLineHeight-tickHeightBig, yend=parallelLineHeight+tickHeightBig, color="gray40") +
+  annotate("text", label="Maze Completion Time", x=0, y=parallelLineHeight, parse=F, vjust=2.25, size=4, color="gray40") +
+  
+  annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCriticalLight[2]) +
+  annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCriticalLight[5]) +
+  annotate("segment", x=criticalZ05, xend=criticalZ05, y=-.03, yend=parallelLineHeight, color=PaletteCriticalLight[2]) +  
+  annotate("segment", x=criticalZ05, xend=criticalZ05, y=-.03, yend=parallelLineHeight, color=PaletteCriticalLight[5]) +
+  
+  stat_function(fun=LimitRange(dnorm, -2.9, 4.9), geom="line", color=PaletteCritical[1], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+
+  stat_function(fun=LimitRange(dnorm27, -2.9, 4.9), n=calculatedPointCount, color=PaletteCritical[5], size=.5) +
+  stat_function(fun=LimitRange(dnorm27, -2.9, criticalZ05), geom="area", color=PaletteCriticalLight[5], fill=PaletteCriticalLight[5], n=calculatedPointCount) +
+  
+  annotate("segment", x=criticalZ05+.1, xend=criticalZ05+1, y=-.045, yend=-.045, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.5, "cm")), size=2) +
+  annotate("text", x=criticalZ05+1.1, y=-.045, label="Reject Null", hjust=0, color=PaletteCritical[2], size=5) +
+  
+  annotate("segment", x=criticalZ05-.1, xend=criticalZ05-1, y=-.045, yend=-.045, color=PaletteCritical[5], arrow=arrow(length=grid::unit(0.5, "cm")), size=2) +
+  annotate("text", x=criticalZ05-1.1, y=-.045, label="Retain Null", hjust=1, color=PaletteCritical[5], size=5) +
+  
+                           
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  coord_cartesian(xlim=c(-2.9, 4.9), ylim=c(0, dnorm(0)*1.10)) +
+  chapterTheme +
+  theme(plot.margin=grid::unit(x=c(1,1,2.6,1), units="lines")) +
+  #   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
+  labs(x=expression(italic(z)), y=NULL)
+
+DrawWithoutPanelClipping(g6a + 
+                           scale_x_continuous(expand=c(0,0), breaks=-3:5) +
+                           annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
+                           annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
+)

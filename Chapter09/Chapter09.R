@@ -137,16 +137,16 @@ DrawWithoutPanelClipping(g3 +
 ## @knitr Figure09_04
 zObs <- 1.3
 dnorm19 <- function(x) dnorm(x, mean=1.9)
-# locationExplanation <- "One possible location of\nan alternative distribution if\nTrue State of the World is"  
+locationExplanation <- "One possible location of\nan alternative distribution if\nTrue State of the World is"  
 
 g4 <- g1a + 
   annotate("segment", x=1.2, xend=zObs, y=.04, yend=0, color=PaletteCriticalLight[5], size=1) +
-  annotate("text", x=1.1, y=.05, label="zObs", color=PaletteCritical[5], size=5) +
+  annotate("text", x=1.1, y=.05, label=zObs, color=PaletteCritical[5], size=5) +
   annotate("point", x=zObs, y=0,color=PaletteCritical[5], fill=PaletteCriticalLight[5], size=5, shape=21) +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=-.03, yend=parallelLineHeight, color=PaletteCritical[2]) +
   
-#   annotate("text", x=1.9, y=.3, label=locationExplanation, color=PaletteCritical[5], vjust=-.1, size=5, lineheight=.8) +
+  annotate("text", x=1.9, y=.3, label=locationExplanation, color=PaletteCritical[5], vjust=-.1, size=5, lineheight=.8) +
   annotate(geom="text", x=1.9, y=.3, label="italic(H)[1]: mu>33", hjust=0, vjust=1.1, parse=T, color=PaletteCritical[5], size=5) +
   
   annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +

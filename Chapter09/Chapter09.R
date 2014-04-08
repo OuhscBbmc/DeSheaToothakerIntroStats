@@ -136,8 +136,9 @@ DrawWithoutPanelClipping(g3 +
 #####################################
 ## @knitr Figure09_04
 zObs <- 1.3
-dnorm19 <- function(x) dnorm(x, mean=1.9)
-locationExplanation <- "One possible location of\nan alternative distribution if\nTrue State of the World is"  
+zAlt <- 1.9
+dnorm19 <- function(x) dnorm(x, mean=zAlt)
+# locationExplanation <- "One possible location of\nan alternative distribution if\nTrue State of the World is"  
 
 g4 <- g1a + 
   annotate("segment", x=1.2, xend=zObs, y=.04, yend=0, color=PaletteCriticalLight[5], size=1) +
@@ -146,8 +147,8 @@ g4 <- g1a +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=-.03, yend=parallelLineHeight, color=PaletteCritical[2]) +
   
-  annotate("text", x=1.9, y=.3, label=locationExplanation, color=PaletteCritical[5], vjust=-.1, size=5, lineheight=.8) +
-  annotate(geom="text", x=1.9, y=.3, label="italic(H)[1]: mu>33", hjust=0, vjust=1.1, parse=T, color=PaletteCritical[5], size=5) +
+#   annotate("text", x=zAlt, y=.3, label=locationExplanation, color=PaletteCritical[5], vjust=-.1, size=5, lineheight=.8) +
+  annotate(geom="text", x=zAlt, y=dnorm19(zAlt)*1.02, label="italic(H)[1]: mu>33", parse=T, size=5, vjust=-.05, color=PaletteCritical[5]) +
   
   annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
   
@@ -166,8 +167,8 @@ DrawWithoutPanelClipping(g4 +
 # cat("Lise, is it ok to leave the red area?  The way the code is are layered for consistency (between graphs), it makes things a little easier on me.")
 shadedExplanation <- "Green shaded area:\nprobability of\na Type II error"
 g5 <- g4 + 
-  annotate("segment", x=0, xend=1, y=.2, yend=.15, color=PaletteCriticalLight[5], size=1) +
-  annotate("text", x=-1, y=.2, label=shadedExplanation, color=PaletteCritical[5], vjust=.5, size=5, lineheight=.8) +
+  annotate("segment", x=-1.2, xend=1, y=.3, yend=.15, color=PaletteCriticalLight[5], size=1) +
+  annotate("text", x=-2.2, y=.3, label=shadedExplanation, color=PaletteCritical[5], vjust=.5, size=5, lineheight=.8) +
   stat_function(fun=LimitRange(dnorm19, -Inf, criticalZ05), geom="area", color=NA, fill=PaletteCriticalLight[5], n=calculatedPointCount)
 
 DrawWithoutPanelClipping(g5 + 

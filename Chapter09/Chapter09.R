@@ -262,3 +262,58 @@ DrawWithoutPanelClipping(g10 +
                            annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )
+
+#####################################
+## @knitr Figure09_11
+
+# ci <- c(36.952, 51.848)
+# obs <- 44.4
+# xLimits <- c(29.5, 55.5)
+
+
+obs1 <- 44.4
+ci1=c(36.952, 51.848)
+obs2 <- 68
+ci2=c(60.552, 75.448)
+xLimits <- c(28, 82)
+dsNumberLine <- data.frame(Mu=mu, Obs=obs1, CILower=ci1[1], CIUpper=ci2[2])
+bandHeight <- .18
+yText <- -.3
+ticksSmall <- 6:90
+ticksBig <- seq(10, 90, by=5)
+tickHeightSmall <- .025
+tickHeightBig <- .05
+
+ggplot(dsNumberLine, aes(x=Mu)) +  
+  geom_hline(yintercept=0, color="gray40") +
+  annotate("segment", x=ticksSmall, xend=ticksSmall, y=-tickHeightSmall, yend=tickHeightSmall, color="gray80") +
+  annotate("segment", x=ticksBig, xend=ticksBig, y=-tickHeightBig, yend=tickHeightBig, color="gray40") +
+  #   annotate("segment", x=zObs0184, xend=zObs0184, y=0, yend=Inf, color=PaletteCritical[4])  +
+  
+  annotate("rect", xmin=ci1[1], xmax=ci1[2], ymin=-bandHeight, ymax=bandHeight, fill=PaletteCritical[3], alpha=.2) +
+  annotate("segment", x=ci1[1], xend=ci1[1], y=-bandHeight, yend=bandHeight, color=PaletteCritical[3]) +
+  annotate("segment", x=ci1[2], xend=ci1[2], y=-bandHeight, yend=bandHeight, color=PaletteCritical[3]) +
+  annotate("text", x=ci1[1], y=yText, label=ci1[1], size=5 ,color=PaletteCritical[3])  +
+  annotate("text", x=ci1[2], y=yText, label=ci1[2], size=5 ,color=PaletteCritical[3])  +
+  annotate("point", x=obs1, y=0, shape=23, size=5,color=PaletteCritical[4], fill=PaletteCriticalLight[4])  +
+  annotate("text", x=obs1, y=-yText, label=paste0("italic(M)==", obs1), parse=T, size=5, vjust=1.1, color=PaletteCritical[4])  +
+  annotate("text", x=obs1, y=-yText, label="CI for Situation 1:", size=3, vjust=-.1, color=PaletteCritical[4])  +
+  
+  annotate("rect", xmin=ci2[1], xmax=ci2[2], ymin=-bandHeight, ymax=bandHeight, fill=PaletteCritical[3], alpha=.2) +
+  annotate("segment", x=ci2[1], xend=ci2[1], y=-bandHeight, yend=bandHeight, color=PaletteCritical[3]) +
+  annotate("segment", x=ci2[2], xend=ci2[2], y=-bandHeight, yend=bandHeight, color=PaletteCritical[3]) +
+  annotate("text", x=ci2[1], y=yText, label=ci2[1], size=5 ,color=PaletteCritical[3])  +
+  annotate("text", x=ci2[2], y=yText, label=ci2[2], size=5 ,color=PaletteCritical[3])  +
+  annotate("point", x=obs2, y=0, shape=23, size=5,color=PaletteCritical[4], fill=PaletteCriticalLight[4])  +
+  annotate("text", x=obs2, y=-yText, label=paste0("italic(M)==", obs2), parse=T, size=5, vjust=1.1, color=PaletteCritical[4])  +
+  annotate("text", x=obs2, y=-yText, label="CI for Situation 2:", size=3, vjust=-.1, color=PaletteCritical[4])  +
+  
+  annotate("point", x=mu, y=0, shape=21, size=5,color=PaletteCritical[1], fill=PaletteCriticalLight[1])  +
+  annotate("text", x=mu, y=-yText, label=paste0("italic(mu)==", mu), parse=T, size=5, vjust=1.05, color=PaletteCritical[1])  +
+  scale_x_continuous(expand=c(0,0)) +
+  scale_y_continuous(expand=c(0,0)) +
+  coord_cartesian(ylim=c(-.4, .4), xlim=xLimits) +
+  #   chapterTheme +
+  emptyTheme +
+  labs(x=NULL, y=NULL)
+

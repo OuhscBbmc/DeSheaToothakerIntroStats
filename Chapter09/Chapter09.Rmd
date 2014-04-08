@@ -83,6 +83,10 @@ Lise, instead of side-by-side graphs, how do you feel about overlaying Figure 9-
 ```{r Figure09_10, echo=echoChunks, results='show', message=TRUE}
 ```
 
+## Figure 9-11
+```{r Figure09_11, echo=echoChunks, results='show', message=TRUE, fig.height=1.5}
+```
+
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 

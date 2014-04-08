@@ -34,7 +34,7 @@ This report creates the chapter graphs.
 ```r
 #Figure03-06 uses this too.
 ggplot(dsSkewZero, aes(x=Systolic)) +
-  geom_dotplot(binwidth=1, fill="darkgreen", color=NA, method="dotdensity") +
+  geom_dotplot(binwidth=1, fill=paletteLight[1], color=paletteDark[1], method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewZero$Systolic), to=max(dsSkewZero$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
   chapterTheme +
@@ -53,7 +53,7 @@ ggplot(dsSkewZero, aes(x=Systolic)) +
 
 ```r
 ggplot(dsSkewPositive, aes(x=Systolic)) +
-  geom_dotplot(binwidth=1, fill="lightblue", color=NA, method="dotdensity") +
+  geom_dotplot(binwidth=1, fill=paletteLight[2], color=paletteDark[2], method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewPositive$Systolic), to=max(dsSkewPositive$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
   chapterTheme +
@@ -72,7 +72,7 @@ ggplot(dsSkewPositive, aes(x=Systolic)) +
 
 ```r
 ggplot(dsSkewNegative, aes(x=Systolic)) +
-  geom_dotplot(binwidth=1, fill="lightblue3", color=NA, method="dotdensity") +
+  geom_dotplot(binwidth=1, fill=paletteLight[3], color=paletteDark[3], method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewNegative$Systolic), to=max(dsSkewNegative$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
   chapterTheme +
@@ -92,11 +92,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-01-29, 00:57:06 -0600
+Report created by Will at 
 ```
 
 ```
-R Under development (unstable) (2014-01-24 r64871)
+R version 3.0.3 Patched (2014-03-06 r65320)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -107,11 +107,11 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     ggplot2_0.9.3.1    knitr_1.5         
+[1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     wesanderson_0.3.2  ggplot2_0.9.3.1    knitr_1.5         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.1   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    plyr_1.8.0.99    proto_0.3-10     Rcpp_0.10.6     
-[13] reshape2_1.2.2   Rttf2pt1_1.2     scales_0.2.3     stringr_0.6.2    tools_3.1.0     
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.3   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
+ [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.1     
+[13] reshape2_1.2.2   Rttf2pt1_1.3     scales_0.2.3     stringr_0.6.2    tools_3.0.3     
 ```
 

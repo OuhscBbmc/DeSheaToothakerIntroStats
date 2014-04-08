@@ -25,6 +25,7 @@ packagesToInstall <- c(
   , "scales" #Formating values in graphs
 #   , "stringr" #Consistent/convienent function signatures for manipulating text
   , "testit" #has the useful `assert()` function
+  , "wesanderson" #Fun set of palettes inspired by Wes Anderson movies, collected by Karthik Ram (https://github.com/karthik) and http://wesandersonpalettes.tumblr.com/
 ) 
 
 for( packageName in packagesToInstall ) {

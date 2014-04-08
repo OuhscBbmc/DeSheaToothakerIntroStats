@@ -106,21 +106,7 @@ dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
 
 ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
   geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(PaletteObesityState[2], .5)) +
-  geom_point(size=3, shape=19, color=PaletteObesityState[2]) +
-  scale_x_continuous(label=scales::percent) + 
-  chapterTheme +
-  theme(panel.grid.major.y= element_blank()) +
-  labs(title="Obesity Rate in 2011", x="Percent of Residents in a State", y=NULL)
-
-#####################################
-## @knitr Figure03_07
-#Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
-stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
-dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
-
-ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
-  geom_segment(aes(yend=State, xend=min(ObesityRate)), color=adjustcolor(PaletteObesityState[2], .5)) +
-  geom_point(size=3, shape=19, color=PaletteObesityState[2]) +
+  geom_point(size=3, shape=21, color=PaletteObesityState[2], fill=adjustcolor(PaletteObesityState[2], alpha.f=.5)) +
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   theme(panel.grid.major.y= element_blank()) +
@@ -129,7 +115,7 @@ ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
 #####################################
 ## @knitr Figure03_08
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
-  geom_point(shape=1, size=3, color="aquamarine4") + #This color should match the obesity Cleveland dot plot
+  geom_point(shape=21, size=3, color=PaletteObesityState[2], fill=adjustcolor(PaletteObesityState[2], alpha.f=.25)) + #This color should match the obesity Cleveland dot plot
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
   coord_fixed() + 

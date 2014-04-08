@@ -26,7 +26,6 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-
 #####################################
 ## @knitr LoadDatasets
 # 'ds' stands for 'datasets'

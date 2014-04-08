@@ -92,17 +92,12 @@ dsRho$TailUpper <- (rCrit[1] <= dsRho$RhoPossible)
 
 gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
   annotate("segment", x=rCrit, xend=rCrit, y=0, yend=Inf, color=PaletteCritical[2]) +
-  geom_area(data=dsRho[dsRho$TailLower, ], aes(x=RhoPossible, y=PriorR), fill=PaletteCritical[2]) +
-  geom_area(data=dsRho[dsRho$TailUpper, ], aes(x=RhoPossible, y=PriorR), fill=PaletteCritical[2]) +
+  geom_area(data=dsRho[dsRho$TailLower, ], aes(x=RhoPossible, y=PriorR), fill=PaletteCriticalLight[2]) +
+  geom_area(data=dsRho[dsRho$TailUpper, ], aes(x=RhoPossible, y=PriorR), fill=PaletteCriticalLight[2]) +
   geom_line(color=PaletteCritical[1]) +
-  
-#   annotate(geom="text", x=rCrit[1]-.09, y=.8, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=PaletteCritical[2]) +
-#   annotate(geom="text", x=rCrit[1]-.09, y=.8, label=".025", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
-#   annotate(geom="text", x=rCrit[1], y=0, label=round(rCrit[1],2), hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[2], size=5) +
   
   annotate(geom="text", x=rCrit[1]+.14, y=.8, label="alpha==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=rCrit[1]+.14, y=.8, label=".05", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
-#   annotate(geom="text", x=rCrit[1], y=0, label=round(rCrit[1],2), hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[2], size=5) +
   
   scale_x_continuous(expand=c(0,.01), breaks=c(-1, -.75, -.5, -.25, 0, .25, .5, .75, 1)) + #, labels=c(-1, -.75, -.5, "", 0, "", .5, .75, 1)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +

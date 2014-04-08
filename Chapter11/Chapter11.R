@@ -34,8 +34,8 @@ critT70 <- qt(p=.95, df=70) #The value in the right tail.
 tObserved70 <- 3.58
 
 gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +  
-  stat_function(fun=LimitRange(t70, critT70, Inf), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(t70, tObserved70, Inf), geom="area", fill=PaletteCritical[4], alpha=1, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t70, critT70, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t70, tObserved70, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
   annotate("segment", x=critT70, xend=critT70, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=tObserved70, xend=tObserved70, y=0, yend=Inf, color=PaletteCritical[4]) +
   stat_function(fun=t70, n=calculatedPointCount, color=PaletteCritical[1], size=1) +  
@@ -58,10 +58,10 @@ critT60TwoTail <- qt(p=.975, df=60) #The value in the left tail.
 tObserved60 <- 3.64 
 
 gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +  
-  stat_function(fun=LimitRange(t60, -Inf, -critT60TwoTail), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(t60, critT60TwoTail, Inf), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(t60, -Inf, -tObserved60), geom="area", fill=PaletteCritical[4], alpha=1, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(t60, tObserved60, Inf), geom="area", fill=PaletteCritical[4], alpha=1, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t60, -Inf, -critT60TwoTail), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t60, critT60TwoTail, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t60, -Inf, -tObserved60), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t60, tObserved60, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
   annotate("segment", x=c(-1,1)*critT60TwoTail, xend=c(-1,1)*critT60TwoTail, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=c(-1,1)*tObserved60, xend=c(-1,1)*tObserved60, y=0, yend=Inf, color=PaletteCritical[4]) +
   stat_function(fun=t60, n=calculatedPointCount, color=PaletteCritical[1], size=1) +
@@ -87,8 +87,8 @@ DrawWithoutPanelClipping(gCritical)
 critT60OneTail <- qt(p=.95, df=60) #The value in the left tail.
 
 gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
-  stat_function(fun=LimitRange(t60, critT60OneTail, Inf), geom="area", fill=PaletteCritical[2], alpha=1, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(t60, tObserved60, Inf), geom="area", fill=PaletteCritical[4], alpha=1, n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t60, critT60OneTail, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(t60, tObserved60, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
   annotate("segment", x=critT60OneTail, xend=critT60OneTail, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=tObserved60, xend=tObserved60, y=0, yend=Inf, color=PaletteCritical[4]) +
   stat_function(fun=t60, n=calculatedPointCount, color=PaletteCritical[1], size=1) +

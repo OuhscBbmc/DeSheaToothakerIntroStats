@@ -1,0 +1,97 @@
+rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
+#####################################
+## @knitr LoadPackages
+require(knitr)
+# require(RColorBrewer)
+require(plyr)
+require(scales) #For formating values in graphs
+# require(grid)
+# require(gridExtra)
+require(ggplot2)
+# require(ggthemes)
+require(wesanderson)
+
+#####################################
+## @knitr DeclareGlobals
+source("./CommonCode/BookTheme.R")
+calculatedPointCount <- 401*4
+
+chapterTheme <- BookTheme  + 
+  theme(axis.ticks.length = grid::unit(0, "cm"))
+
+#####################################
+## @knitr LoadDatasets
+# 'ds' stands for 'datasets'
+
+#####################################
+## @knitr TweakDatasets
+
+#####################################
+## @knitr Figure14_01
+xLimits <- c(-3.9, 3.9)
+xLimitBuffer <- 3.85
+parallelLineHeight <- -.08
+
+criticalZ025 <- qnorm(p=.975) #1.959964
+
+g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1], size=.5)+
+
+  annotate("segment", x=criticalZ025, xend=criticalZ025, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=criticalZ025, xend=xLimitBuffer, y=dnorm(criticalZ025)+.02, yend=dnorm(criticalZ025)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate("segment", x=-criticalZ025, xend=-criticalZ025, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=-criticalZ025, xend=-xLimitBuffer, y=dnorm(-criticalZ025)+.02, yend=dnorm(-criticalZ025)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate(geom="text", x=criticalZ025+.05, y=dnorm(criticalZ025)+.06, label="alpha/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalZ025+.05, y=dnorm(criticalZ025)+.06, label=" .025", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalZ025, y=0, label=round(criticalZ025, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
+  
+  annotate(geom="text", x=-criticalZ025-.05, y=dnorm(-criticalZ025)+.06, label="alpha/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=-criticalZ025-.05, y=dnorm(-criticalZ025)+.06, label=".025   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[2]) +
+  annotate(geom="text", x=-criticalZ025, y=0, label=round(-criticalZ025, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
+  
+  stat_function(fun=LimitRange(dnorm, criticalZ025, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -Inf, -criticalZ025), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  
+  scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  coord_cartesian(xlim=c(-3.9, 3.9), ylim=c(0, dnorm(0)*1.10))  +
+  chapterTheme +
+  labs(x=expression(italic(z)), y=NULL)
+
+DrawWithoutPanelClipping(g1)
+
+
+#####################################
+## @knitr Figure14_02
+fPaletteDark <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
+fPaletteLight <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.3)
+
+f1 <- function(x) dchisq(x, df=2)
+f2 <- function(x) dchisq(x, df=3)
+f3 <- function(x) dchisq(x, df=4)
+f4 <- function(x) dchisq(x, df=6)
+f5 <- function(x) dchisq(x, df=9)
+
+ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
+  stat_function(fun=f1, geom="area", fill=fPaletteLight[1], n=calculatedPointCount) +
+  stat_function(fun=f2, geom="area", fill=fPaletteLight[2], n=calculatedPointCount) +
+  stat_function(fun=f3, geom="area", fill=fPaletteLight[3], n=calculatedPointCount) +
+  stat_function(fun=f4, geom="area", fill=fPaletteLight[4], n=calculatedPointCount) +
+  stat_function(fun=f5, geom="area", fill=fPaletteLight[5], n=calculatedPointCount) +
+  stat_function(fun=f1, n=calculatedPointCount, color=fPaletteDark[1], size=1) +
+  stat_function(fun=f2, n=calculatedPointCount, color=fPaletteDark[2], size=1) +
+  stat_function(fun=f3, n=calculatedPointCount, color=fPaletteDark[3], size=1) +
+  stat_function(fun=f4, n=calculatedPointCount, color=fPaletteDark[4], size=1) +
+  stat_function(fun=f5, n=calculatedPointCount, color=fPaletteDark[5], size=1) +
+  annotate(geom="text", x=1, y=f1(1), label="italic(chi)[2]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[1], size=7) +
+  annotate(geom="text", x=2, y=f2(2), label="italic(chi)[3]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[2], size=7) +
+  annotate(geom="text", x=3, y=f3(3), label="italic(chi)[4]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[3], size=7) +
+  annotate(geom="text", x=4.5, y=f4(4.5), label="italic(chi)[6]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[4], size=7) +
+  annotate(geom="text", x=6.5, y=f5(6.5), label="italic(chi)[9]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[5], size=7) +
+  scale_x_continuous(expand=c(0,0)) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=f1(0) * 1.05) +
+  chapterTheme +
+  labs(x=expression(italic(F)), y=NULL)

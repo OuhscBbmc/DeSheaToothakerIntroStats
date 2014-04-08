@@ -192,16 +192,17 @@ hljs.initHighlightingOnLoad();
 
 <pre><code class="r">require(knitr)
 opts_chunk$set(
-    results=&#39;show&#39;, 
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 4, 
-    fig.height = 4, 
-    out.width = &quot;400px&quot;, #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = &#39;figure_rmd/&#39;,     
-    dpi = 400,
-    dev = &quot;png&quot;
-#     dev = &quot;pdf&quot;
+  results = &#39;show&#39;, 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 4, 
+  fig.height = 4, 
+  out.width = &quot;400px&quot;, #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = &#39;figure_rmd/&#39;,     
+  dpi = 400,
+  dev = &quot;png&quot;
+  # dev = &quot;pdf&quot;
 )
 knit_hooks$set(webgl = hook_webgl)
 
@@ -4866,7 +4867,7 @@ read_chunk(&quot;./Chapter13/Chapter13.R&quot;)
 
 <p>For the sake of documentation and reproducibility, the current report was build on a system using the following software.</p>
 
-<pre><code>Report created by Will at 
+<pre><code>Report created by Will at 2014-04-07, 22:47 Central Daylight Time
 </code></pre>
 
 <pre><code>R version 3.0.3 Patched (2014-03-06 r65320)

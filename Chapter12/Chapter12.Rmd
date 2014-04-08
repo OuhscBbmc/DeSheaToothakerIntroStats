@@ -11,16 +11,17 @@ opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -es
 ```{r set_options, echo=TRUE}
 require(knitr)
 opts_chunk$set(
-    results='show', 
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 5.5, 
-    fig.height = 4, 
-    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/',     
-    dev = "png",
-    dpi = 400
-    #dev = "pdf"
+  results = 'show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 5.5, 
+  fig.height = 4, 
+  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure_rmd/',     
+  dev = "png",
+  dpi = 400
+  #dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -31,7 +32,7 @@ read_chunk("./Chapter12/Chapter12.R")
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, results='show', message=FALSE}
+```{r DeclareGlobals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -39,11 +40,11 @@ read_chunk("./Chapter12/Chapter12.R")
 ```
 
 <!-- Load the datasets. -->
-```{r LoadDatasets, echo=echoChunks, results='show', message=FALSE}
+```{r LoadDatasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r TweakDatasets, echo=echoChunks, results='show', message=FALSE}
+```{r TweakDatasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 12-1
@@ -51,60 +52,60 @@ Consider if you want the publisher to construct this as a table, but still label
 
 ## Figure 12-2
 
-```{r Figure12_02, echo=echoChunks, results='show', message=TRUE, out.width = "400px", fig.width = 4}
+```{r Figure12_02, echo=echoChunks, out.width="400px", fig.width=4}
 ```
 ## Figure 12-3
 
-```{r Figure12_03, echo=echoChunks, results='show', message=TRUE, out.width = "400px", fig.width = 4}
+```{r Figure12_03, echo=echoChunks, out.width="400px", fig.width=4}
 ```
 ## Figure 12-4
 
-```{r Figure12_04, echo=echoChunks, results='show', message=TRUE, out.width = "400px", fig.width = 4}
+```{r Figure12_04, echo=echoChunks, out.width="400px", fig.width=4}
 ```
 
 ## Figure 12-5
-```{r Figure12_05, echo=echoChunks, results='show', message=TRUE, out.width = "800px", fig.width = 7.5}
+```{r Figure12_05, echo=echoChunks, out.width="800px", fig.width=7.5}
 ```
 
 ## Figure 12-6
-```{r Figure12_06, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_06, echo=echoChunks}
 ```
 
 ## Figure 12-7
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-8
-```{r Figure12_08, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_08, echo=echoChunks}
 ```
 
 ## Figure 12-9
-```{r Figure12_09, echo=echoChunks, results='show', message=TRUE, out.width = "400px",  fig.height = 2.5, fig.width = 4}
+```{r Figure12_09, echo=echoChunks, out.width="400px",  fig.height = 2.5, fig.width=4}
 ```
 
 ## Figure 12-10
-```{r Figure12_10, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_10, echo=echoChunks}
 ```
 
 ## Figure 12-11
-```{r Figure12_11, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_11, echo=echoChunks}
 ```
 
 ## Figure 12-12
-```{r Figure12_12, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_12, echo=echoChunks}
 ```
 
 ## Figure 12-13
-```{r Figure12_13, echo=echoChunks, results='show', message=TRUE}
+```{r Figure12_13, echo=echoChunks}
 ```
 
 ## Figure 12-14
-```{r Figure12_14, echo=echoChunks, results='show', message=TRUE, fig.width=3.0, fig.height=2.0, out.width="350px"}
+```{r Figure12_14, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="350px"}
 ```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 ```{r session_info, echo=FALSE}
-cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%F, %T %z"))
+cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

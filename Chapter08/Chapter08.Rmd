@@ -11,17 +11,17 @@ opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -es
 ```{r set_options, echo=TRUE}
 require(knitr)
 opts_chunk$set(
-    results='show', 
-    message=TRUE,
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 5.5, 
-    fig.height = 4, 
-    out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/',     
-    dev = "png",
+  results = 'show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 5.5, 
+  fig.height = 4, 
+  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure_rmd/',     
+  dev = "png",
 #     dev = "pdf",
-    dpi = 400
+  dpi = 400
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -107,6 +107,6 @@ read_chunk("./Chapter08/Chapter08.R")
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 ```{r session_info, echo=FALSE}
-cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%F, %T %z"))
+cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

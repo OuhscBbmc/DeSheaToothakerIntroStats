@@ -11,16 +11,17 @@ opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -es
 ```{r set_options, echo=TRUE}
 require(knitr)
 opts_chunk$set(
-    results='show', 
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 4, 
-    fig.height = 4, 
-    out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/',     
-    dpi = 400,
-    dev = "png"
-#     dev = "pdf"
+  results = 'show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 4, 
+  fig.height = 4, 
+  out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure_rmd/',     
+  dpi = 400,
+  dev = "png"
+  # dev = "pdf"
 )
 knit_hooks$set(webgl = hook_webgl)
 
@@ -34,7 +35,7 @@ read_chunk("./Chapter13/Chapter13.R")
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, results='show', message=FALSE}
+```{r DeclareGlobals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -42,80 +43,80 @@ read_chunk("./Chapter13/Chapter13.R")
 ```
 
 <!-- Load the datasets. -->
-```{r LoadDatasets, echo=echoChunks, results='show', message=FALSE}
+```{r LoadDatasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r TweakDatasets, echo=echoChunks, results='show', message=FALSE}
+```{r TweakDatasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 13-1
-```{r Figure13_01, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_01, echo=echoChunks}
 ```
 
 ## Figure 13-2
-```{r Figure13_02, echo=echoChunks, results='show', message=TRUE, fig.height = 2, fig.width=5.5,  out.width = "550px"}
+```{r Figure13_02, echo=echoChunks, fig.height=2, fig.width=5.5,  out.width="550px"}
 ```
 
 ## Figure 13-3
-```{r Figure13_03, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_03, echo=echoChunks}
 ```
 
 ## Figure 13-4
-```{r Figure13_04, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_04, echo=echoChunks}
 ```
 
 ## Figure 13-5
-```{r Figure13_05, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_05, echo=echoChunks}
 ```
 
 ## Figure 13-6
-```{r Figure13_06, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_06, echo=echoChunks}
 ```
 
 ## Figure 13-7
-```{r Figure13_07, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_07, echo=echoChunks}
 ```
 
 ## Figure 13-8
-```{r Figure13_08, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_08, echo=echoChunks}
 ```
 
 ## Figure 13-09
-```{r Figure13_09, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_09, echo=echoChunks}
 ```
 
 ## Figure 13-10
-```{r Figure13_10, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_10, echo=echoChunks}
 ```
 
 ## Figure 13-11
-```{r Figure13_11, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_11, echo=echoChunks}
 ```
 
 ## Figure 13-12
-```{r Figure13_12, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_12, echo=echoChunks}
 ```
 
 ## Figure 13-13
-```{r Figure13_13, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_13, echo=echoChunks}
 ```
 
 ## Figure 13-14
-```{r Figure13_14, echo=echoChunks, results='show', message=TRUE}
+```{r Figure13_14, echo=echoChunks}
 ```
 
 ## Not used #1 
-```{r NotUsed13_01, echo=echoChunks, results='show', message=TRUE, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
+```{r NotUsed13_01, echo=echoChunks, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
 ```
 
 ## Not used #2 
-```{r NotUsed13_02, echo=echoChunks, results='show', message=TRUE, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
+```{r NotUsed13_02, echo=echoChunks, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
 ```
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 ```{r session_info, echo=FALSE}
-cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%F, %T %z"))
+cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

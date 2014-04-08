@@ -14,16 +14,17 @@ opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -
 ```r
 require(knitr)
 opts_chunk$set(
-    results='show', 
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 5.5, 
-    fig.height = 4, 
-    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/',     
-    dev = "png",
-    dpi = 400
-    #dev = "pdf"
+  results = 'show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 5.5, 
+  fig.height = 4, 
+  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure_rmd/',     
+  dev = "png",
+  dpi = 400
+  #dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -169,14 +170,14 @@ Consider if you want the publisher to construct this as a table, but still label
 
 
 ## Figure 12-6
-<img src="figure_rmd/Figure12_06.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="600px" />
+<img src="figure_rmd/Figure12_06.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="550px" />
 
 
 ## Figure 12-7
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-8
-<img src="figure_rmd/Figure12_08.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="600px" />
+<img src="figure_rmd/Figure12_08.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="550px" />
 
 
 ## Figure 12-9
@@ -184,19 +185,19 @@ Table of Critical *F* values.  Will be produced by publisher.
 
 
 ## Figure 12-10
-<img src="figure_rmd/Figure12_10.png" title="plot of chunk Figure12_10" alt="plot of chunk Figure12_10" width="600px" />
+<img src="figure_rmd/Figure12_10.png" title="plot of chunk Figure12_10" alt="plot of chunk Figure12_10" width="550px" />
 
 
 ## Figure 12-11
-<img src="figure_rmd/Figure12_11.png" title="plot of chunk Figure12_11" alt="plot of chunk Figure12_11" width="600px" />
+<img src="figure_rmd/Figure12_11.png" title="plot of chunk Figure12_11" alt="plot of chunk Figure12_11" width="550px" />
 
 
 ## Figure 12-12
-<img src="figure_rmd/Figure12_12.png" title="plot of chunk Figure12_12" alt="plot of chunk Figure12_12" width="600px" />
+<img src="figure_rmd/Figure12_12.png" title="plot of chunk Figure12_12" alt="plot of chunk Figure12_12" width="550px" />
 
 
 ## Figure 12-13
-<img src="figure_rmd/Figure12_13.png" title="plot of chunk Figure12_13" alt="plot of chunk Figure12_13" width="600px" />
+<img src="figure_rmd/Figure12_13.png" title="plot of chunk Figure12_13" alt="plot of chunk Figure12_13" width="550px" />
 
 
 ## Figure 12-14
@@ -208,7 +209,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 
+Report created by Will at 2014-04-07, 22:46 Central Daylight Time
 ```
 
 ```

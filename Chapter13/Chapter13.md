@@ -14,16 +14,17 @@ opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -
 ```r
 require(knitr)
 opts_chunk$set(
-    results='show', 
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 4, 
-    fig.height = 4, 
-    out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/',     
-    dpi = 400,
-    dev = "png"
-#     dev = "pdf"
+  results = 'show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 4, 
+  fig.height = 4, 
+  out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure_rmd/',     
+  dpi = 400,
+  dev = "png"
+  # dev = "pdf"
 )
 knit_hooks$set(webgl = hook_webgl)
 
@@ -4648,7 +4649,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 
+Report created by Will at 2014-04-07, 22:47 Central Daylight Time
 ```
 
 ```

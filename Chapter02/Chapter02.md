@@ -30,61 +30,15 @@ This report creates the chapter graphs.
 
 
 ## Figure 2-1
-
-```r
-#Figure03-06 uses this too.
-ggplot(dsSkewZero, aes(x=Systolic)) +
-  geom_dotplot(binwidth=1, fill=paletteLight[1], color=paletteDark[1], method="dotdensity") +
-  scale_x_continuous(breaks=seq(from=min(dsSkewZero$Systolic), to=max(dsSkewZero$Systolic), by=1)) +
-  scale_y_continuous(breaks=NULL) +
-  chapterTheme +
-  labs(x="Systolic Blood Pressure")
-```
-
-<img src="figure_rmd/Figure02_01.png" title="plot of chunk Figure02_01" alt="plot of chunk Figure02_01" width="600px" />
-
-```r
-
-#####################################
-```
+<img src="figure_rmd/Figure02_01.png" title="plot of chunk Figure02_01" alt="plot of chunk Figure02_01" width="550px" />
 
 
 ## Figure 2-2
-
-```r
-ggplot(dsSkewPositive, aes(x=Systolic)) +
-  geom_dotplot(binwidth=1, fill=paletteLight[2], color=paletteDark[2], method="dotdensity") +
-  scale_x_continuous(breaks=seq(from=min(dsSkewPositive$Systolic), to=max(dsSkewPositive$Systolic), by=1)) +
-  scale_y_continuous(breaks=NULL) +
-  chapterTheme +
-  labs(x="Systolic Blood Pressure")
-```
-
-<img src="figure_rmd/Figure02_02.png" title="plot of chunk Figure02_02" alt="plot of chunk Figure02_02" width="600px" />
-
-```r
-
-#####################################
-```
+<img src="figure_rmd/Figure02_02.png" title="plot of chunk Figure02_02" alt="plot of chunk Figure02_02" width="550px" />
 
 
 ## Figure 2-3
-
-```r
-ggplot(dsSkewNegative, aes(x=Systolic)) +
-  geom_dotplot(binwidth=1, fill=paletteLight[3], color=paletteDark[3], method="dotdensity") +
-  scale_x_continuous(breaks=seq(from=min(dsSkewNegative$Systolic), to=max(dsSkewNegative$Systolic), by=1)) +
-  scale_y_continuous(breaks=NULL) +
-  chapterTheme +
-  labs(x="Systolic Blood Pressure")
-```
-
-<img src="figure_rmd/Figure02_03.png" title="plot of chunk Figure02_03" alt="plot of chunk Figure02_03" width="600px" />
-
-```r
-
-#####################################
-```
+<img src="figure_rmd/Figure02_03.png" title="plot of chunk Figure02_03" alt="plot of chunk Figure02_03" width="550px" />
 
 
 ## Session Info
@@ -92,7 +46,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 
+Report created by Will at 2014-04-07, 22:38 Central Daylight Time
 ```
 
 ```

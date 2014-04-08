@@ -12,6 +12,7 @@ opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -es
 require(knitr)
 opts_chunk$set(
     results='show', 
+    message=TRUE,
     comment = NA, 
     tidy = FALSE,
     fig.width = 5.5, 
@@ -31,7 +32,7 @@ read_chunk("./Chapter08/Chapter08.R")
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, results='show', message=FALSE}
+```{r DeclareGlobals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -39,67 +40,67 @@ read_chunk("./Chapter08/Chapter08.R")
 ```
 
 <!-- Load the datasets. -->
-```{r LoadDatasets, echo=echoChunks, results='show', message=FALSE}
+```{r LoadDatasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r TweakDatasets, echo=echoChunks, results='show', message=FALSE}
+```{r TweakDatasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 8-1
-```{r Figure08_01, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_01, echo=echoChunks}
 ```
 
 ## Figure 8-2
-```{r Figure08_02, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_02, echo=echoChunks}
 ```
 
 ## Figure 8-3
-```{r Figure08_03, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_03, echo=echoChunks}
 ```
 
 ## Figure 8-4
-```{r Figure08_04, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_04, echo=echoChunks}
 ```
 
 ## Figure 8-5
-```{r Figure08_05, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_05, echo=echoChunks}
 ```
 
 ## Figure 8-6
-```{r Figure08_06, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_06, echo=echoChunks}
 ```
 
 ## Figure 8-7
-```{r Figure08_07, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_07, echo=echoChunks}
 ```
 
 ## Figure 8-8
-```{r Figure08_08, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_08, echo=echoChunks}
 ```
 
 ## Figure 8-9
-```{r Figure08_09, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_09, echo=echoChunks}
 ```
 
 ## Figure 8-10
-```{r Figure08_10, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_10, echo=echoChunks}
 ```
 
 ## Figure 8-11
-```{r Figure08_11, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_11, echo=echoChunks}
 ```
 
 ## Figure 8-12
-```{r Figure08_12, echo=echoChunks, results='show', message=TRUE, fig.height=1.5}
+```{r Figure08_12, echo=echoChunks, fig.height=1.5}
 ```
 
 ## Figure 8-13
-```{r Figure08_13, echo=echoChunks, results='show', message=TRUE}
+```{r Figure08_13, echo=echoChunks}
 ```
 
 ## Figure 8-14
-```{r Figure08_14, echo=echoChunks, results='show', message=TRUE, fig.height=1.5}
+```{r Figure08_14, echo=echoChunks, fig.height=1.5}
 ```
 
 ## Session Info

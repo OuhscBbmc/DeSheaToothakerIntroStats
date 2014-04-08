@@ -14,16 +14,17 @@ opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -
 ```r
 require(knitr)
 opts_chunk$set(
-    results='show', 
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 5.5, 
-    fig.height = 4, 
-    out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/',     
-    dev = "png",
+  results = 'show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 5.5, 
+  fig.height = 4, 
+  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure_rmd/',     
+  dev = "png",
 #     dev = "pdf",
-    dpi = 400
+  dpi = 400
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -89,7 +90,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 
+Report created by Will at 2014-04-07, 22:39 Central Daylight Time
 ```
 
 ```

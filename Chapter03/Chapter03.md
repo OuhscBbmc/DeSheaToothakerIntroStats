@@ -14,16 +14,17 @@ opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -
 ```r
 require(knitr)
 opts_chunk$set(
-    results='show', 
-    comment = NA, 
-    tidy = FALSE,
-    fig.width = 5.5, 
-    fig.height = 4, 
-    out.width = "600px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-    fig.path = 'figure_rmd/',     
-    dev = "png",
+  results='show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 5.5, 
+  fig.height = 4, 
+  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure_rmd/',     
+  dev = "png",
 #     dev = "pdf",
-    dpi = 400
+  dpi = 400
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -56,15 +57,15 @@ read_chunk("./Chapter03/Chapter03.R")
 The two rotations demonstrate that the nonzero angle favors some slices more than others.
 ```
 
-<img src="figure_rmd/Figure03_01.png" title="plot of chunk Figure03_01" alt="plot of chunk Figure03_01" width="600px" />
+<img src="figure_rmd/Figure03_01.png" title="plot of chunk Figure03_01" alt="plot of chunk Figure03_01" width="550px" />
 
 
 ## Figure 3-2
-<img src="figure_rmd/Figure03_02.png" title="plot of chunk Figure03_02" alt="plot of chunk Figure03_02" width="600px" />
+<img src="figure_rmd/Figure03_02.png" title="plot of chunk Figure03_02" alt="plot of chunk Figure03_02" width="550px" />
 
 
 ## Figure 3-3
-<img src="figure_rmd/Figure03_03.png" title="plot of chunk Figure03_03" alt="plot of chunk Figure03_03" width="600px" />
+<img src="figure_rmd/Figure03_03.png" title="plot of chunk Figure03_03" alt="plot of chunk Figure03_03" width="550px" />
 
 
 ## Figure 3-4
@@ -91,19 +92,19 @@ The two rotations demonstrate that the nonzero angle favors some slices more tha
 
 
 ## Figure 3-10
-<img src="figure_rmd/Figure03_10.png" title="plot of chunk Figure03_10" alt="plot of chunk Figure03_10" width="600px" />
+<img src="figure_rmd/Figure03_10.png" title="plot of chunk Figure03_10" alt="plot of chunk Figure03_10" width="550px" />
 
 
 ## Figure 3-11
-<img src="figure_rmd/Figure03_11.png" title="plot of chunk Figure03_11" alt="plot of chunk Figure03_11" width="600px" />
+<img src="figure_rmd/Figure03_11.png" title="plot of chunk Figure03_11" alt="plot of chunk Figure03_11" width="550px" />
 
 
 ## Figure 3-12
-<img src="figure_rmd/Figure03_12.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="600px" />
+<img src="figure_rmd/Figure03_12.png" title="plot of chunk Figure03_12" alt="plot of chunk Figure03_12" width="550px" />
 
 
 ## Figure 3-13
-<img src="figure_rmd/Figure03_13.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="600px" />
+<img src="figure_rmd/Figure03_13.png" title="plot of chunk Figure03_13" alt="plot of chunk Figure03_13" width="550px" />
 
 
 ## Figure 3-14
@@ -112,7 +113,7 @@ The two rotations demonstrate that the nonzero angle favors some slices more tha
 Warning: Removed 17 rows containing missing values (geom_path).
 ```
 
-<img src="figure_rmd/Figure03_14.png" title="plot of chunk Figure03_14" alt="plot of chunk Figure03_14" width="600px" />
+<img src="figure_rmd/Figure03_14.png" title="plot of chunk Figure03_14" alt="plot of chunk Figure03_14" width="550px" />
 
 
 ## Figure 3-15
@@ -161,7 +162,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 
+Report created by Will at 2014-04-07, 22:38 Central Daylight Time
 ```
 
 ```

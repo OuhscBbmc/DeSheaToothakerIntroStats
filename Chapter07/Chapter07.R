@@ -113,12 +113,12 @@ ggplot(dsUniform, aes(x=X)) +##############################
 ## @knitr Figure07_05
 cat("Reminder, the publisher needs to add the title `All Possible Means (N=2) from Limited Population`, where the `N` is italicized.")
 
-dsUniform <- data.frame(X=2:12, Y=c(1,2,3,4,5,6,5,4,3,2,1))
+dsUniform <- data.frame(X=(2:12)/2, Y=c(1,2,3,4,5,6,5,4,3,2,1))
 ggplot(dsUniform, aes(x=X, y=Y)) +
-  geom_bar(stat="identity", width=1, color="#601600", fill="#DD995455") + #http://colrd.com/palette/23827/
-  scale_x_continuous(breaks=2:12) + 
+  geom_bar(stat="identity", width=.5, color="#601600", fill="#DD995455") + #http://colrd.com/palette/23827/
+  scale_x_continuous(breaks=1:6) + 
   scale_y_continuous(breaks=0:6) + 
-  labs(title=NULL, x="Sum of Two Scores", y="Frequency") +
+  labs(title=NULL, x="Mean of Two Scores", y="Frequency") +
   #labs(title="All Possible Means (N=2)\nfrom Limited Population", x="Sum of Two Scores", y="Frequency") +
   #labs(title=expression(atop(All*phantom(1)*Possible*phantom(1)*Means*phantom(1)*(italic(N)==2),from*phantom(1)*Limited*phantom(1)*Population)), x="Sum of Two Scores", y="Frequency") +
   chapterTheme +

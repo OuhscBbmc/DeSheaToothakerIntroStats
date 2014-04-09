@@ -65,14 +65,15 @@ DrawWithoutPanelClipping(g1)
 
 #####################################
 ## @knitr Figure14_02
+cat("Lise, I thought that five distributions worked better than three distributions, for two reasons. First, I think the progression is clearer.  Second, I get to use all the colors in the Steve Zissou palette")
 fPaletteDark <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
 fPaletteLight <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.3)
 
-f1 <- function(x) dchisq(x, df=2)
-f2 <- function(x) dchisq(x, df=3)
-f3 <- function(x) dchisq(x, df=4)
-f4 <- function(x) dchisq(x, df=6)
-f5 <- function(x) dchisq(x, df=9)
+f1 <- function( x ) dchisq(x, df=2)
+f2 <- function( x ) dchisq(x, df=3)
+f3 <- function( x ) dchisq(x, df=4)
+f4 <- function( x ) dchisq(x, df=6)
+f5 <- function( x ) dchisq(x, df=8)
 
 ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
   stat_function(fun=f1, geom="area", fill=fPaletteLight[1], n=calculatedPointCount) +
@@ -89,9 +90,70 @@ ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
   annotate(geom="text", x=2, y=f2(2), label="italic(chi)[3]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[2], size=7) +
   annotate(geom="text", x=3, y=f3(3), label="italic(chi)[4]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[3], size=7) +
   annotate(geom="text", x=4.5, y=f4(4.5), label="italic(chi)[6]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[4], size=7) +
-  annotate(geom="text", x=6.5, y=f5(6.5), label="italic(chi)[9]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[5], size=7) +
+  annotate(geom="text", x=6.5, y=f5(6.5), label="italic(chi)[8]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[5], size=7) +
   scale_x_continuous(expand=c(0,0)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f1(0) * 1.05) +
   chapterTheme +
-  labs(x=expression(italic(F)), y=NULL)
+  labs(x=expression(italic(chi^2)), y=NULL)
+
+#####################################
+## @knitr Figure14_03
+fDf6 <- function(x) dchisq(x, df=6)
+criticalF05 <- qchisq(p=.95, df=6)
+chiObs <- 14.53
+pObsPretty <- ".0242" #1- pchisq(q=chiObs, df=6)
+
+grid.newpage()
+g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
+  annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=criticalF05, xend=19.5, y=fDf6(criticalF05)+.02, yend=fDf6(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  stat_function(fun=LimitRange(fDf6, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=fDf6, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
+  annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
+  scale_x_continuous(expand=c(0,0)) + #, breaks=0:4, labels=c(0, 1, 2, "", 4)
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=fDf6(4) * 1.05) +
+  chapterTheme +
+  theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
+  labs(x=expression(italic(chi^2)), y=NULL)
+
+DrawWithoutPanelClipping(g3)
+
+#####################################
+## @knitr Figure14_04
+g4 <- g3 +
+  annotate("segment", x=chiObs, xend=chiObs, y=0, yend=Inf, color=PaletteCritical[4]) +
+  annotate("segment", x=chiObs, xend=19.5, y=fDf6(chiObs)+.004, yend=fDf6(chiObs)+.004, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  stat_function(fun=LimitRange(fDf6, chiObs, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
+  annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label="italic(p)==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
+  annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label=pObsPretty, hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[4])
+  
+DrawWithoutPanelClipping(g4)
+
+#####################################
+## @knitr Figure14_05
+fDf2 <- function(x) dchisq(x, df=2)
+criticalF05 <- qchisq(p=.95, df=2)
+# chiObs <- 14.53
+# pObsPretty <- ".0242" #1- pchisq(q=chiObs, df=6)
+
+grid.newpage()
+g5 <- ggplot(data.frame(f=c(0, 9.9)), aes(x=f)) +
+  annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=criticalF05, xend=9.7, y=fDf2(criticalF05)+.02, yend=fDf2(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  stat_function(fun=LimitRange(fDf2, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=fDf2, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
+  annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
+  scale_x_continuous(expand=c(0,0), breaks=0:6*2, labels=c(0, 2, 4, "", 8, 10, 12)) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=fDf2(0) * 1.05) +
+  chapterTheme +
+  theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
+  labs(x=expression(italic(chi^2)), y=NULL)
+
+DrawWithoutPanelClipping(g5)

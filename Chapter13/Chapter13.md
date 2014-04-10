@@ -4649,7 +4649,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-10, 16:24 Central Daylight Time
+Report created by Will at 2014-04-10, 17:17 Central Daylight Time
 ```
 
 ```
@@ -4673,3 +4673,7 @@ loaded via a namespace (and not attached):
 [13] stringr_0.6.2    tools_3.0.3     
 ```
 
+
+## License
+
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.

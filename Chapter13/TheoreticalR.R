@@ -106,7 +106,8 @@ oldPar <- par(  mgp=c(.5, 0, 0), tcl=.2, mar=c(1.65, 1.35, .5, .2))
 plot(NA, xlim=c(-1,1), ylim=yRange, fg=gray(.9), bty="o", yaxs="i", xaxs="i", tcl=-.5,
      xaxt="n",yaxt="n",
      col.lab=gray(.4), cex.lab=.8,
-     main="",#substitute(paste("Prior information: ",italic(r)==rValue, ", ", italic(N)==nValue),list(rValue=fixed,nValue=n)),
+#      main=substitute(paste("Prior information: ",italic(r)==rValue, ", ", italic(N)==nValue),list(rValue=5,nValue=3)),
+     main=substitute(paste("Prior information: ",italic(r)==phantom(0),  italic(N)==nValue),list(rValue=5,nValue=3)),
      xlab=expression(rho), ylab="Density")
 axis(1, at=rhoTicksMajor, labels=rhoTicksMajorLabels, cex.axis=.7, col=gray(.5), col.axis=gray(.5),tcl=0)
 axis(1, at=rhoTicksMinor, labels=c("","","", "","","","", "","","",""), col=gray(.5), col.axis=gray(.5),tcl=-.15)

@@ -99,9 +99,11 @@ gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
   annotate(geom="text", x=rCrit[1]+.14, y=.8, label="alpha==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=rCrit[1]+.14, y=.8, label=".05", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
   
+  annotate("text", label="italic(H)[0]: rho<=0", x=0, y=Inf, parse=T, size=4.5, vjust=1.08, color="gray40") +
+    
   scale_x_continuous(expand=c(0,.01), breaks=c(-1, -.75, -.5, -.25, 0, .25, .5, .75, 1)) + #, labels=c(-1, -.75, -.5, "", 0, "", .5, .75, 1)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
-  expand_limits(y=max(dsRho$PriorR) * 1.05) +
+  expand_limits(y=max(dsRho$PriorR) * 1.2) +
   
   chapterTheme +
   labs(x=expression(italic(r)), y=NULL)

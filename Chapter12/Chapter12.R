@@ -184,9 +184,12 @@ gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
   annotate(geom="text", x=criticalF01, y=0, label=round(criticalF01, 2), hjust=.5, vjust=1.2, color=PaletteCritical[3], size=5) +
+  
+  annotate("text", label="italic(H)[0]: no*phantom(0)*difference*phantom(0)*between*phantom(0)*mu*phantom(0)*values", x=.2, y=Inf, parse=T, size=5, hjust = 0, vjust=1.08, color="gray40") +
+  
   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, 3, "")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
-  expand_limits(y=f3(.4) * 1.05) +
+  expand_limits(y=f3(.4) * 1.1) +
   chapterTheme +
   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
   labs(x=expression(italic(F)), y=NULL)
@@ -330,6 +333,11 @@ gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate(geom="text", x=3.7, y=f2_80(criticalF05)+.15, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=3.7, y=f2_80(criticalF05)+.15, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
+  
+  #annotate("text", label="italic(H)[0]: no*phantom(0)*difference*phantom(0)*between*phantom(0)*mu*phantom(0)*values", x=.2, y=Inf, parse=T, size=5, hjust = 0, vjust=1.08, color="gray40") +
+  #annotate("text", label="italic(H)[0]: paste(mu[1]*phantom(0)==phantom(0),mu[2]*phantom(0)==phantom(0)*mu[3])", x=.2, y=Inf, parse=T, size=5, hjust = 0, vjust=1.08, color="gray40") +
+  annotate("text", label="italic(H)[0]: paste(mu[breast]*phantom(0)==phantom(0),mu[bottle]*phantom(0)==phantom(0)*mu[control])", x=.2, y=Inf, parse=T, size=4.5, hjust = 0, vjust=1.08, color="gray40") +
+  
   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, "", 4)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f2_80(.5) * 1.05) +

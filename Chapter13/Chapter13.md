@@ -4649,7 +4649,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-07, 22:47 Central Daylight Time
+Report created by Will at 2014-04-10, 16:24 Central Daylight Time
 ```
 
 ```
@@ -4664,7 +4664,7 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     rgl_0.93.996       mnormt_1.4-7       MASS_7.3-29       
+ [1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     rgl_0.93.996       mnormt_1.4-7       MASS_7.3-31       
  [7] ggplot2_0.9.3.1    scales_0.2.3       plyr_1.8.1         knitr_1.5         
 
 loaded via a namespace (and not attached):

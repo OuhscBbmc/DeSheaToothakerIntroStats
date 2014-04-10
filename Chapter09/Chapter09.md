@@ -88,7 +88,8 @@ Warning: Removed 74 rows containing missing values (geom_path).
 <img src="./../Chapter08/figure_rmd/Figure08_02.png" alt="TwoTails" style="width: 550px;"/>
 
 ## Figure 9-9
-Lise, instead of side-by-side graphs, how do you feel about overlaying Figure 9-02 & 9-03, similar to what we did with [Figure 12-08](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter12/figure_rmd/Figure12_08.png) for the *F* distribution?  If so, do you want to keep the gray horiztonal lines that say .95 and .99?
+<img src="figure_rmd/Figure09_09.png" title="plot of chunk Figure09_09" alt="plot of chunk Figure09_09" width="550px" />
+
 
 ## Figure 9-10
 
@@ -109,7 +110,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-07, 22:38 Central Daylight Time
+Report created by Will at 2014-04-09, 21:53 Central Daylight Time
 ```
 
 ```

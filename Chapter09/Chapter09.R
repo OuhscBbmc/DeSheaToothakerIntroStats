@@ -60,7 +60,6 @@ criticalM05Pretty <- ConvertFromZToM(criticalZ05, roundedDigits=3) #39.251
 criticalZ01 <- 2.33 #qnorm(p=.99) --Use the slightly less accurate version (ie, 2.33) so that it matches their manual arithmetic
 criticalM01Pretty <- ConvertFromZToM(criticalZ01, roundedDigits=3) #39.251
 
-
 g1a <- ggplot(data.frame(f=xLimits), aes(x=f)) +
   annotate("segment", x=-Inf, xend=Inf, y=parallelLineHeight, yend=parallelLineHeight, color="gray80") +
   annotate("segment", x=ConvertFromMToZ(ticksSmall), xend=ConvertFromMToZ(ticksSmall), y=parallelLineHeight-tickHeightSmall, yend=parallelLineHeight+tickHeightSmall, color="gray80") +
@@ -219,7 +218,46 @@ DrawWithoutPanelClipping(g6 +
                            annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40") 
 )
+#####################################
+## @knitr Figure09_09
+g9A <- ggplot(data.frame(z=xLimits), aes(x=z)) +
+  annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCritical[2]) +
+  annotate("segment", x=criticalZ05, xend=xLimitBuffer, y=dnorm(criticalZ05)+.02, yend=dnorm(criticalZ05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate(geom="text", x=criticalZ05+.05, y=dnorm(criticalZ05)+.09, label="alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalZ05+.05, y=dnorm(criticalZ05)+.09, label=".05", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[2]) +
+  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
+  
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1]) +
+  scale_x_continuous(breaks=-3:3, labels=c(-3, -2, -1, 0, "", "", 3)) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=dnorm(0) * 1.05) +
+  chapterTheme +
+  labs(x=expression(z), y=NULL)
+gt9A <- ggplot_gtable(ggplot_build(g9A))
+gt9A$layout$clip[gt9A$layout$name == "panel"] <- "off"
 
+g9B <- ggplot(data.frame(z=xLimits), aes(x=z)) +
+  annotate("segment", x=criticalZ01, xend=criticalZ01, y=0, yend=Inf, color=PaletteCritical[3]) +
+  annotate("segment", x=criticalZ01, xend=xLimitBuffer, y=dnorm(criticalZ01)+.02, yend=dnorm(criticalZ01)+.02, color=PaletteCritical[3], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
+  
+  annotate(geom="text", x=criticalZ01+.05, y=dnorm(criticalZ01)+.09, label="alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[3]) +
+  annotate(geom="text", x=criticalZ01+.05, y=dnorm(criticalZ01)+.09, label=".01", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[3]) +
+  annotate(geom="text", x=criticalZ01, y=0, label=round(criticalZ01, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[3], size=5) +
+  
+  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1]) +
+  scale_x_continuous(breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
+  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  expand_limits(y=dnorm(0) * 1.05) +
+  chapterTheme +
+  labs(x=expression(z), y=NULL)
+gt9B <- ggplot_gtable(ggplot_build(g9B))
+gt9B$layout$clip[gt9B$layout$name == "panel"] <- "off"
+
+#Position the two graphs side by side in the same plot
+gridExtra::grid.arrange(gt9A, gt9B, ncol=2)
 #####################################
 ## @knitr Figure09_10
 

@@ -45,7 +45,7 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
   labs(x=NULL, y=NULL)
 
 #####################################
-## @knitr Figure10_02
+## @knitr Figure10_03
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
 critT30 <- qt(p=.975, df=30) #The value in the right tail.
 
@@ -71,7 +71,7 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
 DrawWithoutPanelClipping(gCritical)
 
 #####################################
-## @knitr Figure10_03
+## @knitr Figure10_04
 dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
 dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
 dsTaiChiSummary$Crit <- qt(p=.975, df=dsTaiChiSummary$Count-1)

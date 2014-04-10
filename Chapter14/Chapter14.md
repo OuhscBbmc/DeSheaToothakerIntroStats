@@ -70,12 +70,12 @@ Lise, I thought that five distributions worked better than three distributions, 
 <img src="figure_rmd/Figure14_03.png" title="plot of chunk Figure14_03" alt="plot of chunk Figure14_03" width="400px" />
 
 
-## Figure 14-4
-<img src="figure_rmd/Figure14_04.png" title="plot of chunk Figure14_04" alt="plot of chunk Figure14_04" width="400px" />
-
-
 ## Figure 14-5
 <img src="figure_rmd/Figure14_05.png" title="plot of chunk Figure14_05" alt="plot of chunk Figure14_05" width="400px" />
+
+
+## Figure 14-6
+<img src="figure_rmd/Figure14_06.png" title="plot of chunk Figure14_06" alt="plot of chunk Figure14_06" width="400px" />
 
 
 ## Session Info
@@ -83,7 +83,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-10, 16:31 Central Daylight Time
+Report created by Will at 2014-04-10, 16:40 Central Daylight Time
 ```
 
 ```

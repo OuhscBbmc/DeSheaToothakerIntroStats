@@ -51,12 +51,12 @@ read_chunk("./Chapter10/Chapter10.R")
 ```{r Figure10_01, echo=echoChunks}
 ```
 
-## Figure 10-2
-```{r Figure10_02, echo=echoChunks}
+## Figure 10-3
+```{r Figure10_03, echo=echoChunks}
 ```
 
-## Figure 10-3
-```{r Figure10_03, echo=echoChunks, fig.width=3, out.width="300px"}
+## Figure 10-4
+```{r Figure10_04, echo=echoChunks, fig.width=3, out.width="300px"}
 ```
 
 ## Session Info

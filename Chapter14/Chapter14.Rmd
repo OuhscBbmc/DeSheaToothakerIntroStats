@@ -62,12 +62,12 @@ read_chunk("./Chapter14/Chapter14.R")
 ```{r Figure14_03, echo=echoChunks}
 ```
 
-## Figure 14-4
-```{r Figure14_04, echo=echoChunks}
-```
-
 ## Figure 14-5
 ```{r Figure14_05, echo=echoChunks}
+```
+
+## Figure 14-6
+```{r Figure14_06, echo=echoChunks}
 ```
 
 ## Session Info

@@ -126,7 +126,7 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
 DrawWithoutPanelClipping(g3)
 
 #####################################
-## @knitr Figure14_04
+## @knitr Figure14_05
 g4 <- g3 +
   annotate("segment", x=chiObs, xend=chiObs, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=chiObs, xend=19.5, y=fDf6(chiObs)+.004, yend=fDf6(chiObs)+.004, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
@@ -138,7 +138,7 @@ g4 <- g3 +
 DrawWithoutPanelClipping(g4)
 
 #####################################
-## @knitr Figure14_05
+## @knitr Figure14_06
 fDf2 <- function(x) dchisq(x, df=2)
 criticalF05 <- qchisq(p=.95, df=2)
 # chiObs <- 14.53

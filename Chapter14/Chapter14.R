@@ -113,7 +113,7 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
-  scale_x_continuous(expand=c(0,0)) + #, breaks=0:4, labels=c(0, 1, 2, "", 4)
+  scale_x_continuous(expand=c(0,0), breaks=seq(0, 20, 2), labels=c(0, 2, 4, 6, 8, 10, "", "", 16, 18, 20)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=fDf6(4) * 1.05) +
   chapterTheme +
@@ -129,7 +129,8 @@ g4 <- g3 +
   annotate("segment", x=chiObs, xend=19.5, y=fDf6(chiObs)+.004, yend=fDf6(chiObs)+.004, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   stat_function(fun=LimitRange(fDf6, chiObs, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
   annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label="italic(p)==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label=pObsPretty, hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[4])
+  annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label=pObsPretty, hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+  annotate(geom="text", x=chiObs, y=0, label=chiObs, hjust=.5, vjust=1.2, color=PaletteCritical[4], size=5)
   
 DrawWithoutPanelClipping(g4)
 

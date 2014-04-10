@@ -25,7 +25,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="2.0011122"
      inkscape:cx="340.85466"
-     inkscape:cy="847.34963"
+     inkscape:cy="747.40521"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -508,15 +508,15 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot3094"
-       style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;text-anchor:middle;text-align:center"
-       transform="translate(115,-37.24025)"><flowRegion
+       style="font-size:11px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="matrix(2,0,0,2,-42.697616,-125.57616)"><flowRegion
          id="flowRegion3096"><rect
            id="rect3098"
            width="150"
            height="52"
            x="66"
            y="66.099976"
-           style="font-size:11px;text-anchor:middle;text-align:center" /></flowRegion><flowPara
+           style="font-size:11px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara3100">Numeric Outcomes</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4050"
@@ -703,7 +703,7 @@
        sodipodi:nodetypes="cc" />
     <g
        id="g10614"
-       transform="translate(167.4101,-9.1791924)">
+       transform="translate(168.19779,-13.653754)">
       <rect
          y="235.08888"
          x="127.20848"
@@ -727,7 +727,7 @@
    style="font-style:italic"
    id="flowSpan10396">n</flowSpan>s and at least 15 scores per group?</flowPara></flowRoot>    </g>
     <g
-       transform="translate(206.98607,-16.24633)"
+       transform="translate(207.77376,-20.720892)"
        id="g10521">
       <rect
          y="319.06219"
@@ -752,7 +752,7 @@
    id="flowSpan10566"
    style="font-style:italic">t</flowSpan>-test &amp; its CI</flowPara></flowRoot>    </g>
     <g
-       transform="translate(228.8942,-1.0519838)"
+       transform="translate(229.68189,-5.5265457)"
        id="g10592">
       <rect
          y="303.43433"
@@ -876,20 +876,14 @@
     <path
        inkscape:connector-curvature="0"
        inkscape:connector-type="polyline"
-       id="path10799"
-       d="m 157.95053,273.9145 12.39101,22.83154"
-       style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1)" />
-    <path
-       inkscape:connector-curvature="0"
-       inkscape:connector-type="polyline"
        id="path10805"
-       d="m 357.16275,277.4998 -63.16981,24.88254"
+       d="m 357.95044,273.02524 -63.16981,24.88254"
        style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1)" />
     <path
        inkscape:connector-curvature="0"
        inkscape:connector-type="polyline"
        id="path11019"
-       d="m 357.16275,277.4998 71.8562,25.31606"
+       d="m 357.95044,273.02524 71.8562,25.31606"
        style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1)" />
     <path
        style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1);display:inline"
@@ -908,14 +902,14 @@
     <text
        xml:space="preserve"
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="325.57785"
-       y="289.94107"
+       x="326.36554"
+       y="285.46652"
        id="text11663"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan11665"
-         x="325.57785"
-         y="289.94107">Yes</tspan></text>
+         x="326.36554"
+         y="285.46652">Yes</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
@@ -930,13 +924,13 @@
     <text
        xml:space="preserve"
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="393.09085"
-       y="290.15784"
+       x="393.87854"
+       y="285.68329"
        id="text11667-4"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="393.09085"
-         y="290.15784"
+         x="393.87854"
+         y="285.68329"
          id="tspan11671-9">No</tspan></text>
     <text
        xml:space="preserve"
@@ -974,24 +968,24 @@
     <text
        xml:space="preserve"
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="142.08047"
-       y="231.69066"
+       x="102.52681"
+       y="266.49719"
        id="text11667-8-9"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="142.08047"
-         y="231.69066"
+         x="102.52681"
+         y="266.49719"
          id="tspan11671-2-1">No</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="164.14604"
-       y="285.33026"
+       x="224.61241"
+       y="283.33136"
        id="text11667-8-3"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="164.14604"
-         y="285.33026"
+         x="224.61241"
+         y="283.33136"
          id="tspan11671-2-5">No</tspan></text>
     <text
        xml:space="preserve"
@@ -1004,5 +998,165 @@
          x="119.67496"
          y="155.60782"
          id="tspan11671-2-4">No</tspan></text>
+    <g
+       id="g10614-5-0"
+       transform="translate(-54.613446,145.6501)">
+      <rect
+         y="195.92001"
+         x="86.878792"
+         height="47.445267"
+         width="125.08834"
+         id="rect10386-0-6"
+         style="opacity:0.46460176;fill:#ffcc1f;fill-opacity:1;stroke:none" />
+      <g
+         transform="translate(-0.60269482,-1.9601507)"
+         id="g10660-3"
+         style="fill:#000000;fill-opacity:1">
+        <flowRoot
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+           id="flowRoot10388-2-6"
+           transform="translate(0,10.187495)"><flowRegion
+             id="flowRegion10390-8-1"><use
+               x="0"
+               y="0"
+               xlink:href="#rect10386-0-6"
+               id="use10392-6-5"
+               width="495"
+               height="1052.1" /></flowRegion><flowPara
+             id="flowPara10658-2">Pearon's <flowSpan
+   style="font-style:italic"
+   id="flowSpan11942">r</flowSpan>, </flowPara><flowPara
+             id="flowPara11940">simple regression, </flowPara><flowPara
+             id="flowPara11938"><flowSpan
+   style="font-style:italic"
+   id="flowSpan11944">t</flowSpan> test &amp; CI for the slope</flowPara></flowRoot>      </g>
+    </g>
+    <g
+       id="g12029"
+       transform="translate(-21.488051,9.9944421)">
+      <rect
+         y="337.80679"
+         x="190.83507"
+         height="33.95277"
+         width="80.613075"
+         id="rect10386-0-6-9"
+         style="opacity:0.46460176;fill:#31ff1f;fill-opacity:1;stroke:none" />
+      <flowRoot
+         transform="translate(0,7.9633292)"
+         id="flowRoot12019"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><flowRegion
+           id="flowRegion12021"><use
+             height="1052.1"
+             width="495"
+             id="use12023"
+             xlink:href="#rect10386-0-6-9"
+             y="0"
+             x="0" /></flowRegion><flowPara
+           id="flowPara12025"><flowSpan
+   style="font-style:italic"
+   id="flowSpan12073">z</flowSpan> test statistic</flowPara><flowPara
+           id="flowPara12027">&amp; its CI</flowPara></flowRoot>    </g>
+    <g
+       transform="translate(70.118913,9.4947194)"
+       id="g12029-7">
+      <rect
+         y="337.80679"
+         x="190.83507"
+         height="33.95277"
+         width="80.613075"
+         id="rect10386-0-6-9-5"
+         style="opacity:0.46460176;fill:#31ff1f;fill-opacity:1;stroke:none" />
+      <flowRoot
+         transform="translate(0,7.9633292)"
+         id="flowRoot12019-4"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><flowRegion
+           id="flowRegion12021-1"><use
+             height="1052.1"
+             width="495"
+             id="use12023-2"
+             xlink:href="#rect10386-0-6-9-5"
+             y="0"
+             x="0" /></flowRegion><flowPara
+           id="flowPara12025-0">One-sample</flowPara><flowPara
+           id="flowPara12027-0"><flowSpan
+   style="font-style:italic"
+   id="flowSpan12079">t</flowSpan> test &amp; its CI</flowPara></flowRoot>    </g>
+    <path
+       style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1)"
+       d="M 113.1395,133.50319 C 39.778358,126.38017 30.924917,192.53288 94.809516,341.31036"
+       id="path12081"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       transform="translate(0,0.25975)"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1)"
+       d="m 126.21041,213.94206 c 13.89353,27.50605 -87.519654,53.78544 44.13113,82.54423"
+       id="path12295"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       transform="translate(0,0.25975)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="142.08047"
+       y="231.69066"
+       id="text11663-7-1"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan11665-8-4"
+         x="142.08047"
+         y="231.69066">Yes</tspan></text>
+    <path
+       style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;marker-end:url(#Arrow2Mend-1)"
+       d="m 170.34154,321.22128 39.31201,26.32021"
+       id="path12530"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       transform="translate(0,0.25975)" />
+    <path
+       style="fill:none;stroke:#c8c8c8;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart)"
+       d="M 301.26052,347.04176 170.34154,321.22128"
+       id="path12532"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       transform="translate(0,0.25975)" />
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="189.99754"
+       y="334.64114"
+       id="text11663-6-6"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan11665-3-0"
+         x="189.99754"
+         y="334.64114">Yes</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="250.50456"
+       y="337.29117"
+       id="text11667-7"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="250.50456"
+         y="337.29117"
+         id="tspan11671-1">No</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="55.724953"
+       y="163.41579"
+       id="text11663-6-7"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan11665-3-7"
+         x="55.724953"
+         y="163.41579">Yes</tspan></text>
   </g>
 </svg>

@@ -113,9 +113,12 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
+  
+  annotate("text", label="italic(H)[0]: distribution[population]==distribution[theory]", x=1, y=Inf, parse=T, size=4.5, hjust=0, vjust=1.08, color="gray40") +  
+  
   scale_x_continuous(expand=c(0,0), breaks=seq(0, 20, 2), labels=c(0, 2, 4, 6, 8, 10, "", "", 16, 18, 20)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
-  expand_limits(y=fDf6(4) * 1.05) +
+  expand_limits(y=fDf6(4) * 1.1) +
   chapterTheme +
   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
   labs(x=expression(italic(chi^2)), y=NULL)
@@ -150,6 +153,9 @@ g5 <- ggplot(data.frame(f=c(0, 9.9)), aes(x=f)) +
   annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
+  
+  annotate("text", label="italic(H)[0]:phantom(0)", x=1, y=Inf, parse=T, size=4.5, hjust=1, vjust=1.08, color="gray40") +  
+  annotate("text", label="blood sugar control is independent of treatment", x=1, y=Inf, parse=F, size=4.5, hjust=0, vjust=1.08, color="gray40") +  
   scale_x_continuous(expand=c(0,0), breaks=0:6*2, labels=c(0, 2, 4, "", 8, 10, 12)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=fDf2(0) * 1.05) +

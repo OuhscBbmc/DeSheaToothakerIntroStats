@@ -83,7 +83,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-09, 21:09 Central Daylight Time
+Report created by Will at 2014-04-10, 16:31 Central Daylight Time
 ```
 
 ```
@@ -103,7 +103,7 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.3   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-29      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      reshape2_1.2.2  
+ [7] labeling_0.2     MASS_7.3-31      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      reshape2_1.2.2  
 [13] Rttf2pt1_1.3     stringr_0.6.2    tools_3.0.3     
 ```
 

@@ -17,8 +17,8 @@
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="Figure15_01.svg"
    inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_01.png"
-   inkscape:export-xdpi="300"
-   inkscape:export-ydpi="300">
+   inkscape:export-xdpi="299.89285"
+   inkscape:export-ydpi="299.89285">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -27,15 +27,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.6954492"
-     inkscape:cx="-30.265804"
+     inkscape:cx="-100.7486"
      inkscape:cy="246.75762"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2560"
-     inkscape:window-height="1417"
-     inkscape:window-x="4472"
-     inkscape:window-y="832"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="2552"
+     inkscape:window-y="1072"
      inkscape:window-maximized="1"
      units="in"
      inkscape:snap-midpoints="true"
@@ -730,29 +730,6 @@
            x="17.694426"
            y="198.28354" /></flowRegion><flowPara
          id="flowPara4211" /></flowRoot>    <g
-       id="g4403"
-       transform="translate(-0.84252208,-29.774942)">
-      <rect
-         style="fill:#31a354;fill-opacity:1;stroke:none"
-         id="rect10386-5"
-         width="299.93518"
-         height="38.597332"
-         x="6.4631805"
-         y="36.361248" />
-      <flowRoot
-         transform="translate(-0.44178772,9.2785472)"
-         id="flowRoot4387"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4389"><use
-             height="400"
-             width="430"
-             id="use4391"
-             xlink:href="#rect10386-5"
-             y="0"
-             x="0" /></flowRegion><flowPara
-           id="flowPara4393">Encounter a potential resarch topic.  Explore the scientific literature to gain an understanding of the prior </flowPara></flowRoot>    </g>
-    <g
        id="g4410"
        transform="translate(2.1519847,-81.182294)">
       <rect
@@ -774,7 +751,7 @@
              xlink:href="#rect10386-5-5"
              y="0"
              x="0" /></flowRegion><flowPara
-           id="flowPara4401">Identify research questions to be explored.  Refine them based on existing theory and research</flowPara></flowRoot>    </g>
+           id="flowPara4401">Identify research questions to be explored.  Refine them based on existing theory and research.</flowPara></flowRoot>    </g>
     <g
        id="g4425"
        transform="translate(5.8981419,-98.45342)">
@@ -797,7 +774,8 @@
              xlink:href="#rect10386"
              y="0"
              x="0" /></flowRegion><flowPara
-           id="flowPara4423">Determine the study design needed to answer the research questions.  (What do you need - Multiple groups? Repeated measures?  Cohorts?  Matched pairs?</flowPara></flowRoot>    </g>
+           id="flowPara4423">Determine the study design needed to answer the research questions.  (What do you need - Multiple groups?</flowPara><flowPara
+           id="flowPara3154">Repeated measures?  Cohorts?  Matched pairs?)</flowPara></flowRoot>    </g>
     <g
        id="g4440"
        transform="translate(4.9985552,-109.80166)">
@@ -820,7 +798,7 @@
              xlink:href="#rect10386-5-7"
              y="0"
              x="0" /></flowRegion><flowPara
-           id="flowPara4438">Identify how bariables will be measured.  Do you have categorical variables?  Quatitative variables?  Both kinds?</flowPara></flowRoot>    </g>
+           id="flowPara4438">Identify how variables will be measured.  Do you have categorical variables?  Qualitative variables?  Both kinds?</flowPara></flowRoot>    </g>
     <g
        id="g4467"
        transform="translate(2.7612186,-120.72953)">
@@ -851,8 +829,6 @@
        id="path4475"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4403"
-       inkscape:connection-start-point="d4"
        inkscape:connection-end="#g4410"
        inkscape:connection-end-point="d4" />
     <path
@@ -885,5 +861,28 @@
        inkscape:connection-start-point="d4"
        inkscape:connection-end="#g4467"
        inkscape:connection-end-point="d4" />
+    <g
+       id="g3146">
+      <rect
+         style="fill:#31a354;fill-opacity:1;stroke:none"
+         id="rect10386-5"
+         width="299.93518"
+         height="38.597332"
+         x="5.6206584"
+         y="6.2624011" />
+      <flowRoot
+         transform="translate(-0.44055986,3.8691533)"
+         id="flowRoot3136"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><flowRegion
+           id="flowRegion3138"><use
+             height="280"
+             width="320"
+             id="use3140"
+             xlink:href="#rect10386-5"
+             y="0"
+             x="0" /></flowRegion><flowPara
+           id="flowPara3142">Encounter a potential resarch topic.  Explore the scientific literature to gain an understanding of the</flowPara><flowPara
+           id="flowPara3144">prior studies on the topic.</flowPara></flowRoot>    </g>
   </g>
 </svg>

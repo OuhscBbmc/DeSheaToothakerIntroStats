@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.3977273"
-     inkscape:cx="379.94423"
-     inkscape:cy="68.739168"
+     inkscape:zoom="4.7954546"
+     inkscape:cx="224.30733"
+     inkscape:cy="103.24573"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -736,7 +736,7 @@
          y="129.81494"
          x="24.947571"
          height="42"
-         width="118.24397"
+         width="130"
          id="rect4058"
          style="fill:#fe9929;fill-opacity:1;stroke:none" />
       <flowRoot
@@ -753,12 +753,8 @@
              y="0"
              x="0"
              style="fill:url(#linearGradient4194);fill-opacity:1" /></flowRegion><flowPara
-           id="flowPara4082"
-           style="fill:#000000;fill-opacity:1">Is the goal to estimate</flowPara><flowPara
-           id="flowPara4195"
-           style="fill:#000000;fill-opacity:1">the risk in the general</flowPara><flowPara
            id="flowPara4197"
-           style="fill:#000000;fill-opacity:1">population</flowPara></flowRoot>    </g>
+           style="fill:#000000;fill-opacity:1">Is the goal to compare on proportion to a known population proportion?</flowPara></flowRoot>    </g>
     <g
        id="g5721"
        transform="translate(124.76254,-63.639717)">
@@ -879,7 +875,9 @@
                id="use4466"
                width="495"
                height="1052.1" /></flowRegion><flowPara
-             id="flowPara4480">χ<flowSpan
+             id="flowPara4480"><flowSpan
+   style="-inkscape-font-specification:Serif;font-family:Serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:11px;text-anchor:middle;text-align:center;writing-mode:lr;line-height:100%"
+   id="flowSpan3268">χ</flowSpan><flowSpan
    id="flowSpan4221"
    style="font-size:65.00091553%;baseline-shift:super">2</flowSpan> for</flowPara><flowPara
              id="flowPara4223">goodness</flowPara><flowPara
@@ -969,18 +967,20 @@
                id="use4466-4"
                width="495"
                height="1052.1" /></flowRegion><flowPara
-             id="flowPara4480-8">χ<flowSpan
+             id="flowPara4480-8"><flowSpan
+   style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;font-family:Serif;-inkscape-font-specification:Serif"
+   id="flowSpan3270">χ</flowSpan><flowSpan
    id="flowSpan4221-8"
    style="font-size:65.00091553%;baseline-shift:super">2</flowSpan> for</flowPara><flowPara
              id="flowPara4225-4">independence</flowPara></flowRoot>      </g>
     </g>
     <g
-       transform="translate(-117.35027,-38.054824)"
+       transform="translate(-116.30762,-30.547717)"
        id="g4344">
       <rect
          y="139.42477"
          x="135.58868"
-         height="47.03751"
+         height="38"
          width="115"
          id="rect4058-3"
          style="fill:#fee391;fill-opacity:1;stroke:#fbc05d;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
@@ -997,23 +997,21 @@
              width="600"
              height="400" /></flowRegion><flowPara
            style="fill:#000000;fill-opacity:1"
-           id="flowPara4318">Is the goal to compare</flowPara><flowPara
+           id="flowPara4318">Is the goal to estimate</flowPara><flowPara
            style="fill:#000000;fill-opacity:1"
-           id="flowPara4320">one proportion to</flowPara><flowPara
+           id="flowPara3242">the risk in the general</flowPara><flowPara
            style="fill:#000000;fill-opacity:1"
-           id="flowPara4322">a known population</flowPara><flowPara
-           style="fill:#000000;fill-opacity:1"
-           id="flowPara4324">proportion?</flowPara></flowRoot>    </g>
+           id="flowPara4324">population?</flowPara></flowRoot>    </g>
     <path
-       inkscape:connection-end-point="d4"
-       inkscape:connection-end="#g4344"
        inkscape:connection-start-point="d4"
        inkscape:connection-start="#g5721"
        inkscape:connector-curvature="60"
        inkscape:connector-type="polyline"
        id="path4366"
-       d="M 174.45643,30.839236 C 145.26291,40.083652 108.06587,68.34199 93.251561,94.254962 l -4.0676,7.114988"
-       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1l)" />
+       d="M 174.45643,30.854187 C 145.46387,40.114085 109.05995,68.355944 95.014655,94.254962 L 87.08495,108.87706"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1l)"
+       inkscape:connection-end-point="d4"
+       inkscape:connection-end="#g4344" />
     <path
        inkscape:connection-end-point="d4"
        inkscape:connection-end="#g4150"
@@ -1047,23 +1045,23 @@
     <path
        inkscape:connection-end-point="d4"
        inkscape:connection-end="#g4413"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-start="#g4344"
        inkscape:connector-curvature="2"
        inkscape:connector-type="polyline"
        id="path4374"
-       d="M 66.053344,148.40746 46.797741,195.16684"
-       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1Uj)" />
+       d="M 68.422205,146.87706 47.177603,195.16684"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1Uj)"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-start="#g4344" />
     <path
        inkscape:connection-end-point="d4"
        inkscape:connection-end="#g4506"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-start="#g4344"
        inkscape:connector-curvature="2"
        inkscape:connector-type="polyline"
        id="path4376"
-       d="m 86.770486,148.40746 23.313334,49.7006"
-       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1RY)" />
+       d="m 85.776444,146.87706 24.254856,51.231"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1RY)"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-start="#g4344" />
     <path
        inkscape:connection-end-point="d4"
        inkscape:connection-end="#g4644"

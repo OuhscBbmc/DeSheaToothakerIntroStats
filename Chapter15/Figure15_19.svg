@@ -32,10 +32,10 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1137"
-     inkscape:window-x="2552"
-     inkscape:window-y="1072"
+     inkscape:window-width="2560"
+     inkscape:window-height="1417"
+     inkscape:window-x="4472"
+     inkscape:window-y="832"
      inkscape:window-maximized="1"
      units="in"
      inkscape:snap-midpoints="true"
@@ -990,7 +990,7 @@
                  style="font-style:normal;fill:#ffffff;fill-opacity:1">samples</flowSpan></flowSpan></flowPara><flowPara
              id="flowPara4480"><flowSpan
    style="font-style:italic;fill:#ffffff;fill-opacity:1"
-   id="flowSpan4482">t</flowSpan>-test &amp; its CI</flowPara></flowRoot>      </g>
+   id="flowSpan4482">t</flowSpan> test &amp; its CI</flowPara></flowRoot>      </g>
     </g>
     <g
        transform="translate(-21.090416,-19.402346)"
@@ -1016,7 +1016,7 @@
              height="1052.1" /></flowRegion><flowPara
            id="flowPara4528">AWS <flowSpan
    style="font-style:italic;fill:#ffffff;fill-opacity:1"
-   id="flowSpan4530">t</flowSpan>-test</flowPara><flowPara
+   id="flowSpan4530">t </flowSpan>test</flowPara><flowPara
            id="flowPara4532">&amp; its CI</flowPara></flowRoot>    </g>
     <g
        transform="translate(-22.737925,-26.509511)"
@@ -1032,7 +1032,9 @@
          xml:space="preserve"
          style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
          id="flowRoot4543"
-         transform="translate(-0.38835907,3.3345689)"><flowRegion
+         transform="translate(-0.38835907,3.3345689)"
+         inkscape:export-xdpi="300.13043"
+         inkscape:export-ydpi="300.13043"><flowRegion
            id="flowRegion4545"><use
              x="0"
              y="0"
@@ -1042,7 +1044,7 @@
              height="1052.1" /></flowRegion><flowPara
            id="flowPara4549">Paired <flowSpan
    style="font-style:italic;fill:#ffffff;fill-opacity:1"
-   id="flowSpan4551">t</flowSpan>-test</flowPara><flowPara
+   id="flowSpan4551">t </flowSpan>test</flowPara><flowPara
            id="flowPara4553">&amp; its CI</flowPara></flowRoot>    </g>
     <g
        transform="translate(-34.464466,-44.707107)"

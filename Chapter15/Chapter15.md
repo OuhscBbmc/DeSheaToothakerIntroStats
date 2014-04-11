@@ -2,6 +2,9 @@ Chapter 15 Graphs
 =================================================
 This report displays the chapter figures.  All were created in [Inkscape](http://www.inkscape.org/en/).
 
+## Figure 15-01
+<img src="./Figure15_01.png" style="width: 320px;"/>
+
 ## Figure 15-19
 <img src="./Figure15_19.png" style="width: 430px;"/>
 

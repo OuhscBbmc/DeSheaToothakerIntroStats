@@ -17,8 +17,8 @@
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="Figure15_19.svg"
    inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_19.png"
-   inkscape:export-xdpi="600"
-   inkscape:export-ydpi="600">
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.3977273"
-     inkscape:cx="271.99052"
-     inkscape:cy="-12.755483"
+     inkscape:zoom="4.7954545"
+     inkscape:cx="245.21466"
+     inkscape:cy="112.89427"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -723,18 +723,18 @@
        inkscape:connector-curvature="0"
        id="path7395"
        d="m 205.50398,29.216917 c 0,33.645645 -79.71551,-37.078097 -80.0623,33.645645"
-       style="fill:none;stroke:#b6b6b6;stroke-width:0.7924521px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1T)" />
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1U)" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path7395-2"
-       d="m 205.34205,29.186759 c 0,33.614924 86.16375,-37.27747 86.53868,33.660888"
-       style="fill:none;stroke:#b6b6b6;stroke-width:0.82360041px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1o)" />
+       d="m 205.50398,29.216917 c 0,33.614924 86.16375,-37.27747 86.53868,33.660888"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1o)" />
     <path
        inkscape:connector-curvature="0"
        id="path9087"
-       d="m 205.39985,29.250416 c 0,23.827087 0,23.827087 0,23.827087"
-       style="fill:none;stroke:#b6b6b6;stroke-width:0.85944951px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1U)" />
+       d="m 205.50398,29.216917 c 0,23.827087 0,29 0,29"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1U)" />
     <flowRoot
        id="flowRoot9517"
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
@@ -902,7 +902,7 @@
        transform="translate(-25.322937,-46.326279)"
        id="g4413">
       <rect
-         style="fill:#25349f;fill-opacity:0.94117647;stroke:none"
+         style="fill:#253494;fill-opacity:0.94117647;stroke:none"
          id="rect10386-0-6"
          width="121.11308"
          height="37.344887"

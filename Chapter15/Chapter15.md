@@ -1,4 +1,4 @@
-Chapter 13 Graphs
+Chapter 15 Graphs
 =================================================
 This report displays the chapter figures.  All were created in [Inkscape](http://www.inkscape.org/en/).
 

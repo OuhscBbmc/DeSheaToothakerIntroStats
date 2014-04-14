@@ -348,9 +348,11 @@ rm(z1, z2, z3, gRight, gLeft, gtRight, gtLeft)
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #To turn off clipping, see http://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot.
 singleZ <- 1.48
+area <- pnorm(singleZ)
 gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -Inf, singleZ), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue2") +
+  annotate("text", x=-.5, y=dnorm(0)*.3, label=RemoveLeadingZero(round(pnorm(singleZ), 4)), vjust=1.5, color=paletteVss[5], size=6) +
   annotate("segment", x=singleZ, xend=singleZ, y=0, yend=Inf, color="dodgerblue4", size=1.5) +
   annotate("text", x=singleZ, y=0, label=singleZ, vjust=1.2, color="dodgerblue4", size=8) +
   scale_x_continuous(breaks=-2:2) +

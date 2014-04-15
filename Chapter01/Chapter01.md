@@ -6,8 +6,10 @@ This report displays the chapter figures.  All were created in [Inkscape](http:/
 <img src="./Figure01_01.png" style="width: 550px;"/>
 
 ## Figure 1-03
-<img src="./Figure01_03.png" style="width: 550px;"/>
+<img src="./Figure01_03.png" style="width: 520px;"/>
 
+## Figure 1-05
+<img src="./Figure01_05.png" style="width: 520px;"/>
 
 ---
 

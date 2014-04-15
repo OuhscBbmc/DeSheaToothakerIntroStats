@@ -114,7 +114,7 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   
   annotate("text", label="italic(H)[0]: distribution[population]==distribution[theory]", x=1, y=Inf, parse=T, size=4.5, hjust=0, vjust=1.08, color="gray40") +  
   
-  scale_x_continuous(expand=c(0,0), breaks=seq(0, 20, 2), labels=c(0, 2, 4, 6, 8, 10, "", "", 16, 18, 20)) +
+  scale_x_continuous(expand=c(0,0), breaks=seq(0, 20, 2), labels=c(0, 2, 4, 6, 8, 10, "", 14, 16, 18, 20)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=fDf6(4) * 1.1) +
   chapterTheme +

@@ -12,11 +12,11 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="468"
-   height="305.79819"
+   height="306"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Figure01_03.svg"
+   sodipodi:docname="Figure01_03.pdf"
    inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter01\Figure01_03.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
@@ -48,7 +48,7 @@
      fit-margin-bottom="0.1"
      fit-margin-left="0.1" />
   <title
-     id="title4052">Isolating the IV in the position of causal influence</title>
+     id="title4052">Position of cause, position of effect</title>
   <defs
      id="defs4">
     <marker
@@ -611,7 +611,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>Isolating the IV in the position of causal influence</dc:title>
+        <dc:title>Position of cause, position of effect</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -619,7 +619,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(6.0501734,-292.35728)">
+     transform="translate(6.0501734,-292.15547)">
     <flowRoot
        transform="translate(-14.773552,288.34402)"
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"

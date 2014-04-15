@@ -22,9 +22,10 @@ opts_chunk$set(
   fig.height = 4, 
   out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure_rmd/',     
-  dpi = 400,
-  dev = "png"
-  # dev = "pdf"
+  dev = "png",
+#   fig.path = 'figure_pdf/',     
+#   dev = "pdf",
+  dpi = 400
 )
 knit_hooks$set(webgl = hook_webgl)
 
@@ -4649,7 +4650,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-14, 21:31 -0500
+Report created by Will at 2014-04-15, 15:00 -0500
 ```
 
 ```

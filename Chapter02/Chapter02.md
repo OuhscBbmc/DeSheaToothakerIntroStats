@@ -46,11 +46,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-10, 17:12 Central Daylight Time
+Report created by Will at 2014-04-14, 20:39 -0500
 ```
 
 ```
-R version 3.0.3 Patched (2014-03-06 r65320)
+R version 3.1.0 Patched (2014-04-10 r65396)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -66,7 +66,7 @@ other attached packages:
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.3   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
  [7] labeling_0.2     MASS_7.3-31      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.1     
-[13] reshape2_1.2.2   Rttf2pt1_1.3     scales_0.2.3     stringr_0.6.2    tools_3.0.3     
+[13] reshape2_1.2.2   Rttf2pt1_1.3     scales_0.2.3     stringr_0.6.2    tools_3.1.0     
 ```
 
 

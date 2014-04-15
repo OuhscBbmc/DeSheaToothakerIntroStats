@@ -43,7 +43,7 @@ ggplot(dsSkewPositive, aes(x=Systolic)) +
   scale_x_continuous(breaks=seq(from=min(dsSkewPositive$Systolic), to=max(dsSkewPositive$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
   chapterTheme +
-  labs(x="Systolic Blood Pressure")
+  labs(x="Diastolic Blood Pressure")
 
 #####################################
 ## @knitr Figure02_03
@@ -52,6 +52,6 @@ ggplot(dsSkewNegative, aes(x=Systolic)) +
   scale_x_continuous(breaks=seq(from=min(dsSkewNegative$Systolic), to=max(dsSkewNegative$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
   chapterTheme +
-  labs(x="Systolic Blood Pressure")
+  labs(x="Heart Rate")
 
 #####################################

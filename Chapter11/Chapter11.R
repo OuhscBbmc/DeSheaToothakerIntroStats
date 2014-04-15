@@ -105,7 +105,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   annotate(geom="text", x=critT60OneTail, y=0, label=round(critT60OneTail, 3), hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[2], size=5) +
   annotate(geom="text", x=tObserved60, y=0, label=tObserved60, hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[4], size=5) +
   scale_x_continuous(expand=c(0,0), breaks=-4:4, labels=c("-4", "-3", "-2", "-1", "0", "1", "", "3", "")) +
-  annotate("text", label="italic(H)[0]: mu[treatment] - mu[control] <= 0", x=0, y=Inf, parse=T, size=5, vjust=1.08, color="gray40") +
+  annotate("text", label="italic(H)[0]: mu[control] - mu[treatment] <= 0", x=0, y=Inf, parse=T, size=5, vjust=1.08, color="gray40") +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t60(0) * 1.2) +
   chapterTheme +

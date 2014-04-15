@@ -163,7 +163,6 @@ DrawWithoutPanelClipping(g4 +
 
 #####################################
 ## @knitr Figure09_05
-# cat("Lise, is it ok to leave the red area?  The way the code is are layered for consistency (between graphs), it makes things a little easier on me.")
 shadedExplanation <- "Green shaded area:\nprobability of\na Type II error"
 g5 <- g4 + 
   annotate("segment", x=-1.2, xend=1, y=.3, yend=.15, color=PaletteCriticalLight[5], size=1) +

@@ -84,7 +84,7 @@ read_chunk("./Chapter05/Chapter05.R")
 ```{r Figure05_12, echo=echoChunks}
 ```
 ## Figure 5-13
-<img src="./../Chapter03/figure_rmd/Figure03_09.png" alt="StateCigarette" style="width: 600px;"/>
+<img src="./../Chapter03/figure_rmd/Figure03_09.png" alt="StateCigarette" style="width: 400px;"/>
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

@@ -150,7 +150,7 @@ F-statistic: 47.5 on 2 and 93 DF,  p-value: 6.23e-15
 
 
 ## Figure 12-1
-Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.  ...Lise's response: Agreed.  I can set it up in Word and let them deal with it.
+This figure will be typeset by the publisher.
 
 ## Figure 12-2
 
@@ -166,7 +166,7 @@ Consider if you want the publisher to construct this as a table, but still label
 
 
 ## Figure 12-5
-<img src="figure_rmd/Figure12_05.png" title="plot of chunk Figure12_05" alt="plot of chunk Figure12_05" width="800px" />
+<img src="figure_rmd/Figure12_05.png" title="plot of chunk Figure12_05" alt="plot of chunk Figure12_05" width="750px" />
 
 
 ## Figure 12-6
@@ -201,7 +201,7 @@ Table of Critical *F* values.  Will be produced by publisher.
 
 
 ## Figure 12-14
-<img src="figure_rmd/Figure12_14.png" title="plot of chunk Figure12_14" alt="plot of chunk Figure12_14" width="350px" />
+<img src="figure_rmd/Figure12_14.png" title="plot of chunk Figure12_14" alt="plot of chunk Figure12_14" width="300px" />
 
 
 ## Session Info
@@ -209,11 +209,11 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-10, 17:16 Central Daylight Time
+Report created by Will at 2014-04-14, 21:33 -0500
 ```
 
 ```
-R version 3.0.3 Patched (2014-03-06 r65320)
+R version 3.1.0 Patched (2014-04-10 r65396)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -230,7 +230,7 @@ other attached packages:
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.3   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
  [7] labeling_0.2     MASS_7.3-31      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      reshape2_1.2.2  
-[13] Rttf2pt1_1.3     stringr_0.6.2    tools_3.0.3     
+[13] Rttf2pt1_1.3     stringr_0.6.2    tools_3.1.0     
 ```
 
 

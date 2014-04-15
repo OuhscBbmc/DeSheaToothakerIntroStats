@@ -99,7 +99,7 @@ gObesity +
   geom_hline(y=mean(dsPlot[, yName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) #+
 #   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T)
 
-rm(m, eqn, gObesity, xName, yName)
+rm(gObesity, xName, yName)
 
 #####################################
 ## @knitr Figure05_06
@@ -140,7 +140,6 @@ yName <- "BirthRate"
 colorName <- "Extreme"
 colorExtreme <- c("FALSE"="#3288BD", "TRUE"="#D53E4F") #Darker; http://colrd.com/palette/18893/
 fillExtreme <- c("FALSE"="#66C2A544", "TRUE"="#F46D4344") #Green http://colrd.com/palette/18893/
-
 
 mWithOutlier <- lm(as.formula(paste(yName, "~", xName)), dsPlot)
 eqn <- as.character(as.expression( 
@@ -225,7 +224,6 @@ rm(eqn)
 paletteSmokingRestrictedLight <- c("#38D88D22", "#3CBEE622") #Hand-picked
 paletteSmokingRestrictedDark <- c("#2FB476", "#2F95B4") #Hand-picked
 
-
 #eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsSmoking)))))
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=sum(!is.na(dsSmoking$TaxCentsPerPack) & !is.na(dsSmoking$YouthCigaretteUse))))))
 ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
@@ -256,7 +254,3 @@ ggplot(dsSmokingRestricted, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Om
   chapterTheme +
   labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Pervalence (in 2009)")
 rm(eqn)
-
-#####################################
-# TODO: 
-

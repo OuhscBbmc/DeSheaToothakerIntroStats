@@ -177,7 +177,6 @@ ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
 
 #####################################
 ## @knitr Figure13_10
-# cat("Lise, this is the only graph in the chapter whose x:y aspect ratio isn't 1:1.  Is there any reason you'd want to mention that?")
 dsBarb <- data.frame(X=seq(0, 8, by=2))
 dsBarb$Y <- 20 + (5 * dsBarb$X)
 

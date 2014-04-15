@@ -62,10 +62,8 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 
 DrawWithoutPanelClipping(g1)
 
-
 #####################################
 ## @knitr Figure14_02
-cat("Lise, I thought that five distributions worked better than three distributions, for two reasons. First, I think the progression is clearer.  Second, I get to use all the colors in the Steve Zissou palette")
 fPaletteDark <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
 fPaletteLight <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.3)
 

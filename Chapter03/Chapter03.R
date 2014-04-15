@@ -250,10 +250,10 @@ g
 # (approach3 <- quantile(greenScores, type=5))
 # (approach4 <- quantile(greenScores, type=6))
 # 
-# #TODO: Remove this graph.  It's just for our exploration.
+# #This graph is just for our exploration.
 # g + annotate(geom="text", x=1, y=approach1, label=round(approach1, 3), hjust=-.1, color="tomato")
 # 
-# #TODO: Remove this graph.  It's just for our exploration.
+# This graph is just for our exploration.
 # g + annotate(geom="text", x=1, y=approach2, label=round(approach2, 3), hjust=-.1, color="tomato")
 # 
 # rm(g)
@@ -363,7 +363,3 @@ gBox +   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white"
 # ### Possible Narration:
 # ### Choose colors consistently for the same variable *sets*, and contrastingly for different variables.
 # ### Think of the cognitive distance between variable *sets* (which is different that between factor levels, or between variables).
-# 
-# #####################################
-# # TODO: 
-# # 1. Find D3 for health data

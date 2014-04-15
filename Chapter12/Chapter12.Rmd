@@ -48,23 +48,23 @@ read_chunk("./Chapter12/Chapter12.R")
 ```
 
 ## Figure 12-1
-Consider if you want the publisher to construct this as a table, but still label it as a figure.  It will be easier to have the size and fonts match the text.  ...Lise's response: Agreed.  I can set it up in Word and let them deal with it.
+This figure will be typeset by the publisher.
 
 ## Figure 12-2
 
-```{r Figure12_02, echo=echoChunks, out.width="400px", fig.width=4}
+```{r Figure12_02, echo=echoChunks, fig.width=4, out.width="400px"}
 ```
 ## Figure 12-3
 
-```{r Figure12_03, echo=echoChunks, out.width="400px", fig.width=4}
+```{r Figure12_03, echo=echoChunks, fig.width=4, out.width="400px"}
 ```
 ## Figure 12-4
 
-```{r Figure12_04, echo=echoChunks, out.width="400px", fig.width=4}
+```{r Figure12_04, echo=echoChunks, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-5
-```{r Figure12_05, echo=echoChunks, out.width="800px", fig.width=7.5}
+```{r Figure12_05, echo=echoChunks, fig.width=7.5, out.width="750px"}
 ```
 
 ## Figure 12-6
@@ -79,7 +79,7 @@ Table of Critical *F* values.  Will be produced by publisher.
 ```
 
 ## Figure 12-9
-```{r Figure12_09, echo=echoChunks, out.width="400px",  fig.height = 2.5, fig.width=4}
+```{r Figure12_09, echo=echoChunks,  fig.height = 2.5, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-10
@@ -99,7 +99,7 @@ Table of Critical *F* values.  Will be produced by publisher.
 ```
 
 ## Figure 12-14
-```{r Figure12_14, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="350px"}
+```{r Figure12_14, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
 ```
 
 ## Session Info

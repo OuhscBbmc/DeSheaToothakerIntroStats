@@ -12,7 +12,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="495"
-   height="1052.1"
+   height="600"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="243.14467"
-     inkscape:cy="461.85701"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="585.91589"
+     inkscape:cy="61.777103"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -50,37 +50,43 @@
     <marker
        style="overflow:visible"
        id="Tail"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Tail">
       <g
-         transform="scale(-1.2)"
+         transform="scale(-1.2,-1.2)"
          id="g5530">
         <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:round"
-           d="M -3.8048674,-3.9585227 L 0.54352094,0"
-           id="path5532" />
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:round"
+           d="M -3.8048674,-3.9585227 0.54352094,0"
+           id="path5532"
+           inkscape:connector-curvature="0" />
         <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:round"
-           d="M -1.2866832,-3.9585227 L 3.0617053,0"
-           id="path5534" />
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:round"
+           d="M -1.2866832,-3.9585227 3.0617053,0"
+           id="path5534"
+           inkscape:connector-curvature="0" />
         <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:round"
-           d="M 1.3053582,-3.9585227 L 5.6537466,0"
-           id="path5536" />
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:round"
+           d="M 1.3053582,-3.9585227 5.6537466,0"
+           id="path5536"
+           inkscape:connector-curvature="0" />
         <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:round"
-           d="M -3.8048674,4.1775838 L 0.54352094,0.21974226"
-           id="path5538" />
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:round"
+           d="M -3.8048674,4.1775838 0.54352094,0.21974226"
+           id="path5538"
+           inkscape:connector-curvature="0" />
         <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:round"
-           d="M -1.2866832,4.1775838 L 3.0617053,0.21974226"
-           id="path5540" />
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:round"
+           d="M -1.2866832,4.1775838 3.0617053,0.21974226"
+           id="path5540"
+           inkscape:connector-curvature="0" />
         <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;stroke-linecap:round"
-           d="M 1.3053582,4.1775838 L 5.6537466,0.21974226"
-           id="path5542" />
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:round"
+           d="M 1.3053582,4.1775838 5.6537466,0.21974226"
+           id="path5542"
+           inkscape:connector-curvature="0" />
       </g>
     </marker>
     <linearGradient
@@ -108,67 +114,72 @@
     <marker
        style="overflow:visible"
        id="Arrow1Sstart"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Sstart">
       <path
-         transform="scale(0.2) translate(6,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path4560" />
+         transform="matrix(0.2,0,0,0.2,1.2,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4560"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1Send"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Send">
       <path
-         transform="scale(0.2) rotate(180) translate(6,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path4563" />
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4563"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1Mend"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Mend">
       <path
-         transform="scale(0.4) rotate(180) translate(10,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path4557" />
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4557"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Mstart"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Mstart">
       <path
-         transform="scale(0.4) translate(10,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path4554" />
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4554"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Lstart"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lstart">
       <path
-         transform="scale(0.8) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path4548" />
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4548"
+         inkscape:connector-curvature="0" />
     </marker>
     <inkscape:path-effect
        is_visible="true"
@@ -177,15 +188,16 @@
     <marker
        style="overflow:visible"
        id="Arrow1Sstart2"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Sstart2">
       <path
-         transform="scale(0.2) translate(6,0)"
-         style="stroke:#fb9a62;stroke-width:1.0pt;fill:#fb9a62;fill-rule:evenodd"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path7099" />
+         transform="matrix(0.2,0,0,0.2,1.2,0)"
+         style="fill:#fb9a62;fill-rule:evenodd;stroke:#fb9a62;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path7099"
+         inkscape:connector-curvature="0" />
     </marker>
     <linearGradient
        inkscape:collect="always"
@@ -265,104 +277,211 @@
     <marker
        style="overflow:visible"
        id="Arrow1LstartC"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1LstartC">
       <path
-         transform="scale(0.8) translate(12.5,0)"
-         style="stroke:#ffce38;stroke-width:1.0pt;fill:#ffce38;fill-rule:evenodd"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path5109" />
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#ffce38;fill-rule:evenodd;stroke:#ffce38;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path5109"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Mstartz"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Mstartz">
       <path
-         transform="scale(0.4) translate(10,0)"
-         style="stroke:#ffce38;stroke-width:1.0pt;fill:#ffce38;fill-rule:evenodd"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path9046" />
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:#ffce38;fill-rule:evenodd;stroke:#ffce38;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9046"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1SendM"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1SendM">
       <path
-         transform="scale(0.2) rotate(180) translate(6,0)"
-         style="stroke:#ffce38;stroke-width:1.0pt;fill:#ffce38;fill-rule:evenodd"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path9049" />
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:#ffce38;fill-rule:evenodd;stroke:#ffce38;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9049"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Mstartzl"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Mstartzl">
       <path
-         transform="scale(0.4) translate(10,0)"
-         style="fill-rule:evenodd;stroke:#37526d;stroke-width:1.0pt;fill:#37526d"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path9358" />
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:#37526d;fill-rule:evenodd;stroke:#37526d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9358"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1SendMQ"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1SendMQ">
       <path
-         transform="scale(0.2) rotate(180) translate(6,0)"
-         style="fill-rule:evenodd;stroke:#37526d;stroke-width:1.0pt;fill:#37526d"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path9361" />
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:#37526d;fill-rule:evenodd;stroke:#37526d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9361"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Mstartzlh"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Mstartzlh">
       <path
-         transform="scale(0.4) translate(10,0)"
-         style="stroke:#367d7d;stroke-width:1.0pt;fill:#367d7d;fill-rule:evenodd"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path9638" />
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:#367d7d;fill-rule:evenodd;stroke:#367d7d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9638"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1SendMQr"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1SendMQr">
       <path
-         transform="scale(0.2) rotate(180) translate(6,0)"
-         style="stroke:#367d7d;stroke-width:1.0pt;fill:#367d7d;fill-rule:evenodd"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         id="path9641" />
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:#367d7d;fill-rule:evenodd;stroke:#367d7d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9641"
+         inkscape:connector-curvature="0" />
     </marker>
     <radialGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient7324-8"
-       id="radialGradient9836"
+       xlink:href="#linearGradient7324-8-6"
+       id="radialGradient9836-8"
        gradientUnits="userSpaceOnUse"
        cx="173"
        cy="388.36218"
        fx="173"
        fy="388.36218"
-       r="99.12623" />
+       r="99.126228" />
+    <linearGradient
+       id="linearGradient7324-8-6"
+       osb:paint="gradient">
+      <stop
+         id="stop3949-9"
+         offset="0"
+         style="stop-color:#6e6e6e;stop-opacity:0;" />
+      <stop
+         style="stop-color:#367d7d;stop-opacity:0.05882353;"
+         offset="1"
+         id="stop7328-5-8" />
+    </linearGradient>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mstartzlh-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mstartzlh">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:#367d7d;fill-rule:evenodd;stroke:#367d7d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9638-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1SendMQr-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1SendMQr">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:#367d7d;fill-rule:evenodd;stroke:#367d7d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9641-3" />
+    </marker>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7324-8-5"
+       id="radialGradient10090-5"
+       gradientUnits="userSpaceOnUse"
+       cx="173"
+       cy="388.36218"
+       fx="173"
+       fy="388.36218"
+       r="99.126228" />
+    <linearGradient
+       id="linearGradient7324-8-5"
+       osb:paint="gradient">
+      <stop
+         id="stop3949-2"
+         offset="0"
+         style="stop-color:#6e6e6e;stop-opacity:0;" />
+      <stop
+         style="stop-color:#367d7d;stop-opacity:0.07843138;"
+         offset="1"
+         id="stop7328-5-1" />
+    </linearGradient>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mstartzlh-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mstartzlh">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         style="fill:#367d7d;fill-rule:evenodd;stroke:#367d7d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9638-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1SendMQr-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1SendMQr">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:#367d7d;fill-rule:evenodd;stroke:#367d7d;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path9641-4" />
+    </marker>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7324-8"
+       id="radialGradient10344"
+       gradientUnits="userSpaceOnUse"
+       cx="173"
+       cy="388.36218"
+       fx="173"
+       fy="388.36218"
+       r="99.126228" />
   </defs>
   <metadata
      id="metadata7">
@@ -381,94 +500,6 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
-    <text
-       transform="matrix(0.95452299,0.29813733,-0.29813733,0.95452299,0,0)"
-       sodipodi:linespacing="125%"
-       id="text2999"
-       y="238.97968"
-       x="155.41214"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans"
-       xml:space="preserve"><tspan
-         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-         y="238.97968"
-         x="155.41214"
-         id="tspan3001"
-         sodipodi:role="line">EV: Amount of sleep last night</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text2999-4"
-       y="388.61612"
-       x="318.95343"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-       xml:space="preserve"
-       transform="matrix(0.96935505,-0.24566396,0.24566396,0.96935505,0,0)"><tspan
-         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-         y="388.61612"
-         x="318.95343"
-         id="tspan3001-0"
-         sodipodi:role="line">Unknown EV #1</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text2999-9"
-       y="157.06174"
-       x="334.29297"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-         y="157.06174"
-         x="334.29297"
-         id="tspan3001-4"
-         sodipodi:role="line">EV: Use of sleep aids</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text2999-4-8"
-       y="136.25119"
-       x="158.03906"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-         y="136.25119"
-         x="158.03906"
-         id="tspan3001-0-8"
-         sodipodi:role="line">EV: Usual coffee consumption</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text2999-4-2"
-       y="299.25119"
-       x="277.03906"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-         y="299.25119"
-         x="277.03906"
-         id="tspan3001-0-4"
-         sodipodi:role="line">Unknown EV #2</tspan></text>
-    <text
-       transform="matrix(0.91517233,-0.40306278,0.40306278,0.91517233,-127.54918,37.432094)"
-       sodipodi:linespacing="125%"
-       id="text2999-4-5"
-       y="219.6571"
-       x="99.578125"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-         y="219.6571"
-         x="99.578125"
-         id="tspan3001-0-5"
-         sodipodi:role="line">Unknown EV #3</tspan></text>
-    <text
-       transform="matrix(0.56106798,-0.82776973,0.82776973,0.56106798,-396.3316,155.71966)"
-       sodipodi:linespacing="125%"
-       id="text2999-4-1"
-       y="441.68863"
-       x="112.36997"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         id="tspan4054"
-         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-         y="441.68863"
-         x="112.36997"
-         sodipodi:role="line">EV: Stress level</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot4022"
@@ -481,12 +512,346 @@
            x="111.36932"
            y="307.87009" /></flowRegion><flowPara
          id="flowPara4028" /></flowRoot>    <g
-       id="g9809"
-       transform="translate(0,-58)">
+       id="g10302"
+       transform="translate(-15.514719,-69.296465)">
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans"
+         x="125.82456"
+         y="294.39584"
+         id="text2999"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.95452299,0.29813733,-0.29813733,0.95452299,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3001"
+           x="125.82456"
+           y="294.39584"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Amount of sleep last night</tspan></text>
+      <text
+         transform="matrix(0.96935505,-0.24566396,0.24566396,0.96935505,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="302.75287"
+         y="448.47046"
+         id="text2999-4"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0"
+           x="302.75287"
+           y="448.47046"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #1</tspan></text>
+      <text
+         transform="matrix(0.97196803,0.23511307,-0.23511307,0.97196803,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="378.80301"
+         y="8.6027918"
+         id="text2999-9"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-4"
+           x="378.80301"
+           y="8.6027918"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Use of sleep aids</tspan></text>
+      <text
+         transform="matrix(0.99418968,-0.10764234,0.10764234,0.99418968,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="170.77675"
+         y="126.00996"
+         id="text2999-4-8"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0-8"
+           x="170.77675"
+           y="126.00996"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Usual coffee consumption</tspan></text>
+      <text
+         transform="matrix(0.99100766,0.13380518,-0.13380518,0.99100766,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="310.49814"
+         y="320.26492"
+         id="text2999-4-2"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0-4"
+           x="310.49814"
+           y="320.26492"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="-16.846529"
+         y="160.11166"
+         id="text2999-4-5"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.91517233,-0.40306278,0.40306278,0.91517233,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0-5"
+           x="-16.846529"
+           y="160.11166"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="-202.92757"
+         y="189.89366"
+         id="text2999-4-1"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.56106798,-0.82776973,0.82776973,0.56106798,0,0)"><tspan
+           sodipodi:role="line"
+           x="-202.92757"
+           y="189.89366"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
+           id="tspan4054">EV: Stress level</tspan></text>
       <g
-         id="g9804">
+         transform="translate(2,21)"
+         id="g10063">
+        <g
+           id="g10056">
+          <path
+             sodipodi:type="star"
+             style="fill:url(#radialGradient10344);fill-opacity:1;fill-rule:nonzero;stroke:#6e6e6e;stroke-width:1.13199997;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+             id="path2997"
+             sodipodi:sides="4"
+             sodipodi:cx="173"
+             sodipodi:cy="388.36218"
+             sodipodi:r1="122.4949"
+             sodipodi:r2="86.616974"
+             sodipodi:arg1="0.78539816"
+             sodipodi:arg2="1.5707963"
+             inkscape:flatsided="true"
+             inkscape:rounded="0.13"
+             inkscape:randomized="0"
+             d="m 259.61698,474.97916 c -15.92434,15.92434 -157.30962,15.92434 -173.233957,0 -15.924337,-15.92434 -15.924338,-157.30962 0,-173.23395 15.924337,-15.92434 157.309617,-15.92434 173.233957,0 15.92433,15.92433 15.92433,157.30961 0,173.23395 z"
+             transform="matrix(1.957702,0,0,1.181284,-55.016487,-249.22928)" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-5-6-1"
+             y="109.9908"
+             x="280.81244"
+             style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6e6e6e;fill-opacity:1;stroke:none;font-family:Sans"
+             xml:space="preserve"><tspan
+               id="tspan4353-2-7"
+               style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1"
+               y="109.9908"
+               x="280.81244"
+               sodipodi:role="line">Shield of randomization and manipulation</tspan></text>
+        </g>
+        <g
+           id="g9274"
+           transform="translate(-6,-58)">
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-1-2-1-1"
+             y="258.71637"
+             x="392.46094"
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             xml:space="preserve"><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="258.71637"
+               x="392.46094"
+               sodipodi:role="line"
+               id="tspan7238-2-2-2">Observed differences</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="278.71637"
+               x="392.46094"
+               sodipodi:role="line"
+               id="tspan7272-3-60">in participants'</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="298.71637"
+               x="392.46094"
+               sodipodi:role="line"
+               id="tspan7274-3-4">alertness</tspan></text>
+          <rect
+             y="300.43289"
+             x="317.41797"
+             height="2.9009247"
+             width="150"
+             id="rect4012-3"
+             style="fill:#d33502;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-5-6-1-9-6"
+             y="313.53549"
+             x="392.47974"
+             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#d33502;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+             xml:space="preserve"><tspan
+               id="tspan4061-4"
+               y="313.53549"
+               x="392.47974"
+               sodipodi:role="line">Measured Outcome</tspan></text>
+        </g>
+        <g
+           id="g9283"
+           transform="translate(-4,-58)">
+          <path
+             inkscape:connector-curvature="0"
+             id="path4101"
+             d="m 305,301.85973 c -67,0 -66.5,0 -66.5,0"
+             style="fill:none;stroke:#367d7d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstartzlh);marker-mid:none;marker-end:url(#Arrow1SendMQr)" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-5-6-1-9-2"
+             y="313.72836"
+             x="270.58636"
+             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#367d7d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+             xml:space="preserve"><tspan
+               id="tspan4061-9"
+               y="313.72836"
+               x="270.58636"
+               sodipodi:role="line">causing</tspan></text>
+        </g>
+        <g
+           id="g9288"
+           transform="translate(-2,-58)">
+          <rect
+             y="300.43289"
+             x="96.819527"
+             height="2.9009247"
+             width="122.31203"
+             id="rect4012"
+             style="fill:#37526d;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-5-6-1-9"
+             y="313.53549"
+             x="157.99434"
+             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37526d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+             xml:space="preserve"><tspan
+               y="313.53549"
+               x="157.99434"
+               id="tspan4059"
+               sodipodi:role="line">Position of Causal</tspan><tspan
+               id="tspan4061"
+               y="327.28549"
+               x="157.99434"
+               sodipodi:role="line">Influence</tspan></text>
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-1-8-8"
+             y="259.00525"
+             x="157.74898"
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             xml:space="preserve"><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="259.00525"
+               x="157.74898"
+               sodipodi:role="line"
+               id="tspan7232-9-2">Belief about</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="279.00525"
+               x="157.74898"
+               sodipodi:role="line"
+               id="tspan7236-2-7">caffeine content</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="299.00525"
+               x="157.74898"
+               sodipodi:role="line"
+               id="tspan7238-7-7">of beverage</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g10260"
+       transform="translate(20.106477,-115.96551)">
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans"
+         x="228.02792"
+         y="600.17169"
+         id="text2999-6"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.95452299,0.29813733,-0.29813733,0.95452299,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3001-8"
+           x="228.02792"
+           y="600.17169"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Amount of sleep last night</tspan></text>
+      <text
+         transform="matrix(0.96935505,-0.24566396,0.24566396,0.96935505,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="184.33156"
+         y="748.41095"
+         id="text2999-4-9"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0-83"
+           x="184.33156"
+           y="748.41095"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #1</tspan></text>
+      <text
+         transform="matrix(0.97196803,0.23511307,-0.23511307,0.97196803,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="465.16547"
+         y="400.11334"
+         id="text2999-9-5"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-4-5"
+           x="465.16547"
+           y="400.11334"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Use of sleep aids</tspan></text>
+      <text
+         transform="matrix(0.90561838,0.42409357,-0.42409357,0.90561838,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="300.50845"
+         y="405.49139"
+         id="text2999-4-8-1"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0-8-5"
+           x="300.50845"
+           y="405.49139"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Usual coffee consumption</tspan></text>
+      <text
+         transform="matrix(0.9830165,-0.18351718,0.18351718,0.9830165,0,0)"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="100.95441"
+         y="714.99292"
+         id="text2999-4-2-5"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0-4-8"
+           x="100.95441"
+           y="714.99292"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="-147.88597"
+         y="484.66641"
+         id="text2999-4-5-4"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.91517233,-0.40306278,0.40306278,0.91517233,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan3001-0-5-0"
+           x="-147.88597"
+           y="484.66641"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+         x="-443.33206"
+         y="369.6243"
+         id="text2999-4-1-5"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.56106798,-0.82776973,0.82776973,0.56106798,0,0)"><tspan
+           sodipodi:role="line"
+           x="-443.33206"
+           y="369.6243"
+           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
+           id="tspan4054-4">EV: Stress level</tspan></text>
+      <g
+         transform="translate(-29.60771,374.34064)"
+         id="g10063-7">
         <path
-           transform="matrix(1.957702,0,0,0.5818872,-55.016487,55.061473)"
+           transform="matrix(1.957702,0,0,1.181284,-55.016487,-249.22928)"
            d="m 259.61698,474.97916 c -15.92434,15.92434 -157.30962,15.92434 -173.233957,0 -15.924337,-15.92434 -15.924338,-157.30962 0,-173.23395 15.924337,-15.92434 157.309617,-15.92434 173.233957,0 15.92433,15.92433 15.92433,157.30961 0,173.23395 z"
            inkscape:randomized="0"
            inkscape:rounded="0.13"
@@ -498,133 +863,138 @@
            sodipodi:cy="388.36218"
            sodipodi:cx="173"
            sodipodi:sides="4"
-           id="path2997"
-           style="fill:url(#radialGradient9836);fill-opacity:1;fill-rule:nonzero;stroke:#6e6e6e;stroke-width:1.13199997;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="path2997-1"
+           style="fill:url(#radialGradient10090-5);fill-opacity:1;fill-rule:nonzero;stroke:#6e6e6e;stroke-width:1.13169765;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:9.05358127, 9.05358127;stroke-dashoffset:0"
            sodipodi:type="star" />
         <text
            xml:space="preserve"
            style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6e6e6e;fill-opacity:1;stroke:none;font-family:Sans"
-           x="283.81244"
-           y="234.9908"
-           id="text2999-4-8-5-6-1"
+           x="280.81244"
+           y="109.9908"
+           id="text2999-4-8-5-6-1-4"
            sodipodi:linespacing="125%"><tspan
              sodipodi:role="line"
-             x="283.81244"
-             y="234.9908"
+             x="280.81244"
+             y="109.9908"
              style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1"
-             id="tspan4353-2-7">Shield of randomization and manipulation</tspan></text>
-      </g>
-      <g
-         transform="translate(-6,0)"
-         id="g9274">
-        <text
-           xml:space="preserve"
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-           x="392.46094"
-           y="258.71637"
-           id="text2999-4-8-1-2-1-1"
-           sodipodi:linespacing="125%"><tspan
-             id="tspan7238-2-2-2"
+             id="tspan4353-2-7-9">Almost non-existent shield of manipulation</tspan><tspan
+             id="tspan10254"
              sodipodi:role="line"
-             x="392.46094"
+             x="280.81244"
+             y="124.9908"
+             style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1">(without randomization)</tspan></text>
+        <g
+           id="g9274-9"
+           transform="translate(-6,-58)">
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-1-2-1-1-0"
              y="258.71637"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">Observed differences</tspan><tspan
-             id="tspan7272-3-60"
-             sodipodi:role="line"
              x="392.46094"
-             y="278.71637"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">in participants'</tspan><tspan
-             id="tspan7274-3-4"
-             sodipodi:role="line"
-             x="392.46094"
-             y="298.71637"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">alertness</tspan></text>
-        <rect
-           style="fill:#d33502;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="rect4012-3"
-           width="150"
-           height="2.9009247"
-           x="317.41797"
-           y="300.43289" />
-        <text
-           xml:space="preserve"
-           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#d33502;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-           x="392.47974"
-           y="313.53549"
-           id="text2999-4-8-5-6-1-9-6"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             x="392.47974"
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             xml:space="preserve"><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="258.71637"
+               x="392.46094"
+               sodipodi:role="line"
+               id="tspan7238-2-2-2-3">Observed differences</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="278.71637"
+               x="392.46094"
+               sodipodi:role="line"
+               id="tspan7272-3-60-0">in participants'</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="298.71637"
+               x="392.46094"
+               sodipodi:role="line"
+               id="tspan7274-3-4-3">alertness</tspan></text>
+          <rect
+             y="300.43289"
+             x="317.41797"
+             height="2.9009247"
+             width="150"
+             id="rect4012-3-5"
+             style="fill:#d33502;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-5-6-1-9-6-0"
              y="313.53549"
-             id="tspan4061-4">Measured Outcome</tspan></text>
-      </g>
-      <g
-         transform="translate(-4,0)"
-         id="g9283">
-        <path
-           style="fill:none;stroke:#367d7d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstartzlh);marker-mid:none;marker-end:url(#Arrow1SendMQr)"
-           d="m 305,301.85973 c -67,0 -66.5,0 -66.5,0"
-           id="path4101"
-           inkscape:connector-curvature="0" />
-        <text
-           xml:space="preserve"
-           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#367d7d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-           x="270.58636"
-           y="313.72836"
-           id="text2999-4-8-5-6-1-9-2"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             x="270.58636"
+             x="392.47974"
+             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#d33502;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+             xml:space="preserve"><tspan
+               id="tspan4061-4-7"
+               y="313.53549"
+               x="392.47974"
+               sodipodi:role="line">Measured Outcome</tspan></text>
+        </g>
+        <g
+           id="g9283-6"
+           transform="translate(-4,-58)">
+          <path
+             inkscape:connector-curvature="0"
+             id="path4101-7"
+             d="m 305,301.85973 c -67,0 -66.5,0 -66.5,0"
+             style="fill:none;stroke:#367d7d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstartzlh);marker-mid:none;marker-end:url(#Arrow1SendMQr)" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-5-6-1-9-2-8"
              y="313.72836"
-             id="tspan4061-9">causing</tspan></text>
-      </g>
-      <g
-         transform="translate(-2,0)"
-         id="g9288">
-        <rect
-           style="fill:#37526d;fill-opacity:1;fill-rule:nonzero;stroke:none"
-           id="rect4012"
-           width="122.31203"
-           height="2.9009247"
-           x="96.819527"
-           y="300.43289" />
-        <text
-           xml:space="preserve"
-           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37526d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-           x="157.99434"
-           y="313.53549"
-           id="text2999-4-8-5-6-1-9"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan4059"
+             x="270.58636"
+             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#367d7d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+             xml:space="preserve"><tspan
+               id="tspan4061-9-3"
+               y="313.72836"
+               x="270.58636"
+               sodipodi:role="line">possibly causing?</tspan></text>
+        </g>
+        <g
+           id="g9288-6"
+           transform="translate(-2,-58)">
+          <rect
+             y="300.43289"
+             x="96.819527"
+             height="2.9009247"
+             width="122.31203"
+             id="rect4012-4"
+             style="fill:#37526d;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-5-6-1-9-4"
+             y="313.53549"
              x="157.99434"
-             y="313.53549">Position of Causal</tspan><tspan
-             sodipodi:role="line"
-             x="157.99434"
-             y="327.28549"
-             id="tspan4061">Influence</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-           x="157.74898"
-           y="259.00525"
-           id="text2999-4-8-1-8-8"
-           sodipodi:linespacing="125%"><tspan
-             id="tspan7232-9-2"
-             sodipodi:role="line"
-             x="157.74898"
+             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37526d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+             xml:space="preserve"><tspan
+               y="313.53549"
+               x="157.99434"
+               id="tspan4059-1"
+               sodipodi:role="line">Position of Causal</tspan><tspan
+               id="tspan4061-95"
+               y="327.28549"
+               x="157.99434"
+               sodipodi:role="line">Influence</tspan></text>
+          <text
+             sodipodi:linespacing="125%"
+             id="text2999-4-8-1-8-8-5"
              y="259.00525"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">Belief about</tspan><tspan
-             id="tspan7236-2-7"
-             sodipodi:role="line"
              x="157.74898"
-             y="279.00525"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">caffeine content</tspan><tspan
-             id="tspan7238-7-7"
-             sodipodi:role="line"
-             x="157.74898"
-             y="299.00525"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">of beverage</tspan></text>
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             xml:space="preserve"><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="259.00525"
+               x="157.74898"
+               sodipodi:role="line"
+               id="tspan7232-9-2-7">Belief about</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="279.00525"
+               x="157.74898"
+               sodipodi:role="line"
+               id="tspan7236-2-7-4">caffeine content</tspan><tspan
+               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+               y="299.00525"
+               x="157.74898"
+               sodipodi:role="line"
+               id="tspan7238-7-7-7">of beverage</tspan></text>
+        </g>
       </g>
     </g>
   </g>

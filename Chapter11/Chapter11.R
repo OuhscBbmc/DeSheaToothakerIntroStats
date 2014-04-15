@@ -66,7 +66,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   stat_function(fun=LimitRange(t60, -Inf, -tObserved60), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
   stat_function(fun=LimitRange(t60, tObserved60, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
   annotate("segment", x=c(-1,1)*critT60TwoTail, xend=c(-1,1)*critT60TwoTail, y=0, yend=Inf, color=PaletteCritical[2]) +
-  annotate("segment", x=c(-1,1)*tObserved60, xend=c(-1,1)*tObserved60, y=0, yend=Inf, color=PaletteCritical[4]) +
+  annotate("segment", x=tObserved60, xend=tObserved60, y=0, yend=Inf, color=PaletteCritical[4]) +
   stat_function(fun=t60, n=calculatedPointCount, color=PaletteCritical[1], size=1) +
   annotate(geom="text", x=-critT60TwoTail-.8, y=t60(critT60TwoTail)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=-critT60TwoTail-.8, y=t60(critT60TwoTail)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
@@ -75,7 +75,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   annotate(geom="text", x=critT60TwoTail +.85, y=t60(-critT60TwoTail)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
   
   annotate(geom="text", x=c(-1,1)*critT60TwoTail, y=0, label=round(c(-1,1)*critT60TwoTail, 3), hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[2], size=5) +
-  annotate(geom="text", x=-tObserved60, y=0, label=-tObserved60, hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[4], size=5) +
+#   annotate(geom="text", x=-tObserved60, y=0, label=-tObserved60, hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[4], size=5) +
   annotate(geom="text", x=tObserved60, y=0, label=tObserved60, hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[4], size=5) +
 
   annotate("text", label="italic(H)[0]: mu[treatment] == mu[control]", x=0, y=Inf, parse=T, size=5, vjust=1.08, color="gray40") +

@@ -16,7 +16,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Figure01_03.pdf"
+   sodipodi:docname="Figure01_03.svg"
    inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter01\Figure01_03.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
@@ -28,15 +28,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.6245246"
-     inkscape:cx="475.83581"
-     inkscape:cy="235.14798"
+     inkscape:cx="473.80349"
+     inkscape:cy="60.954161"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2560"
-     inkscape:window-height="1417"
-     inkscape:window-x="4472"
-     inkscape:window-y="832"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="2552"
+     inkscape:window-y="1072"
      inkscape:window-maximized="1"
      units="in"
      inkscape:snap-midpoints="true"
@@ -631,246 +631,242 @@
            height="24.04163"
            width="123.74369"
            id="rect4026" /></flowRegion><flowPara
-         id="flowPara4028" /></flowRoot>    <g
-       transform="translate(-30.288271,218.78781)"
-       id="g10302">
-      <text
-         transform="matrix(0.95452299,0.29813733,-0.29813733,0.95452299,0,0)"
-         sodipodi:linespacing="125%"
-         id="text2999"
-         y="294.39584"
-         x="125.82456"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           y="294.39584"
-           x="125.82456"
-           id="tspan3001"
-           sodipodi:role="line">EV: Amount of sleep last night</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2999-4"
-         y="448.47046"
-         x="302.75287"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         transform="matrix(0.96935505,-0.24566396,0.24566396,0.96935505,0,0)"><tspan
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           y="448.47046"
-           x="302.75287"
-           id="tspan3001-0"
-           sodipodi:role="line">Unknown EV #1</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2999-9"
-         y="8.6027918"
-         x="378.80301"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         transform="matrix(0.97196803,0.23511307,-0.23511307,0.97196803,0,0)"><tspan
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           y="8.6027918"
-           x="378.80301"
-           id="tspan3001-4"
-           sodipodi:role="line">EV: Use of sleep aids</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2999-4-8"
-         y="126.00996"
-         x="170.77675"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         transform="matrix(0.99418968,-0.10764234,0.10764234,0.99418968,0,0)"><tspan
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           y="126.00996"
-           x="170.77675"
-           id="tspan3001-0-8"
-           sodipodi:role="line">EV: Usual coffee consumption</tspan></text>
-      <text
-         sodipodi:linespacing="125%"
-         id="text2999-4-2"
-         y="320.26492"
-         x="310.49814"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         transform="matrix(0.99100766,0.13380518,-0.13380518,0.99100766,0,0)"><tspan
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           y="320.26492"
-           x="310.49814"
-           id="tspan3001-0-4"
-           sodipodi:role="line">Unknown EV #2</tspan></text>
-      <text
-         transform="matrix(0.91517233,-0.40306278,0.40306278,0.91517233,0,0)"
-         sodipodi:linespacing="125%"
-         id="text2999-4-5"
-         y="160.11166"
-         x="-16.846529"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           y="160.11166"
-           x="-16.846529"
-           id="tspan3001-0-5"
-           sodipodi:role="line">Unknown EV #3</tspan></text>
-      <text
-         transform="matrix(0.56106798,-0.82776973,0.82776973,0.56106798,0,0)"
-         sodipodi:linespacing="125%"
-         id="text2999-4-1"
-         y="189.89366"
-         x="-202.92757"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
-           id="tspan4054"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           y="189.89366"
-           x="-202.92757"
-           sodipodi:role="line">EV: Stress level</tspan></text>
+         id="flowPara4028" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans"
+       x="166.55688"
+       y="512.98047"
+       id="text2999"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.95452299,0.29813733,-0.29813733,0.95452299,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan3001"
+         x="166.55688"
+         y="512.98047"
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Amount of sleep last night</tspan></text>
+    <text
+       transform="matrix(0.96615125,-0.25797627,0.25797627,0.96615125,0,0)"
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+       x="-153.74084"
+       y="576.1012"
+       id="text2999-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3001-0"
+         x="-153.74084"
+         y="576.1012"
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #1</tspan></text>
+    <text
+       transform="matrix(0.48877935,0.87240744,-0.87240744,0.48877935,0,0)"
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+       x="363.17847"
+       y="198.61142"
+       id="text2999-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3001-4"
+         x="363.17847"
+         y="198.61142"
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Use of sleep aids</tspan></text>
+    <text
+       transform="matrix(0.99418968,-0.10764234,0.10764234,0.99418968,0,0)"
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+       x="-39.625275"
+       y="346.82407"
+       id="text2999-4-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3001-0-8"
+         x="-39.625275"
+         y="346.82407"
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Usual coffee consumption</tspan></text>
+    <text
+       transform="matrix(0.80798355,0.58920504,-0.58920504,0.80798355,0,0)"
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+       x="290.79755"
+       y="400.11533"
+       id="text2999-4-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3001-0-4"
+         x="290.79755"
+         y="400.11533"
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+       x="-129.12785"
+       y="310.88321"
+       id="text2999-4-5"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.91517233,-0.40306278,0.40306278,0.91517233,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan3001-0-5"
+         x="-129.12785"
+         y="310.88321"
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+       x="-331.00964"
+       y="262.23962"
+       id="text2999-4-1"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.56106798,-0.82776973,0.82776973,0.56106798,0,0)"><tspan
+         sodipodi:role="line"
+         x="-331.00964"
+         y="262.23962"
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
+         id="tspan4054">EV: Stress level</tspan></text>
+    <g
+       transform="translate(-28.288271,239.78781)"
+       id="g10063">
       <g
-         id="g10063"
-         transform="translate(2,21)">
-        <g
-           id="g10056">
-          <path
-             transform="matrix(1.957702,0,0,1.181284,-55.016487,-249.22928)"
-             d="m 259.61698,474.97916 c -15.92434,15.92434 -157.30962,15.92434 -173.233957,0 -15.924337,-15.92434 -15.924338,-157.30962 0,-173.23395 15.924337,-15.92434 157.309617,-15.92434 173.233957,0 15.92433,15.92433 15.92433,157.30961 0,173.23395 z"
-             inkscape:randomized="0"
-             inkscape:rounded="0.13"
-             inkscape:flatsided="true"
-             sodipodi:arg2="1.5707963"
-             sodipodi:arg1="0.78539816"
-             sodipodi:r2="86.616974"
-             sodipodi:r1="122.4949"
-             sodipodi:cy="388.36218"
-             sodipodi:cx="173"
-             sodipodi:sides="4"
-             id="path2997"
-             style="fill:url(#radialGradient10344);fill-opacity:1;fill-rule:nonzero;stroke:#6e6e6e;stroke-width:1.13199997;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-             sodipodi:type="star" />
-          <text
-             xml:space="preserve"
-             style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6e6e6e;fill-opacity:1;stroke:none;font-family:Sans"
-             x="280.81244"
+         id="g10056">
+        <path
+           sodipodi:type="star"
+           style="fill:url(#radialGradient10344);fill-opacity:1;fill-rule:nonzero;stroke:#6e6e6e;stroke-width:1.13199997;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="path2997"
+           sodipodi:sides="4"
+           sodipodi:cx="173"
+           sodipodi:cy="388.36218"
+           sodipodi:r1="122.4949"
+           sodipodi:r2="86.616974"
+           sodipodi:arg1="0.78539816"
+           sodipodi:arg2="1.5707963"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.13"
+           inkscape:randomized="0"
+           d="m 259.61698,474.97916 c -15.92434,15.92434 -157.30962,15.92434 -173.233957,0 -15.924337,-15.92434 -15.924338,-157.30962 0,-173.23395 15.924337,-15.92434 157.309617,-15.92434 173.233957,0 15.92433,15.92433 15.92433,157.30961 0,173.23395 z"
+           transform="matrix(1.957702,0,0,1.181284,-55.016487,-249.22928)" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text2999-4-8-5-6-1"
+           y="109.9908"
+           x="280.81244"
+           style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6e6e6e;fill-opacity:1;stroke:none;font-family:Sans"
+           xml:space="preserve"><tspan
+             id="tspan4353-2-7"
+             style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1"
              y="109.9908"
-             id="text2999-4-8-5-6-1"
-             sodipodi:linespacing="125%"><tspan
-               sodipodi:role="line"
-               x="280.81244"
-               y="109.9908"
-               style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1"
-               id="tspan4353-2-7">Shield of randomization and manipulation</tspan></text>
-        </g>
-        <g
-           transform="translate(-6,-58)"
-           id="g9274">
-          <text
-             xml:space="preserve"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-             x="392.46094"
+             x="280.81244"
+             sodipodi:role="line">Shield of randomization and manipulation</tspan></text>
+      </g>
+      <g
+         id="g9274"
+         transform="translate(-6,-58)">
+        <text
+           sodipodi:linespacing="125%"
+           id="text2999-4-8-1-2-1-1"
+           y="258.71637"
+           x="392.46094"
+           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+           xml:space="preserve"><tspan
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
              y="258.71637"
-             id="text2999-4-8-1-2-1-1"
-             sodipodi:linespacing="125%"><tspan
-               id="tspan7238-2-2-2"
-               sodipodi:role="line"
-               x="392.46094"
-               y="258.71637"
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">Observed differences</tspan><tspan
-               id="tspan7272-3-60"
-               sodipodi:role="line"
-               x="392.46094"
-               y="278.71637"
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">in participants'</tspan><tspan
-               id="tspan7274-3-4"
-               sodipodi:role="line"
-               x="392.46094"
-               y="298.71637"
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">alertness</tspan></text>
-          <rect
-             style="fill:#d33502;fill-opacity:1;fill-rule:nonzero;stroke:none"
-             id="rect4012-3"
-             width="150"
-             height="2.9009247"
-             x="317.41797"
-             y="300.43289" />
-          <text
-             xml:space="preserve"
-             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#d33502;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+             x="392.46094"
+             sodipodi:role="line"
+             id="tspan7238-2-2-2">Observed differences</tspan><tspan
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             y="278.71637"
+             x="392.46094"
+             sodipodi:role="line"
+             id="tspan7272-3-60">in participants'</tspan><tspan
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             y="298.71637"
+             x="392.46094"
+             sodipodi:role="line"
+             id="tspan7274-3-4">alertness</tspan></text>
+        <rect
+           y="300.43289"
+           x="317.41797"
+           height="2.9009247"
+           width="150"
+           id="rect4012-3"
+           style="fill:#d33502;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text2999-4-8-5-6-1-9-6"
+           y="313.53549"
+           x="392.47974"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#d33502;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+           xml:space="preserve"><tspan
+             id="tspan4061-4"
+             y="313.53549"
              x="392.47974"
-             y="313.53549"
-             id="text2999-4-8-5-6-1-9-6"
-             sodipodi:linespacing="125%"><tspan
-               sodipodi:role="line"
-               x="392.47974"
-               y="313.53549"
-               id="tspan4061-4">Measured Outcome</tspan></text>
-        </g>
-        <g
-           transform="translate(-4,-58)"
-           id="g9283">
-          <path
-             style="fill:none;stroke:#367d7d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstartzlh);marker-mid:none;marker-end:url(#Arrow1SendMQr)"
-             d="m 305,301.85973 c -67,0 -66.5,0 -66.5,0"
-             id="path4101"
-             inkscape:connector-curvature="0" />
-          <text
-             xml:space="preserve"
-             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#367d7d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-             x="270.58636"
+             sodipodi:role="line">Measured Outcome</tspan></text>
+      </g>
+      <g
+         id="g9283"
+         transform="translate(-4,-58)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path4101"
+           d="m 305,301.85973 c -67,0 -66.5,0 -66.5,0"
+           style="fill:none;stroke:#367d7d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstartzlh);marker-mid:none;marker-end:url(#Arrow1SendMQr)" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text2999-4-8-5-6-1-9-2"
+           y="313.72836"
+           x="270.58636"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#367d7d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+           xml:space="preserve"><tspan
+             id="tspan4061-9"
              y="313.72836"
-             id="text2999-4-8-5-6-1-9-2"
-             sodipodi:linespacing="125%"><tspan
-               sodipodi:role="line"
-               x="270.58636"
-               y="313.72836"
-               id="tspan4061-9">causing</tspan></text>
-        </g>
-        <g
-           transform="translate(-2,-58)"
-           id="g9288">
-          <rect
-             style="fill:#37526d;fill-opacity:1;fill-rule:nonzero;stroke:none"
-             id="rect4012"
-             width="122.31203"
-             height="2.9009247"
-             x="96.819527"
-             y="300.43289" />
-          <text
-             xml:space="preserve"
-             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37526d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-             x="157.99434"
+             x="270.58636"
+             sodipodi:role="line">causing</tspan></text>
+      </g>
+      <g
+         id="g9288"
+         transform="translate(-2,-58)">
+        <rect
+           y="300.43289"
+           x="96.819527"
+           height="2.9009247"
+           width="122.31203"
+           id="rect4012"
+           style="fill:#37526d;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text2999-4-8-5-6-1-9"
+           y="313.53549"
+           x="157.99434"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37526d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+           xml:space="preserve"><tspan
              y="313.53549"
-             id="text2999-4-8-5-6-1-9"
-             sodipodi:linespacing="125%"><tspan
-               sodipodi:role="line"
-               id="tspan4059"
-               x="157.99434"
-               y="313.53549">Position of Causal</tspan><tspan
-               sodipodi:role="line"
-               x="157.99434"
-               y="327.28549"
-               id="tspan4061">Influence</tspan></text>
-          <text
-             xml:space="preserve"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-             x="157.74898"
+             x="157.99434"
+             id="tspan4059"
+             sodipodi:role="line">Position of Causal</tspan><tspan
+             id="tspan4061"
+             y="327.28549"
+             x="157.99434"
+             sodipodi:role="line">Influence</tspan></text>
+        <text
+           sodipodi:linespacing="125%"
+           id="text2999-4-8-1-8-8"
+           y="259.00525"
+           x="157.74898"
+           style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+           xml:space="preserve"><tspan
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
              y="259.00525"
-             id="text2999-4-8-1-8-8"
-             sodipodi:linespacing="125%"><tspan
-               id="tspan7232-9-2"
-               sodipodi:role="line"
-               x="157.74898"
-               y="259.00525"
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">Belief about</tspan><tspan
-               id="tspan7236-2-7"
-               sodipodi:role="line"
-               x="157.74898"
-               y="279.00525"
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">caffeine content</tspan><tspan
-               id="tspan7238-7-7"
-               sodipodi:role="line"
-               x="157.74898"
-               y="299.00525"
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">of beverage</tspan></text>
-        </g>
+             x="157.74898"
+             sodipodi:role="line"
+             id="tspan7232-9-2">Belief about</tspan><tspan
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             y="279.00525"
+             x="157.74898"
+             sodipodi:role="line"
+             id="tspan7236-2-7">caffeine content</tspan><tspan
+             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
+             y="299.00525"
+             x="157.74898"
+             sodipodi:role="line"
+             id="tspan7238-7-7">of beverage</tspan></text>
       </g>
     </g>
   </g>

@@ -178,7 +178,7 @@ for( i in seq_len(nrow(dsNorm)) ) {
   dsNorm$Label2[i] <- as.character(as.expression(substitute(list(mu==mu2,sigma==sigma2), list(mu2=dsNorm$Mean[i], sigma2=dsNorm$SD[i]))))
 }
 
-g <- ggplot(dsNorm, aes(x=Mean, xend=Mean, y=Mode, yend=0, color=Color)) +
+g4 <- ggplot(dsNorm, aes(x=Mean, xend=Mean, y=Mode, yend=0, color=Color)) +
   stat_function(fun=dnorm, arg=list(mean=dsNorm[1, "Mean"], sd=dsNorm[1, "SD"]), color=dsNorm[1, "Color"], size=lineSizeCurve, n=calculatedPointCount, alpha=lineAlpha) +
   stat_function(fun=dnorm, arg=list(mean=dsNorm[2, "Mean"], sd=dsNorm[2, "SD"]), color=dsNorm[2, "Color"], size=lineSizeCurve, n=calculatedPointCount, alpha=lineAlpha) +
   stat_function(fun=dnorm, arg=list(mean=dsNorm[3, "Mean"], sd=dsNorm[3, "SD"]), color=dsNorm[3, "Color"], size=lineSizeCurve, n=calculatedPointCount, alpha=lineAlpha) +
@@ -190,21 +190,9 @@ g <- ggplot(dsNorm, aes(x=Mean, xend=Mean, y=Mode, yend=0, color=Color)) +
   NoGridOrYLabelsTheme +
   theme(axis.title.y=element_blank()) +
   theme(axis.text.y=element_blank()) 
+g4
 
-g
-g %+% 
-  aes(label=Label1) + 
-  geom_text(parse=TRUE, vjust=-.1)
-g %+% 
-  aes(label=Label2) + 
-  geom_text(parse=TRUE, vjust=-.1)
-g %+% 
-  aes(label=Label1) + 
-  geom_text(parse=TRUE, vjust=-.1) + 
-  chapterTheme +
-  labs(x=expression(italic(X)), y="Density")
-
-rm(g, i, lineSizeCurve, lineAlpha, dsNorm)
+rm(lineSizeCurve, lineAlpha, dsNorm)
 #####################################
 ## @knitr Figure04_05
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
@@ -237,7 +225,7 @@ gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
 
 rm(paletteZ, g1SD, g2SD)
 #####################################
-## @knitr Figure04_06Together
+## @knitr Figure04_07
 zTableTheme <- theme_minimal() +
   theme(panel.grid = element_blank()) +
   theme(axis.text.x = element_text(size=30, color="dodgerblue4")) +
@@ -268,13 +256,6 @@ grid.arrange(
   ncol=2
 )
 #####################################
-## @knitr Figure04_06Separate
-ConstructTableHeader(0, 1.5, 1.5, "z")
-ConstructTableHeader(1.5, Inf, 1.5, "z")
-ConstructTableHeader(-1.5, 0, -1.5, "-z")
-ConstructTableHeader(-Inf, -1.5, -1.5, "-z")
-
-#####################################
 ## @knitr Figure04_08
 #Figure 4.8 is described in the text as a standard normal distribution showing two areas:  
 #   between z = 0 and z = 0.15, there is an area = .0596.  And from z = 0.15 and beyond, there is an area = .4404.  
@@ -288,7 +269,7 @@ sizeTextArea <- 4.5; sizeTextLocation <- 3.5
 z1 <- 0; z2 <- .7; z3 <- Inf; z3Position <- 3
 z1PrettyPositive <- z1; z2PrettyPositive <- z2; z3PrettyPositive <- "infinity";
 z1PrettyNegative <- -z1; z2PrettyNegative <- -z2; z3PrettyNegative <- "-infinity";
-gRight <- ggplot(data.frame(z=-3:3), aes(x=z)) +
+g8Right <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, z1, z2), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, z2, z3), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
@@ -305,7 +286,7 @@ gRight <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   theme(panel.border = element_blank()) +
   labs(x=NULL, y=NULL)
 
-gLeft <- ggplot(data.frame(z=-3:3), aes(x=z)) +
+g8Left <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -z2, -z1), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, -z3, -z2), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
@@ -323,25 +304,15 @@ gLeft <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 #   theme(plot.margin=unit(c(.1,.2,.4,0), "lines")) +
   labs(x=NULL, y=NULL)
 
-gtRight <- ggplot_gtable(ggplot_build(gRight))
-gtLeft <- ggplot_gtable(ggplot_build(gLeft))
+gt8Right <- ggplot_gtable(ggplot_build(g8Right))
+gt8Left <- ggplot_gtable(ggplot_build(g8Left))
 
-gtRight$layout$clip[gtRight$layout$name == "panel"] <- "off"
-gtLeft$layout$clip[gtLeft$layout$name == "panel"] <- "off"
+gt8Right$layout$clip[gt8Right$layout$name == "panel"] <- "off"
+gt8Left$layout$clip[gt8Left$layout$name == "panel"] <- "off"
 grid.newpage()
-grid.draw(gtRight)
+grid.draw(gt8Right)
 grid.newpage()
-grid.draw(gtLeft)
-
-#####################################
-## @knitr Figure04_08b
-grid.arrange(
-  gtRight,
-  gtLeft, 
-  ncol=2
-)
-
-rm(z1, z2, z3, gRight, gLeft, gtRight, gtLeft)
+grid.draw(gt8Left)
 
 #####################################
 ## @knitr Figure04_09
@@ -368,3 +339,23 @@ grid.draw(gt)
 
 rm(singleZ, gSingle, gt)
 #####################################
+## @knitr UnusedVariantsFigure04_04
+g4 %+% 
+  aes(label=Label1) + 
+  geom_text(parse=TRUE, vjust=-.1)
+g4 %+% 
+  aes(label=Label2) + 
+  geom_text(parse=TRUE, vjust=-.1)
+g4 %+% 
+  aes(label=Label1) + 
+  geom_text(parse=TRUE, vjust=-.1) + 
+  chapterTheme +
+  labs(x=expression(italic(X)), y="Density")
+
+#####################################
+## @knitr UnusedVariantsFigure04_08
+grid.arrange(
+  gt8Right,
+  gt8Left, 
+  ncol=2
+)

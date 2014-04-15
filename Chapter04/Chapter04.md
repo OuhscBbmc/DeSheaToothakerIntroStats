@@ -61,28 +61,25 @@ read_chunk("./Chapter04/Chapter04.R")
 <img src="figure_rmd/Figure04_03.png" title="plot of chunk Figure04_03" alt="plot of chunk Figure04_03" width="550px" />
 
 ## Figure 4-4
-<img src="figure_rmd/Figure04_041.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" /><img src="figure_rmd/Figure04_042.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" /><img src="figure_rmd/Figure04_043.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" /><img src="figure_rmd/Figure04_044.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" />
+<img src="figure_rmd/Figure04_04.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" />
 
 ## Figure 4-5
 <img src="figure_rmd/Figure04_05.png" title="plot of chunk Figure04_05" alt="plot of chunk Figure04_05" width="550px" />
 
-## Figures 4-6 and 4-7
-Here's all four curves in the same graphics file.
-
-<img src="figure_rmd/Figure04_06Together.png" title="plot of chunk Figure04_06Together" alt="plot of chunk Figure04_06Together" width="250px" />
-
-
-Here's is each curve in its own graphics file.
-
-<img src="figure_rmd/Figure04_06Separate1.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate2.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate3.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" /><img src="figure_rmd/Figure04_06Separate4.png" title="plot of chunk Figure04_06Separate" alt="plot of chunk Figure04_06Separate" width="125px" />
+## Figures4-7
+<img src="figure_rmd/Figure04_07.png" title="plot of chunk Figure04_07" alt="plot of chunk Figure04_07" width="300px" />
 
 ## Figure 4-8
-<img src="figure_rmd/Figure04_081.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="550px" /><img src="figure_rmd/Figure04_082.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="550px" />
-
-<img src="figure_rmd/Figure04_08b.png" title="plot of chunk Figure04_08b" alt="plot of chunk Figure04_08b" width="550px" />
+<img src="figure_rmd/Figure04_081.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="350px" /><img src="figure_rmd/Figure04_082.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="350px" />
 
 ## Figure 4-9
 <img src="figure_rmd/Figure04_09.png" title="plot of chunk Figure04_09" alt="plot of chunk Figure04_09" width="550px" />
+
+
+## Unused Graphics
+<img src="figure_rmd/UnusedVariantsFigure04_041.png" title="plot of chunk UnusedVariantsFigure04_04" alt="plot of chunk UnusedVariantsFigure04_04" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_042.png" title="plot of chunk UnusedVariantsFigure04_04" alt="plot of chunk UnusedVariantsFigure04_04" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_043.png" title="plot of chunk UnusedVariantsFigure04_04" alt="plot of chunk UnusedVariantsFigure04_04" width="550px" />
+
+<img src="figure_rmd/UnusedVariantsFigure04_08.png" title="plot of chunk UnusedVariantsFigure04_08" alt="plot of chunk UnusedVariantsFigure04_08" width="550px" />
 
 
 ## Session Info
@@ -90,7 +87,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-14, 18:05 -0500
+Report created by Will at 2014-04-14, 21:17 -0500
 ```
 
 ```

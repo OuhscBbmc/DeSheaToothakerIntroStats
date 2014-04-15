@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="585.91589"
-     inkscape:cy="61.777103"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="-100.58872"
+     inkscape:cy="252.80518"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -422,16 +422,6 @@
          d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
          id="path9641-3" />
     </marker>
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient7324-8-5"
-       id="radialGradient10090-5"
-       gradientUnits="userSpaceOnUse"
-       cx="173"
-       cy="388.36218"
-       fx="173"
-       fy="388.36218"
-       r="99.126228" />
     <linearGradient
        id="linearGradient7324-8-5"
        osb:paint="gradient">
@@ -482,6 +472,16 @@
        fx="173"
        fy="388.36218"
        r="99.126228" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7324-8-5"
+       id="radialGradient3245"
+       gradientUnits="userSpaceOnUse"
+       cx="173"
+       cy="388.36218"
+       fx="173"
+       fy="388.36218"
+       r="99.126228" />
   </defs>
   <metadata
      id="metadata7">
@@ -500,6 +500,22 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
+    <path
+       transform="matrix(1.957702,0,0,1.181284,-97.34452,2.403582)"
+       d="m 259.61698,474.97916 c -15.92434,15.92434 -157.30962,15.92434 -173.233957,0 -15.924337,-15.92434 -15.924338,-157.30962 0,-173.23395 15.924337,-15.92434 157.309617,-15.92434 173.233957,0 15.92433,15.92433 15.92433,157.30961 0,173.23395 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0.13"
+       inkscape:flatsided="true"
+       sodipodi:arg2="1.5707963"
+       sodipodi:arg1="0.78539816"
+       sodipodi:r2="86.616974"
+       sodipodi:r1="122.4949"
+       sodipodi:cy="388.36218"
+       sodipodi:cx="173"
+       sodipodi:sides="4"
+       id="path2997-1"
+       style="fill:url(#radialGradient3245);fill-opacity:1;fill-rule:nonzero;stroke:#6e6e6e;stroke-width:1.13169763;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:9.05358104,9.05358104;stroke-dashoffset:11.31697629"
+       sodipodi:type="star" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4022"
@@ -753,249 +769,184 @@
         </g>
       </g>
     </g>
-    <g
-       id="g10260"
-       transform="translate(20.106477,-115.96551)">
-      <text
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans"
-         x="228.02792"
-         y="600.17169"
-         id="text2999-6"
-         sodipodi:linespacing="125%"
-         transform="matrix(0.95452299,0.29813733,-0.29813733,0.95452299,0,0)"><tspan
-           sodipodi:role="line"
-           id="tspan3001-8"
-           x="228.02792"
-           y="600.17169"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Amount of sleep last night</tspan></text>
-      <text
-         transform="matrix(0.96935505,-0.24566396,0.24566396,0.96935505,0,0)"
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         x="184.33156"
-         y="748.41095"
-         id="text2999-4-9"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan3001-0-83"
-           x="184.33156"
-           y="748.41095"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #1</tspan></text>
-      <text
-         transform="matrix(0.97196803,0.23511307,-0.23511307,0.97196803,0,0)"
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         x="465.16547"
-         y="400.11334"
-         id="text2999-9-5"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan3001-4-5"
-           x="465.16547"
-           y="400.11334"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Use of sleep aids</tspan></text>
-      <text
-         transform="matrix(0.90561838,0.42409357,-0.42409357,0.90561838,0,0)"
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         x="300.50845"
-         y="405.49139"
-         id="text2999-4-8-1"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan3001-0-8-5"
-           x="300.50845"
-           y="405.49139"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">EV: Usual coffee consumption</tspan></text>
-      <text
-         transform="matrix(0.9830165,-0.18351718,0.18351718,0.9830165,0,0)"
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         x="100.95441"
-         y="714.99292"
-         id="text2999-4-2-5"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan3001-0-4-8"
-           x="100.95441"
-           y="714.99292"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #2</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         x="-147.88597"
-         y="484.66641"
-         id="text2999-4-5-4"
-         sodipodi:linespacing="125%"
-         transform="matrix(0.91517233,-0.40306278,0.40306278,0.91517233,0,0)"><tspan
-           sodipodi:role="line"
-           id="tspan3001-0-5-0"
-           x="-147.88597"
-           y="484.66641"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1">Unknown EV #3</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
-         x="-443.33206"
-         y="369.6243"
-         id="text2999-4-1-5"
-         sodipodi:linespacing="125%"
-         transform="matrix(0.56106798,-0.82776973,0.82776973,0.56106798,0,0)"><tspan
-           sodipodi:role="line"
-           x="-443.33206"
-           y="369.6243"
-           style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
-           id="tspan4054-4">EV: Stress level</tspan></text>
-      <g
-         transform="translate(-29.60771,374.34064)"
-         id="g10063-7">
-        <path
-           transform="matrix(1.957702,0,0,1.181284,-55.016487,-249.22928)"
-           d="m 259.61698,474.97916 c -15.92434,15.92434 -157.30962,15.92434 -173.233957,0 -15.924337,-15.92434 -15.924338,-157.30962 0,-173.23395 15.924337,-15.92434 157.309617,-15.92434 173.233957,0 15.92433,15.92433 15.92433,157.30961 0,173.23395 z"
-           inkscape:randomized="0"
-           inkscape:rounded="0.13"
-           inkscape:flatsided="true"
-           sodipodi:arg2="1.5707963"
-           sodipodi:arg1="0.78539816"
-           sodipodi:r2="86.616974"
-           sodipodi:r1="122.4949"
-           sodipodi:cy="388.36218"
-           sodipodi:cx="173"
-           sodipodi:sides="4"
-           id="path2997-1"
-           style="fill:url(#radialGradient10090-5);fill-opacity:1;fill-rule:nonzero;stroke:#6e6e6e;stroke-width:1.13169765;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:9.05358127, 9.05358127;stroke-dashoffset:0"
-           sodipodi:type="star" />
-        <text
-           xml:space="preserve"
-           style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6e6e6e;fill-opacity:1;stroke:none;font-family:Sans"
-           x="280.81244"
-           y="109.9908"
-           id="text2999-4-8-5-6-1-4"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             x="280.81244"
-             y="109.9908"
-             style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1"
-             id="tspan4353-2-7-9">Almost non-existent shield of manipulation</tspan><tspan
-             id="tspan10254"
-             sodipodi:role="line"
-             x="280.81244"
-             y="124.9908"
-             style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1">(without randomization)</tspan></text>
-        <g
-           id="g9274-9"
-           transform="translate(-6,-58)">
-          <text
-             sodipodi:linespacing="125%"
-             id="text2999-4-8-1-2-1-1-0"
-             y="258.71637"
-             x="392.46094"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-             xml:space="preserve"><tspan
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-               y="258.71637"
-               x="392.46094"
-               sodipodi:role="line"
-               id="tspan7238-2-2-2-3">Observed differences</tspan><tspan
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-               y="278.71637"
-               x="392.46094"
-               sodipodi:role="line"
-               id="tspan7272-3-60-0">in participants'</tspan><tspan
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-               y="298.71637"
-               x="392.46094"
-               sodipodi:role="line"
-               id="tspan7274-3-4-3">alertness</tspan></text>
-          <rect
-             y="300.43289"
-             x="317.41797"
-             height="2.9009247"
-             width="150"
-             id="rect4012-3-5"
-             style="fill:#d33502;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text2999-4-8-5-6-1-9-6-0"
-             y="313.53549"
-             x="392.47974"
-             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#d33502;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-             xml:space="preserve"><tspan
-               id="tspan4061-4-7"
-               y="313.53549"
-               x="392.47974"
-               sodipodi:role="line">Measured Outcome</tspan></text>
-        </g>
-        <g
-           id="g9283-6"
-           transform="translate(-4,-58)">
-          <path
-             inkscape:connector-curvature="0"
-             id="path4101-7"
-             d="m 305,301.85973 c -67,0 -66.5,0 -66.5,0"
-             style="fill:none;stroke:#367d7d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstartzlh);marker-mid:none;marker-end:url(#Arrow1SendMQr)" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text2999-4-8-5-6-1-9-2-8"
-             y="313.72836"
-             x="270.58636"
-             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#367d7d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-             xml:space="preserve"><tspan
-               id="tspan4061-9-3"
-               y="313.72836"
-               x="270.58636"
-               sodipodi:role="line">possibly causing?</tspan></text>
-        </g>
-        <g
-           id="g9288-6"
-           transform="translate(-2,-58)">
-          <rect
-             y="300.43289"
-             x="96.819527"
-             height="2.9009247"
-             width="122.31203"
-             id="rect4012-4"
-             style="fill:#37526d;fill-opacity:1;fill-rule:nonzero;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text2999-4-8-5-6-1-9-4"
-             y="313.53549"
-             x="157.99434"
-             style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37526d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
-             xml:space="preserve"><tspan
-               y="313.53549"
-               x="157.99434"
-               id="tspan4059-1"
-               sodipodi:role="line">Position of Causal</tspan><tspan
-               id="tspan4061-95"
-               y="327.28549"
-               x="157.99434"
-               sodipodi:role="line">Influence</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text2999-4-8-1-8-8-5"
-             y="259.00525"
-             x="157.74898"
-             style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-             xml:space="preserve"><tspan
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-               y="259.00525"
-               x="157.74898"
-               sodipodi:role="line"
-               id="tspan7232-9-2-7">Belief about</tspan><tspan
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-               y="279.00525"
-               x="157.74898"
-               sodipodi:role="line"
-               id="tspan7236-2-7-4">caffeine content</tspan><tspan
-               style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold"
-               y="299.00525"
-               x="157.74898"
-               sodipodi:role="line"
-               id="tspan7238-7-7-7">of beverage</tspan></text>
-        </g>
-      </g>
-    </g>
+    <text
+       transform="matrix(0.9976992,-0.06779605,0.06779605,0.9976992,0,0)"
+       sodipodi:linespacing="125%"
+       id="text2999-6"
+       y="502.02298"
+       x="-5.3554831"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         sodipodi:role="line"
+         id="tspan3249"
+         x="-5.3554831"
+         y="502.02298">EV: Length of nurse-resident relationship</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text2999-4-9"
+       y="502.62515"
+       x="61.040489"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"
+       transform="matrix(0.96935505,-0.24566396,0.24566396,0.96935505,0,0)"><tspan
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#6ebcbc;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         y="502.62515"
+         x="61.040489"
+         id="tspan3001-0-83"
+         sodipodi:role="line">Unknown EV #1</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text2999-9-5"
+       y="467.67722"
+       x="-33.421516"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"
+       transform="matrix(0.99349042,-0.11391568,0.11391568,0.99349042,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan3251"
+         x="-33.421516"
+         y="467.67722">EV: Other personal items in residents' rooms</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text2999-4-8-1"
+       y="410.2413"
+       x="60.105461"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"
+       transform="matrix(0.99884943,0.04795643,-0.04795643,0.99884943,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan3247"
+         x="60.105461"
+         y="410.2413">EV: Awareness of being in a study</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text2999-4-2-5"
+       y="438.3428"
+       x="84.277061"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#6ebcbc;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"
+       transform="matrix(0.99897281,0.04531361,-0.04531361,0.99897281,0,0)"><tspan
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#6ebcbc;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+         y="438.3428"
+         x="84.277061"
+         id="tspan3001-0-4-8"
+         sodipodi:role="line">Unknown EV #2</tspan></text>
+    <text
+       transform="matrix(0.92877694,0.37063918,-0.37063918,0.92877694,0,0)"
+       sodipodi:linespacing="125%"
+       id="text2999-4-5-4"
+       y="312.84201"
+       x="168.97839"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#6ebcbc;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:12px;fill:#6ebcbc;fill-opacity:1"
+         y="312.84201"
+         x="168.97839"
+         id="tspan3001-0-5-0"
+         sodipodi:role="line">Unknown EV #3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6e6e6e;fill-opacity:1;stroke:none;font-family:Sans"
+       x="241.76273"
+       y="360.36594"
+       id="text2999-4-8-5-6-1-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="241.76273"
+         y="360.36594"
+         style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1"
+         id="tspan4353-2-7-9">Almost non-existent shield of manipulation</tspan><tspan
+         id="tspan10254"
+         sodipodi:role="line"
+         x="241.76273"
+         y="375.36594"
+         style="font-size:12px;text-align:center;text-anchor:middle;fill:#6e6e6e;fill-opacity:1">(without randomization)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="342.91675"
+       y="498.80801"
+       id="text2999-4-8-1-2-1-1-0"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan7274-3-4-3"
+         sodipodi:role="line"
+         x="342.91675"
+         y="498.80801"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#faa818;fill-opacity:1;font-family:Sans;-inkscape-font-specification:Sans Bold">?Criterion?</tspan></text>
+    <rect
+       style="fill:#d33502;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect4012-3-5"
+       width="150"
+       height="2.9009247"
+       x="267.91675"
+       y="500.80801" />
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#d33502;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+       x="342.97852"
+       y="513.91064"
+       id="text2999-4-8-5-6-1-9-6-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="342.97852"
+         y="513.91064"
+         id="tspan4061-4-7">Measured Outcome</tspan></text>
+    <path
+       style="fill:none;stroke:#367d7d;stroke-width:1.07440138;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstartzlh);marker-mid:none;marker-end:url(#Arrow1SendMQr)"
+       d="m 245.49877,502.23486 c -19.33516,0 -19.19087,0 -19.19087,0"
+       id="path4101-7"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#367d7d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="235.08514"
+       y="514.10352"
+       id="text2999-4-8-5-6-1-9-2-8"
+       sodipodi:linespacing="125%"><tspan
+         y="514.10352"
+         x="235.08514"
+         id="tspan3225"
+         sodipodi:role="line">possibly</tspan><tspan
+         y="527.85352"
+         x="235.08514"
+         id="tspan3227"
+         sodipodi:role="line">causing?</tspan></text>
+    <rect
+       style="fill:#37526d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect4012-4"
+       width="122.31203"
+       height="2.9009247"
+       x="73.318291"
+       y="500.80801" />
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37526d;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
+       x="134.4931"
+       y="513.91064"
+       id="text2999-4-8-5-6-1-9-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4059-1"
+         x="134.4931"
+         y="513.91064">Position of Causal</tspan><tspan
+         sodipodi:role="line"
+         x="134.4931"
+         y="527.66064"
+         id="tspan4061-95">Influence</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#41a30d;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
+       x="140.24774"
+       y="467.38037"
+       id="text2999-4-8-1-8-8-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3221"
+         x="140.24774"
+         y="467.38037">Life collages</tspan><tspan
+         sodipodi:role="line"
+         id="tspan3223"
+         x="140.24774"
+         y="481.13037">(present/absent)</tspan></text>
   </g>
 </svg>

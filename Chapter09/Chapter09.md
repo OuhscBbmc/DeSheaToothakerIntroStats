@@ -18,8 +18,8 @@ opts_chunk$set(
   message = TRUE,
   comment = NA, 
   tidy = FALSE,
-  fig.width = 5.5, 
   fig.height = 4, 
+  fig.width = 5.5, 
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure_rmd/',     
   dev = "png",
@@ -73,12 +73,6 @@ read_chunk("./Chapter09/Chapter09.R")
 
 
 ## Figure 9-6
-
-```
-Warning: Removed 74 rows containing missing values (geom_path).
-Warning: Removed 74 rows containing missing values (geom_path).
-```
-
 <img src="figure_rmd/Figure09_06.png" title="plot of chunk Figure09_06" alt="plot of chunk Figure09_06" width="550px" />
 
 
@@ -93,12 +87,6 @@ Warning: Removed 74 rows containing missing values (geom_path).
 
 
 ## Figure 9-10
-
-```
-Warning: Removed 74 rows containing missing values (geom_path).
-Warning: Removed 74 rows containing missing values (geom_path).
-```
-
 <img src="figure_rmd/Figure09_10.png" title="plot of chunk Figure09_10" alt="plot of chunk Figure09_10" width="550px" />
 
 
@@ -111,7 +99,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-15, 14:59 -0500
+Report created by Will at 2014-04-15, 22:44 -0500
 ```
 
 ```

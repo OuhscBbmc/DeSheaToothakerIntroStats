@@ -38,6 +38,8 @@ ConvertFromMToZ <- function( m) {
 }
 ticksSmall <- 19:47
 ticksBig <- seq(20, 45, by=5)
+ticksSmallExtended <- 23:51
+ticksBigExtended <- seq(25, 50, by=5)
 tickHeightSmall <- .0025
 tickHeightBig <- .005
 
@@ -182,8 +184,8 @@ zAlt <- 2.7
 dnorm27 <- function(x) dnorm(x, mean=zAlt)                
 g6 <- ggplot(data.frame(f=c(-2.9, 4.9)), aes(x=f)) +
   annotate("segment", x=-Inf, xend=Inf, y=parallelLineHeight, yend=parallelLineHeight, color="gray80") +
-  annotate("segment", x=ConvertFromMToZ(ticksSmall), xend=ConvertFromMToZ(ticksSmall), y=parallelLineHeight-tickHeightSmall, yend=parallelLineHeight+tickHeightSmall, color="gray80") +
-  annotate("segment", x=ConvertFromMToZ(ticksBig), xend=ConvertFromMToZ(ticksBig), y=parallelLineHeight-tickHeightBig, yend=parallelLineHeight+tickHeightBig, color="gray40") +
+  annotate("segment", x=ConvertFromMToZ(ticksSmallExtended), xend=ConvertFromMToZ(ticksSmallExtended), y=parallelLineHeight-tickHeightSmall, yend=parallelLineHeight+tickHeightSmall, color="gray80") +
+  annotate("segment", x=ConvertFromMToZ(ticksBigExtended), xend=ConvertFromMToZ(ticksBigExtended), y=parallelLineHeight-tickHeightBig, yend=parallelLineHeight+tickHeightBig, color="gray40") +
   annotate("text", label="Maze Completion Time", x=0, y=parallelLineHeight, parse=F, vjust=2.25, size=4, color="gray40") +
   
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCriticalLight[2]) +
@@ -264,8 +266,8 @@ zAlt <- 2.7
 dnorm27 <- function(x) dnorm(x, mean=zAlt)                
 g10 <- ggplot(data.frame(f=c(-2.9, 4.9)), aes(x=f)) +
   annotate("segment", x=-Inf, xend=Inf, y=parallelLineHeight, yend=parallelLineHeight, color="gray80") +
-  annotate("segment", x=ConvertFromMToZ(ticksSmall), xend=ConvertFromMToZ(ticksSmall), y=parallelLineHeight-tickHeightSmall, yend=parallelLineHeight+tickHeightSmall, color="gray80") +
-  annotate("segment", x=ConvertFromMToZ(ticksBig), xend=ConvertFromMToZ(ticksBig), y=parallelLineHeight-tickHeightBig, yend=parallelLineHeight+tickHeightBig, color="gray40") +
+  annotate("segment", x=ConvertFromMToZ(ticksSmallExtended), xend=ConvertFromMToZ(ticksSmallExtended), y=parallelLineHeight-tickHeightSmall, yend=parallelLineHeight+tickHeightSmall, color="gray80") +
+  annotate("segment", x=ConvertFromMToZ(ticksBigExtended), xend=ConvertFromMToZ(ticksBigExtended), y=parallelLineHeight-tickHeightBig, yend=parallelLineHeight+tickHeightBig, color="gray40") +
   annotate("text", label="Maze Completion Time", x=0, y=parallelLineHeight, parse=F, vjust=2.25, size=4, color="gray40") +
   
   annotate("segment", x=criticalZ01, xend=criticalZ01, y=0, yend=Inf, color=PaletteCriticalLight[2]) +

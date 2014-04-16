@@ -47,15 +47,15 @@ dsPregnancyLong$TimePoint <- as.integer(gsub(pattern="T(\\d)Lifts", "\\1", dsPre
 dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoint", "Group"), summarize, CountMean=mean(LiftCount, na.rm=T))
 #####################################
 ## @knitr Figure03_01
-cat("The two rotations demonstrate that the nonzero angle favors some slices more than others.")
-oldPar <- par(mfrow=c(1, 2)) #par(mfrow=c(1, 1))
+# cat("The two rotations demonstrate that the nonzero angle favors some slices more than others.")
+# oldPar <- par(mfrow=c(1, 2)) #par(mfrow=c(1, 1))
 #Left Panel
 plotrix::pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, height=.5,
       edges=1000, start=pi*1/5, theta=pi/10, mar=c(0, 0, 0, 0))
-#Right Panel
-plotrix::pie3D(x=dsPregnancySummarized$Count, labels=NULL, height=.5, 
-      edges=1000, start=pi*5/5, theta=pi/10, mar=c(0, 0, 0, 0))
-par(oldPar)
+# #Right Panel
+# plotrix::pie3D(x=dsPregnancySummarized$Count, labels=NULL, height=.5, 
+#       edges=1000, start=pi*5/5, theta=pi/10, mar=c(0, 0, 0, 0))
+# par(oldPar)
 
 # cat("To demonstrate the weaknesses a pie chart, we shouldn't use a dataset that has an angle at 90, 180, or 270 degrees.  Something like this is almost impossible to tell the ratio between the slices.")
 # pieval <- c(2,4,6,8)
@@ -186,6 +186,7 @@ gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=Count
   scale_color_manual(values=PalettePregancyGroup) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
+  theme(legend.background=element_rect(fill="#FFFFFF99")) +
   labs(x="Time Point", y="Average Number of Lifts")
 
 gLongitudinalLifts
@@ -283,27 +284,10 @@ g03_19 + coord_flip(ylim = c(0, 21))
 
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
-  geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.2, color=NA ) +
-  geom_point(position=position_jitter(w = 0.4, h = 0), na.rm=T, size=2, shape=1) +
+  geom_bar(stat="summary", fun.y="mean", na.rm=T, color=NA) +
+  geom_point(position=position_jitter(w = 0.4, h = 0), na.rm=T, size=2, shape=21) +
   scale_color_manual(values=PalettePregancyGroup) +
-  scale_fill_manual(values=PalettePregancyGroup) +
-  coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
-  chapterTheme +
-  theme(legend.position="none") +
-  labs(x=NULL, y="Number of Lifts (at Time 1)")
-
-#####################################
-## @knitr Figure03_22
-### Possible Narration:
-### Layering summarized and observed data can help cognitively reinforce the patterns in the data.
-### Variability/spread is represented by both the box and the points.
-
-set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
-ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
-  geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
-  geom_point(position=position_jitter(w=0.4, h=0), na.rm=T, size=2, shape=1) +
-  scale_color_manual(values=PalettePregancyGroup) +
-  scale_fill_manual(values=PalettePregancyGroup) +
+  scale_fill_manual(values=PalettePregancyGroupLight) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +
@@ -319,10 +303,10 @@ set.seed(seed=789) #Set a seed so the jittered graphs are consistent across rend
 gBox <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
 #   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) + #See Chang (2013), Recipe 6.8.
 #   geom_boxplot(na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
-  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', na.rm=T, alpha=.2, outlier.shape=NULL, outlier.colour=NA) +
-  geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=1, na.rm=T) +
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', na.rm=T, outlier.shape=NULL, outlier.colour=NA) +
+  geom_point(position=position_jitter(w = 0.4, h = 0), size=2, shape=21, na.rm=T) +
   scale_color_manual(values=PalettePregancyGroup) +
-  scale_fill_manual(values=PalettePregancyGroup) +
+  scale_fill_manual(values=PalettePregancyGroupLight) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   chapterTheme +
   theme(legend.position="none") +

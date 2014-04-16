@@ -42,6 +42,7 @@ PalettePregancyDelivery <- transformColor(adjustcolor(brewer.pal(3, "Accent"), a
 PalettePregancyDeliveryBad <- transformColor( c("#FF0000CC", "#00FFFFCC")) #Translucent red & cyan
 
 PalettePregancyGroup <- transformColor(adjustcolor(brewer.pal(3, "Dark2"), alpha.f=1)[1:2])
+PalettePregancyGroupLight <- adjustcolor(PalettePregancyGroup, alpha.f=.2)
 PalettePregancyGroupBad <- transformColor(adjustcolor(c("blue", "maroon"), alpha.f=.7))
 
 PaletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Set1"))[c(1,2)])

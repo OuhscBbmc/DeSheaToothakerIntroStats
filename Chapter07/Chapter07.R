@@ -38,15 +38,16 @@ dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 #####################################
 ## @knitr Figure07_01
 ## No longer true: Figure07_01 is linked to the first histogram in Chapter 03.
-xLimits <- c(0, 35)
+xLimits <- c(0, 36)
 gSample <- ggplot(dsPregnancy, aes(x=T1Lifts)) +
-  scale_x_continuous(limits=xLimits, expand=c(0,0)) +
+#   scale_x_continuous(expand=c(0,0)) +
+  coord_cartesian(xlim=xLimits, ylim=c(0, 17.5)) +
   labs(x="Number of Lifts in 1 min", y="Frequency")
 
 gSample + 
 #   geom_histogram(binwidth=2.5, fill="#94583C", color="#FFF7B6", alpha=.6) + #http://colrd.com/palette/23827/
   geom_histogram(binwidth=2.5, fill="#94583CAA", color="#601600") + #http://colrd.com/palette/23827/
-  scale_y_continuous(expand=c(0,0)) +
+#   scale_y_continuous(expand=c(0,0)) +
   chapterTheme
 
 #####################################
@@ -54,22 +55,22 @@ gSample +
 
 gSampleShrunk <- gSample +
   geom_histogram(binwidth=2.5, fill="#94583CAA", color="#94583C") + 
-  scale_y_continuous(expand=c(0,0), labels=NULL) + 
+  scale_y_continuous(labels=NULL) + 
   labs(x=NULL, y=NULL) +
   NoGridOrYLabelsTheme
 
 gMeanSample <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
   geom_blank() +
-  scale_x_continuous(limits=xLimits, expand=c(0,0), breaks=19.41) +
-  scale_y_continuous(expand=c(0,0), labels=NULL) + 
+  scale_x_continuous(breaks=19.41) +
+  scale_y_continuous(labels=NULL) + 
   labs(x=NULL, y=NULL) +
   NoGridOrYLabelsTheme
 # gMeanSample
 
 gMeanPopulation <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
   geom_blank() +
-  scale_x_continuous(limits=xLimits, expand=c(0,0), breaks=21) +
-  scale_y_continuous(expand=c(0,0), labels=NULL) + 
+  scale_x_continuous(breaks=21) +
+  scale_y_continuous(labels=NULL) + 
   labs(x=NULL, y=NULL) +
   NoGridOrYLabelsTheme
 # gMeanPopulation

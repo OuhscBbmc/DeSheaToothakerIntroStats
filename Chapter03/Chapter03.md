@@ -18,9 +18,9 @@ opts_chunk$set(
   message = TRUE,
   comment = NA, 
   tidy = FALSE,
-  fig.width = 5.5, 
   fig.height = 4, 
-  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.width = 5.5, 
+  out.width = "550px",
   fig.path = 'figure_rmd/',     
   dev = "png",
 #   fig.path = 'figure_pdf/',     
@@ -53,12 +53,7 @@ read_chunk("./Chapter03/Chapter03.R")
 
 
 ## Figure 3-1
-
-```
-The two rotations demonstrate that the nonzero angle favors some slices more than others.
-```
-
-<img src="figure_rmd/Figure03_01.png" title="plot of chunk Figure03_01" alt="plot of chunk Figure03_01" width="550px" />
+<img src="figure_rmd/Figure03_01.png" title="plot of chunk Figure03_01" alt="plot of chunk Figure03_01" width="200px" />
 
 
 ## Figure 3-2
@@ -163,7 +158,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-15, 14:56 -0500
+Report created by Will at 2014-04-15, 21:39 -0500
 ```
 
 ```

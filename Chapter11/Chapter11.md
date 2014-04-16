@@ -18,10 +18,9 @@ opts_chunk$set(
   message = TRUE,
   comment = NA, 
   tidy = FALSE,
-  fig.width = 4, 
-  fig.height = 2, 
+  fig.height = 2,
+  fig.width = 4,  
   out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure_rmd/',     
   fig.path = 'figure_rmd/',     
   dev = "png",
 #   fig.path = 'figure_pdf/',     
@@ -70,7 +69,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-04-15, 14:59 -0500
+Report created by Will at 2014-04-16, 00:30 -0500
 ```
 
 ```

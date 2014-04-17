@@ -10,15 +10,15 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="317.93518"
-   height="276.80618"
+   width="218.51141"
+   height="181.4894"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Figure15_01.svg"
-   inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_01.png"
-   inkscape:export-xdpi="300.10168"
-   inkscape:export-ydpi="300.10168">
+   sodipodi:docname="Figure15_04.svg"
+   inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_19.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.9688504"
-     inkscape:cx="286.48598"
-     inkscape:cy="173.30374"
+     inkscape:zoom="0.8477246"
+     inkscape:cx="-167.88152"
+     inkscape:cy="189.2299"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -45,9 +45,11 @@
      inkscape:object-paths="true"
      inkscape:connector-spacing="20"
      fit-margin-top="0.1"
-     fit-margin-left="0.1"
+     fit-margin-right="0.1"
      fit-margin-bottom="0.1"
-     fit-margin-right="0.1" />
+     fit-margin-left="0.1" />
+  <title
+     id="title4052">Isolating the IV in the position of causal influence</title>
   <defs
      id="defs4">
     <marker
@@ -360,6 +362,24 @@
        id="linearGradient4188"
        xlink:href="#linearGradient4178"
        inkscape:collect="always" />
+    <linearGradient
+       y2="146.3141"
+       x2="143.19154"
+       y1="146.3141"
+       x1="24.947571"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4194"
+       xlink:href="#linearGradient4178"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="146.3141"
+       x2="143.19154"
+       y1="146.3141"
+       x1="24.947571"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4196"
+       xlink:href="#linearGradient4178"
+       inkscape:collect="always" />
     <marker
        style="overflow:visible"
        id="Arrow2Mend-3"
@@ -570,118 +590,6 @@
          id="path4997"
          inkscape:connector-curvature="0" />
     </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Mend-1G"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Mend-1G">
-      <path
-         transform="scale(-0.6,-0.6)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path4813"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Mend-1sz"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Mend-1sz">
-      <path
-         transform="scale(-0.6,-0.6)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path4816"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Mend-1O"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Mend-1O">
-      <path
-         transform="scale(-0.6,-0.6)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path4819"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Mend-1p"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Mend-1p">
-      <path
-         transform="scale(-0.6,-0.6)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path4822"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Sendc"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Sendc">
-      <path
-         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path5361"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Sendz"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Sendz">
-      <path
-         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path5364"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2Sendh"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2Sendh">
-      <path
-         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path5367"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="Arrow2SendY"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow2SendY">
-      <path
-         transform="matrix(-0.3,0,0,-0.3,0.69,0)"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
-         id="path5370"
-         inkscape:connector-curvature="0" />
-    </marker>
   </defs>
   <metadata
      id="metadata7">
@@ -691,7 +599,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title>Isolating the IV in the position of causal influence</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -699,7 +607,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(3.3793416,2.7375989)">
+     transform="translate(3.5074307,-19.716917)">
     <flowRoot
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        id="flowRoot4050"
@@ -711,180 +619,104 @@
            height="108.42304"
            width="378.30212"
            id="rect4054" /></flowRegion><flowPara
-         id="flowPara4056" /></flowRoot>    <flowRoot
+         id="flowPara4056" /></flowRoot>    <g
+       style="fill:#edf8b1;fill-opacity:1"
+       transform="translate(-6.930055,-67.050318)"
+       id="g4150">
+      <rect
+         style="fill:#edf8b1;fill-opacity:1;stroke:none"
+         id="rect4058"
+         width="118.24397"
+         height="32.998318"
+         x="24.947571"
+         y="129.81494" />
+      <flowRoot
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         id="flowRoot4074"
+         transform="translate(0,6.4762362)"><flowRegion
+           style="fill:url(#linearGradient4196);fill-opacity:1"
+           id="flowRegion4076"><use
+             style="fill:url(#linearGradient4194);fill-opacity:1"
+             x="0"
+             y="0"
+             xlink:href="#rect4058"
+             id="use4078"
+             width="495"
+             height="1052.1" /></flowRegion><flowPara
+           style="fill:#000000;fill-opacity:1"
+           id="flowPara4080">Interested in linear</flowPara><flowPara
+           style="fill:#000000;fill-opacity:1"
+           id="flowPara4082">relationship?</flowPara></flowRoot>    </g>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path7395"
+       d="m 205.50398,29.216917 c 0,33.645645 -79.71551,-37.078097 -80.0623,33.645645"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1U)" />
+    <flowRoot
+       id="flowRoot9517"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"
-       id="flowRoot4188"
-       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"><flowRegion
-         id="flowRegion4190"><rect
-           id="rect4192"
-           width="40.402271"
-           height="28.605988"
-           x="165.44289"
-           y="175.87061" /></flowRegion><flowPara
-         id="flowPara4194" /></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4205"
-       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"><flowRegion
-         id="flowRegion4207"><rect
-           id="rect4209"
-           width="212.03821"
-           height="74.906403"
-           x="17.694426"
-           y="198.28354" /></flowRegion><flowPara
-         id="flowPara4211" /></flowRoot>    <g
-       id="g4410"
-       transform="translate(2.1519847,-81.182294)">
+       transform="translate(-7.0182264,-8.0082427)"><flowRegion
+         id="flowRegion9519"><use
+           id="use9521"
+           xlink:href="#path7395"
+           y="0"
+           x="0"
+           width="495"
+           height="1052.1"
+           transform="translate(1.0182264,8.0082427)" /></flowRegion><flowPara
+         id="flowPara9523">One</flowPara></flowRoot>    <g
+       inkscape:connector-avoid="true"
+       transform="translate(-59.833244,-60.054909)"
+       id="g4564"
+       style="fill:none">
       <rect
-         style="fill:#78c679;fill-opacity:1;stroke:none"
-         id="rect10386-5-5"
-         width="299.93518"
-         height="38.597332"
-         x="3.4686737"
-         y="142.73984" />
-      <flowRoot
-         transform="translate(-0.51417542,9.2821311)"
-         id="flowRoot4395"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4397"><use
-             height="400"
-             width="430"
-             id="use4399"
-             xlink:href="#rect10386-5-5"
-             y="0"
-             x="0" /></flowRegion><flowPara
-           id="flowPara4401">Identify research questions to be explored.  Refine them based on existing theory and research.</flowPara></flowRoot>    </g>
-    <g
-       id="g4425"
-       transform="translate(5.8981419,-98.45342)">
-      <rect
-         style="fill:#addd8e;fill-opacity:1;stroke:none"
-         id="rect10386"
-         width="299.93518"
-         height="38.597332"
-         x="-0.27748346"
-         y="214.98219" />
-      <flowRoot
-         transform="translate(-0.19075251,3.8030509)"
-         id="flowRoot4417"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4419"><use
-             height="400"
-             width="430"
-             id="use4421"
-             xlink:href="#rect10386"
-             y="0"
-             x="0" /></flowRegion><flowPara
-           id="flowPara4423">Determine the study design needed to answer the research questions.  (What do you need - Multiple groups?</flowPara><flowPara
-           id="flowPara3154">Repeated measures?  Cohorts?  Matched pairs?)</flowPara></flowRoot>    </g>
-    <g
-       id="g4440"
-       transform="translate(4.9985552,-109.80166)">
-      <rect
-         style="fill:#d9f0a3;fill-opacity:1;stroke:none"
-         id="rect10386-5-7"
-         width="299.93518"
-         height="38.597332"
-         x="0.62210327"
-         y="281.30167" />
-      <flowRoot
-         transform="translate(0.06039673,9.281475)"
-         id="flowRoot4432"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4434"><use
-             height="400"
-             width="430"
-             id="use4436"
-             xlink:href="#rect10386-5-7"
-             y="0"
-             x="0" /></flowRegion><flowPara
-           id="flowPara4438">Identify how variables will be measured.  Do you have categorical variables?  Qualitative variables?  Both kinds?</flowPara></flowRoot>    </g>
-    <g
-       id="g4467"
-       transform="translate(2.7612186,-120.72953)">
-      <rect
-         style="fill:#ffffcf;fill-opacity:0.94117647;stroke:none"
-         id="rect10386-5-1"
-         width="299.93518"
-         height="38.597332"
-         x="2.8594398"
-         y="347.20078" />
-      <flowRoot
-         transform="translate(0.1090126,9.3700217)"
-         id="flowRoot4457"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4459"><use
-             height="400"
-             width="430"
-             id="use4461"
-             xlink:href="#rect10386-5-1"
-             y="0"
-             x="0" /></flowRegion><flowPara
-           id="flowPara4463">Given the study design and kinds of variables, which</flowPara><flowPara
-           id="flowPara4465">statistics should be used to answer the reseach questions?</flowPara></flowRoot>    </g>
+         style="fill:none;stroke:none"
+         id="rect10386-0"
+         width="105.11849"
+         height="26.254955"
+         x="85.825813"
+         y="173.39398" />
+    </g>
     <path
-       style="fill:none;stroke:#b6b6b6;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Sendz)"
-       d="m 155.58825,45.183638 0,16.373906"
-       id="path4475"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-end="#g4410"
-       inkscape:connection-end-point="d4" />
-    <path
-       style="fill:none;stroke:#b6b6b6;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2SendY)"
-       d="m 155.58825,100.15488 0,16.37389"
-       id="path4477"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4410"
        inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4425"
-       inkscape:connection-end-point="d4" />
-    <path
-       style="fill:none;stroke:#b6b6b6;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Sendc)"
-       d="m 155.58825,155.1261 0,16.37391"
-       id="path4479"
+       inkscape:connection-start="#g4150"
+       inkscape:connector-curvature="2"
        inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4425"
-       inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4440"
-       inkscape:connection-end-point="d4" />
+       id="path4200"
+       d="m 77.63316,95.762941 0.52588,17.576129"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1S)" />
     <path
-       style="fill:none;stroke:#b6b6b6;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Sendh)"
-       d="m 155.58825,210.09734 0,16.37391"
-       id="path4483"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g4440"
        inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g4467"
-       inkscape:connection-end-point="d4" />
-    <g
-       id="g3146">
-      <rect
-         style="fill:#31a354;fill-opacity:1;stroke:none"
-         id="rect10386-5"
-         width="299.93518"
-         height="38.597332"
-         x="5.6206584"
-         y="6.2624011" />
-      <flowRoot
-         transform="translate(-0.44055986,3.8691533)"
-         id="flowRoot3136"
-         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-         xml:space="preserve"><flowRegion
-           id="flowRegion3138"><use
-             height="280"
-             width="320"
-             id="use3140"
-             xlink:href="#rect10386-5"
-             y="0"
-             x="0" /></flowRegion><flowPara
-           id="flowPara3142">Encounter a potential research topic.  Explore the scientific literature to gain an understanding of the</flowPara><flowPara
-           id="flowPara3144">prior studies on the topic.</flowPara></flowRoot>    </g>
+       inkscape:connection-start="#g4150"
+       inkscape:connector-curvature="100"
+       inkscape:connector-type="polyline"
+       id="path4659"
+       d="M 33.89134,95.762941 C 17.4634,105.38576 5.9925693,117.06082 5.9925693,126.46655 l 0,0 c 0,12.88907 17.7423967,40.95479 39.4209437,64.58289"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1s)" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text11667-8-98"
+       y="104.55101"
+       x="75.896103"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         id="tspan11671-2-4"
+         y="104.55101"
+         x="75.896103"
+         sodipodi:role="line">No</tspan></text>
+    <text
+       sodipodi:linespacing="100%"
+       id="text11663-6-7"
+       y="107.55095"
+       x="20.530727"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="107.55095"
+         x="20.530727"
+         id="tspan11665-3-7"
+         sodipodi:role="line">Yes</tspan></text>
   </g>
 </svg>

@@ -29,6 +29,27 @@ This report displays the chapter figures.  All were created in [Inkscape](http:/
 ## Figure 15-09
 <img src="./Figure15_09.png" style="width: 326px;"/>
 
+## Figure 15-10
+<img src="./Figure15_10.png" style="width: 190px;"/>
+
+## Figure 15-11
+<img src="./Figure15_11.png" style="width: 325px;"/>
+
+## Figure 15-12
+<img src="./Figure15_12.png" style="width: 320px;"/>
+
+## Figure 15-13
+<img src="./Figure15_13.png" style="width: 154px;"/>
+
+## Figure 15-14
+Lise, I added a little to the top of this graph for context.  Tell me if you want it removed.
+
+<img src="./Figure15_14.png" style="width: 249px;"/>
+
+## Figure 15-15
+<img src="./Figure15_15.png" style="width: 338px;"/>
+
+
 
 ## Figure 15-18
 <img src="./Figure15_18.png" style="width: 130px;"/>

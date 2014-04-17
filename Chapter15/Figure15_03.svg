@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="314.60864"
-   height="77.784683"
+   width="243.38858"
+   height="129.47531"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.6954492"
-     inkscape:cx="102.26617"
-     inkscape:cy="-87.541818"
+     inkscape:zoom="3.3908984"
+     inkscape:cx="262.58121"
+     inkscape:cy="4.0384574"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -570,6 +570,34 @@
          id="path4997"
          inkscape:connector-curvature="0" />
     </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend-1a6"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend-1a6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4803"
+         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend-1x"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend-1x"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4800"
+         style="fill:#b6b6b6;fill-rule:evenodd;stroke:#b6b6b6;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)" />
+    </marker>
   </defs>
   <metadata
      id="metadata7">
@@ -579,7 +607,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -587,7 +615,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-6.1214378,4.3950759)">
+     transform="translate(-113.87883,56.085707)">
     <flowRoot
        style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        id="flowRoot4050"
@@ -678,17 +706,121 @@
            id="rect9618" /></flowRegion><flowPara
          id="flowPara9620">More than</flowPara><flowPara
          id="flowPara9630">two</flowPara></flowRoot>    <flowRoot
-       transform="matrix(2,0,0,2,-218.74282,-130.28327)"
-       style="font-size:11px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Oblique"
-       id="flowRoot3094"
+       transform="translate(176.86528,-56.138181)"
+       xml:space="preserve"
+       id="flowRoot4050-9"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"><flowRegion
+         id="flowRegion4052-4"><rect
+           id="rect4054-8"
+           width="378.30212"
+           height="108.42304"
+           x="62.06826"
+           y="52.722393" /></flowRegion><flowPara
+         id="flowPara4056-8" /></flowRoot>    <flowRoot
+       transform="translate(216.86528,-52.138181)"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       id="flowRoot4188"
        xml:space="preserve"><flowRegion
-         id="flowRegion3096"><rect
-           style="font-size:11px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans Oblique"
-           y="66.099976"
-           x="66"
-           height="52"
-           width="150"
-           id="rect3098" /></flowRegion><flowPara
-         id="flowPara3100">Numeric</flowPara><flowPara
-         id="flowPara5544">Outcomes</flowPara></flowRoot>  </g>
+         id="flowRegion4190"><rect
+           y="175.87061"
+           x="165.44289"
+           height="28.605988"
+           width="40.402271"
+           id="rect4192" /></flowRegion><flowPara
+         id="flowPara4194" /></flowRoot>    <flowRoot
+       transform="translate(216.86528,-52.138181)"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       id="flowRoot4205"
+       xml:space="preserve"><flowRegion
+         id="flowRegion4207"><rect
+           y="198.28354"
+           x="17.694426"
+           height="74.906403"
+           width="212.03821"
+           id="rect4209" /></flowRegion><flowPara
+         id="flowPara4211" /></flowRoot>    <g
+       transform="translate(223.19472,-63.323916)"
+       id="g3151">
+      <rect
+         y="16.238209"
+         x="4.44103"
+         height="27.545198"
+         width="120.63167"
+         id="rect10386-5-1"
+         style="fill:#ffffcf;fill-opacity:0.94117647;stroke:none" />
+      <flowRoot
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         id="flowRoot3141"
+         transform="translate(-0.48727655,3.6873025)"><flowRegion
+           id="flowRegion3143"><use
+             x="0"
+             y="0"
+             xlink:href="#rect10386-5-1"
+             id="use3145"
+             width="320"
+             height="280" /></flowRegion><flowPara
+           id="flowPara3147">Do we have numeric or</flowPara><flowPara
+           id="flowPara3149">categorical outcomes?</flowPara></flowRoot>    </g>
+    <flowRoot
+       transform="translate(216.86528,-51.878431)"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       id="flowRoot4237"
+       xml:space="preserve"><flowRegion
+         id="flowRegion4239"><rect
+           y="78.350708"
+           x="32.739338"
+           height="25.232227"
+           width="53.175358"
+           id="rect4241" /></flowRegion><flowPara
+         id="flowPara4243" /></flowRoot>    <flowRoot
+       transform="translate(216.86528,-51.878431)"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       id="flowRoot4245"
+       xml:space="preserve"><flowRegion
+         id="flowRegion4247"><rect
+           y="79.810425"
+           x="22.938389"
+           height="34.616116"
+           width="52.549763"
+           id="rect4249" /></flowRegion><flowPara
+         id="flowPara4251" /></flowRoot>    <path
+       inkscape:connection-start-point="d4"
+       inkscape:connection-start="#g3151"
+       inkscape:connector-curvature="0"
+       inkscape:connector-type="polyline"
+       id="path4417"
+       d="M 279.063,-19.540509 263.52572,4.5340446"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1a6)" />
+    <path
+       inkscape:connection-start-point="d4"
+       inkscape:connection-start="#g3151"
+       inkscape:connector-curvature="0"
+       inkscape:connector-type="polyline"
+       id="path4419"
+       d="M 296.86932,-19.540509 312.34994,4.3678346"
+       style="fill:none;stroke:#b6b6b6;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend-1x)" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot5017"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       transform="translate(213.04213,-56.491556)"><flowRegion
+         id="flowRegion5019"><rect
+           id="rect5021"
+           width="61.635582"
+           height="15.924983"
+           x="12.975912"
+           y="44.088264" /></flowRegion><flowPara
+         id="flowPara5023">Numeric</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot5025"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       transform="translate(212.55878,-58.392436)"><flowRegion
+         id="flowRegion5027"><rect
+           id="rect5029"
+           width="56.032349"
+           height="14.302994"
+           x="78.297836"
+           y="44.972984" /></flowRegion><flowPara
+         id="flowPara5031">Categorical</flowPara></flowRoot>  </g>
 </svg>

@@ -8,33 +8,33 @@ This repository contain codeGraphing code to accompany the book, *Introductory S
 ## View the graphs
 
 [Chapter 2](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter02/Chapter02.md): Describing Distributions with Statistics: 
-Middle, Spread and Skewness (*Will's graphs are incomplete*)
+Middle, Spread and Skewness
 
-[Chapter 3](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter03/Chapter03.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 3](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter03/Chapter03.md): Graphing Data
 
-[Chapter 4](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter04/Chapter04.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 4](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter04/Chapter04.md): Graphing Data
 
-[Chapter 5](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter05/Chapter05.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 5](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter05/Chapter05.md): Graphing Data
 
 *(Chapter 6 currently has no graphs)*
 
-[Chapter 7](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter07/Chapter07.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 7](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter07/Chapter07.md): Graphing Data
 
-[Chapter 8](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter08/Chapter08.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 8](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter08/Chapter08.md): Graphing Data
 
-[Chapter 9](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter09/Chapter09.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 9](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter09/Chapter09.md): Graphing Data
 
-[Chapter 10](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter10/Chapter10.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 10](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter10/Chapter10.md): Graphing Data
 
-[Chapter 11](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter11/Chapter11.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 11](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter11/Chapter11.md): Graphing Data
 
-[Chapter 12](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter12/Chapter12.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 12](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter12/Chapter12.md): Graphing Data
 
-[Chapter 13](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter13/Chapter13.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 13](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter13/Chapter13.md): Graphing Data
 
-[Chapter 14](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter14/Chapter14.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 14](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter14/Chapter14.md): Graphing Data
 
-[Chapter 15](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter15/Chapter15.md): Graphing Data (*Will's graphs are incomplete*)
+[Chapter 15](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter15/Chapter15.md): Graphing Data
 
 ---
 

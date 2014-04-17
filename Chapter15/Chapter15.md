@@ -49,7 +49,13 @@ Lise, I added a little to the top of this graph for context.  Tell me if you wan
 ## Figure 15-15
 <img src="./Figure15_15.png" style="width: 338px;"/>
 
+## Figure 15-16
+Lise, I kept the dangling "yes" to be more consistent withthe other diagrams.
 
+<img src="./Figure15_16.png" style="width: 249px;"/>
+
+## Figure 15-17
+<img src="./Figure15_17.png" style="width: 190px;"/>
 
 ## Figure 15-18
 <img src="./Figure15_18.png" style="width: 130px;"/>

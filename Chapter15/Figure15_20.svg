@@ -44,8 +44,6 @@
      inkscape:guide-bbox="true"
      inkscape:object-paths="true"
      inkscape:connector-spacing="27" />
-  <title
-     id="title4052">Isolating the IV in the position of causal influence</title>
   <defs
      id="defs4">
     <marker
@@ -707,7 +705,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>Isolating the IV in the position of causal influence</dc:title>
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

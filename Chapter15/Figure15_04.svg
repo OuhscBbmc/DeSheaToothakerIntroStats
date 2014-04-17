@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="Figure15_04.svg"
-   inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_19.png"
+   inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_04.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
   <sodipodi:namedview
@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.8477246"
-     inkscape:cx="-167.88152"
-     inkscape:cy="189.2299"
+     inkscape:zoom="2.3977273"
+     inkscape:cx="-59.381505"
+     inkscape:cy="91.819865"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -48,8 +48,6 @@
      fit-margin-right="0.1"
      fit-margin-bottom="0.1"
      fit-margin-left="0.1" />
-  <title
-     id="title4052">Isolating the IV in the position of causal influence</title>
   <defs
      id="defs4">
     <marker
@@ -599,7 +597,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>Isolating the IV in the position of causal influence</dc:title>
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

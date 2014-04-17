@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="Figure15_02.svg"
-   inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_18.png"
+   inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_02.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
   <sodipodi:namedview
@@ -28,7 +28,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="6.7817968"
      inkscape:cx="44.621254"
-     inkscape:cy="25.95646"
+     inkscape:cy="25.956459"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -48,8 +48,6 @@
      fit-margin-left="0.1"
      fit-margin-right="0.1"
      fit-margin-bottom="0.1" />
-  <title
-     id="title4052">Isolating the IV in the position of causal influence</title>
   <defs
      id="defs4">
     <linearGradient
@@ -805,7 +803,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>Isolating the IV in the position of causal influence</dc:title>
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -912,7 +910,7 @@
      xml:space="preserve"
      id="flowRoot5017"
      style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-     transform="translate(-5.593622,-0.40585237)"><flowRegion
+     transform="translate(-5.593622,-0.40585234)"><flowRegion
        id="flowRegion5019"><rect
          id="rect5021"
          width="61.635582"

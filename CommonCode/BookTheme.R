@@ -116,7 +116,23 @@ RemoveLeadingZero <- function( x ) {
 } #
 # RemoveLeadingZero(0.444)
 # RemoveLeadingZero(431.444)
-
+WrapColumns <- function( d, wrapCount=3L ) {
+  rowCountOriginal <- nrow(d)
+  columnCountOriginal <- ncol(d)  
+  pad <- ((rowCountOriginal %% wrapCount) > 0)
+  rowCount <- (rowCountOriginal %/% wrapCount) + as.integer(pad)
+  
+  dt <- matrix(NA, nrow=rowCount, ncol=columnCountOriginal*wrapCount)
+  for( wrapIndex in seq_len(wrapCount) ) {
+    columnIndices <- (wrapIndex-1)*columnCountOriginal + seq_len(columnCountOriginal)
+    rowIndices <- (wrapIndex-1)*rowCount + seq_len(rowCount)
+    dt[, columnIndices] <- as.matrix(d[rowIndices, ])
+  }
+  dt <- ifelse(is.na(dt), "", dt)
+  dWide <- as.data.frame(dt, stringsAsFactors=F)
+  colnames(dWide) <- rep(colnames(d), times=wrapCount)
+  return( dWide )
+}
 
 
 #########################################################

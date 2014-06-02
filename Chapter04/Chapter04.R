@@ -14,6 +14,8 @@ require(reshape2) #For converting wide to long
 #####################################
 ## @knitr DeclareGlobals
 source("./CommonCode/BookTheme.R")
+
+pathZPValues <- "./Chapter04/ZPValues.csv"
 calculatedPointCount <- 401
 
 chapterTheme <- BookTheme + 
@@ -224,6 +226,31 @@ g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
 
 rm(paletteZ, g1SD, g2SD)
+#####################################
+## @knitr Figure04_06
+fiveDigitThreshold <- 3.255
+zColumn <- c(seq(from=0, to=3.25, by=.01), seq(from=3.30, to=3.45, by=.05), seq(from=3.5, to=4.0, by=.1))  #The resolution gets progressively coarser.
+dsZTable <- data.frame(Z=zColumn, Inside=NA_real_, Outside=NA_real_)
+dsZTable$Outside <- pnorm(q=-dsZTable$Z)
+dsZTable$Inside <- (.5 - dsZTable$Outside)
+
+#The rest is just cosmetics
+roundingDigitCount <- ifelse(dsZTable$Z >= fiveDigitThreshold, 5L, 4L)
+dsZTable$Z <- format(dsZTable$Z, 3)
+
+dsZTable$Outside <- base::round(dsZTable$Outside, digits=roundingDigitCount) #This will have a fifth digit that's zero for the 4 digits rows.
+dsZTable$Outside <- format(x=dsZTable$Outside, trim=FALSE, digits=roundingDigitCount, width=roundingDigitCount, scientific=FALSE)
+dsZTable$Outside <- RemoveLeadingZero(dsZTable$Outside)
+dsZTable$Outside <- substr(dsZTable$Outside, 1, roundingDigitCount+1) #Add one for the decimal.
+
+dsZTable$Inside <- base::round(dsZTable$Inside, digits=roundingDigitCount) #This will have a fifth digit that's zero for the 4 digits rows.
+dsZTable$Inside <- format(x=dsZTable$Inside, trim=FALSE, digits=roundingDigitCount, width=roundingDigitCount, scientific=FALSE)
+dsZTable$Inside <- RemoveLeadingZero(dsZTable$Inside)
+dsZTable$Inside <- substr(dsZTable$Inside, 1, roundingDigitCount+1) #Add one for the decimal.
+
+knitr::kable(WrapColumns(dsZTable, wrapCount=9), row.names=FALSE, format="markdown")
+write.csv(dsZTable, file=pathZPValues, row.names=FALSE)
+
 #####################################
 ## @knitr Figure04_07
 zTableTheme <- theme_minimal() +

@@ -76,3 +76,17 @@ write.csv(dsFTableWide, file=pathFPValues, row.names=FALSE)
 
 #####################################
 ## @knitr ChiSquarePValue
+
+dfColumn <- c(seq(from=1, to=30, by=1), 40, 50, 60, 70)  #The resolution gets progressively coarser.
+dsChiTable <- data.frame(df=dfColumn, Alpha10=NA_real_, Alpha05=NA_real_, Alpha01=NA_real_, Alpha001=NA_real_)
+
+dsChiTable$Alpha10 <- qchisq(p=1-.10, df=dsChiTable$df)
+dsChiTable$Alpha05 <- qchisq(p=1-.05, df=dsChiTable$df)
+dsChiTable$Alpha01 <- qchisq(p=1-.01, df=dsChiTable$df)
+dsChiTable$Alpha001 <- qchisq(p=1-.001, df=dsChiTable$df)
+
+#The rest is just cosmetics
+dsChiTable[, -1] <- base::round(dsChiTable[, -1], 2)
+
+knitr::kable(dsChiTable, row.names=FALSE, format="markdown")
+write.csv(dsChiTable, file=pathChiSquarePValues, row.names=FALSE)

@@ -229,7 +229,7 @@ rm(paletteZ, g1SD, g2SD)
 #####################################
 ## @knitr Figure04_06
 fiveDigitThreshold <- 3.255
-zColumn <- c(seq(from=0, to=3.25, by=.01), seq(from=3.30, to=3.45, by=.05), seq(from=3.5, to=4.0, by=.1))  #The resolution gets progressively coarser.
+zColumn <- c(seq(from=0, to=1.64, by=.01), 1.645, seq(from=1.65, to=3.25, by=.01), seq(from=3.30, to=3.45, by=.05), seq(from=3.5, to=4.0, by=.1))  #The resolution gets progressively coarser.
 dsZTable <- data.frame(Z=zColumn, Inside=NA_real_, Outside=NA_real_)
 dsZTable$Outside <- pnorm(q=-dsZTable$Z)
 dsZTable$Inside <- (.5 - dsZTable$Outside)

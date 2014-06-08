@@ -53,7 +53,7 @@ read_chunk("./Tables/Tables.R")
 ```
 
 ## F Table
-```{r FPValue, echo=echoChunks}
+```{r FPValue, echo=echoChunks, results='asis'}
 ```
 
 ## Chi Square Table

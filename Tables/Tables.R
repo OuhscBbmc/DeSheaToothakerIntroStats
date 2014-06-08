@@ -56,6 +56,23 @@ write.csv(dsTTable, file=pathTPValues, row.names=FALSE)
 
 #####################################
 ## @knitr FPValue
+numeratorDF <- c(seq(from=1, to=12, by=1), 14, 16, 20)
+denominatorDF <- c(seq(from=1, to=30, by=1), seq(from=32, to=50, by=2), 55, 60, 70, 80, 100, 125, 150, 200, 400, 1000, 10000000)
+alpha <- c(.05, .01)
+dsFTableLong <- expand.grid(NumeratorDF=numeratorDF, DenominatorDF=denominatorDF, Alpha=alpha)
+dsFTableLong$Crit <- qf(p=dsFTableLong$Alpha, df1=dsFTableLong$NumeratorDF, df2=dsFTableLong$DenominatorDF, lower.tail=FALSE)
+
+dsFTableLong$Crit <- ifelse(dsFTableLong$DenominatorDF>1,
+                            format(round(dsFTableLong$Crit, digits=2)),
+                            format(round(dsFTableLong$Crit, digits=0)))
+# head(dsFTableLong, 20)
+
+dsFTableWide <- reshape2::dcast(dsFTableLong, DenominatorDF + Alpha ~ NumeratorDF,  value.var="Crit")
+dsFTableWide <- dsFTableWide[order(dsFTableWide$DenominatorDF, -dsFTableWide$Alpha), ] # Put the alpha=.05 on top of the alpha=.01
+# head(dsFTableWide, 20) 
+
+knitr::kable(dsFTableWide, row.names=FALSE, format="markdown", align="r")
+write.csv(dsFTableWide, file=pathFPValues, row.names=FALSE)
 
 #####################################
 ## @knitr ChiSquarePValue

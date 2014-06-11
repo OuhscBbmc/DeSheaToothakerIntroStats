@@ -48,19 +48,26 @@ read_chunk("./Tables/Tables.R")
 ```{r TweakDatasets, echo=echoChunks, message=FALSE}
 ```
 
-## T Table
+## Table A: Standard normal distribution
+```{r ZArea, echo=echoChunks, results='asis'}
+```
+## Table B: Critical values for *t* distributions
 ```{r TPValue, echo=echoChunks, results='asis'}
 ```
 
-## F Table
+## Table C: Critical values for *F* distributions
 ```{r FPValue, echo=echoChunks, results='asis'}
 ```
 
-## Chi Square Table
+## Critical values for χ^2 distributions
 ```{r ChiSquarePValue, echo=echoChunks, results='asis'}
 ```
 
+
+_____________________________
+
 ## Session Info
+
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 ```{r session_info, echo=FALSE}

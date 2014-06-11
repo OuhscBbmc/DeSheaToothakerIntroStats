@@ -15,6 +15,7 @@ require(reshape2) #For converting wide to long
 ## @knitr DeclareGlobals
 source("./CommonCode/BookTheme.R")
 
+pathZPValues <- "./Tables/ZPValues.csv"
 pathTPValues <- "./Tables/TPValues.csv"
 pathFPValues <- "./Tables/FPValues.csv"
 pathChiSquarePValues <- "./Tables/ChiSquarePValues.csv"
@@ -36,8 +37,32 @@ emptyTheme <- theme_minimal() +
 ## @knitr TweakDatasets
 
 #####################################
-## @knitr TPValue
+## @knitr ZArea
+fiveDigitThreshold <- 3.255
+zColumn <- c(seq(from=0, to=3.25, by=.01), seq(from=3.30, to=3.45, by=.05), seq(from=3.5, to=4.0, by=.1))  #The resolution gets progressively coarser.
+dsZTable <- data.frame(Z=zColumn, Inside=NA_real_, Outside=NA_real_)
+dsZTable$Outside <- pnorm(q=-dsZTable$Z)
+dsZTable$Inside <- (.5 - dsZTable$Outside)
 
+#The rest is just cosmetics
+roundingDigitCount <- ifelse(dsZTable$Z >= fiveDigitThreshold, 5L, 4L)
+dsZTable$Z <- format(dsZTable$Z, 3)
+
+dsZTable$Outside <- base::round(dsZTable$Outside, digits=roundingDigitCount) #This will have a fifth digit that's zero for the 4 digits rows.
+dsZTable$Outside <- format(x=dsZTable$Outside, trim=FALSE, digits=roundingDigitCount, width=roundingDigitCount, scientific=FALSE)
+dsZTable$Outside <- RemoveLeadingZero(dsZTable$Outside)
+dsZTable$Outside <- substr(dsZTable$Outside, 1, roundingDigitCount+1) #Add one for the decimal.
+
+dsZTable$Inside <- base::round(dsZTable$Inside, digits=roundingDigitCount) #This will have a fifth digit that's zero for the 4 digits rows.
+dsZTable$Inside <- format(x=dsZTable$Inside, trim=FALSE, digits=roundingDigitCount+1, width=roundingDigitCount, scientific=FALSE)
+dsZTable$Inside <- RemoveLeadingZero(dsZTable$Inside)
+dsZTable$Inside <- substr(dsZTable$Inside, 1, roundingDigitCount+1) #Add one for the decimal.
+
+knitr::kable(WrapColumns(dsZTable, wrapCount=9), row.names=FALSE, format="markdown")
+write.csv(dsZTable, file=pathZPValues, row.names=FALSE)
+
+#####################################
+## @knitr TPValue
 dfColumn <- c(seq(from=1, to=30, by=1), seq(from=35, to=60, by=5), 70, 80, 90, 120, 100000)  #The resolution gets progressively coarser.
 dsTTable <- data.frame(df=dfColumn, Alpha10=NA_real_, Alpha05=NA_real_, Alpha025=NA_real_, Alpha01=NA_real_, Alpha005=NA_real_, Alpha0005=NA_real_)
 

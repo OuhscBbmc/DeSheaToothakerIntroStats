@@ -64,8 +64,8 @@ read_chunk("./Chapter04/Chapter04.R")
 ```{r Figure04_05, echo=echoChunks, fig.height=2, out.width="550px"}
 ```
 ## Figure 4-6
-```{r Figure04_06, echo=echoChunks, results='asis'}
-```
+See Table A: Standard normal distribution.
+
 ## Figures4-7
 ```{r Figure04_07, echo=echoChunks, fig.height=3, fig.width=4.5, out.width="300px"}
 ```

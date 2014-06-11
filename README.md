@@ -36,6 +36,8 @@ Middle, Spread and Skewness
 
 [Chapter 15](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter15/Chapter15.md): Graphing Data
 
+[Tables](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Tables/Tables.md): Tables of Distributions
+
 ---
 
 ## License

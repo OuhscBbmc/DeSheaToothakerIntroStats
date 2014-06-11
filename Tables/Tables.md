@@ -240,7 +240,7 @@ read_chunk("./Tables/Tables.R")
 |      10000000|  0.05|    3.84|    3.00|    2.60|    2.37|    2.21|    2.10|    2.01|    1.94|    1.88|    1.83|    1.79|    1.75|    1.69|    1.64|    1.57|
 |      10000000|  0.01|    6.63|    4.61|    3.78|    3.32|    3.02|    2.80|    2.64|    2.51|    2.41|    2.32|    2.25|    2.18|    2.08|    2.00|    1.88|
 
-## Critical values for χ^2 distributions
+## Table D: Critical values for χ^2 distributions
 
 | df| Alpha10| Alpha05| Alpha01| Alpha001|
 |--:|-------:|-------:|-------:|--------:|
@@ -288,7 +288,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-06-10, 23:03 -0500
+Report created by Will at 2014-06-11, 11:49 -0500
 ```
 
 ```

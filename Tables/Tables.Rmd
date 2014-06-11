@@ -59,7 +59,7 @@ read_chunk("./Tables/Tables.R")
 ```{r FPValue, echo=echoChunks, results='asis'}
 ```
 
-## Critical values for χ^2 distributions
+## Table D: Critical values for χ^2 distributions
 ```{r ChiSquarePValue, echo=echoChunks, results='asis'}
 ```
 

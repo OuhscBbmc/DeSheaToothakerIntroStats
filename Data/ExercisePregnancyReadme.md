@@ -6,7 +6,11 @@ Information about the Exercise During Pregnancy data set
 The purpose of this document is to provide background on the data set on exercise during pregnancy.  The data came from the following study:
  * Price, B. B., Amini, S. B., & Kappeler, K. (2012).  [Exercise in pregnancy:  Effect on fitness and obstetric outcomes – a randomized trial.](http://www.ncbi.nlm.nih.gov/pubmed/22843114)  *Medicine & Science in Sports & Exercise, 44, 2263-2269*.  doi:10.1249/MSS.0b013e318267ad67
 
-These researchers randomly assigned sedentary women in the 12th to 14th week of pregnancy to one of two groups.  One group remained sedentary, and the other group participated in an exercise program.  Those in the exercise group engaged in moderate aerobic exercise for 45 minutes to an hour four times per week through the 36th week of pregnancy.  The groups were compared on muscular strength, aerobic fitness, delivery method, recovery time, and baby birth weight.  Strength and aerobic fitness were measured on five occasions:  12-14 weeks gestation (which served as the baseline, before the intervention began), 18-20 weeks gestation, 24-26 weeks gestation, 30-32 weeks gestation, 6-8 weeks after delivery.
+These researchers, who graciously agreed to share their data, randomly assigned sedentary pregnant women to one of two groups.  The control group remained sedentary, and the treatment group engaged in moderate aerobic exercise regularly through the 36th week of gestation.  The data set contains some variables that were measured on five occasions in time.  
+
+The two main numeric variables that were measured repeatedly contain the words lifts and watts.  The lifts variables are the number of times that the participant could lift a 7-kilogram (about 15.4-pound) medicine ball from the floor to their waist in 1 minute.  The watts variables are measures of the power in watts produced during a timed walk.  “Each participant was asked to walk or run 3.2 km (2 miles) as fast as possible within her comfort zone at a steady pace … [P]ower … was calculated based on the following equation:  power = (weight x distance) / time” (p. 2265, Price, Amini, & Kappeler, 2012).
+
+The five occasions in time were:  12-14 weeks of pregnancy (Time 1); 18-20 weeks (Time 2); 24-26 weeks (Time 3); 30-32 weeks (Time 4); and 6-8 weeks post-delivery (Time 5).  Not every participant was measured at every occasion, so there are some missing data.
 
 ### Dataset Variables
  1. **SubjectID**: A unique number assigned to each participant.

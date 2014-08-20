@@ -1,21 +1,23 @@
-Information about the Food Hardship and Obesity Rates, 2011
+Information about the Food Hardship and Obesity Rates
 ================
 ## *Introductory Statistics for the Health Sciences*, by Lise DeShea and Larry E. Toothaker
 
 ### Background
 The purpose of this document is to provide background on the data set on food hardship and obesity.  The data came from two sources:
- * Food Research and Action Center. (2012, February).  [Food hardship in America 2011: Data for the nation, states, 100 MSAs, and every congressional district.](http://frac.org/pdf/food_hardship_2011_report.pdf)  Washington, D.C.  
- * Centers for Disease Control and Prevention. (2012, August 13).  [Adult obesity facts.](http://www.cdc.gov/obesity/data/adult.html) 
 
-To measure food hardship, the Food Research and Action Center's polling organization (Gallup) in 2011 conducted surveys of large representative samples from every state, the District of Columbia and U.S. territories.  The survey included both landline and cell phones.  Respondents were asked, “Have there been times in the past 12 months when you did not have enough money to buy food that you or your family needed?”  Those who answered “yes” were counted as experiencing food hardship, and percentages of respondents answering yes were reported for the 50 states plus D.C.
+ * Centers for Disease Control and Prevention. (2012, August 13).  *Adult obesity facts.*  Retrieved from http://www.cdc.gov/obesity/data/adult.html.
+ * Food Research and Action Center. (2012, February).  *Food hardship in America 2011: Data for the nation, states, 100 MSAs, and every congressional district.*  Washington, D.C.  Retrieved from http://frac.org/pdf/food_hardship_2011_report.pdf.
 
-The prevalence of obesity is the proportion or percentage of a population identified as obese.  The Centers for Disease Control and Prevention (CDC) manages the Behavioral Risk Factor Surveillance System (BRFSS), which is conducted at the state level and provides data to help agencies address behavioral risks that affect the health of Americans.  Representative samples in 2011 were obtained, and the obesity rates were the percentage of respondents in that state whose self-reported weight and height resulted in a body mass index (BMI) of 30 or higher.  BMI was defined as weight (in kilograms) divided by the person's squared height (in meters).  The survey included both landline and cell phones.  Among the exclusion criteria were pregnant women and people whose height, weight or BMI were extreme (e.g., respondents who said they were shorter than 3 feet tall).
+The textbook authors combined the data to illustrate correlation.  Note:  The rates are expressed as proportions, not percentages, in the SAS and .csv files.  The SPSS files contain two additional variables representing the rates as percentages as well.
+
 
 ### Dataset Variables
- 1. **StateName**: Names of the states.  Includes the 50 states and D.C.
- 2. **State**:  Abbreviations for state names.
- 3. **FoodHardshipRate**:  Percentage of respondents to the FRAC/Gallup representatives surveys in 2011 who said yes when asked:  “Have there been times in the past 12 months when you did not have enough money to buy food that you or your family needed?”
- 4. **ObesityRate**:  Percentage of respondents to the 2011 BRFSS survey whose self-reported height and weight resulted in a BMI of 30 or higher. 
- 5. **Location**: Indicates if the state is commonly thought as of a Southern State or not.  The possible values are `Southern` and `Other`.
+ 1. `StateName`:  State names.
+ 2. `State`:  State abbreviations.
+ 3. `FoodHardshipRate`:  Proportion of adults who said they lacked money to buy food for their families or themselves on at least one day in the previous 12 months, 2011.
+ 4. `ObesityRate`:  Proportion of adults surveyed by the Behavioral Risk Factor Surveillance System (BRFSS) who had a body mass index of 30 or higher, based on the participants’ self-reported height and weight, 2011.
+ 5. `Location`:  Indicator of whether the state is in the South or Other location in the United States, based on U.S. census’ designations.
+ 6. `FHPercent` (only in SPSS file):  The food hardship rates expressed as percentages.
+ 7. `ObesityPercent` (only in SPSS file):  The obesity rates expressed as percentages.
 
 Note: missing values in the CSV are coded as `NA`.

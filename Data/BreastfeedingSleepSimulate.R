@@ -7,7 +7,7 @@ require(plyr)
 
 ############################
 ## @knitr DeclareGlobals
-pathOutput <- "./Data/Breastfeeding.csv"
+pathOutput <- "./Data/BreastfeedingSleepFake.csv"
 
 scenarioCount <- 3
 subjectsPerGroup <- 15

@@ -15,4 +15,8 @@ The World Factbook defines the crude birth rate as the number of births during a
  2. `BirthsPer1000Pop`:  The number of births per 1,000 population in 2012; the crude *birth* rate.
  3. `DeathsPer1000Pop`:  The number of deaths per 1,000 population in 2012; the crude *death* rate.
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

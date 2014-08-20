@@ -16,4 +16,8 @@ The World Factbook defines the maternal mortality rate as “the annual number o
  3. `LifeExpectancyAtBirth2011`:  The estimated average lifespan for people born in 2011.
  4. `Extreme`:  An indicator used in creating some graphs.  This variable may be ignored.
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

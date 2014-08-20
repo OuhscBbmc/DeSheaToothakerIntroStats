@@ -37,5 +37,8 @@ The data set contains four numeric variables that were measured on the three occ
  14. `SF36PcsT3`:  SF-36 PCS, Time 3 (described above).
  15. `Flag`:  An indicator of whether a participant had missing data and had their last known values used on subsequent occasions in the data set (as described above).  FALSE means the participant had complete data, and TRUE indicates the participant had missing data that were replaced with the last known values.
 
+Note about missing values:
 
-Note: missing values in the CSV are coded as `NA`.
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

@@ -27,4 +27,8 @@ The excise tax rates are the number of cents per pack of cigarettes taxed by the
  5. `TaxCentsPerPack`:  State or D.C. excise tax (not sales tax), reported as the number of cents per pack of cigarettes as of the end of June 2010. 
  6. `Location`: Indicates if the state is commonly thought as of a Southern State or not.  The possible values are `Southern` and `Other`.
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

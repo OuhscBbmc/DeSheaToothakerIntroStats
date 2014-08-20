@@ -28,4 +28,8 @@ Three variations of the scenario were given in Chapter 12:
  7. `ScenarioSD`: The standard deviations for each group within each scenario.
  8. `Sleep`: The generated (fake) data representing each mother’s number of minutes of sleep in a 24-hour period.
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

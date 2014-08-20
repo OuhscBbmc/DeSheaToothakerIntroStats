@@ -18,5 +18,8 @@ The scenario describes three groups:
  2. `Group`:  Name of the group (breast, bottle, control).
  3. `CryingDuration`:  The generated (fake) data representing the number of seconds that each baby cried after the injection.
 
+Note about missing values:
 
-Note: missing values in the CSV are coded as `NA`.
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

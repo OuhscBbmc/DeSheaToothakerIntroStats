@@ -16,4 +16,8 @@ The researchers graciously agreed to share part of their data with us.  We are p
  2. `SixMinWalkInFeet`:  The distance, measured in feet, that participant could walk in six minutes.  This variable was used as a measure of walking capacity.
  3. `Tug`:  The Timed Up and Go score, which is the number of seconds that the participant needed “to rise from a seated position, walk 3m, and turn around and return to a seated position in the chair” (p. 1005, Falvo & Earhart, 2009).  The researchers said the TUG is used as an indicator of fall risk; participants who require more time to complete the task may be at a higher risk of falling.
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

@@ -20,4 +20,8 @@ The textbook authors combined the data to illustrate correlation.  Note:  The ra
  6. `FHPercent` (only in SPSS file):  The food hardship rates expressed as percentages.
  7. `ObesityPercent` (only in SPSS file):  The obesity rates expressed as percentages.
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

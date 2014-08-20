@@ -28,4 +28,8 @@ The data set also includes many other variables with data obtained from the CDC;
  12. `DeathRateCrude2010`:  Number of deaths per 100,000 population in 2010; the crude death rate.
  13. `DeathRateAgeAdjusted2010`:  The death rate per 100,000 population in 2010, after adjusting for the age of the population.
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

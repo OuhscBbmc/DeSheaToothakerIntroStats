@@ -27,4 +27,8 @@ The five occasions in time were:  12-14 weeks of pregnancy (Time 1); 18-20 weeks
  12. `BabyWeightInG`:  Baby's birth weight in grams.
  13. `RecoveryDays`:  Number of days postpartum that the mother returned to being able to perform 3 of 5 listed household tasks (“changing sheets and making beds; sweeping, mopping, vacuuming, or other cleaning; washing and folding clothes; shopping for groceries and putting groceries away; preparing, cooking, and serving meals”).
 
-Note: missing values in the CSV are coded as `NA`.
+Note about missing values:
+
+ * missing values in the CSV are coded as `NA`.
+ * missing values in the SAS dataset are coded as `.` (*i.e.*, a period).
+ * missing values in the SPSS dataset are coded as `.` (*i.e.*, a period).

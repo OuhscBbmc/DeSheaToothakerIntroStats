@@ -23,7 +23,7 @@ The data set also includes many other variables with data obtained from the CDC;
  7. `BirthRate2010`:  Number of births per 1,000 population; the crude birth rate.
  8. `DeathCount2011`:  Number of deaths, 2011.
  9. `DeathRateCrude2011`:  Number of deaths per 100,000 population in 2011; the crude death rate.
- 10. `DeathRateAgeAdjusted201`1:  The death rate per 100,000 population in 2011, after adjusting for the age of the population.
+ 10. `DeathRateAgeAdjusted2011`:  The death rate per 100,000 population in 2011, after adjusting for the age of the population.
  11. `DeathCount2010`:  Number of deaths, 2010.
  12. `DeathRateCrude2010`:  Number of deaths per 100,000 population in 2010; the crude death rate.
  13. `DeathRateAgeAdjusted2010`:  The death rate per 100,000 population in 2010, after adjusting for the age of the population.

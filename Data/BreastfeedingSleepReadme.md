@@ -19,13 +19,13 @@ Three variations of the scenario were given in Chapter 12:
 
 
 ### Dataset Variables
- 1. ScenarioID:  A numeric variable to distinguish among the three scenarios.
- 2. Scenario:  Names of the three scenarios.
- 3. FeedingID:  The group numbers (1 = breast, 2 = bottle, 3 = both).
- 4. Feeding:  Names of the three groups.
- 5. Deviates:  A number used to generate the data; this variable can be ignored.
- 6. GroupMean:  The means for each group within each scenario.
- 7. Scenario SD:  The standard deviations for each group within each scenario.
- 8. Sleep:  The generated (fake) data representing each mother’s number of minutes of sleep in a 24-hour period.
+ 1. `ScenarioID`: A numeric variable to distinguish among the three scenarios.
+ 2. `Scenario`: Names of the three scenarios.
+ 3. `FeedingID`: The group numbers (1 = breast, 2 = bottle, 3 = both).
+ 4. `Feeding`: Names of the three groups.
+ 5. `Deviates`: A number used to generate the data; this variable can be ignored.
+ 6. `GroupMean`: The means for each group within each scenario.
+ 7. `ScenarioSD`: The standard deviations for each group within each scenario.
+ 8. `Sleep`: The generated (fake) data representing each mother’s number of minutes of sleep in a 24-hour period.
 
 Note: missing values in the CSV are coded as `NA`.

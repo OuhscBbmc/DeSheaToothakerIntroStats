@@ -1,7 +1,7 @@
 DeSheaToothakerIntroStats
 =========================
 
-This repository contain codeGraphing code to accompany the book, *Introductory Statistics for the Health Sciences*, by Lise Deshea and Larry Toothaker (2015).  Please refer to the book for more information. {Internal Note: include hyperlink to publisher's site once their page is established.}
+This repository contain codeGraphing code to accompany the book, *Introductory Statistics for the Health Sciences*, by Lise DeShea and Larry Toothaker (2015).  Please refer to the book for more information. {Internal Note: include hyperlink to publisher's site once their page is established.}
 
 ---
 

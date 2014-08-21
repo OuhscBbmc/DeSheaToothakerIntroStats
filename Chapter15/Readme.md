@@ -1,4 +1,4 @@
-Chapter 01
+Chapter 15
 ================
 ## of *Introductory Statistics for the Health Sciences*, by Lise DeShea and Larry E. Toothaker
 

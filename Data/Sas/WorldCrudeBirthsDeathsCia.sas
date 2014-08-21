@@ -1,6 +1,8 @@
 data a;
 ***This data set was compiled using information from www dot cia dot gov;
 ***for DeShea and Toothaker's Introductory Statistics for the Health Sciences;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/WorldCrudeBirthsDeathsCiaReadme.md;
+
 input Country $ 1-45 BirthsPer1000Pop DeathsPer1000Pop;
 lines;
 Niger											47.6	13.4

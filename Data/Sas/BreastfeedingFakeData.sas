@@ -1,6 +1,8 @@
 data a;
 ***This is a FABRICATED data set for Chapter 12 of DeShea and Toothaker's;
 ***Introductory Statistics for the Health Sciences;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/BreastfeedingSleepReadme.md;
+
 input ScenarioID Scenario $14. FeedingID Feeding$ @31 Deviates 12.9 @48 GroupMean ScenarioSD Sleep 11.7;
 lines;
 1	Scenario 12A	1	Breast	-0.837344168	300	20	283.2531166

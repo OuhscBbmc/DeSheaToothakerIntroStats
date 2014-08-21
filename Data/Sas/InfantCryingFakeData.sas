@@ -1,6 +1,8 @@
 data a;
 ***This is a FABRICATED data set for Chapter 12 of DeShea and Toothaker's;
 ***Introductory Statistics for the Health Sciences;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/InfantCryingFakeReadme.md;
+
 input GroupID Group $ CryingDuration;
 lines;
 1	Breast	31

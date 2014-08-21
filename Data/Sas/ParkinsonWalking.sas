@@ -1,6 +1,8 @@
 data a;
 ***This data set is provided courtesy of Falvo and Earhart (2009);
 ***for use with DeShea and Toothaker's Introductory Statistics for the Health Sciences;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/InfantCryingFakeReadme.md;
+
 input SubjectID SixMinWalkInFeet TugInSeconds;
 lines;
 1	621	10

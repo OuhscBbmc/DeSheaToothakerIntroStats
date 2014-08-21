@@ -1,6 +1,8 @@
 data a;
 ***This data set was compiled using information from www dot cdc dot gov;
 ***for DeShea and Toothaker's Introductory Statistics for the Health Sciences;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/WorldCrudeBirthsDeathsCiaReadme.md;
+
 input StateName $ 1-18 State $ AdultAsthmaPrev Diabetes2010 BirthCount PopulationCount BirthRate2010 DeathCount2011 DeathRateCrude2011 DeathRateAgeAdjusted2011 DeathCount2010 DeathRateCrude2010 DeathRateAgeAdjusted2010;
 lines;
 Alabama				AL	11.8	13.2	60050	4779736		12.56	48683	1013.7	933.7	48038	1005	939.7

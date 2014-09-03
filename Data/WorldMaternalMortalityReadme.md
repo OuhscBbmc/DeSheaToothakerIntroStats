@@ -11,7 +11,7 @@ The purpose of this document is to provide background on the data set on materna
 The World Factbook defines the maternal mortality rate as “the annual number of female deaths per 100,000 live births from any cause related to or aggravated by pregnancy or its management (excluding accidental or incidental causes).”  The data set contains the number of maternal deaths per 100,000 births in 2010.  The World Health Organization estimated the average life expectancy for people born in 2011.  DeShea & Toothaker combined the data for an example in Chapter 5. 
 
 ### Dataset Variables
- 1. `Country`: The names of the 159 countries in the data set.
+ 1. `Country`: The name of each country in the data set (N = 159 countries).
  2. `MaternalMortper100KBirths2010`:  The number of maternal deaths per 100,000 births in 2010.
  3. `LifeExpectancyAtBirth2011`:  The estimated average lifespan for people born in 2011.
  4. `Extreme`:  An indicator used in creating some graphs.  This variable may be ignored.

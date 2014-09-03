@@ -16,7 +16,7 @@ This journal article provided an entertaining example to illustrate the hazards 
  4. `HumanCount`: The number of human in the country (in millions).
  5. `BirthRate`: The number of human births (in thousands) for a given year.
  6. `Extreme`:  Indicates an extreme point (of StorkPairCount by BirthRate) that places the value under more scrutiny.
- 
- Note about missing values:
- * There are no missing observations.
+
+Note about missing values:
+  * There are no missing observations.
  

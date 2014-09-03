@@ -17,7 +17,7 @@ This journal article provided an entertaining example to illustrate the hazards 
 Note about missing values: There are no missing observations.
  
 ### Additional variables available in [Mathews (2000)](http://onlinelibrary.wiley.com/doi/10.1111/1467-9639.00013/abstract).
-The article’s author graciously granted permission for us to use the data for our graphs.  Out of respect for copyright laws, however, we are not reproducing the entire data set, only the two variables in the our scatterplot.  The complete dataset appears Matthews’ Table 1, and the article containing the data set is easily accessible online.
+The article’s author graciously granted permission for us to use the data for our graphs.  Out of respect for copyright laws, however, we are not reproducing the entire data set, only the variables used to create graphs in Chapter 5.  The complete dataset appears Matthews’ Table 1, and the article containing the data set is easily accessible online.
 
  1. `Country`: Country within the world
  2. `Area`:  Physical area, in square km.

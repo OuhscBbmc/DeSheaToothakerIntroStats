@@ -24,4 +24,4 @@ The [temp orange to blue palette](http://colrd.com/palette/28063/) is used for t
 
 
 ## DPI
-When saving FIgure 01-03 as a PDF, a resolution needs to be specified for the (intentionally) burry effects.  Use at least 600 dpi, preferably 1200.
+When saving Figure 01-03 as a PDF, a resolution needs to be specified for the (intentionally) burry effects.  Use at least 600 dpi, preferably 1200.

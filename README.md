@@ -7,6 +7,8 @@ This repository contain codeGraphing code to accompany the book, *Introductory S
 
 ## View the graphs
 
+[Chapter 1](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter01/Chapter01.md): Graphing Data
+
 [Chapter 2](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter02/Chapter02.md): Describing Distributions with Statistics: 
 Middle, Spread and Skewness
 

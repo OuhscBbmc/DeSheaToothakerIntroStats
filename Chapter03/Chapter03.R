@@ -79,7 +79,7 @@ dsPregnancy$Dummy <- NULL
 #####################################
 ## @knitr Figure03_04
 ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
-  geom_bar(stat="identity") +
+  geom_bar(stat="identity", alpha=.6) +
   scale_fill_manual(values=PalettePregancyDelivery) +
   coord_flip() +
   theme_bw() +
@@ -187,6 +187,8 @@ gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=Count
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   theme(legend.background=element_rect(fill="#FFFFFF99")) +
+  theme(legend.title=element_text(color="gray40")) +
+  theme(legend.text=element_text(color="gray40")) +
   labs(x="Time Point", y="Average Number of Lifts")
 
 gLongitudinalLifts

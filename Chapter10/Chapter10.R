@@ -66,7 +66,7 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t30(0) * 1.05) +
   chapterTheme +
-  labs(x=NULL, y=NULL)
+  labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)
 

@@ -76,7 +76,7 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
-## Figures4-7
+## Figures 4-7
 ```{r Figure04_07, echo=echoChunks, fig.height=3, fig.width=4.5, out.width="300px"}
 ```
 

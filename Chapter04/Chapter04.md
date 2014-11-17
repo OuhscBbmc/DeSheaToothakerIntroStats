@@ -70,7 +70,7 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
-## Figures4-7
+## Figures 4-7
 <img src="figure_rmd/Figure04_07-1.png" title="" alt="" width="300px" />
 
 ## Figure 4-8
@@ -88,7 +88,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wbeasley at 2014-11-17, 11:20 -0600
+Report created by wbeasley at 2014-11-17, 11:24 -0600
 ```
 
 ```

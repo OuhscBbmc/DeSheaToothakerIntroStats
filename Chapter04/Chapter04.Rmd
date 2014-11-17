@@ -1,10 +1,15 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
 Chapter 04 Graphs
 =================================================
 This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 ```{r, echo=TRUE, message=F} 
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
@@ -20,9 +25,9 @@ opts_chunk$set(
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure_rmd/',     
   dev = "png",
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
   dpi = 400
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -51,27 +56,34 @@ read_chunk("./Chapter04/Chapter04.R")
 ## Figure 4-1
 ```{r Figure04_01, echo=echoChunks, fig.height=3}
 ```
+
 ## Figure 4-2
 ```{r Figure04_02, echo=echoChunks, fig.height=3}
 ```
+
 ## Figure 4-3
 ```{r Figure04_03, echo=echoChunks, fig.height=6}
 ```
+
 ## Figure 4-4
 ```{r Figure04_04, echo=echoChunks, fig.height=3}
 ```
+
 ## Figure 4-5
 ```{r Figure04_05, echo=echoChunks, fig.height=2, out.width="550px"}
 ```
+
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
 ## Figures4-7
 ```{r Figure04_07, echo=echoChunks, fig.height=3, fig.width=4.5, out.width="300px"}
 ```
+
 ## Figure 4-8
 ```{r Figure04_08, echo=echoChunks, fig.width=3.5, fig.height=1.5, out.width="350px"}
 ```
+
 ## Figure 4-9
 ```{r Figure04_09, echo=echoChunks, fig.height=3}
 ```

@@ -5,13 +5,20 @@ This report creates the chapter graphs.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
 ```r
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
 ```r
 require(knitr)
+```
+
+```
+## Loading required package: knitr
+```
+
+```r
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -22,9 +29,9 @@ opts_chunk$set(
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure_rmd/',     
   dev = "png",
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
   dpi = 400
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -46,39 +53,46 @@ read_chunk("./Chapter04/Chapter04.R")
 
 
 ## Figure 4-1
-<img src="figure_rmd/Figure04_01.png" title="plot of chunk Figure04_01" alt="plot of chunk Figure04_01" width="550px" />
+<img src="figure_rmd/Figure04_01-1.png" title="" alt="" width="550px" />
+
 ## Figure 4-2
-<img src="figure_rmd/Figure04_02.png" title="plot of chunk Figure04_02" alt="plot of chunk Figure04_02" width="550px" />
+<img src="figure_rmd/Figure04_02-1.png" title="" alt="" width="550px" />
+
 ## Figure 4-3
-<img src="figure_rmd/Figure04_03.png" title="plot of chunk Figure04_03" alt="plot of chunk Figure04_03" width="550px" />
+<img src="figure_rmd/Figure04_03-1.png" title="" alt="" width="550px" />
+
 ## Figure 4-4
-<img src="figure_rmd/Figure04_04.png" title="plot of chunk Figure04_04" alt="plot of chunk Figure04_04" width="550px" />
+<img src="figure_rmd/Figure04_04-1.png" title="" alt="" width="550px" />
+
 ## Figure 4-5
-<img src="figure_rmd/Figure04_05.png" title="plot of chunk Figure04_05" alt="plot of chunk Figure04_05" width="550px" />
+<img src="figure_rmd/Figure04_05-1.png" title="" alt="" width="550px" />
+
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
 ## Figures4-7
-<img src="figure_rmd/Figure04_07.png" title="plot of chunk Figure04_07" alt="plot of chunk Figure04_07" width="300px" />
+<img src="figure_rmd/Figure04_07-1.png" title="" alt="" width="300px" />
+
 ## Figure 4-8
-<img src="figure_rmd/Figure04_081.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="350px" /><img src="figure_rmd/Figure04_082.png" title="plot of chunk Figure04_08" alt="plot of chunk Figure04_08" width="350px" />
+<img src="figure_rmd/Figure04_08-1.png" title="" alt="" width="350px" /><img src="figure_rmd/Figure04_08-2.png" title="" alt="" width="350px" />
+
 ## Figure 4-9
-<img src="figure_rmd/Figure04_09.png" title="plot of chunk Figure04_09" alt="plot of chunk Figure04_09" width="550px" />
+<img src="figure_rmd/Figure04_09-1.png" title="" alt="" width="550px" />
 
 ## Unused Graphics
-<img src="figure_rmd/UnusedVariantsFigure04_041.png" title="plot of chunk UnusedVariantsFigure04_04" alt="plot of chunk UnusedVariantsFigure04_04" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_042.png" title="plot of chunk UnusedVariantsFigure04_04" alt="plot of chunk UnusedVariantsFigure04_04" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_043.png" title="plot of chunk UnusedVariantsFigure04_04" alt="plot of chunk UnusedVariantsFigure04_04" width="550px" />
-<img src="figure_rmd/UnusedVariantsFigure04_08.png" title="plot of chunk UnusedVariantsFigure04_08" alt="plot of chunk UnusedVariantsFigure04_08" width="550px" />
+<img src="figure_rmd/UnusedVariantsFigure04_04-1.png" title="" alt="" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_04-2.png" title="" alt="" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_04-3.png" title="" alt="" width="550px" />
+<img src="figure_rmd/UnusedVariantsFigure04_08-1.png" title="" alt="" width="550px" />
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-06-10, 22:49 -0500
+Report created by wbeasley at 2014-11-17, 11:20 -0600
 ```
 
 ```
-R version 3.1.0 Patched (2014-05-24 r65737)
+R version 3.1.2 Patched (2014-10-31 r66921)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
@@ -90,12 +104,12 @@ attached base packages:
 
 other attached packages:
  [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.4       ggthemes_1.7.0     ggplot2_1.0.0      gridExtra_0.9.1   
- [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.6         
+ [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.8         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-33      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      Rttf2pt1_1.3    
-[13] stringr_0.6.2    tools_3.1.0     
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
+ [7] htmltools_0.2.6  labeling_0.3     MASS_7.3-35      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3     
+[13] rmarkdown_0.3.10 Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
 
 ## License

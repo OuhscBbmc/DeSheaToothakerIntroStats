@@ -146,11 +146,10 @@ histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
   geom_histogram(breaks=breaksX, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
   scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 2)) + 
-  labs(x="Z", y=NULL) + 
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank()) +
-  labs(x="Z Score for Baseline PSQI", y=NULL)
+  labs(x="z Score for Baseline PSQI", y=NULL)
 
 grid.arrange(
   histogramXInset, 
@@ -332,7 +331,7 @@ gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
   chapterTheme +
-  labs(x=expression(italic(Z)), y=NULL)
+  labs(x=expression(italic(z)), y=NULL)
 
 gt <- ggplot_gtable(ggplot_build(gSingle))
 

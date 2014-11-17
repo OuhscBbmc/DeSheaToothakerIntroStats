@@ -50,7 +50,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t70(0) * 1.2) +
   chapterTheme +
-  labs(x=NULL, y=NULL)
+  labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)
 
@@ -84,7 +84,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t60(0) * 1.2) +
   chapterTheme +
-  labs(x=NULL, y=NULL)
+  labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)
 
@@ -109,6 +109,6 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t60(0) * 1.2) +
   chapterTheme +
-  labs(x=NULL, y=NULL)
+  labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)

@@ -5,14 +5,20 @@ This report creates the chapter graphs.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
 ```r
-opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -especially one that uses file paths.
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
-
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
 ```r
 require(knitr)
+```
+
+```
+## Loading required package: knitr
+```
+
+```r
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -23,103 +29,95 @@ opts_chunk$set(
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure_rmd/',     
   dev = "png",
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
   dpi = 400
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter05/Chapter05.R") 
 ```
-
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-
 
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
 
 
-
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
-
 
 
 <!-- Load the datasets.   -->
 
 
-
 <!-- Tweak the datasets.   -->
 
 
-
 ## Figure 5-1
-<img src="figure_rmd/Figure05_01.png" title="plot of chunk Figure05_01" alt="plot of chunk Figure05_01" width="550px" />
-
+<img src="figure_rmd/Figure05_01-1.png" title="" alt="" width="550px" />
 ## Figure 5-2
-<img src="figure_rmd/Figure05_02.png" title="plot of chunk Figure05_02" alt="plot of chunk Figure05_02" width="550px" />
-
+<img src="figure_rmd/Figure05_02-1.png" title="" alt="" width="550px" />
 ## Figure 5-3
-<img src="figure_rmd/Figure05_03.png" title="plot of chunk Figure05_03" alt="plot of chunk Figure05_03" width="550px" />
-
+<img src="figure_rmd/Figure05_03-1.png" title="" alt="" width="550px" />
 ## Figure 5-4
-<img src="figure_rmd/Figure05_04.png" title="plot of chunk Figure05_04" alt="plot of chunk Figure05_04" width="550px" />
-
+<img src="figure_rmd/Figure05_04-1.png" title="" alt="" width="550px" />
 ## Figure 5-5
-<img src="figure_rmd/Figure05_05.png" title="plot of chunk Figure05_05" alt="plot of chunk Figure05_05" width="550px" />
-
+<img src="figure_rmd/Figure05_05-1.png" title="" alt="" width="550px" />
 ## Figure 5-6
-<img src="figure_rmd/Figure05_06.png" title="plot of chunk Figure05_06" alt="plot of chunk Figure05_06" width="550px" />
-
+<img src="figure_rmd/Figure05_06-1.png" title="" alt="" width="550px" />
 ## Figure 5-7
-<img src="figure_rmd/Figure05_07.png" title="plot of chunk Figure05_07" alt="plot of chunk Figure05_07" width="550px" />
-
+<img src="figure_rmd/Figure05_07-1.png" title="" alt="" width="550px" />
 ## Figure 5-8
-<img src="figure_rmd/Figure05_08.png" title="plot of chunk Figure05_08" alt="plot of chunk Figure05_08" width="550px" />
-
+<img src="figure_rmd/Figure05_08-1.png" title="" alt="" width="550px" />
 ## Figure 5-9
-<img src="figure_rmd/Figure05_09.png" title="plot of chunk Figure05_09" alt="plot of chunk Figure05_09" width="550px" />
 
+```
+Warning: Removed 7 rows containing missing values (geom_point).
+```
+
+<img src="figure_rmd/Figure05_09-1.png" title="" alt="" width="550px" />
 ## Figure 5-10
-<img src="figure_rmd/Figure05_10.png" title="plot of chunk Figure05_10" alt="plot of chunk Figure05_10" width="550px" />
 
+```
+Warning: Removed 7 rows containing missing values (geom_point).
+```
+
+<img src="figure_rmd/Figure05_10-1.png" title="" alt="" width="550px" />
 ## Figure 5-11
-<img src="figure_rmd/Figure05_11.png" title="plot of chunk Figure05_11" alt="plot of chunk Figure05_11" width="550px" />
-
+<img src="figure_rmd/Figure05_11-1.png" title="" alt="" width="550px" />
 ## Figure 5-12
-<img src="figure_rmd/Figure05_12.png" title="plot of chunk Figure05_12" alt="plot of chunk Figure05_12" width="550px" />
-
+<img src="figure_rmd/Figure05_12-1.png" title="" alt="" width="550px" />
 ## Figure 5-13
-<img src="./../Chapter03/figure_rmd/Figure03_09.png" alt="StateCigarette" style="width: 400px;"/>
+<img src="./../Chapter03/figure_rmd/Figure03_09-1.png" alt="StateCigarette" style="width: 400px;"/>
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-04-15, 14:57 -0500
+Report created by wibeasley at 2014-11-18, 21:51 -0600
 ```
 
 ```
-R version 3.1.0 Patched (2014-04-10 r65396)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R version 3.1.2 (2014-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 locale:
-[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.2.2     ggthemes_1.6.0     ggplot2_0.9.3.1    gridExtra_0.9.1   
- [7] scales_0.2.3       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.5         
+ [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.4       ggthemes_1.7.0     ggplot2_1.0.0      gridExtra_0.9.1   
+ [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.8         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.3   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-31      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      Rttf2pt1_1.3    
-[13] stringr_0.6.2    tools_3.1.0     
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
+ [7] htmltools_0.2.6  labeling_0.3     MASS_7.3-35      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3     
+[13] rmarkdown_0.3.3  Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
-
 
 ## License
 

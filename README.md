@@ -8,38 +8,24 @@ This repository contain graphing code to accompany the book, *[Introductory Stat
 ---
 
 ## View the graphs
-
-[Chapter 1](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter01/Chapter01.md): The Frontier Between Knowledge and Ignorance
-
-[Chapter 2](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter02/Chapter02.md): Describing Distributions with Statistics: Middle, Spread and Skewness
-
-[Chapter 3](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter03/Chapter03.md): Graphing Data
-
-[Chapter 4](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter04/Chapter04.md): Relative Location and Normal Distributions
-
-[Chapter 5](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter05/Chapter05.md): Bivariate Correlation
-
-*(Chapter 6, Probability and Risk, has no graphs)*
-
-[Chapter 7](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter07/Chapter07.md): Sampling Distributions
-
-[Chapter 8](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter08/Chapter08.md): Hypothesis Testing and Interval Estimation
-
-[Chapter 9](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter09/Chapter09.md): Types of Errors and Power
-
-[Chapter 10](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter10/Chapter10.md): One-Sample Tests and Estimates
-
-[Chapter 11](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter11/Chapter11.md): Two-Sample Tests and Estimates
-
-[Chapter 12](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter12/Chapter12.md): Tests and Estimates for Two or More Samples
-
-[Chapter 13](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter13/Chapter13.md): Tests and Estimates for Bivariate Linear Relationships
-
-[Chapter 14](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter14/Chapter14.md): Analysis of Frequencies and Ranks
-
-[Chapter 15](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter15/Chapter15.md): Choosing an Analysis Plan
-
-[Tables](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Tables/Tables.md): Tables of Distributions
+| Chapter| Title (click below to see a chapter's graphs)|
+|---:|:----|
+1 | [The Frontier Between Knowledge and Ignorance](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter01/Chapter01.md)
+2 | [Describing Distributions with Statistics: Middle, Spread and Skewness](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter02/Chapter02.md)
+3 | [Graphing Data](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter03/Chapter03.md)
+4 | [Relative Location and Normal Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter04/Chapter04.md)
+5 | [Bivariate Correlation](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter05/Chapter05.md)
+6 | Probability and Risk (has no graphs)
+7 | [Sampling Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter07/Chapter07.md)
+8 | [Hypothesis Testing and Interval Estimation](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter08/Chapter08.md)
+9 | [Types of Errors and Power](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter09/Chapter09.md)
+10 | [One-Sample Tests and Estimates](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter10/Chapter10.md)
+11 | [Two-Sample Tests and Estimates](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter11/Chapter11.md)
+12 | [Tests and Estimates for Two or More Samples](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter12/Chapter12.md)
+13 | [Tests and Estimates for Bivariate Linear Relationships](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter13/Chapter13.md)
+14 | [Analysis of Frequencies and Ranks](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter14/Chapter14.md)
+15 | [Choosing an Analysis Plan](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter15/Chapter15.md)
+Tables | [Tables of Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Tables/Tables.md)
 
 ---
 ## Additional Information

@@ -5,26 +5,25 @@ This report creates the tables.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
 ```r
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
 ```r
 require(knitr)
+```
+
+```
+## Loading required package: knitr
+```
+
+```r
 opts_chunk$set(
-  results = 'show', 
+  results = 'asis', 
   message = TRUE,
   comment = NA, 
-  tidy = FALSE,
-  fig.height = 4, 
-  fig.width = 5.5, 
-  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure_rmd/',     
-  dev = "png",
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
-  dpi = 400
+  tidy = FALSE
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -87,6 +86,7 @@ read_chunk("./Tables/Tables.R")
 |0.35 |.1368  |.3632   |0.73 |.2673  |.2327   |1.11 |.3665  |.1335   |1.49 |.4319  |.0681   |1.87 |.4693  |.0307   |2.25 |.4878  |.0122   |2.63 |.4957  |.0043   |3.01 |.4987  |.0013   |     |       |        |
 |0.36 |.1406  |.3594   |0.74 |.2704  |.2296   |1.12 |.3686  |.1314   |1.50 |.4332  |.0668   |1.88 |.4699  |.0301   |2.26 |.4881  |.0119   |2.64 |.4959  |.0041   |3.02 |.4987  |.0013   |     |       |        |
 |0.37 |.1443  |.3557   |0.75 |.2734  |.2266   |1.13 |.3708  |.1292   |1.51 |.4345  |.0655   |1.89 |.4706  |.0294   |2.27 |.4884  |.0116   |2.65 |.4960  |.0040   |3.03 |.4988  |.0012   |     |       |        |
+
 ## Table B: Critical values for *t* distributions
 
 |     df| Alpha10| Alpha05| Alpha025| Alpha01| Alpha005| Alpha0005|
@@ -288,28 +288,29 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-06-11, 11:49 -0500
+Report created by wibeasley at 2014-11-18, 22:38 -0600
 ```
 
 ```
-R version 3.1.0 Patched (2014-05-24 r65737)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R version 3.1.2 (2014-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 locale:
-[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
  [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.4       ggthemes_1.7.0     ggplot2_1.0.0      gridExtra_0.9.1   
- [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.6         
+ [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.8         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] MASS_7.3-33      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      Rttf2pt1_1.3     stringr_0.6.2   
-[13] tools_3.1.0     
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
+ [7] htmltools_0.2.6  MASS_7.3-35      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      rmarkdown_0.3.3 
+[13] Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
 
 ## License

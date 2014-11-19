@@ -1,28 +1,25 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
 Tables
 =================================================
 This report creates the tables.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 ```{r, echo=TRUE, message=F} 
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 ```{r set_options, echo=TRUE}
 require(knitr)
 opts_chunk$set(
-  results = 'show', 
+  results = 'asis', 
   message = TRUE,
   comment = NA, 
-  tidy = FALSE,
-  fig.height = 4, 
-  fig.width = 5.5, 
-  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure_rmd/',     
-  dev = "png",
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
-  dpi = 400
+  tidy = FALSE
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -49,18 +46,19 @@ read_chunk("./Tables/Tables.R")
 ```
 
 ## Table A: Standard normal distribution
-```{r ZArea, echo=echoChunks, results='asis'}
+```{r ZArea, echo=echoChunks}
 ```
+
 ## Table B: Critical values for *t* distributions
-```{r TPValue, echo=echoChunks, results='asis'}
+```{r TPValue, echo=echoChunks}
 ```
 
 ## Table C: Critical values for *F* distributions
-```{r FPValue, echo=echoChunks, results='asis'}
+```{r FPValue, echo=echoChunks}
 ```
 
 ## Table D: Critical values for χ^2 distributions
-```{r ChiSquarePValue, echo=echoChunks, results='asis'}
+```{r ChiSquarePValue, echo=echoChunks}
 ```
 
 
@@ -70,7 +68,7 @@ _____________________________
 
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
-```{r session_info, echo=FALSE}
+```{r session_info, echo=FALSE, results='show'}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

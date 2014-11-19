@@ -1,10 +1,15 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
 Chapter 14 Graphs
 =================================================
 This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 ```{r, echo=TRUE, message=F} 
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
@@ -20,9 +25,9 @@ opts_chunk$set(
   out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure_rmd/',     
   dev = "png",
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
   dpi = 400
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf"
 )
 
 echoChunks <- FALSE

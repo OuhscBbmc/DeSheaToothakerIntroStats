@@ -3,7 +3,7 @@
 DeSheaToothakerIntroStats
 =========================
 
-This repository contain graphing code to accompany the book, *[Introductory Statistics for the Health Sciences](http://www.crcpress.com/product/isbn/9781466565333)*, by Lise DeShea and Larry Toothaker (2015).  Please refer to the book for more information.
+This repository contain graphing code to accompany the book, *[Introductory Statistics for the Health Sciences](http://www.crcpress.com/product/isbn/9781466565333)*, by Lise DeShea and Larry Toothaker (2015).  Please refer to the book or the book's website (which is in development) for more information.
 
 ---
 
@@ -42,15 +42,16 @@ This repository contain graphing code to accompany the book, *[Introductory Stat
 [Tables](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Tables/Tables.md): Tables of Distributions
 
 ---
-## Preorder the Book
+## Additional Information
 
-ISBN-13: 978-1466565333
+* [CRC Press](http://www.crcpress.com/product/isbn/9781466565333) retail site.
 
-[CRC Press](http://www.crcpress.com/product/isbn/9781466565333)
+* [Amazon](http://www.amazon.com/Introductory-Statistics-Health-Sciences-DeShea/dp/1466565330) retail site.
 
-[Amazon](http://www.amazon.com/Introductory-Statistics-Health-Sciences-DeShea/dp/1466565330)
+ISBN-13: [978-1-4665-6533-3](http://www.crcpress.com/product/isbn/9781466565333); ISBN-10: [1-4665-6533-0](http://www.crcpress.com/product/isbn/9781466565333)
 
 The DOI of the code *repository* (not of the book itself) is [dx.doi.org/10.5281/zenodo.12777](http://dx.doi.org/10.5281/zenodo.12777).
+
 ---
 
 ## License

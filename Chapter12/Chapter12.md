@@ -5,14 +5,20 @@ This report creates the chapter graphs.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
 ```r
-opts_knit$set(root.dir = "../")  #Don't combine this call with any other chunk -especially one that uses file paths.
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
-
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
 ```r
 require(knitr)
+```
+
+```
+## Loading required package: knitr
+```
+
+```r
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -23,29 +29,24 @@ opts_chunk$set(
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure_rmd/',     
   dev = "png",
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
   dpi = 400
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter12/Chapter12.R") 
 ```
-
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-
 
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
 
 
-
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
 
 
-
 <!-- Load the datasets. -->
-
 
 
 <!-- Tweak the datasets. -->
@@ -61,20 +62,20 @@ lm(formula = Sleep ~ 1 + Feeding, data = dsFeed[dsFeed$ScenarioID ==
     1, ])
 
 Residuals:
-   Min     1Q Median     3Q    Max 
- -33.0  -16.8   -1.7   10.2   37.1 
+    Min      1Q  Median      3Q     Max 
+-32.952 -16.747  -1.703  10.159  37.141 
 
 Coefficients:
-               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)    3.00e+02   5.16e+00    58.1   <2e-16 ***
-FeedingBottle -1.03e-13   7.30e+00     0.0        1    
-FeedingBoth   -9.75e-14   7.30e+00     0.0        1    
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    3.000e+02  5.164e+00   58.09   <2e-16 ***
+FeedingBottle -1.036e-13  7.303e+00    0.00        1    
+FeedingBoth   -1.017e-13  7.303e+00    0.00        1    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 20 on 42 degrees of freedom
-Multiple R-squared:  2.67e-29,	Adjusted R-squared:  -0.0476 
-F-statistic: 5.61e-28 on 2 and 42 DF,  p-value: 1
+Multiple R-squared:  2.712e-29,	Adjusted R-squared:  -0.04762 
+F-statistic: 5.695e-28 on 2 and 42 DF,  p-value: 1
 ```
 
 ```
@@ -84,20 +85,20 @@ lm(formula = Sleep ~ 1 + Feeding, data = dsFeed[dsFeed$ScenarioID ==
     2, ])
 
 Residuals:
-   Min     1Q Median     3Q    Max 
- -33.0  -16.8   -1.7   10.2   37.1 
+    Min      1Q  Median      3Q     Max 
+-32.952 -16.747  -1.703  10.159  37.141 
 
 Coefficients:
-               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)    3.00e+02   5.16e+00    58.1   <2e-16 ***
-FeedingBottle -9.89e-14   7.30e+00     0.0        1    
-FeedingBoth    1.00e+02   7.30e+00    13.7   <2e-16 ***
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    3.000e+02  5.164e+00   58.09   <2e-16 ***
+FeedingBottle -1.348e-13  7.303e+00    0.00        1    
+FeedingBoth    1.000e+02  7.303e+00   13.69   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 20 on 42 degrees of freedom
-Multiple R-squared:  0.856,	Adjusted R-squared:  0.849 
-F-statistic:  125 on 2 and 42 DF,  p-value: <2e-16
+Multiple R-squared:  0.8562,	Adjusted R-squared:  0.8493 
+F-statistic:   125 on 2 and 42 DF,  p-value: < 2.2e-16
 ```
 
 ```
@@ -107,20 +108,20 @@ lm(formula = Sleep ~ 1 + Feeding, data = dsFeed[dsFeed$ScenarioID ==
     3, ])
 
 Residuals:
-   Min     1Q Median     3Q    Max 
--214.2 -108.8  -11.1   66.0  241.4 
+    Min      1Q  Median      3Q     Max 
+-214.19 -108.86  -11.07   66.03  241.42 
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   3.00e+02   3.36e+01    8.94  2.9e-11 ***
-FeedingBottle 7.19e-14   4.75e+01    0.00    1.000    
-FeedingBoth   1.00e+02   4.75e+01    2.11    0.041 *  
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   3.000e+02  3.357e+01   8.938 2.87e-11 ***
+FeedingBottle 6.291e-14  4.747e+01   0.000   1.0000    
+FeedingBoth   1.000e+02  4.747e+01   2.107   0.0412 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 130 on 42 degrees of freedom
-Multiple R-squared:  0.123,	Adjusted R-squared:  0.0817 
-F-statistic: 2.96 on 2 and 42 DF,  p-value: 0.0628
+Multiple R-squared:  0.1235,	Adjusted R-squared:  0.08175 
+F-statistic: 2.959 on 2 and 42 DF,  p-value: 0.06279
 ```
 
 ```
@@ -133,107 +134,94 @@ Call:
 lm(formula = CryingDuration ~ 1 + Group, data = dsCry)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--23.906  -8.906  -0.453   9.094  27.094 
+     Min       1Q   Median       3Q      Max 
+-23.9062  -8.9062  -0.4531   9.0938  27.0938 
 
 Coefficients:
              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)     34.00       1.96   17.33  < 2e-16 ***
-GroupBottle      6.28       2.77    2.26    0.026 *  
-GroupControl    25.91       2.77    9.34  5.1e-15 ***
+(Intercept)    34.000      1.962  17.333  < 2e-16 ***
+GroupBottle     6.281      2.774   2.264   0.0259 *  
+GroupControl   25.906      2.774   9.339 5.13e-15 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 11.1 on 93 degrees of freedom
-Multiple R-squared:  0.505,	Adjusted R-squared:  0.494 
-F-statistic: 47.5 on 2 and 93 DF,  p-value: 6.23e-15
+Multiple R-squared:  0.5051,	Adjusted R-squared:  0.4945 
+F-statistic: 47.46 on 2 and 93 DF,  p-value: 6.231e-15
 ```
-
 
 ## Figure 12-1
 This figure will be typeset by the publisher.
 
 ## Figure 12-2
 
-<img src="figure_rmd/Figure12_02.png" title="plot of chunk Figure12_02" alt="plot of chunk Figure12_02" width="400px" />
-
+<img src="figure_rmd/Figure12_02-1.png" title="" alt="" width="400px" />
 ## Figure 12-3
 
-<img src="figure_rmd/Figure12_03.png" title="plot of chunk Figure12_03" alt="plot of chunk Figure12_03" width="400px" />
-
+<img src="figure_rmd/Figure12_03-1.png" title="" alt="" width="400px" />
 ## Figure 12-4
 
-<img src="figure_rmd/Figure12_04.png" title="plot of chunk Figure12_04" alt="plot of chunk Figure12_04" width="400px" />
-
+<img src="figure_rmd/Figure12_04-1.png" title="" alt="" width="400px" />
 
 ## Figure 12-5
-<img src="figure_rmd/Figure12_05.png" title="plot of chunk Figure12_05" alt="plot of chunk Figure12_05" width="750px" />
-
+<img src="figure_rmd/Figure12_05-1.png" title="" alt="" width="750px" />
 
 ## Figure 12-6
-<img src="figure_rmd/Figure12_06.png" title="plot of chunk Figure12_06" alt="plot of chunk Figure12_06" width="550px" />
-
+<img src="figure_rmd/Figure12_06-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-7
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-8
-<img src="figure_rmd/Figure12_08.png" title="plot of chunk Figure12_08" alt="plot of chunk Figure12_08" width="550px" />
-
+<img src="figure_rmd/Figure12_08-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-9
-<img src="figure_rmd/Figure12_09.png" title="plot of chunk Figure12_09" alt="plot of chunk Figure12_09" width="400px" />
-
+<img src="figure_rmd/Figure12_09-1.png" title="" alt="" width="400px" />
 
 ## Figure 12-10
-<img src="figure_rmd/Figure12_10.png" title="plot of chunk Figure12_10" alt="plot of chunk Figure12_10" width="550px" />
-
+<img src="figure_rmd/Figure12_10-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-11
-<img src="figure_rmd/Figure12_11.png" title="plot of chunk Figure12_11" alt="plot of chunk Figure12_11" width="550px" />
-
+<img src="figure_rmd/Figure12_11-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-12
-<img src="figure_rmd/Figure12_12.png" title="plot of chunk Figure12_12" alt="plot of chunk Figure12_12" width="550px" />
-
+<img src="figure_rmd/Figure12_12-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-13
-<img src="figure_rmd/Figure12_13.png" title="plot of chunk Figure12_13" alt="plot of chunk Figure12_13" width="550px" />
-
+<img src="figure_rmd/Figure12_13-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-14
-<img src="figure_rmd/Figure12_14.png" title="plot of chunk Figure12_14" alt="plot of chunk Figure12_14" width="300px" />
-
+<img src="figure_rmd/Figure12_14-1.png" title="" alt="" width="300px" />
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by Will at 2014-04-15, 15:00 -0500
+Report created by wibeasley at 2014-11-18, 22:15 -0600
 ```
 
 ```
-R version 3.1.0 Patched (2014-04-10 r65396)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R version 3.1.2 (2014-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 locale:
-[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     ggplot2_0.9.3.1    scales_0.2.3       plyr_1.8.1        
-[7] knitr_1.5         
+[1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     ggplot2_1.0.0      scales_0.2.4       plyr_1.8.1        
+[7] knitr_1.8         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.3   extrafontdb_1.0  formatR_0.10     gtable_0.1.2    
- [7] labeling_0.2     MASS_7.3-31      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.1      reshape2_1.2.2  
-[13] Rttf2pt1_1.3     stringr_0.6.2    tools_3.1.0     
+ [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
+ [7] htmltools_0.2.6  labeling_0.3     MASS_7.3-35      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3     
+[13] reshape2_1.4     rmarkdown_0.3.3  Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
-
 
 ## License
 

@@ -19,7 +19,7 @@ This repository contain graphing code to accompany the book, *[Introductory Stat
 
 [Chapter 5](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter05/Chapter05.md): Bivariate Correlation
 
-*(Chapter 6, Probability and Risk, currently has no graphs)*
+*(Chapter 6, Probability and Risk, has no graphs)*
 
 [Chapter 7](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter07/Chapter07.md): Sampling Distributions
 
@@ -50,6 +50,7 @@ ISBN-13: 978-1466565333
 
 [Amazon](http://www.amazon.com/Introductory-Statistics-Health-Sciences-DeShea/dp/1466565330)
 
+The DOI of the code *repository* (not of the book itself) is [dx.doi.org/10.5281/zenodo.12777](http://dx.doi.org/10.5281/zenodo.12777).
 ---
 
 ## License

@@ -12,13 +12,6 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 
 ```r
 require(knitr)
-```
-
-```
-## Loading required package: knitr
-```
-
-```r
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -4742,7 +4735,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2014-11-18, 22:21 -0600
+Report created by wibeasley at 2014-11-19, 00:45 -0600
 ```
 
 ```
@@ -4758,13 +4751,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     rgl_0.95.1158      mnormt_1.5-1       MASS_7.3-35       
- [7] ggplot2_1.0.0      scales_0.2.4       plyr_1.8.1         knitr_1.8         
+ [1] rgl_0.95.1158      mnormt_1.5-1       MASS_7.3-35        ggthemes_1.7.0     gridExtra_0.9.1    epade_0.3.8       
+ [7] plotrix_3.5-10     reshape2_1.4       scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 dichromat_2.0-0   
+[13] extrafont_0.16     wesanderson_0.3    ggplot2_1.0.0      knitr_1.8         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
- [7] htmltools_0.2.6  labeling_0.3     munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      reshape2_1.4    
-[13] rmarkdown_0.3.3  Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
+ [7] htmltools_0.2.6  labeling_0.3     munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      rmarkdown_0.3.3 
+[13] Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
 
 ## License

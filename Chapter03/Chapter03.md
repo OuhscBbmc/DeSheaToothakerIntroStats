@@ -61,7 +61,7 @@ read_chunk("./Chapter03/Chapter03.R")
 <img src="figure_rmd/Figure03_05-1.png" title="" alt="" height="150px" />
 
 ## Figure 3-6
-<img src="./../Chapter02/figure_rmd/Figure02_01.png" alt="Systolic" style="width: 600px;"/>
+<img src="./../Chapter02/figure_rmd/Figure02_01-1.png" alt="Systolic" style="width: 600px;"/>
 
 ## Figure 3-7
 <img src="figure_rmd/Figure03_07-1.png" title="" alt="" width="400px" />
@@ -129,23 +129,24 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-11-12, 12:50 -0600
+Report created by wibeasley at 2014-11-19, 00:43 -0600
 ```
 
 ```
-R version 3.1.2 Patched (2014-10-31 r66921)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R version 3.1.2 (2014-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 locale:
-[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] dichromat_2.0-0    extrafont_0.16     epade_0.3.8        plotrix_3.5-10     reshape2_1.4       ggplot2_1.0.0     
- [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.8         
+ [1] epade_0.3.8        plotrix_3.5-10     reshape2_1.4       scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5
+ [7] dichromat_2.0-0    extrafont_0.16     wesanderson_0.3    ggplot2_1.0.0      knitr_1.8         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    

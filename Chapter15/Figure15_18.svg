@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="Figure15_18.svg"
-   inkscape:export-filename="D:\Users\Will\Documents\GitHub\DeSheaToothakerIntroStats\Chapter15\Figure15_18.png"
+   inkscape:export-filename="D:\Projects\Ouhsc\DeSheaToothakerIntroStats\Chapter15\Figure15_18.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
   <sodipodi:namedview
@@ -30,7 +30,7 @@
      inkscape:cx="38.23536"
      inkscape:cy="46.955344"
      inkscape:document-units="px"
-     inkscape:current-layer="svg2"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1137"
@@ -909,7 +909,7 @@
              id="use4337"
              width="180"
              height="110" /></flowRegion><flowPara
-           id="flowPara4339">Figure 15-19</flowPara></flowRoot>    </g>
+           id="flowPara4339">Figure 15-1</flowPara></flowRoot>    </g>
     <g
        transform="translate(-14.318473,-6.2011362)"
        id="g4364">
@@ -932,7 +932,7 @@
              id="use4356"
              width="180"
              height="110" /></flowRegion><flowPara
-           id="flowPara4358">Figure 15-20</flowPara></flowRoot>    </g>
+           id="flowPara4358">Figure 15-2</flowPara></flowRoot>    </g>
     <path
        inkscape:connection-end-point="d4"
        inkscape:connection-end="#g4345"

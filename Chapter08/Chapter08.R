@@ -119,7 +119,7 @@ DrawWithoutPanelClipping(g3 +
                          )
 #####################################
 ## @knitr Figure08_04
-zObs013 <- 0.1316; # 1- pnorm(q=zObs013)
+zObs013 <- 0.13#16; # 1- pnorm(q=zObs013)
 mObs013Pretty <- ConvertFromZToM(zObs013, roundedDigits=3) #33.5
 mObsNeg013Pretty <- ConvertFromZToM(-zObs013, roundedDigits=3) #32.5
 

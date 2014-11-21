@@ -12,6 +12,13 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 
 ```r
 require(knitr)
+```
+
+```
+## Loading required package: knitr
+```
+
+```r
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -92,7 +99,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2014-11-19, 00:44 -0600
+Report created by wibeasley at 2014-11-21, 09:50 -0600
 ```
 
 ```
@@ -108,9 +115,8 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggthemes_1.7.0     gridExtra_0.9.1    epade_0.3.8        plotrix_3.5-10     reshape2_1.4       scales_0.2.4      
- [7] plyr_1.8.1         RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     wesanderson_0.3    ggplot2_1.0.0     
-[13] knitr_1.8         
+ [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.4       ggthemes_1.7.0     ggplot2_1.0.0      gridExtra_0.9.1   
+ [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.8         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
@@ -120,4 +126,4 @@ loaded via a namespace (and not attached):
 
 ## License
 
-<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
+<!--<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br/>-->This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.

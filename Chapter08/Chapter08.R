@@ -119,10 +119,17 @@ DrawWithoutPanelClipping(g3 +
                          )
 #####################################
 ## @knitr Figure08_04
-zObs013 <- 0.13#16; # 1- pnorm(q=zObs013)
-mObs013Pretty <- ConvertFromZToM(zObs013, roundedDigits=3) #33.5
-mObsNeg013Pretty <- ConvertFromZToM(-zObs013, roundedDigits=3) #32.5
-pObs013Pretty <- round(1- pnorm(zObs013), 4)
+mObs013 <- 33.5#16; # 1- pnorm(q=zObs013)
+zObs013 <- ConvertFromMToZ(m = 33.5)
+zObs013Rounded <- round(zObs013, 2)
+# mObsNeg013Pretty <- ConvertFromZToM(-zObs013, roundedDigits=3) #32.5
+pObs013Pretty <- ".4483" #This was a quick way to avoid the leading zero; round(1- pnorm(zObs013Rounded), 4)
+
+# zObs013 <- 0.13#16; # 1- pnorm(q=zObs013)
+# ConvertFromMToZ(m = 33.5)
+# mObs013Pretty <- ConvertFromZToM(zObs013, roundedDigits=3) #33.5
+# mObsNeg013Pretty <- ConvertFromZToM(-zObs013, roundedDigits=3) #32.5
+# pObs013Pretty <- round(1- pnorm(zObs013), 4)
 
 g4 <- g2 + 
   annotate("segment", x=zObs013, xend=zObs013, y=0, yend=Inf, color=PaletteCritical[4]) +
@@ -131,9 +138,9 @@ g4 <- g2 +
   
   annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label="italic(p)==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
   annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label=pObs013Pretty, hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
-  annotate(geom="text", x=zObs013, y=0, label=round(zObs013, 3), hjust=.5, vjust=1.2, fill=PaletteCriticalLight[4], color=PaletteCritical[4], size=5) +
+  annotate(geom="text", x=zObs013, y=0, label=zObs013Rounded, hjust=.5, vjust=1.2, fill=PaletteCriticalLight[4], color=PaletteCritical[4], size=5) +
   
-  annotate("text", label=mObs013Pretty, x=zObs013, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
+  annotate("text", label=mObs013, x=zObs013, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +
   stat_function(fun=LimitRange(dnorm, zObs013, Inf), geom="area", color=PaletteCritical[4], fill=PaletteCriticalLight[4], n=calculatedPointCount) +
   #Draw it again on top
   stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
@@ -253,13 +260,13 @@ g9 <- g7 +
   
 #   annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label="italic(p)/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
 #   annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label=".4476", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
-  annotate(geom="text", x=zObs013, y=0, label=round(zObs013, 3), hjust=.5, vjust=1.2, color=PaletteCritical[4], size=5) +
+  annotate(geom="text", x=zObs013, y=0, label=zObs013Rounded, hjust=.5, vjust=1.2, color=PaletteCritical[4], size=5) +
   
 #   annotate(geom="text", x=-zObs013-.55, y=dnorm(zObs013)-.03, label="italic(p)/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
 #   annotate(geom="text", x=-zObs013-.55, y=dnorm(zObs013)-.03, label=".4476   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[4]) +
 #   annotate(geom="text", x=-zObs013, y=0, label=-round(zObs013, 3), hjust=.9, vjust=1.2, color=PaletteCritical[4], size=5) +
   
-  annotate("text", label=mObs013Pretty, x=zObs013, y=parallelLineHeight, size=4, hjust=.5, vjust=1.05, color=PaletteCritical[4]) #+
+  annotate("text", label=mObs013, x=zObs013, y=parallelLineHeight, size=4, hjust=.5, vjust=1.05, color=PaletteCritical[4]) #+
 #   stat_function(fun=LimitRange(dnorm, zObs013, Inf), geom="area",  color=PaletteCritical[4], fill=PaletteCritical[4], n=calculatedPointCount) +
   
 #   annotate("text", label=mObsNeg013Pretty, x=-zObs013, y=parallelLineHeight, size=4, hjust=.9, vjust=1.05, color=PaletteCritical[4]) #+

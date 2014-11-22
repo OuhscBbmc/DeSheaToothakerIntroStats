@@ -122,6 +122,7 @@ DrawWithoutPanelClipping(g3 +
 zObs013 <- 0.13#16; # 1- pnorm(q=zObs013)
 mObs013Pretty <- ConvertFromZToM(zObs013, roundedDigits=3) #33.5
 mObsNeg013Pretty <- ConvertFromZToM(-zObs013, roundedDigits=3) #32.5
+pObs013Pretty <- round(1- pnorm(zObs013), 4)
 
 g4 <- g2 + 
   annotate("segment", x=zObs013, xend=zObs013, y=0, yend=Inf, color=PaletteCritical[4]) +
@@ -129,7 +130,7 @@ g4 <- g2 +
   annotate("segment", x=zObs013, xend=xLimitBuffer, y=dnorm(zObs013)+.01, yend=dnorm(zObs013)+.01, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   
   annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label="italic(p)==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
-  annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label=".4476", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
+  annotate(geom="text", x=zObs013+.55, y=dnorm(zObs013)-.03, label=pObs013Pretty, hjust=0, vjust=1.15, parse=F, color=PaletteCritical[4]) +
   annotate(geom="text", x=zObs013, y=0, label=round(zObs013, 3), hjust=.5, vjust=1.2, fill=PaletteCriticalLight[4], color=PaletteCritical[4], size=5) +
   
   annotate("text", label=mObs013Pretty, x=zObs013, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[4]) +

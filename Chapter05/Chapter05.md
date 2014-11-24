@@ -12,6 +12,13 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 
 ```r
 require(knitr)
+```
+
+```
+## Loading required package: knitr
+```
+
+```r
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -47,38 +54,40 @@ read_chunk("./Chapter05/Chapter05.R")
 
 ## Figure 5-1
 <img src="figure_rmd/Figure05_01-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-2
 <img src="figure_rmd/Figure05_02-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-3
 <img src="figure_rmd/Figure05_03-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-4
 <img src="figure_rmd/Figure05_04-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-5
 <img src="figure_rmd/Figure05_05-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-6
 <img src="figure_rmd/Figure05_06-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-7
 <img src="figure_rmd/Figure05_07-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-8
 <img src="figure_rmd/Figure05_08-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-9
-
-```
-Warning: Removed 7 rows containing missing values (geom_point).
-```
-
 <img src="figure_rmd/Figure05_09-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-10
-
-```
-Warning: Removed 7 rows containing missing values (geom_point).
-```
-
 <img src="figure_rmd/Figure05_10-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-11
 <img src="figure_rmd/Figure05_11-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-12
 <img src="figure_rmd/Figure05_12-1.png" title="" alt="" width="550px" />
+
 ## Figure 5-13
 <img src="./../Chapter03/figure_rmd/Figure03_09-1.png" alt="StateCigarette" style="width: 400px;"/>
 
@@ -87,7 +96,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2014-11-19, 00:44 -0600
+Report created by wibeasley at 2014-11-24, 16:01 -0600
 ```
 
 ```
@@ -103,9 +112,8 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggthemes_1.7.0     gridExtra_0.9.1    epade_0.3.8        plotrix_3.5-10     reshape2_1.4       scales_0.2.4      
- [7] plyr_1.8.1         RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     wesanderson_0.3    ggplot2_1.0.0     
-[13] knitr_1.8         
+ [1] dichromat_2.0-0    extrafont_0.16     reshape2_1.4       ggthemes_1.7.0     ggplot2_1.0.0      gridExtra_0.9.1   
+ [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 knitr_1.8         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    

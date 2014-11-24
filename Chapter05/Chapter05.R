@@ -196,8 +196,8 @@ eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleS
 
 ggplot(dsWorldRestricted, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
-  geom_point(shape=21) +
-  scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
+  geom_point(shape=21, na.rm=T) +
+  scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop, na.rm=T)) +
   scale_colour_manual(values=PaletteWorldDeathsRestricted, guide=FALSE) +
   scale_fill_manual(values=PaletteWorldDeathsRestrictedFaint, guide=FALSE) +
   chapterTheme +
@@ -211,8 +211,8 @@ ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
   geom_vline(x=30, color=PaletteWorldDeathsRestricted[1], size=3, alpha=.1) +
   geom_vline(x=30, color=PaletteWorldDeathsRestricted[2], size=3, alpha=.1) +
-  geom_point(shape=21) +
-  scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop)) +
+  geom_point(shape=21, na.rm=T) +
+  scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop, na.rm=T)) +
   scale_colour_manual(values=PaletteWorldDeathsRestricted, guide=FALSE) +
   scale_fill_manual(values=PaletteWorldDeathsRestrictedFaint, guide=FALSE) +
   chapterTheme +
@@ -231,7 +231,7 @@ ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fil
   geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
   geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
   geom_point(shape=21, size=4, na.rm=T) + 
-  scale_x_continuous(limits=range(dsSmoking$TaxCentsPerPack)) +
+  scale_x_continuous(limits=range(dsSmoking$TaxCentsPerPack, na.rm=T)) +
   scale_y_continuous(label=scales::percent) +
   scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
   scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +

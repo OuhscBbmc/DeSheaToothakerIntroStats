@@ -270,19 +270,19 @@ g10 <- ggplot(data.frame(f=c(-2.9, 4.9)), aes(x=f)) +
   annotate("segment", x=ConvertFromMToZ(ticksBigExtended), xend=ConvertFromMToZ(ticksBigExtended), y=parallelLineHeight-tickHeightBig, yend=parallelLineHeight+tickHeightBig, color="gray40") +
   annotate("text", label="Maze Completion Time", x=0, y=parallelLineHeight, parse=F, vjust=2.25, size=4, color="gray40") +
   
-  annotate("segment", x=criticalZ01, xend=criticalZ01, y=0, yend=Inf, color=PaletteCriticalLight[2]) +
+  annotate("segment", x=criticalZ01, xend=criticalZ01, y=0, yend=Inf, color=PaletteCriticalLight[3]) +
   annotate("segment", x=criticalZ01, xend=criticalZ01, y=0, yend=Inf, color=PaletteCriticalLight[5]) +
-  annotate("segment", x=criticalZ01, xend=criticalZ01, y=-.03, yend=parallelLineHeight, color=PaletteCriticalLight[2]) +  
+  annotate("segment", x=criticalZ01, xend=criticalZ01, y=-.03, yend=parallelLineHeight, color=PaletteCriticalLight[3]) +  
   annotate("segment", x=criticalZ01, xend=criticalZ01, y=-.03, yend=parallelLineHeight, color=PaletteCriticalLight[5]) +
   
   stat_function(fun=LimitRange(dnorm, -2.9, 4.9), geom="line", color=PaletteCritical[1], n=calculatedPointCount, na.rm=T) +
-  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount) +
   
   stat_function(fun=LimitRange(dnorm27, -2.9, 4.9), n=calculatedPointCount, color=PaletteCritical[5], size=.5) +
   stat_function(fun=LimitRange(dnorm27, -2.9, criticalZ01), geom="area", fill=PaletteCriticalLight[5], n=calculatedPointCount) +
   
-  annotate("segment", x=criticalZ01+.1, xend=criticalZ01+1, y=-.045, yend=-.045, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.5, "cm")), size=2) +
-  annotate("text", x=criticalZ01+1.1, y=-.045, label="Reject Null", hjust=0, color=PaletteCritical[2], size=5) +
+  annotate("segment", x=criticalZ01+.1, xend=criticalZ01+1, y=-.045, yend=-.045, color=PaletteCritical[3], arrow=arrow(length=grid::unit(0.5, "cm")), size=2) +
+  annotate("text", x=criticalZ01+1.1, y=-.045, label="Reject Null", hjust=0, color=PaletteCritical[3], size=5) +
   
   annotate("segment", x=criticalZ01-.1, xend=criticalZ01-1, y=-.045, yend=-.045, color=PaletteCritical[5], arrow=arrow(length=grid::unit(0.5, "cm")), size=2) +
   annotate("text", x=criticalZ01-1.1, y=-.045, label="Retain Null", hjust=1, color=PaletteCritical[5], size=5) +

@@ -33,7 +33,7 @@ dsSmoking <- read.csv("./Data/SmokingTax.csv", stringsAsFactors=FALSE)
 
 #####################################
 ## @knitr TweakDatasets
-dsWorldBirthDeathRates <- dsWorldBirthDeathRates[(dsWorldBirthDeathRates$BirthsPer1000Pop > 0) & (dsWorldBirthDeathRates$DeathsPer1000Pop > 0), ]
+dsWorldBirthDeathRates <- dsWorldBirthDeathRates[!is.na(dsWorldBirthDeathRates$BirthsPer1000Pop) & (dsWorldBirthDeathRates$BirthsPer1000Pop > 0) & (dsWorldBirthDeathRates$DeathsPer1000Pop > 0), ]
 dsWorldBirthDeathRates$Omitted <- (dsWorldBirthDeathRates$BirthsPer1000Pop >= 30)
 
 dsSmoking$Omitted <- (dsSmoking$TaxCentsPerPack >= 100)

@@ -101,11 +101,7 @@ Table of Critical *F* values.  Will be produced by publisher.
 ```
 
 ## Figure 12-13
-```{r Figure12_13, echo=echoChunks}
-```
-
-## Figure 12-14
-```{r Figure12_14, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
+```{r Figure12_13, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
 ```
 
 ## Session Info

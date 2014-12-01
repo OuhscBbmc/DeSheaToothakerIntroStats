@@ -291,9 +291,10 @@ gCrying1 <- ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
   chapterTheme +
   labs(x="Crying Duration", y="Frequency", title="")
 
-DrawWithoutPanelClipping(gCrying1)
-#####################################
-## @knitr Figure12_11
+#This used to be figure 12_10 (but was deleted)
+# DrawWithoutPanelClipping(gCrying1)
+
+#This used to be figure 12_11
 gCrying2 <- gCrying1 +
   annotate("segment", x=cryMax, xend=cryMax, y=0, yend=Inf, color=paletteCryHistogram[1], size=3, alpha=1, linetype="11") +
   geom_segment(aes(x=cryMeanOverall + cushion, y=height1, xend=cryMax - cushion, yend=height1), color=paletteCryHistogram[1], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
@@ -306,7 +307,7 @@ gCrying2 <- gCrying1 +
 
 DrawWithoutPanelClipping(gCrying2)
 #####################################
-## @knitr Figure12_12
+## @knitr Figure12_11
 gCrying3 <- gCrying2 +
   geom_segment(aes(x=cryMeanOverall + cushion, y=height2, xend=cryMeanControl - cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
   geom_segment(aes(x=cryMeanControl - cushion, y=height2, xend=cryMeanOverall + cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round")
@@ -315,14 +316,14 @@ gCrying3 <- gCrying2 +
 
 DrawWithoutPanelClipping(gCrying3)
 #####################################
-## @knitr Figure12_13
+## @knitr Figure12_12
 gCrying4 <- gCrying3 +
     geom_segment(aes(x=cryMeanControl + cushion, y=height2, xend=cryMax - cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
     geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round")
 
 DrawWithoutPanelClipping(gCrying4)
 #####################################
-## @knitr Figure12_14
+## @knitr Figure12_13
 
 f2_80 <- function( x ) { return( df(x, df1=2, df2=80) ) }
 criticalF05 <- qf(p=.95, df1=2, df2=80)

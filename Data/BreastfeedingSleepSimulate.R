@@ -1,9 +1,9 @@
 rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 #####################################
 ## @knitr LoadPackages
-# require(knitr)
-require(plyr)
-# require(ggplot2)
+# library(knitr)
+library(plyr)
+# library(ggplot2)
 
 ############################
 ## @knitr DeclareGlobals

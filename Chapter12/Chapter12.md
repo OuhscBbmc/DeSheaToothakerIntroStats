@@ -11,14 +11,7 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 <!-- Set the report-wide options, and point to the external code file. -->
 
 ```r
-require(knitr)
-```
-
-```
-## Loading required package: knitr
-```
-
-```r
+library(knitr)
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -68,14 +61,14 @@ Residuals:
 Coefficients:
                 Estimate Std. Error t value Pr(>|t|)    
 (Intercept)    3.000e+02  5.164e+00   58.09   <2e-16 ***
-FeedingBottle -1.027e-13  7.303e+00    0.00        1    
-FeedingBoth   -9.746e-14  7.303e+00    0.00        1    
+FeedingBottle -1.036e-13  7.303e+00    0.00        1    
+FeedingBoth   -1.017e-13  7.303e+00    0.00        1    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 20 on 42 degrees of freedom
-Multiple R-squared:  2.673e-29,	Adjusted R-squared:  -0.04762 
-F-statistic: 5.614e-28 on 2 and 42 DF,  p-value: 1
+Multiple R-squared:  2.712e-29,	Adjusted R-squared:  -0.04762 
+F-statistic: 5.695e-28 on 2 and 42 DF,  p-value: 1
 ```
 
 ```
@@ -91,7 +84,7 @@ Residuals:
 Coefficients:
                 Estimate Std. Error t value Pr(>|t|)    
 (Intercept)    3.000e+02  5.164e+00   58.09   <2e-16 ***
-FeedingBottle -9.887e-14  7.303e+00    0.00        1    
+FeedingBottle -1.348e-13  7.303e+00    0.00        1    
 FeedingBoth    1.000e+02  7.303e+00   13.69   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -114,7 +107,7 @@ Residuals:
 Coefficients:
                Estimate Std. Error t value Pr(>|t|)    
 (Intercept)   3.000e+02  3.357e+01   8.938 2.87e-11 ***
-FeedingBottle 7.190e-14  4.747e+01   0.000   1.0000    
+FeedingBottle 6.291e-14  4.747e+01   0.000   1.0000    
 FeedingBoth   1.000e+02  4.747e+01   2.107   0.0412 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -156,9 +149,11 @@ This figure will be typeset by the publisher.
 ## Figure 12-2
 
 <img src="figure_rmd/Figure12_02-1.png" title="" alt="" width="400px" />
+
 ## Figure 12-3
 
 <img src="figure_rmd/Figure12_03-1.png" title="" alt="" width="400px" />
+
 ## Figure 12-4
 
 <img src="figure_rmd/Figure12_04-1.png" title="" alt="" width="400px" />
@@ -195,16 +190,17 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2014-11-30, 22:33 -0600
+Report created by wibeasley at 2014-12-07, 23:39 -0600
 ```
 
 ```
-R version 3.1.2 Patched (2014-11-25 r67060)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R version 3.1.2 (2014-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 locale:
-[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
@@ -216,7 +212,7 @@ other attached packages:
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
  [7] htmltools_0.2.6  labeling_0.3     MASS_7.3-35      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3     
-[13] reshape2_1.4     rmarkdown_0.3.11 Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
+[13] reshape2_1.4     rmarkdown_0.3.10 Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
 
 ## License

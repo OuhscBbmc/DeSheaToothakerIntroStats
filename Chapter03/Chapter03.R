@@ -1,14 +1,14 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 #####################################
 ## @knitr LoadPackages
-require(knitr)
-require(RColorBrewer)
-require(plyr)
-require(scales) #For formating values in graphs
-require(ggplot2)
-require(reshape2) #For convertin wide to long
-require(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
-require(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
+library(knitr)
+library(RColorBrewer)
+library(plyr)
+library(scales) #For formating values in graphs
+library(ggplot2)
+library(reshape2) #For convertin wide to long
+library(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
+library(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
 
 #####################################
 ## @knitr DeclareGlobals

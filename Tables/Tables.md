@@ -11,7 +11,7 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 <!-- Set the report-wide options, and point to the external code file. -->
 
 ```r
-require(knitr)
+library(knitr)
 opts_chunk$set(
   results = 'asis', 
   message = TRUE,
@@ -281,7 +281,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2014-11-19, 00:45 -0600
+Report created by wibeasley at 2014-12-07, 23:32 -0600
 ```
 
 ```
@@ -303,7 +303,7 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
- [7] htmltools_0.2.6  labeling_0.3     munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      rmarkdown_0.3.3 
+ [7] htmltools_0.2.6  labeling_0.3     munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      rmarkdown_0.3.10
 [13] Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
 

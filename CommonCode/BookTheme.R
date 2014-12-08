@@ -2,15 +2,15 @@
 # before installing the `extrafont` package.
 #Run the following three lines of code once per machine (not once per session).
 # install.packages("extrafont")
-# require(extrafont) 
+# library(extrafont) 
 # extrafont::font_import()
 # extrafont::fonts() #This just lists the available fonts for you to read; similar to extrafont::fonttable()
 
-require(extrafont) 
-require(grid)
-require(ggplot2)
-require(dichromat)
-require(RColorBrewer)
+library(extrafont) 
+library(grid)
+library(ggplot2)
+library(dichromat)
+library(RColorBrewer)
 
 #########################################################
 ### Define theme elements for ggplot2 graphs

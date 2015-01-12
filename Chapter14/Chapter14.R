@@ -27,7 +27,7 @@ chapterTheme <- BookTheme  +
 ## @knitr TweakDatasets
 
 #####################################
-## @knitr Figure14_01
+## @knitr Figure14_02
 xLimits <- c(-3.9, 3.9)
 xLimitBuffer <- 3.85
 parallelLineHeight <- -.08
@@ -63,7 +63,7 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 DrawWithoutPanelClipping(g1)
 
 #####################################
-## @knitr Figure14_02
+## @knitr Figure14_03
 fPaletteDark <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
 fPaletteLight <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.3)
 
@@ -96,7 +96,7 @@ ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
   labs(x=expression(italic(chi^2)), y=NULL)
 
 #####################################
-## @knitr Figure14_03
+## @knitr Figure14_04
 fDf6 <- function(x) dchisq(x, df=6)
 criticalF05 <- qchisq(p=.95, df=6)
 chiObs <- 14.53
@@ -124,7 +124,7 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
 DrawWithoutPanelClipping(g3)
 
 #####################################
-## @knitr Figure14_05
+## @knitr Figure14_06
 g4 <- g3 +
   annotate("segment", x=chiObs, xend=chiObs, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=chiObs, xend=19.5, y=fDf6(chiObs)+.004, yend=fDf6(chiObs)+.004, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
@@ -136,7 +136,7 @@ g4 <- g3 +
 DrawWithoutPanelClipping(g4)
 
 #####################################
-## @knitr Figure14_06
+## @knitr Figure14_10
 fDf2 <- function(x) dchisq(x, df=2)
 criticalF05 <- qchisq(p=.95, df=2)
 # chiObs <- 14.53

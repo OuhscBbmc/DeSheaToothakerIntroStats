@@ -37,7 +37,7 @@ read_chunk("./Tables/Tables.R")
 <!-- Tweak the datasets.   -->
 
 
-## Table A: Standard normal distribution
+## Table A.1: Standard normal distribution
 
 |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |
 |:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|
@@ -80,7 +80,7 @@ read_chunk("./Tables/Tables.R")
 |0.36 |.1406  |.3594   |0.74 |.2704  |.2296   |1.12 |.3686  |.1314   |1.50 |.4332  |.0668   |1.88 |.4699  |.0301   |2.26 |.4881  |.0119   |2.64 |.4959  |.0041   |3.02 |.4987  |.0013   |     |       |        |
 |0.37 |.1443  |.3557   |0.75 |.2734  |.2266   |1.13 |.3708  |.1292   |1.51 |.4345  |.0655   |1.89 |.4706  |.0294   |2.27 |.4884  |.0116   |2.65 |.4960  |.0040   |3.03 |.4988  |.0012   |     |       |        |
 
-## Table B: Critical values for *t* distributions
+## Table B.1: Critical values for *t* distributions
 
 |     df| Alpha10| Alpha05| Alpha025| Alpha01| Alpha005| Alpha0005|
 |------:|-------:|-------:|--------:|-------:|--------:|---------:|
@@ -126,7 +126,7 @@ read_chunk("./Tables/Tables.R")
 |    120|   1.289|   1.658|    1.980|   2.358|    2.617|     3.373|
 | 100000|   1.282|   1.645|    1.960|   2.326|    2.576|     3.291|
 
-## Table C: Critical values for *F* distributions
+## Table C.1: Critical values for *F* distributions
 
 | DenominatorDF| Alpha|       1|       2|       3|       4|       5|       6|       7|       8|       9|      10|      11|      12|      14|      16|      20|
 |-------------:|-----:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|
@@ -233,7 +233,7 @@ read_chunk("./Tables/Tables.R")
 |      10000000|  0.05|    3.84|    3.00|    2.60|    2.37|    2.21|    2.10|    2.01|    1.94|    1.88|    1.83|    1.79|    1.75|    1.69|    1.64|    1.57|
 |      10000000|  0.01|    6.63|    4.61|    3.78|    3.32|    3.02|    2.80|    2.64|    2.51|    2.41|    2.32|    2.25|    2.18|    2.08|    2.00|    1.88|
 
-## Table D: Critical values for χ^2 distributions
+## Table D.1: Critical values for χ^2 distributions
 
 | df| Alpha10| Alpha05| Alpha01| Alpha001|
 |--:|-------:|-------:|-------:|--------:|
@@ -281,29 +281,27 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2014-12-07, 23:32 -0600
+Report created by Will at 2015-01-13, 20:19 -0600
 ```
 
 ```
-R version 3.1.2 (2014-10-31)
-Platform: x86_64-pc-linux-gnu (64-bit)
+R version 3.1.2 Patched (2014-12-11 r67168)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rgl_0.95.1158      mnormt_1.5-1       MASS_7.3-35        ggthemes_1.7.0     gridExtra_0.9.1    epade_0.3.8       
- [7] plotrix_3.5-10     reshape2_1.4       scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 dichromat_2.0-0   
-[13] extrafont_0.16     wesanderson_0.3    ggplot2_1.0.0      knitr_1.8         
+ [1] dichromat_2.0-0    extrafont_0.17     reshape2_1.4.1     ggthemes_2.1.0     ggplot2_1.0.0      gridExtra_0.9.1   
+ [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.1-2 knitr_1.8         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
- [7] htmltools_0.2.6  labeling_0.3     munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      rmarkdown_0.3.10
+ [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
+ [7] htmltools_0.2.6  MASS_7.3-37      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      rmarkdown_0.4.2 
 [13] Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
 

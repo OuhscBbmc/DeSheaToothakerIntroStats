@@ -82,17 +82,19 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
            arrow = grid::arrow(length = unit(.4,"cm"), type="open"), color=colorSingleLight, size=2, lineend="round") +
   
   annotate("segment", x=groupMean, xend=groupMean, y=0, ,yend=yZ, color=colorMeanLight, linetype=2, size=1) +
-  annotate("segment", x=singleScore, xend=singleScore, y=0, ,yend=yZ, color=colorSingleLight, linetype=2, size=1) +
+  annotate("segment", x=singleScore, xend=singleScore, y=0, yend=yZ, color=colorSingleLight, linetype=2, size=1) +
   
   geom_segment(aes(x=12, xend=17.5, y=0, yend=0), color=grayLight) + #The PSQI line  
   geom_segment(color=grayLight) + #The tick marks on PSQI
   geom_text(vjust=-1.0, color=grayDark) + #The labels for PSQI
-  annotate("text", x=-Inf, y=0, label="PSQI\nScores", hjust=0, color=grayDark) +
+  annotate("text", x=-Inf, y=0, label="PSQI", hjust=0, vjust=-.3, color=grayDark) +
+  annotate("text", x=-Inf, y=0, label="Scores", hjust=0, vjust=1.3, color=grayDark) +
   
   geom_segment(aes(x=12, xend=17.5, y=yZ, yend=yZ), color=grayLight) + #The Z line
   geom_segment(data=dsZ, color=grayLight) + #The tick marks on Z
   geom_text(data=dsZ, vjust=2.0, color=grayDark) + #The labels for Z
-  annotate("text", x=-Inf, y=yZ, label="Z\nScores", hjust=0, color=grayDark) +  
+  annotate("text", x=-Inf, y=yZ, label="italic(z)", hjust=0, vjust=-.3, color=grayDark, parse=TRUE) +
+  annotate("text", x=-Inf, y=yZ, label="Scores", hjust=0, vjust=1.3, color=grayDark, parse=TRUE) +
   
   #annotate("text", x=groupMean, y=arrowHeight, vjust=-1, label=as.character(expression(bar(italic(X))==13.45)), color=colorMeanDark, parse=TRUE) +
   #annotate("text", x=singleScore, y=arrowHeight, vjust=-.38, label="A person's\nscore = 17", color=colorSingleDark) +
@@ -149,7 +151,7 @@ histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank()) +
-  labs(x="z Score for Baseline PSQI", y=NULL)
+  labs(x=expression(italic(z)~Score~of~Baseline~PQSI), y=NULL) 
 
 grid.arrange(
   histogramXInset, 

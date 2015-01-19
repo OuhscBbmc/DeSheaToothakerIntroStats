@@ -27,7 +27,8 @@ opts_chunk$set(
   dev = "png",
   dpi = 400
   # fig.path = 'figure_pdf/',     
-  # dev = "pdf"
+  # dev = "pdf",
+  # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.

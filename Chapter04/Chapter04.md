@@ -23,9 +23,9 @@ opts_chunk$set(
   fig.path = 'figure_rmd/',     
   dev = "png",
   dpi = 400
-#   fig.path = 'figure_pdf/',     
-#   dev = "pdf",
-#   dev.args=list(pdf = list(colormodel = 'cmyk'))
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf",
+  # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
@@ -82,7 +82,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2015-01-18, 23:02 -0600
+Report created by wibeasley at 2015-01-18, 23:15 -0600
 ```
 
 ```

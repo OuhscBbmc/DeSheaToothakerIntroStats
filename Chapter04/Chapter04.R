@@ -215,7 +215,7 @@ g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill=paletteZ[2], alpha=.2, n=calculatedPointCount) +
   stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[2]) +
-  annotate(geom="text", x=0, y=.2, label="About 95%\nof the\ndistribution") +
+  annotate(geom="text", x=0, y=.2, label="About 95%\nof the distribution") +
   scale_x_continuous(breaks=-2:2, labels=-2:2*sigma+mu) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +

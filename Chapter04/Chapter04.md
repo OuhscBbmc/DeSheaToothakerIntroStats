@@ -20,11 +20,11 @@ opts_chunk$set(
   fig.height = 4, 
   fig.width = 5.5, 
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure_rmd/',     
-  dev = "png",
-  dpi = 400
-  # fig.path = 'figure_pdf/',     
-  # dev = "pdf",
+#   fig.path = 'figure_rmd/',     
+#   dev = "png",
+#   dpi = 400
+  fig.path = 'figure_pdf/',     
+  dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 echoChunks <- FALSE
@@ -47,42 +47,42 @@ read_chunk("./Chapter04/Chapter04.R")
 
 
 ## Figure 4-1
-<img src="figure_rmd/Figure04_01-1.png" title="" alt="" width="550px" />
+<img src="figure_pdf/Figure04_01-1.pdf" title="" alt="" width="550px" />
 
 ## Figure 4-2
-<img src="figure_rmd/Figure04_02-1.png" title="" alt="" width="550px" />
+<img src="figure_pdf/Figure04_02-1.pdf" title="" alt="" width="550px" />
 
 ## Figure 4-3
-<img src="figure_rmd/Figure04_03-1.png" title="" alt="" width="550px" />
+<img src="figure_pdf/Figure04_03-1.pdf" title="" alt="" width="550px" />
 
 ## Figure 4-4
-<img src="figure_rmd/Figure04_04-1.png" title="" alt="" width="550px" />
+<img src="figure_pdf/Figure04_04-1.pdf" title="" alt="" width="550px" />
 
 ## Figure 4-5
-<img src="figure_rmd/Figure04_05-1.png" title="" alt="" width="550px" />
+<img src="figure_pdf/Figure04_05-1.pdf" title="" alt="" width="550px" />
 
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
 ## Figures 4-7
-<img src="figure_rmd/Figure04_07-1.png" title="" alt="" width="300px" />
+<img src="figure_pdf/Figure04_07-1.pdf" title="" alt="" width="300px" />
 
 ## Figure 4-8
-<img src="figure_rmd/Figure04_08-1.png" title="" alt="" width="350px" /><img src="figure_rmd/Figure04_08-2.png" title="" alt="" width="350px" />
+<img src="figure_pdf/Figure04_08-1.pdf" title="" alt="" width="350px" /><img src="figure_pdf/Figure04_08-2.pdf" title="" alt="" width="350px" />
 
 ## Figure 4-9
-<img src="figure_rmd/Figure04_09-1.png" title="" alt="" width="550px" />
+<img src="figure_pdf/Figure04_09-1.pdf" title="" alt="" width="550px" />
 
 ## Unused Graphics
-<img src="figure_rmd/UnusedVariantsFigure04_04-1.png" title="" alt="" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_04-2.png" title="" alt="" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_04-3.png" title="" alt="" width="550px" />
-<img src="figure_rmd/UnusedVariantsFigure04_08-1.png" title="" alt="" width="550px" />
+<img src="figure_pdf/UnusedVariantsFigure04_04-1.pdf" title="" alt="" width="550px" /><img src="figure_pdf/UnusedVariantsFigure04_04-2.pdf" title="" alt="" width="550px" /><img src="figure_pdf/UnusedVariantsFigure04_04-3.pdf" title="" alt="" width="550px" />
+<img src="figure_pdf/UnusedVariantsFigure04_08-1.pdf" title="" alt="" width="550px" />
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by wibeasley at 2015-01-18, 23:15 -0600
+Report created by wibeasley at 2015-02-08, 00:16 -0600
 ```
 
 ```
@@ -99,7 +99,7 @@ attached base packages:
 
 other attached packages:
  [1] dichromat_2.0-0    extrafont_0.17     reshape2_1.4.1     ggthemes_2.1.0     ggplot2_1.0.0      gridExtra_0.9.1   
- [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.1-2 knitr_1.8         
+ [7] scales_0.2.4       plyr_1.8.1         RColorBrewer_1.1-2 knitr_1.9         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    

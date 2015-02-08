@@ -28,8 +28,8 @@ opts_chunk$set(
   dev = "png",
   dpi = 400
 
-  # fig.path = 'figure_pdf/',     
-  # dev = "pdf",
+#   fig.path = 'figure_pdf/',     
+#   dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 

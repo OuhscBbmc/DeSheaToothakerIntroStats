@@ -64,8 +64,8 @@ DrawWithoutPanelClipping(g1)
 
 #####################################
 ## @knitr Figure14_03
-fPaletteDark <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
-fPaletteLight <- adjustcolor(wes.palette(5, "Darjeeling"), alpha.f=.3)
+fPaletteDark <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
+fPaletteLight <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.3)
 
 f1 <- function( x ) dchisq(x, df=2)
 f2 <- function( x ) dchisq(x, df=3)

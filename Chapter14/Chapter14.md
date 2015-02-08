@@ -25,8 +25,8 @@ opts_chunk$set(
   dev = "png",
   dpi = 400
 
-  # fig.path = 'figure_pdf/',     
-  # dev = "pdf",
+#   fig.path = 'figure_pdf/',     
+#   dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 
@@ -71,28 +71,29 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by Will at 2015-01-12, 12:00 -0600
+Report created by wibeasley at 2015-02-08, 01:26 -0600
 ```
 
 ```
-R version 3.1.2 Patched (2014-12-11 r67168)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R version 3.1.2 (2014-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 locale:
-[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
-[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     wesanderson_0.3    ggplot2_1.0.0      scales_0.2.4      
-[7] plyr_1.8.1         knitr_1.8         
+[1] RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     wesanderson_0.3.2  ggplot2_1.0.0      scales_0.2.4      
+[7] plyr_1.8.1         knitr_1.9         
 
 loaded via a namespace (and not attached):
  [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
  [7] htmltools_0.2.6  labeling_0.3     MASS_7.3-37      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3     
-[13] reshape2_1.4.1   rmarkdown_0.4.2  Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
+[13] reshape2_1.4.1   rmarkdown_0.4.2  Rttf2pt1_1.3.3   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```
 
 ## License

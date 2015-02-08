@@ -154,14 +154,14 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
 #####################################
 ## @knitr Figure03_10
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
-  geom_histogram(binwidth=2.5, fill="coral4", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
+  geom_histogram(binwidth=2.5, fill="coral3", color="coral4", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
 
 #####################################
 ## @knitr Figure03_11
 ggplot(dsObesity, aes(x=ObesityRate)) +
-  geom_histogram(binwidth=.01, fill="salmon", color="gray95", alpha=.6) + #Be a little darker than the previous boxplot
+  geom_histogram(binwidth=.01, fill="salmon2", color="salmon3", alpha=.6) + #Be a little darker than the previous boxplot
   scale_x_continuous(label=scales::percent) + 
   chapterTheme +
   labs(x="Obesity Rate (in 2011)", y="Number of States")

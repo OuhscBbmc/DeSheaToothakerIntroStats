@@ -20,11 +20,11 @@ opts_chunk$set(
   fig.height = 4, 
   fig.width = 5.5, 
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-#   fig.path = 'figure_rmd/',     
-#   dev = "png",
-#   dpi = 400
-  fig.path = 'figure_pdf/',     
-  dev = "pdf"#,
+  fig.path = 'figure_rmd/',     
+  dev = "png",
+  dpi = 400
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 echoChunks <- FALSE
@@ -47,42 +47,42 @@ read_chunk("./Chapter04/Chapter04.R")
 
 
 ## Figure 4-1
-<img src="figure_pdf/Figure04_01-1.pdf" title="" alt="" width="550px" />
+<img src="figure_rmd/Figure04_01-1.png" title="" alt="" width="550px" />
 
 ## Figure 4-2
-<img src="figure_pdf/Figure04_02-1.pdf" title="" alt="" width="550px" />
+<img src="figure_rmd/Figure04_02-1.png" title="" alt="" width="550px" />
 
 ## Figure 4-3
-<img src="figure_pdf/Figure04_03-1.pdf" title="" alt="" width="550px" />
+<img src="figure_rmd/Figure04_03-1.png" title="" alt="" width="550px" />
 
 ## Figure 4-4
-<img src="figure_pdf/Figure04_04-1.pdf" title="" alt="" width="550px" />
+<img src="figure_rmd/Figure04_04-1.png" title="" alt="" width="550px" />
 
 ## Figure 4-5
-<img src="figure_pdf/Figure04_05-1.pdf" title="" alt="" width="550px" />
+<img src="figure_rmd/Figure04_05-1.png" title="" alt="" width="550px" />
 
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
 ## Figures 4-7
-<img src="figure_pdf/Figure04_07-1.pdf" title="" alt="" width="300px" />
+<img src="figure_rmd/Figure04_07-1.png" title="" alt="" width="300px" />
 
 ## Figure 4-8
-<img src="figure_pdf/Figure04_08-1.pdf" title="" alt="" width="350px" /><img src="figure_pdf/Figure04_08-2.pdf" title="" alt="" width="350px" />
+<img src="figure_rmd/Figure04_08-1.png" title="" alt="" width="350px" /><img src="figure_rmd/Figure04_08-2.png" title="" alt="" width="350px" />
 
 ## Figure 4-9
-<img src="figure_pdf/Figure04_09-1.pdf" title="" alt="" width="550px" />
+<img src="figure_rmd/Figure04_09-1.png" title="" alt="" width="550px" />
 
 ## Unused Graphics
-<img src="figure_pdf/UnusedVariantsFigure04_04-1.pdf" title="" alt="" width="550px" /><img src="figure_pdf/UnusedVariantsFigure04_04-2.pdf" title="" alt="" width="550px" /><img src="figure_pdf/UnusedVariantsFigure04_04-3.pdf" title="" alt="" width="550px" />
-<img src="figure_pdf/UnusedVariantsFigure04_08-1.pdf" title="" alt="" width="550px" />
+<img src="figure_rmd/UnusedVariantsFigure04_04-1.png" title="" alt="" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_04-2.png" title="" alt="" width="550px" /><img src="figure_rmd/UnusedVariantsFigure04_04-3.png" title="" alt="" width="550px" />
+<img src="figure_rmd/UnusedVariantsFigure04_08-1.png" title="" alt="" width="550px" />
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by wibeasley at 2015-02-08, 00:16 -0600
+Report created by wibeasley at 2015-02-08, 14:58 -0600
 ```
 
 ```

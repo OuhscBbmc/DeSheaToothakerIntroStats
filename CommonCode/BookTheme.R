@@ -51,7 +51,9 @@ PaletteObesityState <- transformColor(adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)
 PaletteWorldDeathsRestricted <- transformColor(c("#497862", "#A54891")) #Hand-picked
 PaletteWorldDeathsRestrictedFaint <- transformColor(adjustcolor(PaletteWorldDeathsRestricted, alpha.f=.2))
 
-PaletteControlPsqi <- transformColor(c("#1A7F7C", "#1595B2")) #From http://colrd.com/palette/22521/; http://colrd.com/palette/18981/
+PaletteControlPsqiLight <- transformColor(c("#1A7F7C", "#1595B2")) #From http://colrd.com/palette/22521/; http://colrd.com/palette/18981/
+PaletteControlPsqiDark <- transformColor(c("#215f5c", "#225a88")) #From http://colrd.com/palette/22521/; http://colrd.com/palette/18981/
+#
 
 #Use the same palette as the crit graphs in Chapters 10-12.
 #  * Purple is the distribution line

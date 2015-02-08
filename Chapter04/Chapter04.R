@@ -47,7 +47,7 @@ dsFibromyalgiaT1Control <- dsFibromyalgiaT1Control[order(dsFibromyalgiaT1Control
 ## @knitr Figure04_01
 breaksX <- seq(from=7, to=23, by=1)
 histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
-  geom_histogram(breaks=breaksX, fill=PaletteControlPsqi[1], color="gray95", alpha=.6) + 
+  geom_histogram(breaks=breaksX, fill=PaletteControlPsqiLight[1], color=PaletteControlPsqiDark[2], alpha=.6) + 
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank()) +
@@ -125,7 +125,7 @@ histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(
 
 
 # histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=Z)) +
-#   geom_histogram(breaks=breaksZ, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
+#   geom_histogram(breaks=breaksZ, fill=PaletteControlPsqiLight[2], color="gray95", alpha=.6) + 
 #   labs(x="Z", y=NULL) + 
 #   chapterTheme +
 #   theme(panel.grid.minor=element_blank()) +
@@ -135,7 +135,7 @@ histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(
 
 # ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
 #   #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
-#   geom_histogram(breaks=breaksX-.01, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
+#   geom_histogram(breaks=breaksX-.01, fill=PaletteControlPsqiLight[2], color="gray95", alpha=.6) + 
 # #   scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 2)) + 
 #   labs(x="Z", y=NULL) + 
 #   chapterTheme +
@@ -146,7 +146,7 @@ histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(
 
 histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) + 
-  geom_histogram(breaks=breaksX, fill=PaletteControlPsqi[2], color="gray95", alpha=.6) + 
+  geom_histogram(breaks=breaksX, fill=PaletteControlPsqiLight[2], color=PaletteControlPsqiDark[2], alpha=.6) + 
   scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 2)) + 
   chapterTheme +
   theme(panel.grid.minor=element_blank()) +

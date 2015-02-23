@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/4971/OuhscBbmc/DeSheaToothakerIntroStats.png)](http://dx.doi.org/10.5281/zenodo.12777)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.15604.svg)](http://dx.doi.org/10.5281/zenodo.15604)
 
 DeSheaToothakerIntroStats
 =========================

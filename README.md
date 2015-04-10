@@ -3,7 +3,7 @@
 DeSheaToothakerIntroStats
 =========================
 
-This repository contain graphing code to accompany the book, *[Introductory Statistics for the Health Sciences](http://www.crcpress.com/product/isbn/9781466565333)*, by Lise DeShea and Larry Toothaker (2015).  Please refer to the book or the book's website (which is in development) for more information.
+This repository contain graphing code to accompany the book, *[Introductory Statistics for the Health Sciences](http://www.crcpress.com/product/isbn/9781466565333)*, by Lise DeShea and Larry Toothaker (2015).  Please refer to the book or the [book's website](http://desheastats.com/) for more information.
 
 ---
 
@@ -29,6 +29,8 @@ Tables | [Tables of Distributions](https://github.com/OuhscBbmc/DeSheaToothakerI
 
 ---
 ## Additional Information
+
+* [Official Website](http://desheastats.com/) of the book by the authors: http://desheastats.com/.
 
 * [CRC Press](http://www.crcpress.com/product/isbn/9781466565333) retail site.
 

@@ -31,10 +31,9 @@ Tables | [Tables of Distributions](https://github.com/OuhscBbmc/DeSheaToothakerI
 ## Additional Information
 
 * [Official Website](http://desheastats.com/) of the book by the authors: http://desheastats.com/.
-
 * [CRC Press](http://www.crcpress.com/product/isbn/9781466565333) retail site.
-
 * [Amazon](http://www.amazon.com/Introductory-Statistics-Health-Sciences-DeShea/dp/1466565330) retail site.
+* [VitalSource CourseSmart](http://www.coursesmart.com/introductory-statistics-for-the-health-sciences/lise-deshea-larry-e-toothaker/dp/9781466565333) e-book rental and purchase site.
 
 ISBN-13: [978-1-4665-6533-3](http://www.crcpress.com/product/isbn/9781466565333); ISBN-10: [1-4665-6533-0](http://www.crcpress.com/product/isbn/9781466565333)
 

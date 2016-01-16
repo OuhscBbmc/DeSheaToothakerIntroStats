@@ -1,7 +1,7 @@
 data a;
 ***This data set is provided courtesy of Wang et al. (2010);
 ***for use with DeShea and Toothaker's Introductory Statistics for the Health Sciences;
-***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/FibromyalgiaTaiChiReadme.md;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/data/FibromyalgiaTaiChiReadme.md;
 
 input SubjectID Group $ 5-13 FiqT1 FiqT2 FiqT3 PsqiT1 PsqiT2 PsqiT3 SF36McsT1 SF36McsT2 SF36McsT3 SF36PcsT1 SF36PcsT2 SF36PcsT3 Flag $;
 lines;

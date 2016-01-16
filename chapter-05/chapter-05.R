@@ -20,14 +20,14 @@ chapterTheme <- BookTheme  +
 
 # ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
-dsPerfectPositive <- read.csv("./Data/Chapter05PerfectPositive.csv", stringsAsFactors=FALSE)
-dsPerfectNegative <- read.csv("./Data/Chapter05PerfectNegative.csv", stringsAsFactors=FALSE)
-dsStateBirthDeathRates <- read.csv("./Data/StateBirthDeathRates.csv", stringsAsFactors=FALSE)
-dsWorldMaternalMortality <- read.csv("./Data/WorldMaternalMortality.csv", stringsAsFactors=FALSE)
-dsStork <- read.csv("./Data/StorkBirth.csv", stringsAsFactors=FALSE)
-dsWorldBirthDeathRates <- read.csv("./Data/WorldCrudeBirthsDeathsCia.csv", stringsAsFactors=FALSE)
-dsSmoking <- read.csv("./Data/SmokingTax.csv", stringsAsFactors=FALSE)
+dsObesity <- read.csv("./data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
+dsPerfectPositive <- read.csv("./data/Chapter05PerfectPositive.csv", stringsAsFactors=FALSE)
+dsPerfectNegative <- read.csv("./data/Chapter05PerfectNegative.csv", stringsAsFactors=FALSE)
+dsStateBirthDeathRates <- read.csv("./data/StateBirthDeathRates.csv", stringsAsFactors=FALSE)
+dsWorldMaternalMortality <- read.csv("./data/WorldMaternalMortality.csv", stringsAsFactors=FALSE)
+dsStork <- read.csv("./data/StorkBirth.csv", stringsAsFactors=FALSE)
+dsWorldBirthDeathRates <- read.csv("./data/WorldCrudeBirthsDeathsCia.csv", stringsAsFactors=FALSE)
+dsSmoking <- read.csv("./data/SmokingTax.csv", stringsAsFactors=FALSE)
 
 # ---- tweak-packages ------------------------------------------------------
 dsWorldBirthDeathRates <- dsWorldBirthDeathRates[!is.na(dsWorldBirthDeathRates$BirthsPer1000Pop) & !is.na(dsWorldBirthDeathRates$DeathsPer1000Pop), ]

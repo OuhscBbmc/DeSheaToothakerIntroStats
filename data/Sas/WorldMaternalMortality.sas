@@ -1,7 +1,7 @@
 data a;
 ***This data set was compiled using information from www dot cia dot gov and www dot who dot int;
 ***for DeShea and Toothaker's Introductory Statistics for the Health Sciences;
-***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/WorldMaternalMortalityReadme.md;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/data/WorldMaternalMortalityReadme.md;
 
 input Country $ 1-32 MaternalMortper100KBirths2010 LifeExpectancyAtBirth2011 Extreme $;
 lines;

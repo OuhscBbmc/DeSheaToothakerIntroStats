@@ -44,9 +44,9 @@ colorAxes <- "black"
 
 # ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
-# dsFeed <- read.csv("./Data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
-# dsCry <- read.csv("./Data/InfantCryingFake.csv", stringsAsFactors=FALSE)
+dsObesity <- read.csv("./data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
+# dsFeed <- read.csv("./data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
+# dsCry <- read.csv("./data/InfantCryingFake.csv", stringsAsFactors=FALSE)
 
 # ---- tweak-packages ------------------------------------------------------
 

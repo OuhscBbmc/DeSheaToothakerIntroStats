@@ -1,7 +1,7 @@
 data a;
 ***This data set is provided courtesy of Price, Amini and Kappeler (2012);
 ***for use with DeShea and Toothaker's Introductory Statistics for the Health Sciences;
-***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/ExercisePregnancyReadme.md;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/data/ExercisePregnancyReadme.md;
 
 input SubjectID Group $ T1Lifts T2Lifts T3Lifts T4Lifts T5Lifts T1Watts T2Watts T3Watts T4Watts T5Watts DeliveryMethod $ CesareanHistory BabyWeight RecoveryDays;
 lines;

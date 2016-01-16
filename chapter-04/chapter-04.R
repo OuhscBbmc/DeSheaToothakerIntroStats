@@ -27,7 +27,7 @@ emptyTheme <- theme_minimal() +
 
 # ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsFibromyalgia <- read.csv("./Data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
+dsFibromyalgia <- read.csv("./data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 
 # ---- tweak-packages ------------------------------------------------------
 

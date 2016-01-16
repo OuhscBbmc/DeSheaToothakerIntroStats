@@ -7,8 +7,8 @@ library(plyr)
 
 ############################
 ## @knitr DeclareGlobals
-pathInput <- "./UnsharedMaterial/Data/ChildWelfareSubjectLevel.csv"
-pathOutput <- "./Data/ChildWelfare.csv"
+pathInput <- "./UnsharedMaterial/data/ChildWelfareSubjectLevel.csv"
+pathOutput <- "./data/ChildWelfare.csv"
 
 ############################
 ## @knitr LoadData

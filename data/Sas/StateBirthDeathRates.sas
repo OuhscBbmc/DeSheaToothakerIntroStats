@@ -1,7 +1,7 @@
 data a;
 ***This data set was compiled using information from www dot cdc dot gov;
 ***for DeShea and Toothaker's Introductory Statistics for the Health Sciences;
-***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Data/WorldCrudeBirthsDeathsCiaReadme.md;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/data/WorldCrudeBirthsDeathsCiaReadme.md;
 
 input StateName $ 1-18 State $ AdultAsthmaPrev Diabetes2010 BirthCount PopulationCount BirthRate2010 DeathCount2011 DeathRateCrude2011 DeathRateAgeAdjusted2011 DeathCount2010 DeathRateCrude2010 DeathRateAgeAdjusted2010;
 lines;

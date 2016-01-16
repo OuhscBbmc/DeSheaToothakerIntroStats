@@ -34,11 +34,11 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter12/Chapter12.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-```{r LoadPackages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -46,11 +46,11 @@ read_chunk("./Chapter12/Chapter12.R")
 ```
 
 <!-- Load the datasets. -->
-```{r LoadDatasets, echo=echoChunks, message=FALSE}
+```{r load-datasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r TweakDatasets, echo=echoChunks, message=FALSE}
+```{r tweak-datasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 12-1
@@ -58,58 +58,58 @@ This figure will be typeset by the publisher.
 
 ## Figure 12-2
 
-```{r Figure12_02, echo=echoChunks, fig.width=4, out.width="400px"}
+```{r figure-12-02, echo=echoChunks, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-3
 
-```{r Figure12_03, echo=echoChunks, fig.width=4, out.width="400px"}
+```{r figure-12-03, echo=echoChunks, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-4
 
-```{r Figure12_04, echo=echoChunks, fig.width=4, out.width="400px"}
+```{r figure-12-04, echo=echoChunks, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-5
-```{r Figure12_05, echo=echoChunks, fig.width=7.5, out.width="750px"}
+```{r figure-12-05, echo=echoChunks, fig.width=7.5, out.width="750px"}
 ```
 
 ## Figure 12-6
-```{r Figure12_06, echo=echoChunks}
+```{r figure-12-06, echo=echoChunks}
 ```
 
 ## Figure 12-7
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-8
-```{r Figure12_08, echo=echoChunks}
+```{r figure-12-08, echo=echoChunks}
 ```
 
 ## Figure 12-9
-```{r Figure12_09, echo=echoChunks,  fig.height = 2.5, fig.width=4, out.width="400px"}
+```{r figure-12-09, echo=echoChunks,  fig.height = 2.5, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-10
-```{r Figure12_10, echo=echoChunks}
+```{r figure-12-10, echo=echoChunks}
 ```
 
 ## Figure 12-11
-```{r Figure12_11, echo=echoChunks}
+```{r figure-12-11, echo=echoChunks}
 ```
 
 ## Figure 12-12
-```{r Figure12_12, echo=echoChunks}
+```{r figure-12-12, echo=echoChunks}
 ```
 
 ## Figure 12-13
-```{r Figure12_13, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
+```{r figure-12-13, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
 ```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
-```{r session_info, echo=FALSE}
+```{r session-info, echo=FALSE}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

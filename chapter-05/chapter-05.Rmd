@@ -34,11 +34,11 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter05/Chapter05.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-```{r LoadPackages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -46,59 +46,59 @@ read_chunk("./Chapter05/Chapter05.R")
 ```
 
 <!-- Load the datasets.   -->
-```{r LoadDatasets, echo=echoChunks, message=FALSE}
+```{r load-datasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r TweakDatasets, echo=echoChunks, message=FALSE}
+```{r tweak-datasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 5-1
-```{r Figure05_01, echo=echoChunks}
+```{r figure-05-01, echo=echoChunks}
 ```
 
 ## Figure 5-2
-```{r Figure05_02, echo=echoChunks}
+```{r figure-05-02, echo=echoChunks}
 ```
 
 ## Figure 5-3
-```{r Figure05_03, echo=echoChunks}
+```{r figure-05-03, echo=echoChunks}
 ```
 
 ## Figure 5-4
-```{r Figure05_04, echo=echoChunks}
+```{r figure-05-04, echo=echoChunks}
 ```
 
 ## Figure 5-5
-```{r Figure05_05, echo=echoChunks}
+```{r figure-05-05, echo=echoChunks}
 ```
 
 ## Figure 5-6
-```{r Figure05_06, echo=echoChunks}
+```{r figure-05-06, echo=echoChunks}
 ```
 
 ## Figure 5-7
-```{r Figure05_07, echo=echoChunks}
+```{r figure-05-07, echo=echoChunks}
 ```
 
 ## Figure 5-8
-```{r Figure05_08, echo=echoChunks}
+```{r figure-05-08, echo=echoChunks}
 ```
 
 ## Figure 5-9
-```{r Figure05_09, echo=echoChunks}
+```{r figure-05-09, echo=echoChunks}
 ```
 
 ## Figure 5-10
-```{r Figure05_10, echo=echoChunks}
+```{r figure-05-10, echo=echoChunks}
 ```
 
 ## Figure 5-11
-```{r Figure05_11, echo=echoChunks}
+```{r figure-05-11, echo=echoChunks}
 ```
 
 ## Figure 5-12
-```{r Figure05_12, echo=echoChunks}
+```{r figure-05-12, echo=echoChunks}
 ```
 
 ## Figure 5-13
@@ -107,7 +107,7 @@ read_chunk("./Chapter05/Chapter05.R")
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
-```{r session_info, echo=FALSE}
+```{r session-info, echo=FALSE}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

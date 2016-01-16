@@ -35,11 +35,11 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter04/Chapter04.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-```{r LoadPackages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -47,46 +47,46 @@ read_chunk("./Chapter04/Chapter04.R")
 ```
 
 <!-- Load the datasets.   -->
-```{r LoadDatasets, echo=echoChunks, message=FALSE}
+```{r load-datasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r TweakDatasets, echo=echoChunks, message=FALSE}
+```{r tweak-datasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 4-1
-```{r Figure04_01, echo=echoChunks, fig.height=3}
+```{r figure-04-01, echo=echoChunks, fig.height=3}
 ```
 
 ## Figure 4-2
-```{r Figure04_02, echo=echoChunks, fig.height=3}
+```{r figure-04-02, echo=echoChunks, fig.height=3}
 ```
 
 ## Figure 4-3
-```{r Figure04_03, echo=echoChunks, fig.height=6}
+```{r figure-04-03, echo=echoChunks, fig.height=6}
 ```
 
 ## Figure 4-4
-```{r Figure04_04, echo=echoChunks, fig.height=3}
+```{r figure-04-04, echo=echoChunks, fig.height=3}
 ```
 
 ## Figure 4-5
-```{r Figure04_05, echo=echoChunks, fig.height=2, out.width="550px"}
+```{r figure-04-05, echo=echoChunks, fig.height=2, out.width="550px"}
 ```
 
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
 ## Figures 4-7
-```{r Figure04_07, echo=echoChunks, fig.height=3, fig.width=4.5, out.width="300px"}
+```{r figure-04-07, echo=echoChunks, fig.height=3, fig.width=4.5, out.width="300px"}
 ```
 
 ## Figure 4-8
-```{r Figure04_08, echo=echoChunks, fig.width=3.5, fig.height=1.5, out.width="350px"}
+```{r figure-04-08, echo=echoChunks, fig.width=3.5, fig.height=1.5, out.width="350px"}
 ```
 
 ## Figure 4-9
-```{r Figure04_09, echo=echoChunks, fig.height=3}
+```{r figure-04-09, echo=echoChunks, fig.height=3}
 ```
 
 ## Unused Graphics
@@ -98,7 +98,7 @@ See Table A: Standard normal distribution.
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
-```{r session_info, echo=FALSE}
+```{r session-info, echo=FALSE}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

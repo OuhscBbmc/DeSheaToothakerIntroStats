@@ -34,11 +34,11 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter11/Chapter11.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-```{r LoadPackages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -46,29 +46,29 @@ read_chunk("./Chapter11/Chapter11.R")
 ```
 
 <!-- Load the datasets. -->
-```{r LoadDatasets, echo=echoChunks, message=FALSE}
+```{r load-datasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r TweakDatasets, echo=echoChunks, message=FALSE}
+```{r tweak-datasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 11-1
-```{r Figure11_01, echo=echoChunks}
+```{r figure-11-01, echo=echoChunks}
 ```
 
 ## Figure 11-2
-```{r Figure11_02, echo=echoChunks}
+```{r figure-11-02, echo=echoChunks}
 ```
 
 ## Figure 11-3
-```{r Figure11_03, echo=echoChunks}
+```{r figure-11-03, echo=echoChunks}
 ```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
-```{r session_info, echo=FALSE}
+```{r session-info, echo=FALSE}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

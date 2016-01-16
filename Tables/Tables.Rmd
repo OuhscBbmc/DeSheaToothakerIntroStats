@@ -26,11 +26,11 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Tables/Tables.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-```{r LoadPackages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -38,11 +38,11 @@ read_chunk("./Tables/Tables.R")
 ```
 
 <!-- Load the datasets.   -->
-```{r LoadDatasets, echo=echoChunks, message=FALSE}
+```{r load-datasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r TweakDatasets, echo=echoChunks, message=FALSE}
+```{r tweak-datasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Table A.1: Standard normal distribution
@@ -68,7 +68,7 @@ _____________________________
 
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
-```{r session_info, echo=FALSE, results='show'}
+```{r session-info, echo=FALSE, results='show'}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

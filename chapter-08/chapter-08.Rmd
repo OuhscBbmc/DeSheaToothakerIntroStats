@@ -34,11 +34,11 @@ options(width=120) #So the output is 50% wider than the default.
 read_chunk("./Chapter08/Chapter08.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
-```{r LoadPackages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r DeclareGlobals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
@@ -46,73 +46,73 @@ read_chunk("./Chapter08/Chapter08.R")
 ```
 
 <!-- Load the datasets. -->
-```{r LoadDatasets, echo=echoChunks, message=FALSE}
+```{r load-datasets, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r TweakDatasets, echo=echoChunks, message=FALSE}
+```{r tweak-datasets, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 8-1
-```{r Figure08_01, echo=echoChunks}
+```{r figure-08-01, echo=echoChunks}
 ```
 
 ## Figure 8-2
-```{r Figure08_02, echo=echoChunks}
+```{r figure-08-02, echo=echoChunks}
 ```
 
 ## Figure 8-3
-```{r Figure08_03, echo=echoChunks}
+```{r figure-08-03, echo=echoChunks}
 ```
 
 ## Figure 8-4
-```{r Figure08_04, echo=echoChunks}
+```{r figure-08-04, echo=echoChunks}
 ```
 
 ## Figure 8-5
-```{r Figure08_05, echo=echoChunks}
+```{r figure-08-05, echo=echoChunks}
 ```
 
 ## Figure 8-6
-```{r Figure08_06, echo=echoChunks}
+```{r figure-08-06, echo=echoChunks}
 ```
 
 ## Figure 8-7
-```{r Figure08_07, echo=echoChunks}
+```{r figure-08-07, echo=echoChunks}
 ```
 
 ## Figure 8-8
-```{r Figure08_08, echo=echoChunks}
+```{r figure-08-08, echo=echoChunks}
 ```
 
 ## Figure 8-9
-```{r Figure08_09, echo=echoChunks}
+```{r figure-08-09, echo=echoChunks}
 ```
 
 ## Figure 8-10
-```{r Figure08_10, echo=echoChunks}
+```{r figure-08-10, echo=echoChunks}
 ```
 
 ## Figure 8-11
-```{r Figure08_11, echo=echoChunks}
+```{r figure-08-11, echo=echoChunks}
 ```
 
 ## Figure 8-12
-```{r Figure08_12, echo=echoChunks, fig.height=1.5}
+```{r figure-08-12, echo=echoChunks, fig.height=1.5}
 ```
 
 ## Figure 8-13
-```{r Figure08_13, echo=echoChunks}
+```{r figure-08-13, echo=echoChunks}
 ```
 
 ## Figure 8-14
-```{r Figure08_14, echo=echoChunks, fig.height=1.5}
+```{r figure-08-14, echo=echoChunks, fig.height=1.5}
 ```
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
-```{r session_info, echo=FALSE}
+```{r session-info, echo=FALSE}
 cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
 sessionInfo()
 ```

@@ -12,9 +12,9 @@ library(ggplot2)
 library(dichromat)
 library(RColorBrewer)
 
-#########################################################
-### Define theme elements for ggplot2 graphs
-#########################################################
+# ---------------------------------------------------------------------------------------------
+# Define theme elements for ggplot2 graphs
+
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
 BookTheme <- theme_bw() +
   theme(axis.text = element_text(colour="gray40")) +
@@ -27,9 +27,9 @@ NoGridOrYLabelsTheme <- BookTheme  +
   theme(panel.grid = element_blank()) +
   theme(plot.margin=unit(c(.1,.2,.2,0), "lines"))
 
-#########################################################
-### Define palettes for variable sets, so they're consistent across graphs & chapters
-#########################################################
+# ---------------------------------------------------------------------------------------------
+# Define palettes for variable sets, so they're consistent across graphs & chapters
+
 transformColor <- function( palette ) {
   return( palette )
 #   return( dichromat(palette, "deutan") )
@@ -72,10 +72,9 @@ rm(bluish, greenish)
 #Named colors in R:
 # http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.pdf
 
+# ---------------------------------------------------------------------------------------------
+# Declare functions used in multiple chapters
 
-#########################################################
-### Declare functions used in multiple chapters
-#########################################################
 #This function is directly from Recipe 13.3 in Chang (2013).
 LimitRange <- function( fun, min, max ) { 
   function( x ) {
@@ -136,26 +135,25 @@ WrapColumns <- function( d, wrapCount=3L ) {
   return( dWide )
 }
 
+# ---------------------------------------------------------------------------------------------
+# Establish the font
 
-#########################################################
-### Establish the font
-#########################################################
 ## These three lines will use a nondefault font.
 # extrafont::loadfonts() #Run this once per session.
 # Sys.setenv(R_GSCMD = "C:/Program Files/gs/gs9.10/bin/gswin64c.exe")
 # BookTheme <- BookTheme +  theme(text = element_text(family="Times New Roman"))
 
-#########################################################
-### Internal notes
-#########################################################
+# ---------------------------------------------------------------------------------------------
+# Internal notes
+
 # * The Pre-Press Manager said the dimensions of the images cannot exceed these dimensions: 33 picas wide x 51 picas tall. (5.5" x 8.5")
 # *Physical Page width 7"x10"
 
 # list.files(system.file("enc", package="grDevices"))
 
-#########################################################
-### Palettes to consider for future graphs
-#########################################################
+# ---------------------------------------------------------------------------------------------
+# Palettes to consider for future graphs
+
 # https://github.com/jrnold/ggthemes
 # c("#043227", "#097168", "#ffcc88", "#fa482e", "#f4a32e") #http://colrd.com/palette/22444/
 # c("#fea3aa","#f8b88b","#faf884","#baed91","#b2cefe","#f2a2e8") #http://colrd.com/palette/22780/

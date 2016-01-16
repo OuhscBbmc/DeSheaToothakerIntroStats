@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-#####################################
-## @knitr LoadPackages
+
+# ---- LoadPackages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -12,12 +12,11 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-#####################################
-## @knitr DeclareGlobals
+# ---- DeclareGlobals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  + 
+chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 feedingLevels <- c("Breast", "Bottle", "Both")
@@ -39,7 +38,7 @@ paletteCryBoxLight <- adjustcolor(paletteCryBox, alpha.f=.2)
 AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
   dsPlot <- dsFeed[dsFeed$ScenarioID==scenarioID, ]
   dsSummary <- dsScenarioFeeding[dsScenarioFeeding$ScenarioID==scenarioID, ]
-  
+
   ggplot(dsPlot, aes(x=Sleep, color=Feeding, fill=Feeding)) +
     geom_histogram(binwidth=10)  +
     geom_vline(aes(xintercept=M), data=dsSummary, size=2, color="#55555544")  +
@@ -53,17 +52,15 @@ AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
     facet_grid(Feeding ~ .) +
     chapterTheme +
     theme(legend.position="none") +
-    labs(x="Minutes of sleep in 24 hours", y="Frequency", title=scenarioName) 
+    labs(x="Minutes of sleep in 24 hours", y="Frequency", title=scenarioName)
 }
 
-#####################################
-## @knitr LoadDatasets
+# ---- LoadDatasets ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsFeed <- read.csv("./Data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
 dsCry <- read.csv("./Data/InfantCryingFake.csv", stringsAsFactors=FALSE)
 
-#####################################
-## @knitr TweakDatasets
+# ---- TweakDatasets ------------------------------------------------------
 dsFeed$Feeding <- factor(dsFeed$Feeding, levels=feedingLevels)
 rangeSleep <- range(dsFeed$Sleep)
 rangeSleep <- c(220, 580) - 50
@@ -94,21 +91,17 @@ dsCrySummary <- plyr::ddply(dsCry, .variables=c("Group", "GroupID"), .fun=summar
 dsCrySummary$LabelM <- paste0("italic(M)==", round(dsCrySummary$M))
 dsCrySummary$LabelSD <- paste0("italic(SD)==", round(dsCrySummary$SD))
 
-#####################################
-## @knitr Figure12_02
+# ---- Figure12_02 ------------------------------------------------------
 
 AnovaSingleScenario(scenarioID=1, scenarioName="Scenario 12-A")
 
-#####################################
-## @knitr Figure12_03
+# ---- Figure12_03 ------------------------------------------------------
 AnovaSingleScenario(scenarioID=2, scenarioName="Scenario 12-B")
 
-#####################################
-## @knitr Figure12_04
+# ---- Figure12_04 ------------------------------------------------------
 AnovaSingleScenario(scenarioID=3, scenarioName="Scenario 12-C")
 
-#####################################
-## @knitr Figure12_05
+# ---- Figure12_05 ------------------------------------------------------
 ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   geom_histogram(binwidth=10)  +
   geom_vline(aes(xintercept=M), data=dsScenarioFeeding, size=2, color="#55555544")  +
@@ -122,14 +115,13 @@ ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   facet_grid(Feeding ~ Scenario) +
   chapterTheme +
   theme(legend.position="none") +
-  labs(x="Minutes of sleep in 24 hours", y="Frequency", title=NULL) 
+  labs(x="Minutes of sleep in 24 hours", y="Frequency", title=NULL)
 
-#####################################
-## @knitr Figure12_06
-#bb5210    #eb6c1d    #fe8011    
-#fe9e4c    #ffffff    #e5e5e5    
-#c6c6c6    #919191    #97d2f6    
-#63bdf2    #1e96e0    #0c65bf    
+# ---- Figure12_06 ------------------------------------------------------
+#bb5210    #eb6c1d    #fe8011
+#fe9e4c    #ffffff    #e5e5e5
+#c6c6c6    #919191    #97d2f6
+#63bdf2    #1e96e0    #0c65bf
 
 # fpaletteFeedingDark <- c("#bb5210", "#0c65bf")# http://colrd.com/palette/23379/
 fPaletteDark <- c("#eb6c1daa", "#1e96e0aa")# http://colrd.com/palette/23379/
@@ -154,8 +146,7 @@ ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   chapterTheme +
   labs(x=expression(italic(F)), y=NULL)
 
-#####################################
-## @knitr Figure12_08
+# ---- Figure12_08 ------------------------------------------------------
 PaletteCritical <- c("#544A8C", "#ce2b18", "#F37615") #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter and the orange darker)
 
 f3DfModel <- 3; f3DfError <- 80
@@ -169,26 +160,26 @@ criticalF01 <- qf(p=.99, df1=f3DfModel, df2=f3DfError)
 grid.newpage()
 gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
-  annotate("segment", x=criticalF01, xend=criticalF01, y=0, yend=Inf, color=PaletteCritical[3]) +  
-  stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +  
+  annotate("segment", x=criticalF01, xend=criticalF01, y=0, yend=Inf, color=PaletteCritical[3]) +
+  stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
   stat_function(fun=LimitRange(f3, criticalF01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount) +
   stat_function(fun=f3, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   annotate(geom="text", x=criticalF05+.05, y=f3(criticalF05)+.20, label="alpha==phantom(0)", hjust=-.15, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05+.05, y=f3(criticalF05)+.20, label=".05", hjust=-.15, vjust=1.15, parse=F, color=PaletteCritical[2]) +
-  
+
   annotate(geom="text", x=criticalF01+.05, y=f3(criticalF01)+.10, label="alpha==phantom(0)", hjust=-.15, vjust=-.15, parse=TRUE, color=PaletteCritical[3]) +
   annotate(geom="text", x=criticalF01+.05, y=f3(criticalF01)+.10, label=".01", hjust=-.15, vjust=1.15, parse=F, color=PaletteCritical[3]) +
 
   annotate("segment", x=criticalF05, xend=4.4, y=f3(criticalF05)+.15, yend=f3(criticalF05)+.15, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
   annotate("segment", x=criticalF01, xend=4.4, y=f3(criticalF01)+.05, yend=f3(criticalF01)+.05, color=PaletteCritical[3], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
-  
+
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
   annotate(geom="text", x=criticalF01, y=0, label=round(criticalF01, 2), hjust=.5, vjust=1.2, color=PaletteCritical[3], size=5) +
-  
+
 #   annotate("text", label="italic(H)[0]: no*phantom(0)*difference*phantom(0)*between*phantom(0)*mu*phantom(0)*values", x=.2, y=Inf, parse=T, size=5, hjust = 0, vjust=1.08, color="gray40") +
   annotate("text", label="italic(H)[0]: paste(mu[1]*phantom(0)==phantom(0),mu[2]*phantom(0)==phantom(0),mu[3]*phantom(0)==phantom(0)*mu[4])", x=.2, y=Inf, parse=T, size=4.5, hjust = 0, vjust=1.08, color="gray40") +
-  
-  
+
+
   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, 3, "")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f3(.4) * 1.1) +
@@ -204,7 +195,7 @@ DrawWithoutPanelClipping(gCritical)
 # grid.newpage()
 # gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
 #   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
-#   stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCritical[2], n=calculatedPointCount) +  
+#   stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCritical[2], n=calculatedPointCount) +
 #   stat_function(fun=f3, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
 #   annotate(geom="text", x=3, y=f3(criticalF05)+.05, label="alpha==phantom(0)", hjust=-.15, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
 #   annotate(geom="text", x=3, y=f3(criticalF05)+.05, label=".05", hjust=-.15, vjust=1.15, parse=F, color=PaletteCritical[2]) +
@@ -215,9 +206,9 @@ DrawWithoutPanelClipping(gCritical)
 #   chapterTheme +
 #   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
 #   labs(x=expression(italic(F)), y=NULL)
-# 
+#
 # DrawWithoutPanelClipping(gCritical)
-# 
+#
 # ###
 # ### Just .01
 # ###
@@ -235,10 +226,10 @@ DrawWithoutPanelClipping(gCritical)
 #   chapterTheme +
 #   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
 #   labs(x=expression(italic(F)), y=NULL)
-# 
+#
 # DrawWithoutPanelClipping(gCritical)
-#####################################
-## @knitr Figure12_09
+
+# ---- Figure12_09 ------------------------------------------------------
 set.seed(891) #Set the random number generator seed so the jitters are consistent
 ggplot(dsCry, aes(x=1, y=CryingDuration, color=Group, fill=Group)) +
   geom_boxplot(width=.8, outlier.colour=NA) +
@@ -257,8 +248,7 @@ ggplot(dsCry, aes(x=1, y=CryingDuration, color=Group, fill=Group)) +
   theme(legend.position="none") +
   labs(x=NULL, y="Crying Duration")
 
-#####################################
-## @knitr Figure12_10
+# ---- Figure12_10 ------------------------------------------------------
 cryMeanOverall <- mean(dsCry$CryingDuration)
 cryMeanControl <- mean(dsCry[dsCry$GroupID==3, "CryingDuration"])
 cryMax <- max(dsCry$CryingDuration)
@@ -267,7 +257,7 @@ dsCryCeiling <- dsCry[dsCry$CryingDuration == cryMax, ]
 dsCryNotCeiling <- dsCry[dsCry$CryingDuration != cryMax, ]
 paletteCryHistogram <- c("#faa818", "#41a30d", "#ffce38", "#367d7d", "#d33502", "#6ebcbc", "#37526d") #http://colrd.com/image-dna/23521/
 purplish <- "#544A8C"
-  
+
 cushion <- 3
 height1 <- 14.5
 height2 <- 13
@@ -286,7 +276,7 @@ gCrying1 <- ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
 #   geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
   annotate(geom="text", x=cryMeanOverall, y=Inf, label="Grand\nMean", hjust=.5, vjust=-.2, color=paletteCryHistogram[7], size=4, lineheight=.8) +
   annotate(geom="text", x=cryMeanControl, y=Inf, label="Control Group\nMean", hjust=.5, vjust=-.2, color=paletteCryHistogram[5], size=4, lineheight=.8) +
-#   annotate(geom="text", x=cryMax, y=Inf, label="Baby Who\nCried Most", hjust=.5, vjust=-.1, color=paletteCryHistogram[1], size=4, lineheight=.8) +  
+#   annotate(geom="text", x=cryMax, y=Inf, label="Baby Who\nCried Most", hjust=.5, vjust=-.1, color=paletteCryHistogram[1], size=4, lineheight=.8) +
   scale_y_continuous(limits=c(0, 15.2), expand=c(0,0)) +
   chapterTheme +
   labs(x="Crying Duration", y="Frequency", title="")
@@ -306,8 +296,8 @@ gCrying2 <- gCrying1 +
   annotate(geom="text", x=cryMax, y=Inf, label="Baby Who\nCried Most", hjust=.5, vjust=-.1, color=paletteCryHistogram[1], size=4, lineheight=.8)
 
 DrawWithoutPanelClipping(gCrying2)
-#####################################
-## @knitr Figure12_11
+
+# ---- Figure12_11 ------------------------------------------------------
 gCrying3 <- gCrying2 +
   geom_segment(aes(x=cryMeanOverall + cushion, y=height2, xend=cryMeanControl - cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
   geom_segment(aes(x=cryMeanControl - cushion, y=height2, xend=cryMeanOverall + cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round")
@@ -315,15 +305,14 @@ gCrying3 <- gCrying2 +
 #     geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round")
 
 DrawWithoutPanelClipping(gCrying3)
-#####################################
-## @knitr Figure12_12
+
+# ---- Figure12_12 ------------------------------------------------------
 gCrying4 <- gCrying3 +
     geom_segment(aes(x=cryMeanControl + cushion, y=height2, xend=cryMax - cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
     geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round")
 
 DrawWithoutPanelClipping(gCrying4)
-#####################################
-## @knitr Figure12_13
+# ---- Figure12_13 ------------------------------------------------------
 
 f2_80 <- function( x ) { return( df(x, df1=2, df2=80) ) }
 criticalF05 <- qf(p=.95, df1=2, df2=80)
@@ -337,7 +326,7 @@ gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate(geom="text", x=3.7, y=f2_80(criticalF05)+.15, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
   annotate("text", label="italic(H)[0]: paste(mu[breast]*phantom(0)==phantom(0),mu[bottle]*phantom(0)==phantom(0)*mu[control])", x=.2, y=Inf, parse=T, size=4.5, hjust = 0, vjust=1.08, color="gray40") +
-  
+
   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, "", 4)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f2_80(.5) * 1.05) +

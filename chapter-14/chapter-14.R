@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-#####################################
-## @knitr LoadPackages
+
+# ---- LoadPackages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -11,23 +11,19 @@ library(ggplot2)
 # library(ggthemes)
 library(wesanderson)
 
-#####################################
-## @knitr DeclareGlobals
+# ---- DeclareGlobals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  + 
+chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-#####################################
-## @knitr LoadDatasets
+# ---- LoadDatasets ------------------------------------------------------
 # 'ds' stands for 'datasets'
 
-#####################################
-## @knitr TweakDatasets
+# ---- TweakDatasets ------------------------------------------------------
 
-#####################################
-## @knitr Figure14_02
+# ---- Figure14_02 ------------------------------------------------------
 xLimits <- c(-3.9, 3.9)
 xLimitBuffer <- 3.85
 parallelLineHeight <- -.08
@@ -39,21 +35,21 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 
   annotate("segment", x=criticalZ025, xend=criticalZ025, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalZ025, xend=xLimitBuffer, y=dnorm(criticalZ025)+.02, yend=dnorm(criticalZ025)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
-  
+
   annotate("segment", x=-criticalZ025, xend=-criticalZ025, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=-criticalZ025, xend=-xLimitBuffer, y=dnorm(-criticalZ025)+.02, yend=dnorm(-criticalZ025)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
-  
+
   annotate(geom="text", x=criticalZ025+.05, y=dnorm(criticalZ025)+.06, label="alpha/2==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalZ025+.05, y=dnorm(criticalZ025)+.06, label=" .025", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalZ025, y=0, label=round(criticalZ025, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
-  
+
   annotate(geom="text", x=-criticalZ025-.05, y=dnorm(-criticalZ025)+.06, label="alpha/2==phantom(0)", hjust=1, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=-criticalZ025-.05, y=dnorm(-criticalZ025)+.06, label=".025   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=-criticalZ025, y=0, label=round(-criticalZ025, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
-  
+
   stat_function(fun=LimitRange(dnorm, criticalZ025, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount) +
   stat_function(fun=LimitRange(dnorm, -Inf, -criticalZ025), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount) +
-  
+
   scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   coord_cartesian(xlim=c(-3.9, 3.9), ylim=c(0, dnorm(0)*1.10))  +
@@ -62,8 +58,7 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 
 DrawWithoutPanelClipping(g1)
 
-#####################################
-## @knitr Figure14_03
+# ---- Figure14_03 ------------------------------------------------------
 fPaletteDark <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
 fPaletteLight <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.3)
 
@@ -95,8 +90,7 @@ ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
   chapterTheme +
   labs(x=expression(italic(chi^2)), y=NULL)
 
-#####################################
-## @knitr Figure14_04
+# ---- Figure14_04 ------------------------------------------------------
 fDf6 <- function(x) dchisq(x, df=6)
 criticalF05 <- qchisq(p=.95, df=6)
 chiObs <- 14.53
@@ -111,9 +105,9 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
-  
-  annotate("text", label="italic(H)[0]: distribution[population]==distribution[theory]", x=1, y=Inf, parse=T, size=4.5, hjust=0, vjust=1.08, color="gray40") +  
-  
+
+  annotate("text", label="italic(H)[0]: distribution[population]==distribution[theory]", x=1, y=Inf, parse=T, size=4.5, hjust=0, vjust=1.08, color="gray40") +
+
   scale_x_continuous(expand=c(0,0), breaks=seq(0, 20, 2), labels=c(0, 2, 4, 6, 8, 10, "", 14, 16, 18, 20)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=fDf6(4) * 1.1) +
@@ -123,8 +117,7 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
 
 DrawWithoutPanelClipping(g3)
 
-#####################################
-## @knitr Figure14_06
+# ---- Figure14_06 ------------------------------------------------------
 g4 <- g3 +
   annotate("segment", x=chiObs, xend=chiObs, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=chiObs, xend=19.5, y=fDf6(chiObs)+.004, yend=fDf6(chiObs)+.004, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
@@ -132,11 +125,10 @@ g4 <- g3 +
   annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label="italic(p)==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
   annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label=pObsPretty, hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[4]) +
   annotate(geom="text", x=chiObs, y=0, label=chiObs, hjust=.5, vjust=1.2, color=PaletteCritical[4], size=5)
-  
+
 DrawWithoutPanelClipping(g4)
 
-#####################################
-## @knitr Figure14_10
+# ---- Figure14_10 ------------------------------------------------------
 fDf2 <- function(x) dchisq(x, df=2)
 criticalF05 <- qchisq(p=.95, df=2)
 # chiObs <- 14.53
@@ -151,9 +143,9 @@ g5 <- ggplot(data.frame(f=c(0, 9.9)), aes(x=f)) +
   annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05, y=0, label=round(criticalF05, 2), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
-  
-  annotate("text", label="italic(H)[0]:phantom(0)", x=1, y=Inf, parse=T, size=4.5, hjust=1, vjust=1.08, color="gray40") +  
-  annotate("text", label="blood sugar control is independent of treatment", x=1, y=Inf, parse=F, size=4.5, hjust=0, vjust=1.08, color="gray40") +  
+
+  annotate("text", label="italic(H)[0]:phantom(0)", x=1, y=Inf, parse=T, size=4.5, hjust=1, vjust=1.08, color="gray40") +
+  annotate("text", label="blood sugar control is independent of treatment", x=1, y=Inf, parse=F, size=4.5, hjust=0, vjust=1.08, color="gray40") +
   scale_x_continuous(expand=c(0,0), breaks=0:6*2, labels=c(0, 2, 4, "", 8, 10, 12)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=fDf2(0) * 1.05) +

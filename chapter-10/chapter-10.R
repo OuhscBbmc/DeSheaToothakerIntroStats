@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-#####################################
-## @knitr LoadPackages
+
+# ---- LoadPackages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -12,24 +12,20 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-#####################################
-## @knitr DeclareGlobals
+# ---- DeclareGlobals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  + 
+chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-#####################################
-## @knitr LoadDatasets
+# ---- LoadDatasets ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsTaiChi <- read.csv("./Data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 
-#####################################
-## @knitr TweakDatasets
+# ---- TweakDatasets ------------------------------------------------------
 
-#####################################
-## @knitr Figure10_01
+# ---- Figure10_01 ------------------------------------------------------
 paletteZTDark <- c("#446699", "#70af81") #http://colrd.com/palette/28063/
 paletteZTLight <- c("#44669988", "#70af81AA") #http://colrd.com/palette/28063/
 ggplot(data.frame(z=-5:5), aes(x=z)) +
@@ -44,15 +40,14 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
   chapterTheme +
   labs(x=NULL, y=NULL)
 
-#####################################
-## @knitr Figure10_03
+# ---- Figure10_03 ------------------------------------------------------
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
 critT30 <- qt(p=.975, df=30) #The value in the right tail.
 
 # critLabelLeft <- as.character(as.expression(substitute(italic(t)[crit]==tCritLeft, list(tCritLeft=round(critT30, 3)))))
 # critLabelRight <- as.character(as.expression(substitute(tCritRight==italic(t)[crit], list(tCritRight=round(-critT30, 3)))))
 
-gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +  
+gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
 #   stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
 
   stat_function(fun=LimitRange(t30, -Inf, -critT30), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
@@ -70,8 +65,7 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
 
 DrawWithoutPanelClipping(gCritical)
 
-#####################################
-## @knitr Figure10_04
+# ---- Figure10_04 ------------------------------------------------------
 dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
 dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
 dsTaiChiSummary$Crit <- qt(p=.975, df=dsTaiChiSummary$Count-1)
@@ -87,7 +81,7 @@ ggplot(dsTaiChiSummary, aes(x=Group, y=M, color=Group, fill=Group, ymin=Lower, y
   scale_color_manual(values=paletteTaiChiDark) +
   scale_fill_manual(values= paletteTaiChiLight) +
   coord_cartesian(ylim=c(0, max(dsTaiChiSummary$Upper) *1.05)) +
-  chapterTheme + 
+  chapterTheme +
   theme(legend.position="none") +
   labs(x=NULL, y="Mean Week 24 FIQ")
 

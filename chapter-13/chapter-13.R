@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-#####################################
-## @knitr LoadPackages
+
+# ---- LoadPackages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -9,16 +9,15 @@ library(scales) #For formating values in graphs
 # library(gridExtra)
 library(ggplot2)
 # library(ggthemes)
-library(MASS) 
+library(MASS)
 library(mnormt)
 library(rgl)
 
-#####################################
-## @knitr DeclareGlobals
+# ---- DeclareGlobals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  + 
+chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 feedingLevels <- c("Breast", "Bottle", "Both")
@@ -43,30 +42,26 @@ palettePlacidSeasLight <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.1)
 colorTheme <- "gray40"
 colorAxes <- "black"
 
-#####################################
-## @knitr LoadDatasets
+# ---- LoadDatasets ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
 # dsFeed <- read.csv("./Data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
 # dsCry <- read.csv("./Data/InfantCryingFake.csv", stringsAsFactors=FALSE)
 
-#####################################
-## @knitr TweakDatasets
+# ---- TweakDatasets ------------------------------------------------------
 
-#####################################
-## @knitr Figure13_01
+# ---- Figure13_01 ------------------------------------------------------
 gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   geom_point(shape=21, size=3, color="aquamarine4", fill=adjustcolor("aquamarine4", alpha.f=.1)) + #This color should match the obesity Cleveland dot plot
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
-  coord_fixed(xlim=c(.09, .27), ylim=c(.19, .37)) + 
+  coord_fixed(xlim=c(.09, .27), ylim=c(.19, .37)) +
   chapterTheme +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 
 gObesity
 
-#####################################
-## @knitr Figure13_02
+# ---- Figure13_02 ------------------------------------------------------
 intervalWidth <- .001
 rPrior <- 0
 nPrior <- 51
@@ -95,23 +90,22 @@ gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
   geom_area(data=dsRho[dsRho$TailLower, ], aes(x=RhoPossible, y=PriorR), fill=PaletteCriticalLight[2]) +
   geom_area(data=dsRho[dsRho$TailUpper, ], aes(x=RhoPossible, y=PriorR), fill=PaletteCriticalLight[2]) +
   geom_line(color=PaletteCritical[1]) +
-  
+
   annotate(geom="text", x=rCrit[1]+.14, y=.8, label="alpha==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=rCrit[1]+.14, y=.8, label=".05", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
-  
+
   annotate("text", label="italic(H)[0]: rho<=0", x=0, y=Inf, parse=T, size=4.5, vjust=1.08, color="gray40") +
-    
+
   scale_x_continuous(expand=c(0,.01), breaks=c(-1, -.75, -.5, -.25, 0, .25, .5, .75, 1)) + #, labels=c(-1, -.75, -.5, "", 0, "", .5, .75, 1)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=max(dsRho$PriorR) * 1.2) +
-  
+
   chapterTheme +
   labs(x=expression(italic(r)), y=NULL)
 
 DrawWithoutPanelClipping(gCriticalR)
 
-#####################################
-## @knitr Figure13_03
+# ---- Figure13_03 ------------------------------------------------------
 dsStairsUp <- data.frame(X=1:10, Y=1:10)
 
 gStraightUp <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
@@ -124,18 +118,15 @@ gStraightUp <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
   labs(x=expression(italic(X)), y=expression(italic(Y)), parse=T)
 gStraightUp
 
-#####################################
-## @knitr Figure13_04
+# ---- Figure13_04 ------------------------------------------------------
 gStraightUp +
   geom_step(direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
 
-#####################################
-## @knitr Figure13_05
+# ---- Figure13_05 ------------------------------------------------------
 gStraightUp +
   geom_step(data=data.frame(X=c(1,10),Y=c(1,10)), direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
 
-#####################################
-## @knitr Figure13_06
+# ---- Figure13_06 ------------------------------------------------------
 dsStairsDown <- data.frame(X=0:20, Y=20:0)
 
 gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
@@ -149,18 +140,15 @@ gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
   labs(x="Number of Newspapers Picked Up", y="Amount Left in Fund")
 gStraightDown
 
-#####################################
-## @knitr Figure13_07
+# ---- Figure13_07 ------------------------------------------------------
 gStraightDown +
   geom_step(data=data.frame(X=c(15,20),Y=c(5,0)), direction="hv", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
 
-#####################################
-## @knitr Figure13_08
+# ---- Figure13_08 ------------------------------------------------------
 gStraightDown +
   annotate("segment", x=4, xend=1, y=20, yend=20, arrow=grid::arrow(length=unit(.4,"cm")), color=palettePlacidSeas[2], size=2, lineend="round")
 
-#####################################
-## @knitr Figure13_09
+# ---- Figure13_09 ------------------------------------------------------
 dsNewspaperDelay <- data.frame(X=2:10, Y=0:8)
 
 ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
@@ -175,8 +163,7 @@ ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
   chapterTheme +
   labs(x="Number of Days Out of Town", y="Number of Newspapers Picked Up")
 
-#####################################
-## @knitr Figure13_10
+# ---- Figure13_10 ------------------------------------------------------
 dsBarb <- data.frame(X=seq(0, 8, by=2))
 dsBarb$Y <- 20 + (5 * dsBarb$X)
 
@@ -191,8 +178,7 @@ ggplot(dsBarb, aes(x=X, y=Y)) +
   chapterTheme +
   labs(x="Number of Days Out of Town", y="Amount Owed to Barb")
 
-#####################################
-## @knitr Figure13_11
+# ---- Figure13_11 ------------------------------------------------------
 fit <- lm(ObesityRate ~ 1 + FoodHardshipRate, data=dsObesity)
 xNew <- max(dsObesity$FoodHardshipRate) #.245
 yObs <- max(dsObesity$ObesityRate) #0.349
@@ -203,24 +189,21 @@ gObesityWithLine <- gObesity +
   geom_abline(intercept=coef(fit)["(Intercept)"], slope=coef(fit)["FoodHardshipRate"], color=palettePlacidSeasMedium[3], size=1.5)
 #   geom_smooth(method="lm", color=palettePlacidSeasMedium[3], size=1.5, se=F)
 gObesityWithLine
-#####################################
-## @knitr Figure13_12
+
+# ---- Figure13_12 ------------------------------------------------------
 gObesityWithLine +
   annotate("segment", x=xNew, xend=xNew, y=yHat, yend=-Inf, color=palettePlacidSeasMedium[6], size=2, lineend="round") +
   annotate("segment", x=-Inf, xend=xNew, y=yHat, yend=yHat, color=palettePlacidSeasMedium[6], size=2, lineend="round")
 
-#####################################
-## @knitr Figure13_13
+# ---- Figure13_13 ------------------------------------------------------
 gObesityWithLine +
   annotate("segment", x=xNew, xend=xNew, y=yHat, yend=yObs, color=palettePlacidSeasMedium[7], size=1, lineend="round")
 
-#####################################
-## @knitr Figure13_14
+# ---- Figure13_14 ------------------------------------------------------
 gObesityWithLine +
   annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7], lineend="round")
 
-#####################################
-## @knitr NotUsed13_01
+# ---- NotUsed13_01 ------------------------------------------------------
 # library(MASS)
 library(mnormt)
 
@@ -238,12 +221,12 @@ Graph3DMVNorm <- function( rho=0, theta=0, phi=-35 ) {
   dsMVGrid$Z <- mnormt::dmnorm(dsMVGrid, mu, sigma)
   zMatrix <- matrix(dsMVGrid$Z, nrow=length(points))
   zScale <- 10
-  
+
   clear3d("all") # clear scene
   rgl.viewpoint(theta=theta, phi=phi, zoom=1) #A zoom smaller than one enlarges the graph's relative size.
   # bg3d(color="#887777")
   light3d()
-  terrain3d(points, points, zMatrix * zScale, color=palettePlacidSeas[3], front="lines", back="fill") 
+  terrain3d(points, points, zMatrix * zScale, color=palettePlacidSeas[3], front="lines", back="fill")
   axis3d("x-", col=colorTheme)
   axis3d("y-", col=colorTheme)
   rgl::mtext3d(text="X", edge="x-", labels=TRUE, line=2)
@@ -256,18 +239,17 @@ Graph3DMVNorm()
 # Graph3DMVNorm(phi=-85 )
 # Graph3DMVNorm(theta=5, phi=-85)
 
-#####################################
-## @knitr NotUsed13_02
+# ---- NotUsed13_02 ------------------------------------------------------
 open3d() # New window
 Graph3DMVNorm(rho=0.6)
 # set.seed(3242) #Set seed so plots are consistent overtime.
-# 
+#
 # dsMV <- data.frame(MASS::mvrnorm(n=1000, mu=mu, Sigma=sigma))
 # colnames(dsMV) <- c("X", "Y")
 # ggplot(dsMV, aes(x=X, y=Y)) +
 #   geom_hline(color=palettePlacidSeas[5], size=1) +
 #   geom_vline(color=palettePlacidSeas[5], size=1) +
 #   geom_point(shape=21, size=3, color=palettePlacidSeasMedium[3], fill=palettePlacidSeasLight[3]) +
-#   coord_equal(xlim=c(-2.5, 2.5), ylim=c(-2.5, 2.5)) +  
+#   coord_equal(xlim=c(-2.5, 2.5), ylim=c(-2.5, 2.5)) +
 #   chapterTheme +
 #   labs(x=expression(italic(X)), y=expression(italic(Y)), parse=T)

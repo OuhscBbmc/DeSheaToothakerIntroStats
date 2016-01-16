@@ -75,7 +75,7 @@ read_chunk("./chapter-03/chapter-03.R")
 ```
 
 ## Figure 3-6
-<img src="./../Chapter02/figure_rmd/Figure02_01-1.png" alt="Systolic" style="width: 600px;"/>
+<img src="./../chapter-02/figure-png/figure-02-01-1.png" alt="Systolic" style="width: 600px;"/>
 
 ## Figure 3-7
 ```{r figure-03-07, echo=echoChunks, fig.height=2.8, fig.width=3.5, out.width=NULL, out.width="400px"}

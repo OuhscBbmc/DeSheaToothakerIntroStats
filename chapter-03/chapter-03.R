@@ -145,7 +145,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
 
 # ---- figure-03-10 ------------------------------------------------------
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
-  geom_histogram(binwidth=2.5, fill="coral3", color="coral4", alpha=.6) + #Be a little darker than the previous boxplot
+  geom_histogram(binwidth=2.5, fill="coral3", color="coral4", alpha=.6, na.rm=T) + #Be a little darker than the previous boxplot
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
 
@@ -192,7 +192,7 @@ outlierLabels <- dsSmoking$State[which( dsSmoking$AdultCigaretteUse == outlierPr
 
 ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
 #   geom_boxplot(width=.5, fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +
-  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', width=.5, fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', fill="royalblue1", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +
   scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   scale_y_continuous(label=scales::percent) +
   annotate(geom="text", x=1L, y=outlierPrevelances, label=outlierLabels, hjust=-.6, color="gray40") +
@@ -203,7 +203,7 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
 # ---- figure-03-16 ------------------------------------------------------
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
 #   geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
-  stat_summary(fun.data=TukeyBoxplot, geom='boxplot', width=.5, fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
+  stat_summary(fun.data=TukeyBoxplot, geom='boxplot',  fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
   scale_x_continuous(breaks=NULL, limits=c(.5, 1.5)) +
   chapterTheme +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +

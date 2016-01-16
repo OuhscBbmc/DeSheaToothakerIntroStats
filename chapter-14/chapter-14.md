@@ -21,18 +21,18 @@ opts_chunk$set(
   fig.width = 5.5, 
   out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
 
-  fig.path = 'figure_rmd/',     
+  fig.path = 'figure-png/',     
   dev = "png",
   dpi = 400
 
-#   fig.path = 'figure_pdf/',     
+#   fig.path = 'figure-pdf/',     
 #   dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./Chapter14/Chapter14.R") 
+read_chunk("./chapter-14/chapter-14.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 

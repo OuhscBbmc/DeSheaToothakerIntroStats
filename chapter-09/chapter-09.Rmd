@@ -13,7 +13,7 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
-```{r set_options, echo=TRUE}
+```{r set-options, echo=TRUE}
 library(knitr)
 opts_chunk$set(
   results = 'show',
@@ -23,15 +23,15 @@ opts_chunk$set(
   fig.height = 4, 
   fig.width = 5.5, 
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure_rmd/',     
+  fig.path = 'figure-png/',     
   dev = "png",
   dpi = 400
-  # fig.path = 'figure_pdf/',     
+  # fig.path = 'figure-pdf/',     
   # dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./Chapter09/Chapter09.R") 
+read_chunk("./chapter-09/chapter-09.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 ```{r load-packages, echo=echoChunks, message=FALSE}

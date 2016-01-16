@@ -13,7 +13,7 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
-```{r set_options, echo=TRUE}
+```{r set-options, echo=TRUE}
 library(knitr)
 opts_chunk$set(
   results = 'asis', 

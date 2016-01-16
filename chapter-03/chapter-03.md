@@ -20,16 +20,16 @@ opts_chunk$set(
   fig.height = 4, 
   fig.width = 5.5, 
   out.width = "550px",
-  fig.path = 'figure_rmd/',     
+  fig.path = 'figure-png/',     
   dev = "png",
   dpi = 400
-  # fig.path = 'figure_pdf/',     
+  # fig.path = 'figure-pdf/',     
   # dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./Chapter03/Chapter03.R") 
+read_chunk("./chapter-03/chapter-03.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 

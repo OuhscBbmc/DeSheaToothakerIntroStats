@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 library(RColorBrewer)
 library(plyr)
@@ -11,7 +11,7 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401 * 2
 
@@ -40,12 +40,12 @@ ticksBig <- seq(20, 45, by=5)
 tickHeightSmall <- .0025
 tickHeightBig <- .005
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 
-# ---- Figure08_01 ------------------------------------------------------
+# ---- figure-08-01 ------------------------------------------------------
 xLimits <- c(-3.9, 3.9)
 xLimitBuffer <- 3.85
 parallelLineHeight <- -.08
@@ -69,7 +69,7 @@ DrawWithoutPanelClipping(g1 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
                          )
 
-# ---- Figure08_02 ------------------------------------------------------
+# ---- figure-08-02 ------------------------------------------------------
 
 criticalZ05 <- 1.645 #qnorm(p=.95) --Use the slightly less accurate version (ie, 1.645) so that it matches their manual arithmetic
 criticalM05Pretty <- ConvertFromZToM(criticalZ05, roundedDigits=3) #39.251
@@ -92,7 +92,7 @@ DrawWithoutPanelClipping(g2 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
                          )
 
-# ---- Figure08_03 ------------------------------------------------------
+# ---- figure-08-03 ------------------------------------------------------
 zObs3 <- 3.0; # 1- pnorm(q=zObs3)
 mObs3Pretty <- ConvertFromZToM(zObs3, roundedDigits=3) #44.4
 
@@ -114,7 +114,7 @@ DrawWithoutPanelClipping(g3 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
                          )
 
-# ---- Figure08_04 ------------------------------------------------------
+# ---- figure-08-04 ------------------------------------------------------
 mObs013 <- 33.5#16; # 1- pnorm(q=zObs013)
 zObs013 <- ConvertFromMToZ(m = 33.5)
 zObs013Rounded <- round(zObs013, 2)
@@ -146,7 +146,7 @@ DrawWithoutPanelClipping(g4 +
                            annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40")
                          )
 
-# ---- Figure08_05 ------------------------------------------------------
+# ---- figure-08-05 ------------------------------------------------------
 
 zObsNeg25 <- -2.5; # pnorm(q=zObsNeg25)
 mObsNeg25Pretty <- ConvertFromZToM(zObsNeg25, roundedDigits=3) #23.5
@@ -170,7 +170,7 @@ DrawWithoutPanelClipping(g5 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure08_06 ------------------------------------------------------
+# ---- figure-08-06 ------------------------------------------------------
 
 DrawWithoutPanelClipping(g3 +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", "")) +
@@ -178,7 +178,7 @@ DrawWithoutPanelClipping(g3 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure08_07 ------------------------------------------------------
+# ---- figure-08-07 ------------------------------------------------------
 
 criticalZ025 <- qnorm(p=.975) #1.959964
 criticalM025Pretty <- ConvertFromZToM(-criticalZ025, roundedDigits=3) #39.483
@@ -212,7 +212,7 @@ DrawWithoutPanelClipping(g7 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure08_08 ------------------------------------------------------
+# ---- figure-08-08 ------------------------------------------------------
 g8 <- g7 +
   annotate("segment", x=zObs3, xend=zObs3, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=zObs3, xend=zObs3, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
@@ -242,7 +242,7 @@ DrawWithoutPanelClipping(g8 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure08_09 ------------------------------------------------------
+# ---- figure-08-09 ------------------------------------------------------
 g9 <- g7 +
   annotate("segment", x=zObs013, xend=zObs013, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=zObs013, xend=zObs013, y=-.03, yend=parallelLineHeight, color=PaletteCritical[4]) +
@@ -275,7 +275,7 @@ DrawWithoutPanelClipping(g9 +
                            annotate("text", label=paste("italic(H)[0]:mu ==", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40")
 )
 
-# ---- Figure08_10 ------------------------------------------------------
+# ---- figure-08-10 ------------------------------------------------------
 zObs0184 <- 1.84
 mObs0184Pretty <- ConvertFromZToM(zObs0184, roundedDigits=2) #39.992
 mObsNeg0184Pretty <- ConvertFromZToM(-zObs0184, roundedDigits=2) #26.008
@@ -333,14 +333,14 @@ DrawWithoutPanelClipping(g10 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure08_11 ------------------------------------------------------
+# ---- figure-08-11 ------------------------------------------------------
 DrawWithoutPanelClipping(g7 +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
                            annotate("text", label=paste("italic(H)[0]:mu ==", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure08_12 ------------------------------------------------------
+# ---- figure-08-12 ------------------------------------------------------
 # ci <- c(36.952, 51.848)
 # obs <- 44.4
 # xLimits <- c(29.5, 55.5)
@@ -381,12 +381,12 @@ NumberLine <- function( ci) {
 }
 NumberLine(ci=c(36.952, 51.848))
 
-# ---- Figure08_13 ------------------------------------------------------
+# ---- figure-08-13 ------------------------------------------------------
 DrawWithoutPanelClipping(g2 +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
                            annotate("text", label=paste("italic(H)[0]:mu <=", mu), x=0, y=dnorm(0)*1.02, parse=T, size=5, vjust=-.05, color="gray40") +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure08_14 ------------------------------------------------------
+# ---- figure-08-14 ------------------------------------------------------
 NumberLine(ci=c(38.149, 50.651))

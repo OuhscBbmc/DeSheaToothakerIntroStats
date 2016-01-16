@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -12,7 +12,7 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
@@ -55,12 +55,12 @@ AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
     labs(x="Minutes of sleep in 24 hours", y="Frequency", title=scenarioName)
 }
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsFeed <- read.csv("./Data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
 dsCry <- read.csv("./Data/InfantCryingFake.csv", stringsAsFactors=FALSE)
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 dsFeed$Feeding <- factor(dsFeed$Feeding, levels=feedingLevels)
 rangeSleep <- range(dsFeed$Sleep)
 rangeSleep <- c(220, 580) - 50
@@ -91,17 +91,17 @@ dsCrySummary <- plyr::ddply(dsCry, .variables=c("Group", "GroupID"), .fun=summar
 dsCrySummary$LabelM <- paste0("italic(M)==", round(dsCrySummary$M))
 dsCrySummary$LabelSD <- paste0("italic(SD)==", round(dsCrySummary$SD))
 
-# ---- Figure12_02 ------------------------------------------------------
+# ---- figure-12-02 ------------------------------------------------------
 
 AnovaSingleScenario(scenarioID=1, scenarioName="Scenario 12-A")
 
-# ---- Figure12_03 ------------------------------------------------------
+# ---- figure-12-03 ------------------------------------------------------
 AnovaSingleScenario(scenarioID=2, scenarioName="Scenario 12-B")
 
-# ---- Figure12_04 ------------------------------------------------------
+# ---- figure-12-04 ------------------------------------------------------
 AnovaSingleScenario(scenarioID=3, scenarioName="Scenario 12-C")
 
-# ---- Figure12_05 ------------------------------------------------------
+# ---- figure-12-05 ------------------------------------------------------
 ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   geom_histogram(binwidth=10)  +
   geom_vline(aes(xintercept=M), data=dsScenarioFeeding, size=2, color="#55555544")  +
@@ -117,7 +117,7 @@ ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   theme(legend.position="none") +
   labs(x="Minutes of sleep in 24 hours", y="Frequency", title=NULL)
 
-# ---- Figure12_06 ------------------------------------------------------
+# ---- figure-12-06 ------------------------------------------------------
 #bb5210    #eb6c1d    #fe8011
 #fe9e4c    #ffffff    #e5e5e5
 #c6c6c6    #919191    #97d2f6
@@ -146,7 +146,7 @@ ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   chapterTheme +
   labs(x=expression(italic(F)), y=NULL)
 
-# ---- Figure12_08 ------------------------------------------------------
+# ---- figure-12-08 ------------------------------------------------------
 PaletteCritical <- c("#544A8C", "#ce2b18", "#F37615") #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter and the orange darker)
 
 f3DfModel <- 3; f3DfError <- 80
@@ -229,7 +229,7 @@ DrawWithoutPanelClipping(gCritical)
 #
 # DrawWithoutPanelClipping(gCritical)
 
-# ---- Figure12_09 ------------------------------------------------------
+# ---- figure-12-09 ------------------------------------------------------
 set.seed(891) #Set the random number generator seed so the jitters are consistent
 ggplot(dsCry, aes(x=1, y=CryingDuration, color=Group, fill=Group)) +
   geom_boxplot(width=.8, outlier.colour=NA) +
@@ -248,7 +248,7 @@ ggplot(dsCry, aes(x=1, y=CryingDuration, color=Group, fill=Group)) +
   theme(legend.position="none") +
   labs(x=NULL, y="Crying Duration")
 
-# ---- Figure12_10 ------------------------------------------------------
+# ---- figure-12-10 ------------------------------------------------------
 cryMeanOverall <- mean(dsCry$CryingDuration)
 cryMeanControl <- mean(dsCry[dsCry$GroupID==3, "CryingDuration"])
 cryMax <- max(dsCry$CryingDuration)
@@ -297,7 +297,7 @@ gCrying2 <- gCrying1 +
 
 DrawWithoutPanelClipping(gCrying2)
 
-# ---- Figure12_11 ------------------------------------------------------
+# ---- figure-12-11 ------------------------------------------------------
 gCrying3 <- gCrying2 +
   geom_segment(aes(x=cryMeanOverall + cushion, y=height2, xend=cryMeanControl - cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
   geom_segment(aes(x=cryMeanControl - cushion, y=height2, xend=cryMeanOverall + cushion, yend=height2), color=paletteCryHistogram[5], size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round")
@@ -306,13 +306,13 @@ gCrying3 <- gCrying2 +
 
 DrawWithoutPanelClipping(gCrying3)
 
-# ---- Figure12_12 ------------------------------------------------------
+# ---- figure-12-12 ------------------------------------------------------
 gCrying4 <- gCrying3 +
     geom_segment(aes(x=cryMeanControl + cushion, y=height2, xend=cryMax - cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round") +
     geom_segment(aes(x=cryMax - cushion, y=height2, xend=cryMeanControl + cushion, yend=height2), color=purplish, size=2, arrow=arrow(length=grid::unit(0.3, "cm"), type="closed"), lineend="round")
 
 DrawWithoutPanelClipping(gCrying4)
-# ---- Figure12_13 ------------------------------------------------------
+# ---- figure-12-13 ------------------------------------------------------
 
 f2_80 <- function( x ) { return( df(x, df1=2, df2=80) ) }
 criticalF05 <- qf(p=.95, df1=2, df2=80)

@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -13,7 +13,7 @@ library(MASS)
 library(mnormt)
 library(rgl)
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
@@ -42,15 +42,15 @@ palettePlacidSeasLight <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.1)
 colorTheme <- "gray40"
 colorAxes <- "black"
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
 # dsFeed <- read.csv("./Data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
 # dsCry <- read.csv("./Data/InfantCryingFake.csv", stringsAsFactors=FALSE)
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 
-# ---- Figure13_01 ------------------------------------------------------
+# ---- figure-13-01 ------------------------------------------------------
 gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   geom_point(shape=21, size=3, color="aquamarine4", fill=adjustcolor("aquamarine4", alpha.f=.1)) + #This color should match the obesity Cleveland dot plot
   scale_x_continuous(label=scales::percent) +
@@ -61,7 +61,7 @@ gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
 
 gObesity
 
-# ---- Figure13_02 ------------------------------------------------------
+# ---- figure-13-02 ------------------------------------------------------
 intervalWidth <- .001
 rPrior <- 0
 nPrior <- 51
@@ -105,7 +105,7 @@ gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
 
 DrawWithoutPanelClipping(gCriticalR)
 
-# ---- Figure13_03 ------------------------------------------------------
+# ---- figure-13-03 ------------------------------------------------------
 dsStairsUp <- data.frame(X=1:10, Y=1:10)
 
 gStraightUp <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
@@ -118,15 +118,15 @@ gStraightUp <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
   labs(x=expression(italic(X)), y=expression(italic(Y)), parse=T)
 gStraightUp
 
-# ---- Figure13_04 ------------------------------------------------------
+# ---- figure-13-04 ------------------------------------------------------
 gStraightUp +
   geom_step(direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
 
-# ---- Figure13_05 ------------------------------------------------------
+# ---- figure-13-05 ------------------------------------------------------
 gStraightUp +
   geom_step(data=data.frame(X=c(1,10),Y=c(1,10)), direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
 
-# ---- Figure13_06 ------------------------------------------------------
+# ---- figure-13-06 ------------------------------------------------------
 dsStairsDown <- data.frame(X=0:20, Y=20:0)
 
 gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
@@ -140,15 +140,15 @@ gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
   labs(x="Number of Newspapers Picked Up", y="Amount Left in Fund")
 gStraightDown
 
-# ---- Figure13_07 ------------------------------------------------------
+# ---- figure-13-07 ------------------------------------------------------
 gStraightDown +
   geom_step(data=data.frame(X=c(15,20),Y=c(5,0)), direction="hv", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
 
-# ---- Figure13_08 ------------------------------------------------------
+# ---- figure-13-08 ------------------------------------------------------
 gStraightDown +
   annotate("segment", x=4, xend=1, y=20, yend=20, arrow=grid::arrow(length=unit(.4,"cm")), color=palettePlacidSeas[2], size=2, lineend="round")
 
-# ---- Figure13_09 ------------------------------------------------------
+# ---- figure-13-09 ------------------------------------------------------
 dsNewspaperDelay <- data.frame(X=2:10, Y=0:8)
 
 ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
@@ -163,7 +163,7 @@ ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
   chapterTheme +
   labs(x="Number of Days Out of Town", y="Number of Newspapers Picked Up")
 
-# ---- Figure13_10 ------------------------------------------------------
+# ---- figure-13-10 ------------------------------------------------------
 dsBarb <- data.frame(X=seq(0, 8, by=2))
 dsBarb$Y <- 20 + (5 * dsBarb$X)
 
@@ -178,7 +178,7 @@ ggplot(dsBarb, aes(x=X, y=Y)) +
   chapterTheme +
   labs(x="Number of Days Out of Town", y="Amount Owed to Barb")
 
-# ---- Figure13_11 ------------------------------------------------------
+# ---- figure-13-11 ------------------------------------------------------
 fit <- lm(ObesityRate ~ 1 + FoodHardshipRate, data=dsObesity)
 xNew <- max(dsObesity$FoodHardshipRate) #.245
 yObs <- max(dsObesity$ObesityRate) #0.349
@@ -190,16 +190,16 @@ gObesityWithLine <- gObesity +
 #   geom_smooth(method="lm", color=palettePlacidSeasMedium[3], size=1.5, se=F)
 gObesityWithLine
 
-# ---- Figure13_12 ------------------------------------------------------
+# ---- figure-13-12 ------------------------------------------------------
 gObesityWithLine +
   annotate("segment", x=xNew, xend=xNew, y=yHat, yend=-Inf, color=palettePlacidSeasMedium[6], size=2, lineend="round") +
   annotate("segment", x=-Inf, xend=xNew, y=yHat, yend=yHat, color=palettePlacidSeasMedium[6], size=2, lineend="round")
 
-# ---- Figure13_13 ------------------------------------------------------
+# ---- figure-13-13 ------------------------------------------------------
 gObesityWithLine +
   annotate("segment", x=xNew, xend=xNew, y=yHat, yend=yObs, color=palettePlacidSeasMedium[7], size=1, lineend="round")
 
-# ---- Figure13_14 ------------------------------------------------------
+# ---- figure-13-14 ------------------------------------------------------
 gObesityWithLine +
   annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7], lineend="round")
 

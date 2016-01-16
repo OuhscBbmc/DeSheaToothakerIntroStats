@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -12,19 +12,19 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 
-# ---- Figure11_01 ------------------------------------------------------
+# ---- figure-11-01 ------------------------------------------------------
 t70 <- function( t ) { return( dt(x=t, df=70) ) } #There are 80 subjects, but df=79 isn't in the table. The next smallest is df=70.
 critT70 <- qt(p=.95, df=70) #The value in the right tail.
 tObserved70 <- 3.58
@@ -50,7 +50,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
 
 DrawWithoutPanelClipping(gCritical)
 
-# ---- Figure11_02 ------------------------------------------------------
+# ---- figure-11-02 ------------------------------------------------------
 t60 <- function( t ) { return( dt(x=t, df=30) ) }
 critT60TwoTail <- qt(p=.975, df=60) #The value in the left tail.
 tObserved60 <- 3.64
@@ -83,7 +83,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
 
 DrawWithoutPanelClipping(gCritical)
 
-# ---- Figure11_03 ------------------------------------------------------
+# ---- figure-11-03 ------------------------------------------------------
 critT60OneTail <- qt(p=.95, df=60) #The value in the left tail.
 
 gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +

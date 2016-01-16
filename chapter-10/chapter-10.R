@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -12,20 +12,20 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsTaiChi <- read.csv("./Data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 
-# ---- Figure10_01 ------------------------------------------------------
+# ---- figure-10-01 ------------------------------------------------------
 paletteZTDark <- c("#446699", "#70af81") #http://colrd.com/palette/28063/
 paletteZTLight <- c("#44669988", "#70af81AA") #http://colrd.com/palette/28063/
 ggplot(data.frame(z=-5:5), aes(x=z)) +
@@ -40,7 +40,7 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
   chapterTheme +
   labs(x=NULL, y=NULL)
 
-# ---- Figure10_03 ------------------------------------------------------
+# ---- figure-10-03 ------------------------------------------------------
 t30 <- function( t ) { return( dt(x=t, df=30) ) }
 critT30 <- qt(p=.975, df=30) #The value in the right tail.
 
@@ -65,7 +65,7 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
 
 DrawWithoutPanelClipping(gCritical)
 
-# ---- Figure10_04 ------------------------------------------------------
+# ---- figure-10-04 ------------------------------------------------------
 dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
 dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
 dsTaiChiSummary$Crit <- qt(p=.975, df=dsTaiChiSummary$Count-1)

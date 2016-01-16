@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 library(RColorBrewer)
 library(plyr)
@@ -11,7 +11,7 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401
 
@@ -25,14 +25,14 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv", stringsAsFactors=FALSE)
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 
-# ---- Figure07_01 ------------------------------------------------------
+# ---- figure-07-01 ------------------------------------------------------
 ## No longer true: Figure07_01 is linked to the first histogram in Chapter 03.
 xLimits <- c(0, 36)
 gSample <- ggplot(dsPregnancy, aes(x=T1Lifts)) +
@@ -46,7 +46,7 @@ gSample +
 #   scale_y_continuous(expand=c(0,0)) +
   chapterTheme
 
-# ---- Figure07_02 ------------------------------------------------------
+# ---- figure-07-02 ------------------------------------------------------
 gSampleShrunk <- gSample +
   geom_histogram(binwidth=2.5, fill="#94583CAA", color="#94583C") +
   scale_y_continuous(labels=NULL) +
@@ -78,7 +78,7 @@ grid.arrange(
 )
 rm(gSample, gSampleShrunk, gMeanSample, gMeanPopulation)
 
-# ---- Figure07_03 ------------------------------------------------------
+# ---- figure-07-03 ------------------------------------------------------
 dsNorm <- data.frame(X=21 + -3:3)
 ggplot(dsNorm, aes(x=X)) +
   stat_function(fun=dnorm, arg=list(mean=21, sd=1), color="#DD9954", size=1, n=calculatedPointCount) +
@@ -89,7 +89,7 @@ ggplot(dsNorm, aes(x=X)) +
   NoGridOrYLabelsTheme
 rm(dsNorm)
 
-# ---- Figure07_04 ------------------------------------------------------
+# ---- figure-07-04 ------------------------------------------------------
 cat("Reminder, the publisher needs to add the title `Population of 12 Scores`.")
 
 dsUniform <- data.frame(X=c(1,1,2,2,3,3,4,4,5,5,6,6))
@@ -104,7 +104,7 @@ ggplot(dsUniform, aes(x=X)) +##############################
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())
 
-# ---- Figure07_05 ------------------------------------------------------
+# ---- figure-07-05 ------------------------------------------------------
 cat("Reminder, the publisher needs to add the title `All Possible Means (N=2) from Limited Population`, where the `N` is italicized.")
 
 dsUniform <- data.frame(X=(2:12)/2, Y=c(1,2,3,4,5,6,5,4,3,2,1))
@@ -119,7 +119,7 @@ ggplot(dsUniform, aes(x=X, y=Y)) +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())
 
-# ---- Figure07_06 ------------------------------------------------------
+# ---- figure-07-06 ------------------------------------------------------
 dsNorm <- data.frame(X=-3:3)
 ggplot(dsNorm, aes(x=X)) +
   stat_function(fun=dnorm, arg=list(mean=0, sd=1), color="#601600", size=1, n=calculatedPointCount) +

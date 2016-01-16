@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 library(RColorBrewer)
 library(plyr)
@@ -10,7 +10,7 @@ library(reshape2) #For convertin wide to long
 library(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
 library(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 
 chapterTheme <- BookTheme  +
@@ -19,13 +19,13 @@ chapterTheme <- BookTheme  +
 # chapterThemeBox <- chapterTheme +
 #   theme(axis.ticks.x.length = grid::unit(0, "cm"))
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsPregnancy <- read.csv("./Data/ExercisePregnancy.csv", stringsAsFactors=FALSE)
 dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
 dsSmoking <- read.csv("./Data/SmokingTax.csv", stringsAsFactors=FALSE)
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 
 dsPregnancySummarized <- ddply(dsPregnancy, .variables="DeliveryMethod", summarize, Count=length(SubjectID))
@@ -45,7 +45,7 @@ dsPregnancyLong$TimePoint <- as.integer(gsub(pattern="T(\\d)Lifts", "\\1", dsPre
 
 dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoint", "Group"), summarize, CountMean=mean(LiftCount, na.rm=T))
 
-# ---- Figure03_01 ------------------------------------------------------
+# ---- figure-03-01 ------------------------------------------------------
 # cat("The two rotations demonstrate that the nonzero angle favors some slices more than others.")
 # oldPar <- par(mfrow=c(1, 2)) #par(mfrow=c(1, 1))
 #Left Panel
@@ -61,19 +61,19 @@ plotrix::pie3D(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$Deliv
 # pielabels <- c("We hate\n pies","We oppose\n  pies","We don't\n  care","We just love pies")
 # pie3D(pieval, radius=0.9, labels=pielabels, explode=0.1, main="3D PIE OPINIONS") #Documentation example of pie3D
 
-# ---- Figure03_02 ------------------------------------------------------
+# ---- figure-03-02 ------------------------------------------------------
 oldPar <- par(mar=c(0,0,0,0))
 graphics::pie(x=dsPregnancySummarized$Count, labels=dsPregnancySummarized$DeliveryMethod, col=PalettePregancyDelivery, clockwise=TRUE)
 par(oldPar)
 
-# ---- Figure03_03 ------------------------------------------------------
+# ---- figure-03-03 ------------------------------------------------------
 dsPregnancy$Dummy <- factor(1, levels=c(1,2))
 epade::bar3d.ade(x=factor(dsPregnancy$DeliveryMethod), y=dsPregnancy$Dummy,
                  xlab="", zticks=c("", ""), zlab="",
                  col=c("red", NA, "cyan", NA), wall=2)
 dsPregnancy$Dummy <- NULL
 
-# ---- Figure03_04 ------------------------------------------------------
+# ---- figure-03-04 ------------------------------------------------------
 ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity", alpha=.6) +
   scale_fill_manual(values=PalettePregancyDelivery) +
@@ -82,7 +82,7 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme(legend.position = "none") +
   labs(x=NULL, y="Number of Participants")
 
-# ---- Figure03_05 ------------------------------------------------------
+# ---- figure-03-05 ------------------------------------------------------
 ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod, label=Percentage)) +
   geom_bar(stat="identity", alpha=.6) +
   geom_text(stat="identity", size=6, hjust=1.1)  +
@@ -93,7 +93,7 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme(axis.text.y=element_text(size=14)) +
   labs(x=NULL, y="Number of Participants")
 
-# ---- Figure03_07 ------------------------------------------------------
+# ---- figure-03-07 ------------------------------------------------------
 #Refer to Recipe 3.10 ("Making a Cleveland Dot Plot") in Winston Chang's *R Graphics Cookbook* (2013).
 stateOrder <- dsObesity$State[order(dsObesity$ObesityRate)]
 dsObesity$State <- factor(dsObesity$State, levels=stateOrder)
@@ -106,7 +106,7 @@ ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
   theme(panel.grid.major.y= element_blank()) +
   labs(title="Obesity Rate in 2011", x="Percent of Residents in a State", y=NULL)
 
-# ---- Figure03_08 ------------------------------------------------------
+# ---- figure-03-08 ------------------------------------------------------
 ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   geom_point(shape=21, size=3, color=PaletteObesityState[2], fill=adjustcolor(PaletteObesityState[2], alpha.f=.25)) + #This color should match the obesity Cleveland dot plot
   scale_x_continuous(label=scales::percent) +
@@ -115,7 +115,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   chapterTheme +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 
-# ---- Figure03_09 ------------------------------------------------------
+# ---- figure-03-09 ------------------------------------------------------
 # ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Location)) +
 #   geom_text(size=3, alpha=1) +
 #   scale_x_continuous(label=scales::percent) +
@@ -143,20 +143,20 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n[Southern]", hjust=0, colour=PaletteObesityState[2], size=4) +
   annotate("text", x=hardshipRange[1], y=obesityRange[2], label="\n\n\n\n[Other]", hjust=0, colour=PaletteObesityState[1], size=4)
 
-# ---- Figure03_10 ------------------------------------------------------
+# ---- figure-03-10 ------------------------------------------------------
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
   geom_histogram(binwidth=2.5, fill="coral3", color="coral4", alpha=.6) + #Be a little darker than the previous boxplot
   chapterTheme +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
 
-# ---- Figure03_11 ------------------------------------------------------
+# ---- figure-03-11 ------------------------------------------------------
 ggplot(dsObesity, aes(x=ObesityRate)) +
   geom_histogram(binwidth=.01, fill="salmon2", color="salmon3", alpha=.6) + #Be a little darker than the previous boxplot
   scale_x_continuous(label=scales::percent) +
   chapterTheme +
   labs(x="Obesity Rate (in 2011)", y="Number of States")
 
-# ---- Figure03_12 ------------------------------------------------------
+# ---- figure-03-12 ------------------------------------------------------
 CreateFakeMeans <- function( d ) {
   data.frame(
     TimePoint = rep(d$TimePoint, times=d$CountMean),
@@ -167,7 +167,7 @@ oldPar <- par(mar=c(2,2,0,0))
 bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3, alpha=.5, legendon="top", ylim=c(0, 30))
 par(oldPar)
 
-# ---- Figure03_13 ------------------------------------------------------
+# ---- figure-03-13 ------------------------------------------------------
 gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=CountMean, color=Group)) +
   geom_line(size=3, alpha=.5) +
   geom_point(size=6) +
@@ -181,10 +181,10 @@ gLongitudinalLifts <- ggplot(dsPregnancyLongSummarized, aes(x=TimePoint, y=Count
 
 gLongitudinalLifts
 
-# ---- Figure03_14 ------------------------------------------------------
+# ---- figure-03-14 ------------------------------------------------------
 gLongitudinalLifts + geom_line(data=dsPregnancyLong, mapping=aes(x=TimePoint, y=LiftCount,  group=SubjectID), alpha=.2, na.rm=T)
 
-# ---- Figure03_15 ------------------------------------------------------
+# ---- figure-03-15 ------------------------------------------------------
 #Note the approach to labeling outliers will fail if there are duplicated values. See http://stackoverflow.com/questions/15181086/labeling-outliers-on-boxplot-in-r
 #See Chang (2013), Recipe 6.6.  We added (arbitrary) x-axis limits to force the box narrower.
 outlierPrevelances <- graphics::boxplot(dsSmoking$AdultCigaretteUse, plot=F)$out
@@ -200,7 +200,7 @@ ggplot(dsSmoking, aes(x=1, y=AdultCigaretteUse)) +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Adult Smoking Prevalence (in 2009)")
 
-# ---- Figure03_16 ------------------------------------------------------
+# ---- figure-03-16 ------------------------------------------------------
 ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
 #   geom_boxplot(width=.5,fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
   stat_summary(fun.data=TukeyBoxplot, geom='boxplot', width=.5, fill="royalblue4", outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5, na.rm=T) +
@@ -209,7 +209,7 @@ ggplot(dsPregnancy, aes(x=1, y=T1Lifts)) +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
 
-# ---- Figure03_17 ------------------------------------------------------
+# ---- figure-03-17 ------------------------------------------------------
 
 ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
   stat_summary(fun.data=TukeyBoxplot, geom='boxplot', outlier.shape=1, outlier.size=4, outlier.colour="gray40", alpha=.5) +
@@ -218,7 +218,7 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
   theme(legend.position="none") +
   labs(x=NULL, y="Baby Birth Weight (in kg)")
 
-# ---- Figure03_18 ------------------------------------------------------
+# ---- figure-03-18 ------------------------------------------------------
 g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMethod)) +
 #   geom_boxplot(outlier.shape=1, outlier.size=4,  alpha=.5, type=1) +
   stat_summary(fun.data=TukeyBoxplot, geom='boxplot', outlier.shape=1, outlier.size=4, alpha=.5) +
@@ -244,7 +244,7 @@ g
 #
 # rm(g)
 #
-# ---- Figure03_19 ------------------------------------------------------
+# ---- figure-03-19 ------------------------------------------------------
 g03_19 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
   geom_bar(stat="summary", fun.y="mean", na.rm=T, alpha=.7 ) +
 #   scale_y_continuous(limits = c(18, 21)) +
@@ -255,10 +255,10 @@ g03_19 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
 
 g03_19 + coord_flip(ylim = c(18, 21))
 
-# ---- Figure03_20 ------------------------------------------------------
+# ---- figure-03-20 ------------------------------------------------------
 g03_19 + coord_flip(ylim = c(0, 21))
 
-# ---- Figure03_21 ------------------------------------------------------
+# ---- figure-03-21 ------------------------------------------------------
 ### Possible Narration:
 ### Add observed data to the existing statistical summary (ie, the bar of means).
 ### This makes it obvious how the variability dwarfs the difference.
@@ -275,7 +275,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   theme(legend.position="none") +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
 
-# ---- Figure03_22 ------------------------------------------------------
+# ---- figure-03-22 ------------------------------------------------------
 ### Possible Narration:
 ### The number of summary layers doesn't need to stop at two.
 ### A diamond below represent the group's mean.
@@ -294,7 +294,7 @@ gBox <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
 gBox
 
-# ---- Figure03_23 ------------------------------------------------------
+# ---- figure-03-23 ------------------------------------------------------
 set.seed(seed=789) #Set a seed so the jittered graphs are consistent across renders.
 gBox +   stat_summary(fun.y="mean", geom="point", shape=23, size=5, fill="white", alpha=.5, na.rm=T) #See Chang (2013), Recipe 6.8.
 #

@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -11,19 +11,19 @@ library(ggplot2)
 # library(ggthemes)
 library(wesanderson)
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 
-# ---- Figure14_02 ------------------------------------------------------
+# ---- figure-14-02 ------------------------------------------------------
 xLimits <- c(-3.9, 3.9)
 xLimitBuffer <- 3.85
 parallelLineHeight <- -.08
@@ -58,7 +58,7 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 
 DrawWithoutPanelClipping(g1)
 
-# ---- Figure14_03 ------------------------------------------------------
+# ---- figure-14-03 ------------------------------------------------------
 fPaletteDark <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
 fPaletteLight <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.3)
 
@@ -90,7 +90,7 @@ ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
   chapterTheme +
   labs(x=expression(italic(chi^2)), y=NULL)
 
-# ---- Figure14_04 ------------------------------------------------------
+# ---- figure-14-04 ------------------------------------------------------
 fDf6 <- function(x) dchisq(x, df=6)
 criticalF05 <- qchisq(p=.95, df=6)
 chiObs <- 14.53
@@ -117,7 +117,7 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
 
 DrawWithoutPanelClipping(g3)
 
-# ---- Figure14_06 ------------------------------------------------------
+# ---- figure-14-06 ------------------------------------------------------
 g4 <- g3 +
   annotate("segment", x=chiObs, xend=chiObs, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=chiObs, xend=19.5, y=fDf6(chiObs)+.004, yend=fDf6(chiObs)+.004, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
@@ -128,7 +128,7 @@ g4 <- g3 +
 
 DrawWithoutPanelClipping(g4)
 
-# ---- Figure14_10 ------------------------------------------------------
+# ---- figure-14-10 ------------------------------------------------------
 fDf2 <- function(x) dchisq(x, df=2)
 criticalF05 <- qchisq(p=.95, df=2)
 # chiObs <- 14.53

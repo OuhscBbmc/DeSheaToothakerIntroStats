@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 library(RColorBrewer)
 library(plyr)
@@ -11,14 +11,14 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsObesity <- read.csv("./Data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
 dsPerfectPositive <- read.csv("./Data/Chapter05PerfectPositive.csv", stringsAsFactors=FALSE)
@@ -29,13 +29,13 @@ dsStork <- read.csv("./Data/StorkBirth.csv", stringsAsFactors=FALSE)
 dsWorldBirthDeathRates <- read.csv("./Data/WorldCrudeBirthsDeathsCia.csv", stringsAsFactors=FALSE)
 dsSmoking <- read.csv("./Data/SmokingTax.csv", stringsAsFactors=FALSE)
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 dsWorldBirthDeathRates <- dsWorldBirthDeathRates[!is.na(dsWorldBirthDeathRates$BirthsPer1000Pop) & !is.na(dsWorldBirthDeathRates$DeathsPer1000Pop), ]
 dsWorldBirthDeathRates$Omitted <- (dsWorldBirthDeathRates$BirthsPer1000Pop >= 30)
 
 dsSmoking$Omitted <- (dsSmoking$TaxCentsPerPack >= 100)
 
-# ---- Figure05_01 ------------------------------------------------------
+# ---- figure-05-01 ------------------------------------------------------
 ## Figure05_01 is linked to the first scatterplot in Chapter 03.
 gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   geom_point(shape=21, size=3, color="aquamarine4", fill=adjustcolor("aquamarine4", alpha.f=.1)) + #This color should match the obesity Cleveland dot plot
@@ -47,27 +47,27 @@ gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
 
 gObesity
 
-# ---- Figure05_02 ------------------------------------------------------
+# ---- figure-05-02 ------------------------------------------------------
 ggplot(dsPerfectPositive, aes(x=NumberOfLitersBought, y=Price)) +
   geom_point(shape=21, size=3, color="#68663D", fill="#9BA47533") + #http://colrd.com/palette/17498/
   scale_y_continuous(label=scales::dollar) +
   chapterTheme +
   labs(x="Number of Liters of Hand Sanitizer Purchased", y="Total Price (excluding taxes & shipping)")
 
-# ---- Figure05_03 ------------------------------------------------------
+# ---- figure-05-03 ------------------------------------------------------
 ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
   geom_point(shape=21, size=3, color="#68663D", fill="#9BA47533") + #http://colrd.com/palette/17498/
   scale_y_continuous(label=scales::dollar) +
   chapterTheme +
   labs(x="Number of Adults Screened for Hypertension", y="Amount Remaining in Gift-Card Budget")
 
-# ---- Figure05_04 ------------------------------------------------------
+# ---- figure-05-04 ------------------------------------------------------
 ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010)) +
   geom_point(shape=21, size=3, color="#8C96FF", fill="#8C96FF22") + #Adapted from http://colrd.com/palette/18974/
   chapterTheme +
   labs(x="Birth Rate Per 1,000 Population (in 2010)", y="Age-Adjusted Death Rate\nper 100,000 Population (in 2010)")
 
-# ---- Figure05_05 ------------------------------------------------------
+# ---- figure-05-05 ------------------------------------------------------
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, the lines aren't dotted anymore.
 
 #See Recipe 5.9 in Chang, 2013 for writing the lm equations in the graph.
@@ -93,7 +93,7 @@ gObesity +
 
 rm(gObesity, xName, yName)
 
-# ---- Figure05_06 ------------------------------------------------------
+# ---- figure-05-06 ------------------------------------------------------
 #TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, there are linear & nonlinear lines overlayed.
 #Set seed so the jittering is consistent across versions
 set.seed(789)
@@ -121,7 +121,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName)) +
 
 rm(m, eqn, xName, yName)
 
-# ---- Figure05_07 ------------------------------------------------------
+# ---- figure-05-07 ------------------------------------------------------
 #TODO: Lise, if you like these next two graphs, some of the text's description will need to change.  For instance, there are two linear models overlayed.
 
 dsPlot <- dsStork
@@ -153,7 +153,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
 
 rm(eqn)
 
-# ---- Figure05_08 ------------------------------------------------------
+# ---- figure-05-08 ------------------------------------------------------
 dsPlotWithoutOutliers <- dsStork[!dsStork$Extreme, ]
 mWithoutOutlier <- lm(as.formula(paste(yName, "~", xName)), dsPlotWithoutOutliers)
 eqn <- as.character(as.expression(
@@ -178,7 +178,7 @@ ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fil
 
 rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName, colorName, colorExtreme, fillExtreme)
 
-# ---- Figure05_09 ------------------------------------------------------
+# ---- figure-05-09 ------------------------------------------------------
 dsWorldRestricted <- dsWorldBirthDeathRates[!dsWorldBirthDeathRates$Omitted, ]
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldRestricted)))))
 
@@ -192,7 +192,7 @@ ggplot(dsWorldRestricted, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omit
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(dsWorldRestricted, eqn)
 
-# ---- Figure05_10 ------------------------------------------------------
+# ---- figure-05-10 ------------------------------------------------------
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldBirthDeathRates)))))
 ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
@@ -206,7 +206,7 @@ ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(eqn)
 
-# ---- Figure05_11 ------------------------------------------------------
+# ---- figure-05-11 ------------------------------------------------------
 paletteSmokingRestrictedLight <- c("#38D88D22", "#3CBEE622") #Hand-picked
 paletteSmokingRestrictedDark <- c("#2FB476", "#2F95B4") #Hand-picked
 
@@ -225,7 +225,7 @@ ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fil
   labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Prevalence (in 2009)")
 rm(eqn)
 
-# ---- Figure05_12 ------------------------------------------------------
+# ---- figure-05-12 ------------------------------------------------------
 dsSmokingRestricted <- dsSmoking[!dsSmoking$Omitted, ]
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=sum(!is.na(dsSmokingRestricted$TaxCentsPerPack) & !is.na(dsSmokingRestricted$YouthCigaretteUse))))))
 ggplot(dsSmokingRestricted, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +

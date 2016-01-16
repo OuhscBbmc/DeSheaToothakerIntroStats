@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 library(RColorBrewer)
 library(plyr)
@@ -11,7 +11,7 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 calculatedPointCount <- 401 * 2
 
@@ -42,12 +42,12 @@ ticksBigExtended <- seq(25, 50, by=5)
 tickHeightSmall <- .0025
 tickHeightBig <- .005
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 
-# ---- Figure09_01 ------------------------------------------------------
+# ---- figure-09-01 ------------------------------------------------------
 xLimits <- c(-3.9, 3.9)
 xLimitBuffer <- 3.85
 parallelLineHeight <- -.08
@@ -89,7 +89,7 @@ DrawWithoutPanelClipping(g1b +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure09_02 ------------------------------------------------------
+# ---- figure-09-02 ------------------------------------------------------
 g2 <- g1b +
   stat_function(fun=LimitRange(dnorm, -Inf, criticalZ05 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount) +
   annotate("segment", x=criticalZ05, xend=-xLimitBuffer, y=dnorm(criticalZ05)+.02+.03, yend=dnorm(criticalZ05)+.02+.03, color=PaletteCritical[6], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
@@ -103,7 +103,7 @@ DrawWithoutPanelClipping(g2 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure09_03 ------------------------------------------------------
+# ---- figure-09-03 ------------------------------------------------------
 g3 <- g1a +
   stat_function(fun=LimitRange(dnorm, -Inf, criticalZ01 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount) +
   annotate("segment", x=criticalZ01, xend=-xLimitBuffer, y=dnorm(criticalZ01)+.02+.03, yend=dnorm(criticalZ01)+.02+.03, color=PaletteCritical[6], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
@@ -128,7 +128,7 @@ DrawWithoutPanelClipping(g3 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure09_04 ------------------------------------------------------
+# ---- figure-09-04 ------------------------------------------------------
 zObs <- 1.3
 zAlt <- 1.9
 dnorm19 <- function(x) dnorm(x, mean=zAlt)
@@ -156,7 +156,7 @@ DrawWithoutPanelClipping(g4 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure09_05 ------------------------------------------------------
+# ---- figure-09-05 ------------------------------------------------------
 shadedExplanation <- "Green shaded area:\nprobability of\na Type II error"
 g5 <- g4 +
   annotate("segment", x=-1.2, xend=1, y=.3, yend=.15, color=PaletteCriticalLight[5], size=1) +
@@ -169,7 +169,7 @@ DrawWithoutPanelClipping(g5 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure09_06 ------------------------------------------------------
+# ---- figure-09-06 ------------------------------------------------------
 
 zAlt <- 2.7
 dnorm27 <- function(x) dnorm(x, mean=zAlt)
@@ -211,7 +211,7 @@ DrawWithoutPanelClipping(g6 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure09_09 ------------------------------------------------------
+# ---- figure-09-09 ------------------------------------------------------
 g9A <- ggplot(data.frame(z=xLimits), aes(x=z)) +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalZ05, xend=xLimitBuffer, y=dnorm(criticalZ05)+.02, yend=dnorm(criticalZ05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
@@ -251,7 +251,7 @@ gt9B$layout$clip[gt9B$layout$name == "panel"] <- "off"
 #Position the two graphs side by side in the same plot
 gridExtra::grid.arrange(gt9A, gt9B, ncol=2)
 
-# ---- Figure09_10 ------------------------------------------------------
+# ---- figure-09-10 ------------------------------------------------------
 zAlt <- 2.7
 dnorm27 <- function(x) dnorm(x, mean=zAlt)
 g10 <- ggplot(data.frame(f=c(-2.9, 4.9)), aes(x=f)) +
@@ -292,7 +292,7 @@ DrawWithoutPanelClipping(g10 +
                            annotate("text", label=mu, x=0, y=parallelLineHeight, size=4, vjust=1.05, color="gray40")
 )
 
-# ---- Figure09_11 ------------------------------------------------------
+# ---- figure-09-11 ------------------------------------------------------
 # ci <- c(36.952, 51.848)
 # obs <- 44.4
 # xLimits <- c(29.5, 55.5)

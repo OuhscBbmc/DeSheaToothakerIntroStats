@@ -1,5 +1,5 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-# ---- LoadPackages ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 library(RColorBrewer)
 library(plyr)
@@ -10,7 +10,7 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- DeclareGlobals ------------------------------------------------------
+# ---- declare_globals ------------------------------------------------------
 source("./CommonCode/BookTheme.R")
 
 calculatedPointCount <- 401
@@ -25,11 +25,11 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- LoadDatasets ------------------------------------------------------
+# ---- load-packages ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsFibromyalgia <- read.csv("./Data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 
-# ---- TweakDatasets ------------------------------------------------------
+# ---- tweak-packages ------------------------------------------------------
 
 dsFibromyalgiaT1Control <- dsFibromyalgia[dsFibromyalgia$Group=="Control", "PsqiT1", drop=FALSE]
 dsFibromyalgiaT1Control <- plyr::rename(dsFibromyalgiaT1Control, replace=c("PsqiT1"="X"))
@@ -41,7 +41,7 @@ dsFibromyalgiaT1Control <- dsFibromyalgiaT1Control[order(dsFibromyalgiaT1Control
 # dsFibromyalgiaT1ControlLong <- reshape2::melt(dsFibromyalgiaT1Control,id.vars="ID")
 # dsFibromyalgiaT1ControlLong <- plyr::rename(dsFibromyalgiaT1ControlLong, replace=c("variable"="Scale", "value"="Value"))
 
-# ---- Figure04_01 ------------------------------------------------------
+# ---- figure-04-01 ------------------------------------------------------
 breaksX <- seq(from=7, to=23, by=1)
 histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   geom_histogram(breaks=breaksX, fill=PaletteControlPsqiLight[1], color=PaletteControlPsqiDark[2], alpha=.6) +
@@ -52,7 +52,7 @@ histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
 
 histogramX
 
-# ---- Figure04_02 ------------------------------------------------------
+# ---- figure-04-02 ------------------------------------------------------
 tickRadius <- .05
 yZ <- -.5 #the height of the z line
 groupMean <- 13.45
@@ -111,7 +111,7 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
 rm(tickRadius, yZ, groupMean, singleScore, singleZ, scaleSD, arrowHeight, zTicks,
    colorMeanDark, colorMeanLight, colorSingleDark, colorSingleLight, grayDark, grayLight)
 
-# ---- Figure04_03 ------------------------------------------------------
+# ---- figure-04-03 ------------------------------------------------------
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
 #breaksXSparse <- breaksX[c(2,4,6,8,10,12,14,16)]
 breaksXSparse <- breaksX[c(1,3,5,7,9,11,13,15,17)]
@@ -155,7 +155,7 @@ grid.arrange(
 
 rm(breaksX, breaksZ, histogramX, histogramXInset, histogramZInset)
 
-# ---- Figure04_04 ------------------------------------------------------
+# ---- figure-04-04 ------------------------------------------------------
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #For using equations in a plot, see Recipes 5.9 & 7.2 in Chang (2013)
 lineSizeCurve <- 1
@@ -190,7 +190,7 @@ g4
 
 rm(lineSizeCurve, lineAlpha, dsNorm)
 
-# ---- Figure04_05 ------------------------------------------------------
+# ---- figure-04-05 ------------------------------------------------------
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #paletteZ <- c("#1595B2", "#554466") #From http://colrd.com/palette/22521/
 paletteZ <- c("#6CE6C6", "#F04B8D") #From http://colrd.com/palette/24356/
@@ -221,7 +221,7 @@ gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
 
 rm(paletteZ, g1SD, g2SD)
 
-# ---- Figure04_07 ------------------------------------------------------
+# ---- figure-04-07 ------------------------------------------------------
 zTableTheme <- theme_minimal() +
   theme(panel.grid = element_blank()) +
   theme(axis.text.x = element_text(size=30, color="dodgerblue4")) +
@@ -252,7 +252,7 @@ grid.arrange(
   ncol=2
 )
 
-# ---- Figure04_08 ------------------------------------------------------
+# ---- figure-04-08 ------------------------------------------------------
 #Figure 4.8 is described in the text as a standard normal distribution showing two areas:
 #   between z = 0 and z = 0.15, there is an area = .0596.  And from z = 0.15 and beyond, there is an area = .4404.
 #   This might be a good figure for using contrasting colors for the two areas and a legend explaining the two areas.
@@ -310,7 +310,7 @@ grid.draw(gt8Right)
 grid.newpage()
 grid.draw(gt8Left)
 
-# ---- Figure04_09 ------------------------------------------------------
+# ---- figure-04-09 ------------------------------------------------------
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
 #To turn off clipping, see http://stackoverflow.com/questions/12409960/ggplot2-annotate-outside-of-plot.
 singleZ <- 1.48

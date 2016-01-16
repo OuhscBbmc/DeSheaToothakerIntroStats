@@ -10,7 +10,7 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 
 calculatedPointCount <- 401
@@ -25,11 +25,11 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsFibromyalgia <- read.csv("./data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 
 dsFibromyalgiaT1Control <- dsFibromyalgia[dsFibromyalgia$Group=="Control", "PsqiT1", drop=FALSE]
 dsFibromyalgiaT1Control <- plyr::rename(dsFibromyalgiaT1Control, replace=c("PsqiT1"="X"))

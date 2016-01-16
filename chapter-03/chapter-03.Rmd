@@ -8,7 +8,7 @@ Chapter 03 Graphs
 This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
-```{r, echo=TRUE, message=F} 
+```{r, echo=TRUE, message=F}
 library(knitr)
 opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
@@ -16,42 +16,42 @@ opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -es
 <!-- Set the report-wide options, and point to the external code file. -->
 ```{r set-options, echo=TRUE}
 opts_chunk$set(
-  results='show', 
+  results='show',
   message = TRUE,
-  comment = NA, 
+  comment = NA,
   tidy = FALSE,
-  fig.height = 4, 
-  fig.width = 5.5, 
+  fig.height = 4,
+  fig.width = 5.5,
   out.width = "550px",
-  fig.path = 'figure-png/',     
+  fig.path = 'figure-png/',
   dev = "png",
   dpi = 400
-  # fig.path = 'figure-pdf/',     
+  # fig.path = 'figure-pdf/',
   # dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./chapter-03/chapter-03.R") 
+read_chunk("./chapter-03/chapter-03.R")
 ```
-<!-- Load the packages.  Suppress the output when loading packages. --> 
+<!-- Load the packages.  Suppress the output when loading packages. -->
 ```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
-<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
 ```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
-<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 ```{r, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Load the datasets.   -->
-```{r load-datasets, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r tweak-datasets, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 3-1

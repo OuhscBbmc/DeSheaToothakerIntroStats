@@ -12,17 +12,17 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 
 # ---- figure-11-01 ------------------------------------------------------
 t70 <- function( t ) { return( dt(x=t, df=70) ) } #There are 80 subjects, but df=79 isn't in the table. The next smallest is df=70.

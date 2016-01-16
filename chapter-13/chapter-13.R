@@ -13,7 +13,7 @@ library(MASS)
 library(mnormt)
 library(rgl)
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
@@ -42,13 +42,13 @@ palettePlacidSeasLight <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.1)
 colorTheme <- "gray40"
 colorAxes <- "black"
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsObesity <- read.csv("./data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
 # dsFeed <- read.csv("./data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
 # dsCry <- read.csv("./data/InfantCryingFake.csv", stringsAsFactors=FALSE)
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 
 # ---- figure-13-01 ------------------------------------------------------
 gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +

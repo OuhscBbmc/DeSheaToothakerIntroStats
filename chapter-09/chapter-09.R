@@ -11,7 +11,7 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401 * 2
 
@@ -42,10 +42,10 @@ ticksBigExtended <- seq(25, 50, by=5)
 tickHeightSmall <- .0025
 tickHeightBig <- .005
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 
 # ---- figure-09-01 ------------------------------------------------------
 xLimits <- c(-3.9, 3.9)

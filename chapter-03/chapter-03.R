@@ -10,7 +10,7 @@ library(reshape2) #For convertin wide to long
 library(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
 library(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 
 chapterTheme <- BookTheme  +
@@ -19,13 +19,13 @@ chapterTheme <- BookTheme  +
 # chapterThemeBox <- chapterTheme +
 #   theme(axis.ticks.x.length = grid::unit(0, "cm"))
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsPregnancy <- read.csv("./data/ExercisePregnancy.csv", stringsAsFactors=FALSE)
 dsObesity <- read.csv("./data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
 dsSmoking <- read.csv("./data/SmokingTax.csv", stringsAsFactors=FALSE)
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 
 dsPregnancySummarized <- ddply(dsPregnancy, .variables="DeliveryMethod", summarize, Count=length(SubjectID))

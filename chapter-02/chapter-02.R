@@ -5,7 +5,7 @@ library(knitr)
 library(ggplot2)
 library(wesanderson) #See https://github.com/karthik/wesanderson
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 chapterTheme <- BookTheme +
   theme(axis.title.y=element_blank()) +
@@ -14,13 +14,13 @@ chapterTheme <- BookTheme +
 paletteDark <- wes_palette(name="Zissou", n=5, type="continuous")[c(5,2,1)]
 paletteLight <- adjustcolor(paletteDark, alpha.f=.5)
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsSkewZero <- data.frame(Systolic=c(112, 112, 114, 115, 118, 121, 122, 124, 124))
 dsSkewPositive <- data.frame(Systolic=c(65, 65, 66, 67, 67, 68, 70, 70, 79))
 dsSkewNegative <- data.frame(Systolic=c(60, 60, 70, 70, 72, 74, 74, 75, 76))
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 # (This code chunk is intentionally empty.)
 
 # ---- figure-02-01 ------------------------------------------------------

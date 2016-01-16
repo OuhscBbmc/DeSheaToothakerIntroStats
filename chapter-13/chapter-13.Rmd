@@ -49,11 +49,11 @@ read_chunk("./chapter-13/chapter-13.R")
 ```
 
 <!-- Load the datasets. -->
-```{r load-datasets, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echoChunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r tweak-datasets, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echoChunks, message=FALSE}
 ```
 
 ## Figure 13-1

@@ -12,18 +12,18 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsTaiChi <- read.csv("./data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 
 # ---- figure-10-01 ------------------------------------------------------
 paletteZTDark <- c("#446699", "#70af81") #http://colrd.com/palette/28063/

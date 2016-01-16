@@ -11,7 +11,7 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401
 
@@ -25,11 +25,11 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsPregnancy <- read.csv("./data/ExercisePregnancy.csv", stringsAsFactors=FALSE)
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 
 # ---- figure-07-01 ------------------------------------------------------

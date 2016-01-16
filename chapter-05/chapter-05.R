@@ -11,14 +11,14 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsObesity <- read.csv("./data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
 dsPerfectPositive <- read.csv("./data/Chapter05PerfectPositive.csv", stringsAsFactors=FALSE)
@@ -29,7 +29,7 @@ dsStork <- read.csv("./data/StorkBirth.csv", stringsAsFactors=FALSE)
 dsWorldBirthDeathRates <- read.csv("./data/WorldCrudeBirthsDeathsCia.csv", stringsAsFactors=FALSE)
 dsSmoking <- read.csv("./data/SmokingTax.csv", stringsAsFactors=FALSE)
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 dsWorldBirthDeathRates <- dsWorldBirthDeathRates[!is.na(dsWorldBirthDeathRates$BirthsPer1000Pop) & !is.na(dsWorldBirthDeathRates$DeathsPer1000Pop), ]
 dsWorldBirthDeathRates$Omitted <- (dsWorldBirthDeathRates$BirthsPer1000Pop >= 30)
 

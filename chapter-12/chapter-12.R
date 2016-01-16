@@ -12,7 +12,7 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-# ---- declare_globals ------------------------------------------------------
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
@@ -55,12 +55,12 @@ AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
     labs(x="Minutes of sleep in 24 hours", y="Frequency", title=scenarioName)
 }
 
-# ---- load-packages ------------------------------------------------------
+# ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsFeed <- read.csv("./data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
 dsCry <- read.csv("./data/InfantCryingFake.csv", stringsAsFactors=FALSE)
 
-# ---- tweak-packages ------------------------------------------------------
+# ---- tweak-data ------------------------------------------------------
 dsFeed$Feeding <- factor(dsFeed$Feeding, levels=feedingLevels)
 rangeSleep <- range(dsFeed$Sleep)
 rangeSleep <- c(220, 580) - 50

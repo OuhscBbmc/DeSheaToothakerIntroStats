@@ -12,7 +12,7 @@ library(ggthemes)
 library(reshape2) #For converting wide to long
 
 # ---- declare_globals ------------------------------------------------------
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 calculatedPointCount <- 401
 
 chapterTheme <- BookTheme  +

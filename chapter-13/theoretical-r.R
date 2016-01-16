@@ -14,7 +14,7 @@ library(ggplot2)
 
 #####################################
 ## @knitr DeclareGlobals
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  + 

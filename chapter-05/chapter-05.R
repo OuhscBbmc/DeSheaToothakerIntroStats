@@ -12,7 +12,7 @@ library(ggthemes)
 library(reshape2) #For converting wide to long
 
 # ---- declare_globals ------------------------------------------------------
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))

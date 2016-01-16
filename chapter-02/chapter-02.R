@@ -6,7 +6,7 @@ library(ggplot2)
 library(wesanderson) #See https://github.com/karthik/wesanderson
 
 # ---- declare_globals ------------------------------------------------------
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 chapterTheme <- BookTheme +
   theme(axis.title.y=element_blank()) +
   theme(panel.grid.minor=element_blank())

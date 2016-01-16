@@ -12,7 +12,7 @@ library(ggplot2)
 library(wesanderson)
 
 # ---- declare_globals ------------------------------------------------------
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  +

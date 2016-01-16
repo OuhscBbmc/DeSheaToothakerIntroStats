@@ -14,7 +14,7 @@ library(mnormt)
 library(rgl)
 
 # ---- declare_globals ------------------------------------------------------
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme  +

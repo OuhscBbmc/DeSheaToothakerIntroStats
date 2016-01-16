@@ -11,7 +11,7 @@ library(plotrix) #For the 3D pie chart (Please notice that this package includes
 library(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
 
 # ---- declare_globals ------------------------------------------------------
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 
 chapterTheme <- BookTheme  +
   theme(axis.ticks.length = grid::unit(0, "cm"))

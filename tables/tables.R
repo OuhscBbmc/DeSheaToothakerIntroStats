@@ -13,7 +13,7 @@ library(reshape2) #For converting wide to long
 
 #####################################
 ## @knitr DeclareGlobals
-source("./CommonCode/BookTheme.R")
+source("./common-code/book-theme.R")
 
 pathZPValues <- "./Tables/ZPValues.csv"
 pathTPValues <- "./Tables/TPValues.csv"

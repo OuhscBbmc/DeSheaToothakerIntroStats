@@ -15,11 +15,9 @@ library(wesanderson)
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
-# 'ds' stands for 'datasets'
 
 # ---- tweak-data ------------------------------------------------------
 
@@ -47,8 +45,8 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
   annotate(geom="text", x=-criticalZ025-.05, y=dnorm(-criticalZ025)+.06, label=".025   ", hjust=1, vjust=1.15, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=-criticalZ025, y=0, label=round(-criticalZ025, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
 
-  stat_function(fun=LimitRange(dnorm, criticalZ025, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount) +
-  stat_function(fun=LimitRange(dnorm, -Inf, -criticalZ025), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, criticalZ025, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=LimitRange(dnorm, -Inf, -criticalZ025), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
 
   scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
@@ -69,11 +67,11 @@ f4 <- function( x ) dchisq(x, df=6)
 f5 <- function( x ) dchisq(x, df=8)
 
 ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
-  stat_function(fun=f1, geom="area", fill=fPaletteLight[1], n=calculatedPointCount) +
-  stat_function(fun=f2, geom="area", fill=fPaletteLight[2], n=calculatedPointCount) +
-  stat_function(fun=f3, geom="area", fill=fPaletteLight[3], n=calculatedPointCount) +
-  stat_function(fun=f4, geom="area", fill=fPaletteLight[4], n=calculatedPointCount) +
-  stat_function(fun=f5, geom="area", fill=fPaletteLight[5], n=calculatedPointCount) +
+  stat_function(fun=f1, geom="area", fill=fPaletteLight[1], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=f2, geom="area", fill=fPaletteLight[2], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=f3, geom="area", fill=fPaletteLight[3], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=f4, geom="area", fill=fPaletteLight[4], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=f5, geom="area", fill=fPaletteLight[5], n=calculatedPointCount, na.rm=T) +
   stat_function(fun=f1, n=calculatedPointCount, color=fPaletteDark[1], size=1) +
   stat_function(fun=f2, n=calculatedPointCount, color=fPaletteDark[2], size=1) +
   stat_function(fun=f3, n=calculatedPointCount, color=fPaletteDark[3], size=1) +
@@ -100,7 +98,7 @@ grid.newpage()
 g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF05, xend=19.5, y=fDf6(criticalF05)+.02, yend=fDf6(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
-  stat_function(fun=LimitRange(fDf6, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(fDf6, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
   stat_function(fun=fDf6, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=13.5, y=fDf6(criticalF05)+.035, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +
@@ -121,7 +119,7 @@ DrawWithoutPanelClipping(g3)
 g4 <- g3 +
   annotate("segment", x=chiObs, xend=chiObs, y=0, yend=Inf, color=PaletteCritical[4]) +
   annotate("segment", x=chiObs, xend=19.5, y=fDf6(chiObs)+.004, yend=fDf6(chiObs)+.004, color=PaletteCritical[4], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
-  stat_function(fun=LimitRange(fDf6, chiObs, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(fDf6, chiObs, Inf), geom="area", fill=PaletteCriticalLight[4], n=calculatedPointCount, na.rm=T) +
   annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label="italic(p)==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[4]) +
   annotate(geom="text", x=15.5, y=fDf6(chiObs)+.018, label=pObsPretty, hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[4]) +
   annotate(geom="text", x=chiObs, y=0, label=chiObs, hjust=.5, vjust=1.2, color=PaletteCritical[4], size=5)
@@ -138,7 +136,7 @@ grid.newpage()
 g5 <- ggplot(data.frame(f=c(0, 9.9)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF05, xend=9.7, y=fDf2(criticalF05)+.02, yend=fDf2(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
-  stat_function(fun=LimitRange(fDf2, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(fDf2, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
   stat_function(fun=fDf2, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=6.5, y=fDf2(criticalF05)+.07, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +

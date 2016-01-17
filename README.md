@@ -10,22 +10,22 @@ This repository contain graphing code to accompany the book, *[Introductory Stat
 ## View the graphs
 | Chapter| Title (click below to see a chapter's graphs)|
 |---:|:----|
-1 | [The Frontier Between Knowledge and Ignorance](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter01/Chapter01.md)
-2 | [Describing Distributions with Statistics: Middle, Spread and Skewness](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter02/Chapter02.md)
-3 | [Graphing Data](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter03/Chapter03.md)
-4 | [Relative Location and Normal Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter04/Chapter04.md)
-5 | [Bivariate Correlation](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter05/Chapter05.md)
+1 | [The Frontier Between Knowledge and Ignorance](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-01/chapter-01.md)
+2 | [Describing Distributions with Statistics: Middle, Spread and Skewness](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-02/chapter-02.md)
+3 | [Graphing Data](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-03/chapter-03.md)
+4 | [Relative Location and Normal Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-04/chapter-04.md)
+5 | [Bivariate Correlation](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-05/chapter-05.md)
 6 | Probability and Risk (has no graphs)
-7 | [Sampling Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter07/Chapter07.md)
-8 | [Hypothesis Testing and Interval Estimation](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter08/Chapter08.md)
-9 | [Types of Errors and Power](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter09/Chapter09.md)
-10 | [One-Sample Tests and Estimates](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter10/Chapter10.md)
-11 | [Two-Sample Tests and Estimates](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter11/Chapter11.md)
-12 | [Tests and Estimates for Two or More Samples](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter12/Chapter12.md)
-13 | [Tests and Estimates for Bivariate Linear Relationships](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter13/Chapter13.md)
-14 | [Analysis of Frequencies and Ranks](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter14/Chapter14.md)
-15 | [Choosing an Analysis Plan](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Chapter15/Chapter15.md)
-Tables | [Tables of Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/Tables/Tables.md)
+7 | [Sampling Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-07/chapter-07.md)
+8 | [Hypothesis Testing and Interval Estimation](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-08/chapter-08.md)
+9 | [Types of Errors and Power](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-09/chapter-09.md)
+10 | [One-Sample Tests and Estimates](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-10/chapter-10.md)
+11 | [Two-Sample Tests and Estimates](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-11/chapter-11.md)
+12 | [Tests and Estimates for Two or More Samples](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-12/chapter-12.md)
+13 | [Tests and Estimates for Bivariate Linear Relationships](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-13/chapter-13.md)
+14 | [Analysis of Frequencies and Ranks](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-14/chapter-14.md)
+15 | [Choosing an Analysis Plan](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-15/chapter-15.md)
+Tables | [Tables of Distributions](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/tables/tables.md)
 
 ---
 ## Additional Information

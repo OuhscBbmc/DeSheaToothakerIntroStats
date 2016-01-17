@@ -23,46 +23,46 @@ This report creates the chapter graphs.
 
 
 ## Figure 13-1
-<img src="figure-pdf/figure-13-01-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-01-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-2
-<img src="figure-pdf/figure-13-02-1.pdf" title="" alt="" width="550px" />
+<img src="figure-png/figure-13-02-1.png" title="" alt="" width="550px" />
 
 ## Figure 13-3
-<img src="figure-pdf/figure-13-03-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-03-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-4
-<img src="figure-pdf/figure-13-04-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-04-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-5
-<img src="figure-pdf/figure-13-05-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-05-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-6
-<img src="figure-pdf/figure-13-06-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-06-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-7
-<img src="figure-pdf/figure-13-07-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-07-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-8
-<img src="figure-pdf/figure-13-08-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-08-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-09
-<img src="figure-pdf/figure-13-09-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-09-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-10
-<img src="figure-pdf/figure-13-10-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-10-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-11
-<img src="figure-pdf/figure-13-11-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-11-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-12
-<img src="figure-pdf/figure-13-12-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-12-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-13
-<img src="figure-pdf/figure-13-13-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-13-1.png" title="" alt="" width="400px" />
 
 ## Figure 13-14
-<img src="figure-pdf/figure-13-14-1.pdf" title="" alt="" width="400px" />
+<img src="figure-png/figure-13-14-1.png" title="" alt="" width="400px" />
 
 ## Not used #1 
 
@@ -74,7 +74,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2016-01-16, 22:33 -0600
+Report created by wibeasley at 2016-01-17, 01:37 -0600
 ```
 
 ```
@@ -91,13 +91,15 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     rgl_0.95.1441      mnormt_1.5-3       MASS_7.3-45       
- [7] ggplot2_2.0.0      scales_0.3.0       plyr_1.8.3         knitr_1.12        
+ [1] rgl_0.95.1441      mnormt_1.5-3       MASS_7.3-45        ggthemes_3.0.1     gridExtra_2.0.0    epade_0.3.8       
+ [7] plotrix_3.6-1      reshape2_1.4.1     scales_0.3.0       plyr_1.8.3         RColorBrewer_1.1-2 dichromat_2.0-0   
+[13] extrafont_0.17     wesanderson_0.3.2  ggplot2_2.0.0      knitr_1.12        
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.12.3        Rttf2pt1_1.3.3     magrittr_1.5       munsell_0.4.2      colorspace_1.2-6   stringr_1.0.0.9000
- [7] tools_3.2.3        gtable_0.1.2       extrafontdb_1.0    htmltools_0.3      yaml_2.1.13        digest_0.6.9      
-[13] formatR_1.2.1      evaluate_0.8       rmarkdown_0.9.2    labeling_0.3       stringi_1.0-1     
+ [7] tools_3.2.3        gtable_0.1.2       extrafontdb_1.0    htmltools_0.3      assertthat_0.1     yaml_2.1.13       
+[13] digest_0.6.9       formatR_1.2.1      rsconnect_0.4.1.4  evaluate_0.8       rmarkdown_0.9.2    labeling_0.3      
+[19] stringi_1.0-1     
 ```
 
 ## License

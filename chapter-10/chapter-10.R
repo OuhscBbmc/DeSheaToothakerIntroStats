@@ -20,7 +20,7 @@ chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsTaiChi <- read.csv("./data/FibromyalgiaTaiChi.csv", stringsAsFactors=FALSE)
+dsTaiChi <- read.csv("./data/fibromyalgia-tai-chi.csv", stringsAsFactors=FALSE)
 
 # ---- tweak-data ------------------------------------------------------
 

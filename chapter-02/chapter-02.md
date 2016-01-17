@@ -36,7 +36,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2016-01-16, 20:20 -0600
+Report created by wibeasley at 2016-01-17, 01:35 -0600
 ```
 
 ```
@@ -58,7 +58,8 @@ other attached packages:
 loaded via a namespace (and not attached):
  [1] Rcpp_0.12.3        digest_0.6.9       plyr_1.8.3         Rttf2pt1_1.3.3     gtable_0.1.2       formatR_1.2.1     
  [7] magrittr_1.5       evaluate_0.8       scales_0.3.0       stringi_1.0-1      extrafontdb_1.0    rmarkdown_0.9.2   
-[13] tools_3.2.3        stringr_1.0.0.9000 munsell_0.4.2      yaml_2.1.13        colorspace_1.2-6   htmltools_0.3     
+[13] tools_3.2.3        stringr_1.0.0.9000 munsell_0.4.2      yaml_2.1.13        rsconnect_0.4.1.4  colorspace_1.2-6  
+[19] htmltools_0.3     
 ```
 
 ## License

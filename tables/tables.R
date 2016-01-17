@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-#####################################
-## @knitr LoadPackages
+
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 library(RColorBrewer)
 library(plyr)
@@ -11,14 +11,13 @@ library(ggplot2)
 library(ggthemes)
 library(reshape2) #For converting wide to long
 
-#####################################
-## @knitr DeclareGlobals
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 
-pathZPValues <- "./Tables/ZPValues.csv"
-pathTPValues <- "./Tables/TPValues.csv"
-pathFPValues <- "./Tables/FPValues.csv"
-pathChiSquarePValues <- "./Tables/ChiSquarePValues.csv"
+pathZPValues <- "./tables/z-p-values.csv"
+pathTPValues <- "./tables/t-p-values.csv"
+pathFPValues <- "./tables/f-p-values.csv"
+pathChiSquarePValues <- "./tables/chi-square-p-values.csv"
 
 chapterTheme <- BookTheme + 
   theme(axis.ticks.length = grid::unit(0, "cm"))
@@ -30,14 +29,11 @@ emptyTheme <- theme_minimal() +
   theme(panel.border = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-#####################################
-## @knitr LoadDatasets
+# ---- load-data ------------------------------------------------------
 
-#####################################
-## @knitr TweakDatasets
+# ---- tweak-data -----------------------------------------------------
 
-#####################################
-## @knitr ZArea
+# ---- z-area ------------------------------------------------------------------
 fiveDigitThreshold <- 3.255
 zColumn <- c(seq(from=0, to=3.25, by=.01), seq(from=3.30, to=3.45, by=.05), seq(from=3.5, to=4.0, by=.1))  #The resolution gets progressively coarser.
 dsZTable <- data.frame(Z=zColumn, Inside=NA_real_, Outside=NA_real_)
@@ -61,8 +57,7 @@ dsZTable$Inside <- substr(dsZTable$Inside, 1, roundingDigitCount+1) #Add one for
 knitr::kable(WrapColumns(dsZTable, wrapCount=9), row.names=FALSE, format="markdown")
 write.csv(dsZTable, file=pathZPValues, row.names=FALSE)
 
-#####################################
-## @knitr TPValue
+# ---- t-p-values --------------------------------------------------------------
 dfColumn <- c(seq(from=1, to=30, by=1), seq(from=35, to=60, by=5), 70, 80, 90, 120, 100000)  #The resolution gets progressively coarser.
 dsTTable <- data.frame(df=dfColumn, Alpha10=NA_real_, Alpha05=NA_real_, Alpha025=NA_real_, Alpha01=NA_real_, Alpha005=NA_real_, Alpha0005=NA_real_)
 
@@ -79,8 +74,7 @@ dsTTable[, -1] <- base::round(dsTTable[, -1], 3)
 knitr::kable(dsTTable, row.names=FALSE, format="markdown")
 write.csv(dsTTable, file=pathTPValues, row.names=FALSE)
 
-#####################################
-## @knitr FPValue
+# ---- f-p-values --------------------------------------------------------------
 numeratorDF <- c(seq(from=1, to=12, by=1), 14, 16, 20)
 denominatorDF <- c(seq(from=1, to=30, by=1), seq(from=32, to=50, by=2), 55, 60, 70, 80, 100, 125, 150, 200, 400, 1000, 10000000)
 alpha <- c(.05, .01)
@@ -99,9 +93,7 @@ dsFTableWide <- dsFTableWide[order(dsFTableWide$DenominatorDF, -dsFTableWide$Alp
 knitr::kable(dsFTableWide, row.names=FALSE, format="markdown", align="r")
 write.csv(dsFTableWide, file=pathFPValues, row.names=FALSE)
 
-#####################################
-## @knitr ChiSquarePValue
-
+# ---- chi-square-p-values --------------------------------------------------------------
 dfColumn <- c(seq(from=1, to=30, by=1), 40, 50, 60, 70)  #The resolution gets progressively coarser.
 dsChiTable <- data.frame(df=dfColumn, Alpha10=NA_real_, Alpha05=NA_real_, Alpha01=NA_real_, Alpha001=NA_real_)
 

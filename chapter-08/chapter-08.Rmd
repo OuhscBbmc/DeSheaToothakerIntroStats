@@ -1,0 +1,122 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
+Chapter 08 Graphs
+=================================================
+This report creates the chapter graphs.
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
+```{r, echo=F, message=F} 
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set-options, echo=F}
+library(knitr)
+opts_chunk$set(
+  results = 'show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 5.5, 
+  fig.height = 4, 
+  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+  fig.path = 'figure-png/',     
+  dev = "png",
+  dpi = 400
+  # fig.path = 'figure-pdf/',     
+  # dev = "pdf"
+)
+echoChunks <- FALSE
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./chapter-08/chapter-08.R") 
+```
+<!-- Load the packages.  Suppress the output when loading packages. --> 
+```{r load-packages, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r declare-globals, echo=echoChunks, message=FALSE}
+```
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load the datasets. -->
+```{r load-data, echo=echoChunks, message=FALSE}
+```
+
+<!-- Tweak the datasets. -->
+```{r tweak-data, echo=echoChunks, message=FALSE}
+```
+
+## Figure 8-1
+```{r figure-08-01, echo=echoChunks}
+```
+
+## Figure 8-2
+```{r figure-08-02, echo=echoChunks}
+```
+
+## Figure 8-3
+```{r figure-08-03, echo=echoChunks}
+```
+
+## Figure 8-4
+```{r figure-08-04, echo=echoChunks}
+```
+
+## Figure 8-5
+```{r figure-08-05, echo=echoChunks}
+```
+
+## Figure 8-6
+```{r figure-08-06, echo=echoChunks}
+```
+
+## Figure 8-7
+```{r figure-08-07, echo=echoChunks}
+```
+
+## Figure 8-8
+```{r figure-08-08, echo=echoChunks}
+```
+
+## Figure 8-9
+```{r figure-08-09, echo=echoChunks}
+```
+
+## Figure 8-10
+```{r figure-08-10, echo=echoChunks}
+```
+
+## Figure 8-11
+```{r figure-08-11, echo=echoChunks}
+```
+
+## Figure 8-12
+```{r figure-08-12, echo=echoChunks, fig.height=1.5}
+```
+
+## Figure 8-13
+```{r figure-08-13, echo=echoChunks}
+```
+
+## Figure 8-14
+```{r figure-08-14, echo=echoChunks, fig.height=1.5}
+```
+
+## Session Info
+For the sake of documentation and reproducibility, the current report was build on a system using the following software.
+
+```{r session-info, echo=FALSE}
+cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
+sessionInfo()
+```
+
+## License
+
+<!--<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br/>-->This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.

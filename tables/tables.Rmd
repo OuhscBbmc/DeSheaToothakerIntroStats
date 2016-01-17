@@ -1,0 +1,78 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
+Tables
+=================================================
+This report creates the tables.
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
+```{r, echo=TRUE, message=F} 
+knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set-options, echo=TRUE}
+library(knitr)
+opts_chunk$set(
+  results = 'asis', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE
+)
+echoChunks <- FALSE
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./tables/tables.R") 
+```
+<!-- Load the packages.  Suppress the output when loading packages. --> 
+```{r load-packages, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r declare-globals, echo=echoChunks, message=FALSE}
+```
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load the datasets.   -->
+```{r load-data, echo=echoChunks, message=FALSE}
+```
+
+<!-- Tweak the datasets.   -->
+```{r tweak-data, echo=echoChunks, message=FALSE}
+```
+
+## Table A.1: Standard normal distribution
+```{r z-area, echo=echoChunks}
+```
+
+## Table B.1: Critical values for *t* distributions
+```{r t-p-values, echo=echoChunks}
+```
+
+## Table C.1: Critical values for *F* distributions
+```{r f-p-values, echo=echoChunks}
+```
+
+## Table D.1: Critical values for χ^2 distributions
+```{r chi-square-p-values, echo=echoChunks}
+```
+
+
+_____________________________
+
+## Session Info
+
+For the sake of documentation and reproducibility, the current report was build on a system using the following software.
+
+```{r session-info, echo=FALSE, results='show'}
+cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
+sessionInfo()
+```
+
+## License
+
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.

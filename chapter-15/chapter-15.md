@@ -10,64 +10,64 @@ This report displays the chapter figures.  All were created in [Inkscape](http:/
 The numbering in this chapter is different than the others.  Only the last two figures are numbered in the chapter (ie, 15-01 and 15-02).  The first 18 figures (ie, Figures 15-a through Figure 15-r) don't have figure numbers in their captions.  We've given them letters here, to help distinguish them for our internal purposes.
 
 ## Figure 15-a
-<img src="./Figure15_a.png" style="width: 353px;"/>
+<img src="./figure-15-a.png" style="width: 353px;"/>
 
 ## Figure 15-b
-<img src="./Figure15_b.png" style="width: 154px;"/>
+<img src="./figure-15-b.png" style="width: 154px;"/>
 
 ## Figure 15-c
-<img src="./Figure15_c.png" style="width: 350px;"/>
+<img src="./figure-15-c.png" style="width: 350px;"/>
 
 ## Figure 15-d
-<img src="./Figure15_d.png" style="width: 243px;"/>
+<img src="./figure-15-d.png" style="width: 243px;"/>
 
 ## Figure 15-e
-<img src="./Figure15_e.png" style="width: 167px;"/>
+<img src="./figure-15-e.png" style="width: 167px;"/>
 
 ## Figure 15-f
-<img src="./Figure15_f.png" style="width: 319px;"/>
+<img src="./figure-15-f.png" style="width: 319px;"/>
 
 ## Figure 15-g
-<img src="./Figure15_g.png" style="width: 247px;"/>
+<img src="./figure-15-g.png" style="width: 247px;"/>
 
 ## Figure 15-h
-<img src="./Figure15_h.png" style="width: 209px;"/>
+<img src="./figure-15-h.png" style="width: 209px;"/>
 
 ## Figure 15-i
-<img src="./Figure15_i.png" style="width: 357px;"/>
+<img src="./figure-15-i.png" style="width: 357px;"/>
 
 ## Figure 15-j
-<img src="./Figure15_j.png" style="width: 190px;"/>
+<img src="./figure-15-j.png" style="width: 190px;"/>
 
 ## Figure 15-k
-<img src="./Figure15_k.png" style="width: 325px;"/>
+<img src="./figure-15-k.png" style="width: 325px;"/>
 
 ## Figure 15-l
-<img src="./Figure15_l.png" style="width: 320px;"/>
+<img src="./figure-15-l.png" style="width: 320px;"/>
 
 ## Figure 15-m
-<img src="./Figure15_m.png" style="width: 154px;"/>
+<img src="./figure-15-m.png" style="width: 154px;"/>
 
 ## Figure 15-n
-<img src="./Figure15_n.png" style="width: 249px;"/>
+<img src="./figure-15-n.png" style="width: 249px;"/>
 
 ## Figure 15-o
-<img src="./Figure15_o.png" style="width: 338px;"/>
+<img src="./figure-15-o.png" style="width: 338px;"/>
 
 ## Figure 15-p
-<img src="./Figure15_p.png" style="width: 249px;"/>
+<img src="./figure-15-p.png" style="width: 249px;"/>
 
 ## Figure 15-q
-<img src="./Figure15_q.png" style="width: 190px;"/>
+<img src="./figure-15-q.png" style="width: 190px;"/>
 
 ## Figure 15-r
-<img src="./Figure15_r.png" style="width: 144px;"/>
+<img src="./figure-15-r.png" style="width: 144px;"/>
 
 ## Figure 15-01
-<img src="./Figure15_01.png" style="width: 478px;"/>
+<img src="./figure-15-01.png" style="width: 478px;"/>
 
 ## Figure 15-02
-<img src="./Figure15_02.png" style="width: 344px;"/>
+<img src="./figure-15-02.png" style="width: 344px;"/>
 
 ---
 

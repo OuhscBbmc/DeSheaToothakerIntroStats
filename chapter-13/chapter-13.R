@@ -17,8 +17,7 @@ library(rgl)
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+chapterTheme <- BookTheme
 
 feedingLevels <- c("Breast", "Bottle", "Both")
 # paletteFeedingFull <- c("#ea573d", "#d292cd", "#fb9a62", "#fbc063", "#70af81", "#64b0bc", "#446699", "#615b70") #http://colrd.com/palette/28063/
@@ -120,18 +119,18 @@ gStraightUp
 
 # ---- figure-13-04 ------------------------------------------------------
 gStraightUp +
-  geom_step(direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
+  geom_step(direction="vh", size=1.5, color=palettePlacidSeasMedium[6])
 
 # ---- figure-13-05 ------------------------------------------------------
 gStraightUp +
-  geom_step(data=data.frame(X=c(1,10),Y=c(1,10)), direction="vh", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
+  geom_step(data=data.frame(X=c(1,10),Y=c(1,10)), direction="vh", size=1.5, color=palettePlacidSeasMedium[6])
 
 # ---- figure-13-06 ------------------------------------------------------
 dsStairsDown <- data.frame(X=0:20, Y=20:0)
 
 gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
-  geom_hline(color=colorAxes) +
-  geom_vline(color=colorAxes) +
+  geom_hline(yintercept=0, color=colorAxes) +
+  geom_vline(xintercept=0, color=colorAxes) +
   geom_abline(intercept=20, slope=-1, color=palettePlacidSeasMedium[3], size=1.5) +
   geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
   scale_y_continuous(labels=scales::dollar) +
@@ -142,7 +141,7 @@ gStraightDown
 
 # ---- figure-13-07 ------------------------------------------------------
 gStraightDown +
-  geom_step(data=data.frame(X=c(15,20),Y=c(5,0)), direction="hv", size=1.5, color=palettePlacidSeasMedium[6], lineend="round")
+  geom_step(data=data.frame(X=c(15,20),Y=c(5,0)), direction="hv", size=1.5, color=palettePlacidSeasMedium[6])
 
 # ---- figure-13-08 ------------------------------------------------------
 gStraightDown +
@@ -152,8 +151,8 @@ gStraightDown +
 dsNewspaperDelay <- data.frame(X=2:10, Y=0:8)
 
 ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
-  geom_hline(color=colorAxes) +
-  geom_vline(color=colorAxes) +
+  geom_hline(yintercept=0, color=colorAxes) +
+  geom_vline(xintercept=0, color=colorAxes) +
   geom_abline(intercept=-2, slope=1, color=palettePlacidSeasMedium[3], size=1.5) +
   geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
   annotate("segment", x=2, xend=.5, y=-2, yend=-2, arrow=grid::arrow(length=unit(.4,"cm")), color=palettePlacidSeas[2], size=2, lineend="round") +
@@ -168,8 +167,8 @@ dsBarb <- data.frame(X=seq(0, 8, by=2))
 dsBarb$Y <- 20 + (5 * dsBarb$X)
 
 ggplot(dsBarb, aes(x=X, y=Y)) +
-  geom_hline(color=colorAxes) +
-  geom_vline(color=colorAxes) +
+  geom_hline(yintercept=0, color=colorAxes) +
+  geom_vline(xintercept=0, color=colorAxes) +
   geom_abline(intercept=20, slope=5, color=palettePlacidSeasMedium[3], size=1.5) +
   geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
   scale_x_continuous(breaks=seq(0, 8, by=2)) +
@@ -201,9 +200,9 @@ gObesityWithLine +
 
 # ---- figure-13-14 ------------------------------------------------------
 gObesityWithLine +
-  annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7], lineend="round")
+  annotate("rect", xmin=xNew-residual, xmax=xNew, ymin=yHat, ymax=yObs, color=palettePlacidSeasMedium[7], fill=palettePlacidSeasLight[7])
 
-# ---- NotUsed13_01 ------------------------------------------------------
+# ---- not-used-13-01 ------------------------------------------------------
 # library(MASS)
 library(mnormt)
 
@@ -239,7 +238,7 @@ Graph3DMVNorm()
 # Graph3DMVNorm(phi=-85 )
 # Graph3DMVNorm(theta=5, phi=-85)
 
-# ---- NotUsed13_02 ------------------------------------------------------
+# ---- not-used-13-02 ------------------------------------------------------
 open3d() # New window
 Graph3DMVNorm(rho=0.6)
 # set.seed(3242) #Set seed so plots are consistent overtime.

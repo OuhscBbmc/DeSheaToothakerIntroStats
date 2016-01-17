@@ -1,6 +1,6 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-#####################################
-## @knitr LoadPackages
+
+# ---- load-packages ------------------------------------------------------
 library(knitr)
 # library(RColorBrewer)
 library(plyr)
@@ -12,13 +12,11 @@ library(ggplot2)
 # library(reshape2) #For converting wide to long
 # library(effects) #For extracting useful info from a linear model
 
-#####################################
-## @knitr DeclareGlobals
+# ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  + 
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+chapterTheme <- BookTheme
 
 LimitRangeOfPoints <- function( y, min, max ) { 
   function( x ) {
@@ -26,18 +24,11 @@ LimitRangeOfPoints <- function( y, min, max ) {
     return( y )
   }
 }
-#####################################
-## @knitr LoadDatasets
-# 'ds' stands for 'datasets'
+# ---- load-data ------------------------------------------------------
 
+# ---- tweak-data ------------------------------------------------------
 
-#####################################
-## @knitr TweakDatasets
-
-
-#####################################
-## @knitr TheoreticalR
-
+# ---- theoretical-r -----------------------------------------------------------
 intervalWidth <- .01
 rPrior <- 0
 nPrior <- 51

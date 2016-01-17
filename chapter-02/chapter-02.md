@@ -23,20 +23,20 @@ This report creates the chapter graphs.
 
 
 ## Figure 2-1
-<img src="figure-pdf/figure-02-01-1.pdf" title="" alt="" width="550px" />
+<img src="figure-png/figure-02-01-1.png" title="" alt="" width="550px" />
 
 ## Figure 2-2
-<img src="figure-pdf/figure-02-02-1.pdf" title="" alt="" width="550px" />
+<img src="figure-png/figure-02-02-1.png" title="" alt="" width="550px" />
 
 ## Figure 2-3
-<img src="figure-pdf/figure-02-03-1.pdf" title="" alt="" width="550px" />
+<img src="figure-png/figure-02-03-1.png" title="" alt="" width="550px" />
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by wibeasley at 2016-01-16, 02:06 -0600
+Report created by wibeasley at 2016-01-16, 20:20 -0600
 ```
 
 ```

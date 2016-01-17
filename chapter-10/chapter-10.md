@@ -4,32 +4,9 @@ This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
-```r
-knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
-```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
-```r
-library(knitr)
-opts_chunk$set(
-  results = 'show', 
-  message=TRUE,
-  comment = NA, 
-  tidy = FALSE,
-  fig.width = 4, 
-  fig.height = 2, 
-  out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure-png/',     
-  dev = "png",
-  dpi = 400
-  # fig.path = 'figure-pdf/',     
-  # dev = "pdf"
-)
-echoChunks <- FALSE
-options(width=120) #So the output is 50% wider than the default.
-read_chunk("./chapter-10/chapter-10.R") 
-```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 
 
@@ -46,13 +23,13 @@ read_chunk("./chapter-10/chapter-10.R")
 
 
 ## Figure 10-1
-<img src="figure_rmd/Figure10_01-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-10-01-1.png" title="" alt="" width="400px" />
 
 ## Figure 10-3
-<img src="figure_rmd/Figure10_03-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-10-03-1.png" title="" alt="" width="400px" />
 
 ## Figure 10-4
-<img src="figure_rmd/Figure10_04-1.png" title="" alt="" width="300px" />
+<img src="figure-png/figure-10-04-1.png" title="" alt="" width="300px" />
 
 ```
 
@@ -86,12 +63,13 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2014-12-07, 23:31 -0600
+Report created by wibeasley at 2016-01-16, 21:34 -0600
 ```
 
 ```
-R version 3.1.2 (2014-10-31)
+R version 3.2.3 (2015-12-10)
 Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 14.04.3 LTS
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
@@ -102,14 +80,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rgl_0.95.1158      mnormt_1.5-1       MASS_7.3-35        ggthemes_1.7.0     gridExtra_0.9.1    epade_0.3.8       
- [7] plotrix_3.5-10     reshape2_1.4       scales_0.2.4       plyr_1.8.1         RColorBrewer_1.0-5 dichromat_2.0-0   
-[13] extrafont_0.16     wesanderson_0.3    ggplot2_1.0.0      knitr_1.8         
+[1] RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     ggplot2_2.0.0      scales_0.3.0       plyr_1.8.3        
+[7] knitr_1.12        
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
- [7] htmltools_0.2.6  labeling_0.3     munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3      rmarkdown_0.3.10
-[13] Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
+ [1] Rcpp_0.12.3        digest_0.6.9       Rttf2pt1_1.3.3     gtable_0.1.2       formatR_1.2.1      magrittr_1.5      
+ [7] evaluate_0.8       stringi_1.0-1      extrafontdb_1.0    rmarkdown_0.9.2    labeling_0.3       tools_3.2.3       
+[13] stringr_1.0.0.9000 munsell_0.4.2      yaml_2.1.13        colorspace_1.2-6   htmltools_0.3     
 ```
 
 ## License

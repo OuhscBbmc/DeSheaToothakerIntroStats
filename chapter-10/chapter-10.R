@@ -50,10 +50,10 @@ critT30 <- qt(p=.975, df=30) #The value in the right tail.
 gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
 #   stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
 
-  stat_function(fun=LimitRange(t30, -Inf, -critT30), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
-  stat_function(fun=LimitRange(t30, critT30, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, ) +
+  stat_function(fun=LimitRange(t30, -Inf, -critT30), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=LimitRange(t30, critT30, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
   annotate("segment", x=c(-1,1)*critT30, xend=c(-1,1)*critT30, y=0, yend=Inf, color=PaletteCritical[2]) +
-  stat_function(fun=t30, n=calculatedPointCount, color=PaletteCritical[1], size=1) +
+  stat_function(fun=t30, n=calculatedPointCount, color=PaletteCritical[1], size=1, na.rm=T) +
   annotate(geom="text", x=c(-1,1)*critT30+c(-1,1)*.8, y=t30(critT30)+.05, label="alpha/2==phantom(0)", hjust=.5, vjust=-.05, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=c(-1,1)*critT30+c(-1,1)*.8, y=t30(critT30)+.05, label=".025", hjust=.5, vjust=1.05, parse=F, color=PaletteCritical[2]) +
   annotate(geom="text", x=c(-1,1)*critT30, y=0, label=round(c(-1,1)*critT30, 3), hjust=.5, vjust=1.2, parse=F, color=PaletteCritical[2], size=5) +

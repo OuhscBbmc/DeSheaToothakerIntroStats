@@ -4,32 +4,9 @@ This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
-```r
-knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
-```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
-```r
-library(knitr)
-opts_chunk$set(
-  results = 'show', 
-  message = TRUE,
-  comment = NA, 
-  tidy = FALSE,
-  fig.width = 5.5, 
-  fig.height = 4, 
-  out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure-png/',     
-  dev = "png",
-  dpi = 400
-  # fig.path = 'figure-pdf/',     
-  # dev = "pdf"
-)
-echoChunks <- FALSE
-options(width=120) #So the output is 50% wider than the default.
-read_chunk("./chapter-12/chapter-12.R") 
-```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
 
 
@@ -148,54 +125,55 @@ This figure will be typeset by the publisher.
 
 ## Figure 12-2
 
-<img src="figure_rmd/Figure12_02-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-02-1.png" title="" alt="" width="400px" />
 
 ## Figure 12-3
 
-<img src="figure_rmd/Figure12_03-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-03-1.png" title="" alt="" width="400px" />
 
 ## Figure 12-4
 
-<img src="figure_rmd/Figure12_04-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-04-1.png" title="" alt="" width="400px" />
 
 ## Figure 12-5
-<img src="figure_rmd/Figure12_05-1.png" title="" alt="" width="750px" />
+<img src="figure-png/figure-12-05-1.png" title="" alt="" width="750px" />
 
 ## Figure 12-6
-<img src="figure_rmd/Figure12_06-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-06-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-7
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-8
-<img src="figure_rmd/Figure12_08-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-08-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-9
-<img src="figure_rmd/Figure12_09-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-09-1.png" title="" alt="" width="400px" />
 
 ## Figure 12-10
-<img src="figure_rmd/Figure12_10-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-10-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-11
-<img src="figure_rmd/Figure12_11-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-11-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-12
-<img src="figure_rmd/Figure12_12-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-12-1.png" title="" alt="" width="550px" />
 
 ## Figure 12-13
-<img src="figure_rmd/Figure12_13-1.png" title="" alt="" width="300px" />
+<img src="figure-png/figure-12-13-1.png" title="" alt="" width="300px" />
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by wibeasley at 2014-12-07, 23:39 -0600
+Report created by wibeasley at 2016-01-16, 21:59 -0600
 ```
 
 ```
-R version 3.1.2 (2014-10-31)
+R version 3.2.3 (2015-12-10)
 Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 14.04.3 LTS
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
@@ -206,13 +184,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] RColorBrewer_1.0-5 dichromat_2.0-0    extrafont_0.16     ggplot2_1.0.0      scales_0.2.4       plyr_1.8.1        
-[7] knitr_1.8         
+[1] RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     ggplot2_2.0.0      scales_0.3.0       plyr_1.8.3        
+[7] knitr_1.12        
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   extrafontdb_1.0  formatR_1.0      gtable_0.1.2    
- [7] htmltools_0.2.6  labeling_0.3     MASS_7.3-35      munsell_0.4.2    proto_0.3-10     Rcpp_0.11.3     
-[13] reshape2_1.4     rmarkdown_0.3.10 Rttf2pt1_1.3.2   stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
+ [1] Rcpp_0.12.3        digest_0.6.9       Rttf2pt1_1.3.3     gtable_0.1.2       formatR_1.2.1      magrittr_1.5      
+ [7] evaluate_0.8       stringi_1.0-1      reshape2_1.4.1     extrafontdb_1.0    rmarkdown_0.9.2    labeling_0.3      
+[13] tools_3.2.3        stringr_1.0.0.9000 munsell_0.4.2      yaml_2.1.13        colorspace_1.2-6   htmltools_0.3     
 ```
 
 ## License

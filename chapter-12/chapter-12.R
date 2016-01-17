@@ -16,8 +16,7 @@ library(ggplot2)
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme  +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+chapterTheme <- BookTheme
 
 feedingLevels <- c("Breast", "Bottle", "Both")
 # paletteFeedingFull <- c("#ea573d", "#d292cd", "#fb9a62", "#fbc063", "#70af81", "#64b0bc", "#446699", "#615b70") #http://colrd.com/palette/28063/
@@ -134,10 +133,10 @@ f1 <- function( x ) { return( df(x, df1=f1DfModel, df2=f1DfError) ) }
 f2 <- function( x ) { return( df(x, df1=f2DfModel, df2=f2DfError) ) }
 
 ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
-  stat_function(fun=f1, geom="area", fill=fPaletteLight[1], alpha=.3, n=calculatedPointCount) +
-  stat_function(fun=f2, geom="area", fill=fPaletteLight[2], alpha=.3, n=calculatedPointCount) +
-  stat_function(fun=f1, n=calculatedPointCount, color=fPaletteDark[1], size=2) +
-  stat_function(fun=f2, n=calculatedPointCount, color=fPaletteDark[2], size=2) +
+  stat_function(fun=f1, geom="area", fill=fPaletteLight[1], alpha=.3, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=f2, geom="area", fill=fPaletteLight[2], alpha=.3, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=f1, n=calculatedPointCount, color=fPaletteDark[1], size=2, na.rm=T) +
+  stat_function(fun=f2, n=calculatedPointCount, color=fPaletteDark[2], size=2, na.rm=T) +
   annotate(geom="text", x=.1, y=f1(.1), label=paste0("italic(F)(", f1DfModel, ", ", f1DfError,")"), hjust=-.15, parse=TRUE, color=fPaletteDark[1]) +
   annotate(geom="text", x=1, y=f2(1), label=paste0("italic(F)(", f2DfModel, ", ", f2DfError,")"), hjust=-.15, parse=TRUE, color=fPaletteDark[2]) +
   scale_x_continuous(expand=c(0,0)) +
@@ -161,8 +160,8 @@ grid.newpage()
 gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF01, xend=criticalF01, y=0, yend=Inf, color=PaletteCritical[3]) +
-  stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
-  stat_function(fun=LimitRange(f3, criticalF01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=LimitRange(f3, criticalF01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount, na.rm=T) +
   stat_function(fun=f3, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   annotate(geom="text", x=criticalF05+.05, y=f3(criticalF05)+.20, label="alpha==phantom(0)", hjust=-.15, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalF05+.05, y=f3(criticalF05)+.20, label=".05", hjust=-.15, vjust=1.15, parse=F, color=PaletteCritical[2]) +
@@ -320,7 +319,7 @@ criticalF05 <- qf(p=.95, df1=2, df2=80)
 grid.newpage()
 gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
-  stat_function(fun=LimitRange(f2_80, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(f2_80, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
   stat_function(fun=f2_80, n=calculatedPointCount, color=PaletteCritical[1], size=.5) +
   annotate(geom="text", x=3.7, y=f2_80(criticalF05)+.15, label="alpha==phantom(0)", hjust=.5, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=3.7, y=f2_80(criticalF05)+.15, label=".05", hjust=.5, vjust=1.15, parse=F, color=PaletteCritical[2]) +

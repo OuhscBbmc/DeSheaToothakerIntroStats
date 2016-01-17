@@ -14,9 +14,7 @@ library(reshape2) #For converting wide to long
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 
-chapterTheme <- BookTheme  +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
-
+chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
@@ -87,8 +85,8 @@ gObesity +
 #   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
   annotate("text", label="Mean of\nHardship", x=mean(dsPlot[, xName], na.rm=T), y=Inf, hjust=.5, vjust=1.1, parse=F, size=4, color="orange") +
   annotate("text", label="Mean of\nObesity", x=Inf, y=mean(dsPlot[, yName], na.rm=T), hjust=1.1, vjust=.5, parse=F, size=4, color="orange") +
-  geom_vline(x=mean(dsPlot[, xName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
-  geom_hline(y=mean(dsPlot[, yName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) #+
+  geom_vline(xintercept=mean(dsPlot[, xName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
+  geom_hline(yintercept=mean(dsPlot[, yName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) #+
 #   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T)
 
 rm(gObesity, xName, yName)
@@ -196,8 +194,8 @@ rm(dsWorldRestricted, eqn)
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=nrow(dsWorldBirthDeathRates)))))
 ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
-  geom_vline(x=30, color=PaletteWorldDeathsRestricted[1], size=3, alpha=.1) +
-  geom_vline(x=30, color=PaletteWorldDeathsRestricted[2], size=3, alpha=.1) +
+  geom_vline(xintercept=30, color=PaletteWorldDeathsRestricted[1], size=3, alpha=.1) +
+  geom_vline(xintercept=30, color=PaletteWorldDeathsRestricted[2], size=3, alpha=.1) +
   geom_point(shape=21, na.rm=T) +
   scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop, na.rm=T)) +
   scale_colour_manual(values=PaletteWorldDeathsRestricted, guide=FALSE) +
@@ -214,8 +212,8 @@ paletteSmokingRestrictedDark <- c("#2FB476", "#2F95B4") #Hand-picked
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=sum(!is.na(dsSmoking$TaxCentsPerPack) & !is.na(dsSmoking$YouthCigaretteUse))))))
 ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
-  geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
-  geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
+  geom_vline(xintercept=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
+  geom_vline(xintercept=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
   geom_point(shape=21, size=4, na.rm=T) +
   scale_x_continuous(limits=range(dsSmoking$TaxCentsPerPack, na.rm=T)) +
   scale_y_continuous(label=scales::percent) +
@@ -230,8 +228,8 @@ dsSmokingRestricted <- dsSmoking[!dsSmoking$Omitted, ]
 eqn <- as.character(as.expression(substitute(italic(N)==sampleSize, list(sampleSize=sum(!is.na(dsSmokingRestricted$TaxCentsPerPack) & !is.na(dsSmokingRestricted$YouthCigaretteUse))))))
 ggplot(dsSmokingRestricted, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fill=Omitted)) +
   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="gray40") +
-  geom_vline(x=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
-  geom_vline(x=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
+  geom_vline(xintercept=100, color=paletteSmokingRestrictedLight[1], size=3, alpha=.1) +
+  geom_vline(xintercept=100, color=paletteSmokingRestrictedLight[2], size=3, alpha=.1) +
   geom_point(shape=21,  size=4, na.rm=T) +
   scale_y_continuous(label=scales::percent) +
   scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +

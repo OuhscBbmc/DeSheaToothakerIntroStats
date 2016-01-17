@@ -8,12 +8,12 @@ Chapter 05 Graphs
 This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
-```{r, echo=TRUE, message=F} 
+```{r, echo=F, message=F} 
 knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
-```{r set-options, echo=TRUE}
+```{r set-options, echo=F}
 library(knitr)
 opts_chunk$set(
   results = 'show', 
@@ -102,7 +102,7 @@ read_chunk("./chapter-05/chapter-05.R")
 ```
 
 ## Figure 5-13
-<img src="./../Chapter03/figure_rmd/Figure03_09-1.png" alt="StateCigarette" style="width: 400px;"/>
+<img src="./../chapter-03/figure-png/figure-03-09-1.png" alt="StateCigarette" style="width: 400px;"/>
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.

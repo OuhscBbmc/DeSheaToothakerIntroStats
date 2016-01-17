@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.15604.svg)](http://dx.doi.org/10.5281/zenodo.15604)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.44900.svg)](http://dx.doi.org/10.5281/zenodo.44900)
 
 DeSheaToothakerIntroStats
 =========================
@@ -37,7 +37,7 @@ This repository contain graphing code to accompany the book, [*Introductory Stat
 
 ISBN-13: [978-1-4665-6533-3](http://www.crcpress.com/product/isbn/9781466565333); ISBN-10: [1-4665-6533-0](http://www.crcpress.com/product/isbn/9781466565333)
 
-The DOI of the code *repository* (not of the book itself) is [dx.doi.org/10.5281/zenodo.15604](http://dx.doi.org/10.5281/zenodo.15604).
+The DOI of the code *repository* (not of the book itself) is [dx.doi.org/10.5281/zenodo.44900](http://dx.doi.org/10.5281/zenodo.44900).
 
 ---
 

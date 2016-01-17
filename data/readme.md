@@ -12,4 +12,4 @@ Hi, and welcome to the folder containing the book's datasets.  These files are p
  
  4. **A SAS file**, which is located in the `sas/` subdirectory.  Unlike the csv and SPSS files, this isn't strictly a dataset, but a file that should be executed in SAS.  It creates an in-memory dataset that can be used for analyses.  Alternatively, the csv files can be read into SAS with `proc import`.
 
-One of the book's goals is to narrow the gap between the (a) statistical concepts and the (b) pragmatic steps taken for an analysis.  Please share any comments you have (or possible errors you see) with [Lise DeShea](http://nursing.ouhsc.edu/Research/meet-our-team.cfm).
+One of the book's goals is to narrow the gap between the (a) statistical concepts and the (b) pragmatic steps taken for an analysis.  Please share any comments you have (or possible errors you see) with [Lise DeShea](http://nursing.ouhsc.edu/AboutTheCollege/Research/MeetourResearchTeam.aspx).

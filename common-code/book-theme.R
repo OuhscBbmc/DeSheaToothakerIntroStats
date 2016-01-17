@@ -17,6 +17,7 @@ library(RColorBrewer)
 
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
 BookTheme <- theme_bw() +
+  theme(axis.ticks.length = grid::unit(0, "cm")) +
   theme(axis.text = element_text(colour="gray40")) +
   theme(axis.title = element_text(colour="gray40")) +
   theme(panel.border = element_rect(colour="gray80")) +

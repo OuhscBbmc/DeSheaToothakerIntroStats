@@ -15,8 +15,7 @@ source("./common-code/book-theme.R")
 
 calculatedPointCount <- 401
 
-chapterTheme <- BookTheme +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+chapterTheme <- BookTheme
 
 emptyTheme <- theme_minimal() +
   theme(axis.text = element_blank()) +
@@ -196,8 +195,8 @@ rm(lineSizeCurve, lineAlpha, dsNorm)
 paletteZ <- c("#6CE6C6", "#F04B8D") #From http://colrd.com/palette/24356/
 mu <- 69; sigma <- 3
 g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[1]) +
+  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[1], na.rm=T) +
   annotate(geom="text", x=0, y=.2, label="About 68%\nof the\ndistribution") +
   scale_x_continuous(breaks=-2:2, labels=-2:2*sigma+mu) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
@@ -206,9 +205,9 @@ g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   labs(x="Height (in inches)", y=NULL)
 
 g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill=paletteZ[2], alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[2]) +
+  stat_function(fun=LimitRange(dnorm, -1, 1), geom="area", fill=paletteZ[1], alpha=.3, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=LimitRange(dnorm, -2, 2), geom="area", fill=paletteZ[2], alpha=.2, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteZ[2], na.rm=T) +
   annotate(geom="text", x=0, y=.2, label="About 95%\nof the distribution") +
   scale_x_continuous(breaks=-2:2, labels=-2:2*sigma+mu) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
@@ -232,8 +231,8 @@ zTableTheme <- theme_minimal() +
 ConstructTableHeader <- function( leftBoundary, rightBoundary, singleZ, label ) {
 #   singleZ <- ifelse(abs(leftBoundary)==Inf, rightBoundary, leftBoundary)
   ggplot(data.frame(z=-3:3), aes(x=z)) +
-    stat_function(fun=LimitRange(dnorm, leftBoundary, rightBoundary), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
-    stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue4") +
+    stat_function(fun=LimitRange(dnorm, leftBoundary, rightBoundary), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount, na.rm=T) +
+    stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue4", na.rm=T) +
     annotate("segment", x=singleZ, xend=singleZ, y=0, yend=dnorm(singleZ), color="dodgerblue4", size=.5) +
     annotate("segment", x=0, xend=0, y=0, yend=dnorm(0), color="dodgerblue4", size=.5) +
     scale_x_continuous(breaks=c(0, singleZ), labels=c(0, label)) +
@@ -266,16 +265,16 @@ z1 <- 0; z2 <- .7; z3 <- Inf; z3Position <- 3
 z1PrettyPositive <- z1; z2PrettyPositive <- z2; z3PrettyPositive <- "infinity";
 z1PrettyNegative <- -z1; z2PrettyNegative <- -z2; z3PrettyNegative <- "-infinity";
 g8Right <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=LimitRange(dnorm, z1, z2), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(dnorm, z2, z3), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
+  stat_function(fun=LimitRange(dnorm, z1, z2), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=LimitRange(dnorm, z2, z3), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3], na.rm=T) +
   annotate("text", x=(z1+z2)/2, y=dnorm(0)*.3, label=RemoveLeadingZero(round(pnorm(z2)-pnorm(z1), 3)), vjust=-.5, color=paletteVss[1], size=sizeTextArea) +
   annotate("text", x=1.5, y=dnorm(0)*.3, label=RemoveLeadingZero(round(pnorm(z3)-pnorm(z2), 3)), vjust=1.5, color=paletteVss[5], size=sizeTextArea) +
   annotate("text", x=z1, y=0, label=z1PrettyPositive, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
   annotate("text", x=z2, y=0, label=z2PrettyPositive, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
   annotate("text", x=z3Position, y=0, label=z3PrettyPositive, hjust=0, vjust=1, color="gray40", size=sizeTextLocation, parse=TRUE) +
   scale_x_continuous(breaks=-2:2) +
-  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  scale_y_continuous(breaks=NULL, expand=c(.05,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
   chapterTheme +
   theme(axis.text.x=element_blank()) +
@@ -283,16 +282,16 @@ g8Right <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   labs(x=NULL, y=NULL)
 
 g8Left <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=LimitRange(dnorm, -z2, -z1), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=LimitRange(dnorm, -z3, -z2), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3]) +
+  stat_function(fun=LimitRange(dnorm, -z2, -z1), geom="area", fill=paletteVss[2], alpha=.2, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=LimitRange(dnorm, -z3, -z2), geom="area", fill=paletteVss[4], alpha=.2, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=paletteVss[3], na.rm=T) +
   annotate("text", x=(-z1-z2)/2, y=dnorm(0)*.3, label=RemoveLeadingZero(round(pnorm(z2)-pnorm(z1), 3)), vjust=-.5, color=paletteVss[1], size=sizeTextArea) +
   annotate("text", x=-1.5, y=dnorm(0)*.3, label=RemoveLeadingZero(round(pnorm(z3)-pnorm(z2), 3)), vjust=1.5, color=paletteVss[5], size=sizeTextArea) +
   annotate("text", x=-z1, y=0, label=z1PrettyNegative, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
   annotate("text", x=-z2, y=0, label=z2PrettyNegative, hjust=.5, vjust=1, color="gray40", size=sizeTextLocation) +
   annotate("text", x=-z3Position, y=0, label=z3PrettyNegative, hjust=1, vjust=1, color="gray40", size=sizeTextLocation, parse=TRUE) +
   scale_x_continuous(breaks=-2:2) +
-  scale_y_continuous(breaks=NULL, expand=c(0,0)) +
+  scale_y_continuous(breaks=NULL, expand=c(.05,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
   chapterTheme +
   theme(axis.text.x=element_blank()) +
@@ -316,8 +315,8 @@ grid.draw(gt8Left)
 singleZ <- 1.48
 area <- pnorm(singleZ)
 gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
-  stat_function(fun=LimitRange(dnorm, -Inf, singleZ), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue2") +
+  stat_function(fun=LimitRange(dnorm, -Inf, singleZ), geom="area", fill="dodgerblue2", alpha=.2, n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color="dodgerblue2", na.rm=T) +
   annotate("text", x=-.5, y=dnorm(0)*.3, label=RemoveLeadingZero(round(pnorm(singleZ), 4)), vjust=1.5, color=paletteVss[5], size=6) +
   annotate("segment", x=singleZ, xend=singleZ, y=0, yend=Inf, color="dodgerblue4", size=1.5) +
   annotate("text", x=singleZ, y=0, label=singleZ, vjust=1.2, color="dodgerblue4", size=8) +
@@ -334,7 +333,7 @@ grid.draw(gt)
 
 rm(singleZ, gSingle, gt)
 
-# ---- UnusedVariantsFigure04_04 ------------------------------------------------------
+# ---- unused-variants-figure-04-04 ------------------------------------------------------
 g4 %+%
   aes(label=Label1) +
   geom_text(parse=TRUE, vjust=-.1)
@@ -347,7 +346,7 @@ g4 %+%
   chapterTheme +
   labs(x=expression(italic(X)), y="Density")
 
-# ---- UnusedVariantsFigure04_08 ------------------------------------------------------
+# ---- unused-variants-figure-04-08 ------------------------------------------------------
 grid.arrange(
   gt8Right,
   gt8Left,

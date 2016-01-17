@@ -65,27 +65,7 @@ img {
 <h1>Chapter 03 Graphs</h1>
 <p>This report creates the chapter graphs.</p>
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
-<pre class="r"><code>library(knitr)
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.</code></pre>
 <!-- Set the report-wide options, and point to the external code file. -->
-<pre class="r"><code>opts_chunk$set(
-  results='show',
-  message = TRUE,
-  comment = NA,
-  tidy = FALSE,
-  fig.height = 4,
-  fig.width = 5.5,
-  out.width = &quot;550px&quot;,
-  fig.path = 'figure-png/',
-  dev = &quot;png&quot;,
-  dpi = 400
-  # fig.path = 'figure-pdf/',
-  # dev = &quot;pdf&quot;#,
-  # dev.args=list(pdf = list(colormodel = 'cmyk'))
-)
-echoChunks &lt;- FALSE
-options(width=120) #So the output is 50% wider than the default.
-read_chunk(&quot;./chapter-03/chapter-03.R&quot;)</code></pre>
 <!-- Load the packages.  Suppress the output when loading packages. -->
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
@@ -186,7 +166,7 @@ read_chunk(&quot;./chapter-03/chapter-03.R&quot;)</code></pre>
 <div id="session-info" class="section level2">
 <h2>Session Info</h2>
 <p>For the sake of documentation and reproducibility, the current report was build on a system using the following software.</p>
-<pre><code>Report created by wibeasley at 2016-01-16, 13:54 -0600</code></pre>
+<pre><code>Report created by wibeasley at 2016-01-16, 20:18 -0600</code></pre>
 <pre><code>R version 3.2.3 (2015-12-10)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 14.04.3 LTS

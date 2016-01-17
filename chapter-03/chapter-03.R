@@ -13,11 +13,7 @@ library(epade) #For the 3D bar chart (Please notice that this package includes m
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 
-chapterTheme <- BookTheme  +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
-# chapterThemeBar <- chapterTheme
-# chapterThemeBox <- chapterTheme +
-#   theme(axis.ticks.x.length = grid::unit(0, "cm"))
+chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'

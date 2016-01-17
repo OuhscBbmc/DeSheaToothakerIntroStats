@@ -4,33 +4,9 @@ This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 
-```r
-library(knitr)
-opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
-```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
-```r
-opts_chunk$set(
-  results='show',
-  message = TRUE,
-  comment = NA,
-  tidy = FALSE,
-  fig.height = 4,
-  fig.width = 5.5,
-  out.width = "550px",
-  fig.path = 'figure-png/',
-  dev = "png",
-  dpi = 400
-  # fig.path = 'figure-pdf/',
-  # dev = "pdf"#,
-  # dev.args=list(pdf = list(colormodel = 'cmyk'))
-)
-echoChunks <- FALSE
-options(width=120) #So the output is 50% wider than the default.
-read_chunk("./chapter-03/chapter-03.R")
-```
 <!-- Load the packages.  Suppress the output when loading packages. -->
 
 
@@ -120,7 +96,7 @@ For the sake of documentation and reproducibility, the current report was build 
 
 
 ```
-Report created by wibeasley at 2016-01-16, 13:54 -0600
+Report created by wibeasley at 2016-01-16, 20:18 -0600
 ```
 
 ```

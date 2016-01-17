@@ -78,10 +78,10 @@ g1b <- g1a +
 
   annotate(geom="text", x=criticalZ05+.05, y=dnorm(criticalZ05)+.06, label="alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalZ05+.05, y=dnorm(criticalZ05)+.06, label=".05", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[2]) +
-  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
+  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
 
   annotate("text", label=criticalM05Pretty, x=criticalZ05, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
-  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T)
 
 DrawWithoutPanelClipping(g1b +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
@@ -91,7 +91,7 @@ DrawWithoutPanelClipping(g1b +
 
 # ---- figure-09-02 ------------------------------------------------------
 g2 <- g1b +
-  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ05 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ05 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount, na.rm=T) +
   annotate("segment", x=criticalZ05, xend=-xLimitBuffer, y=dnorm(criticalZ05)+.02+.03, yend=dnorm(criticalZ05)+.02+.03, color=PaletteCritical[6], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
 
   annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ05)+.06+.03, label="1-alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[6]) +
@@ -105,7 +105,7 @@ DrawWithoutPanelClipping(g2 +
 
 # ---- figure-09-03 ------------------------------------------------------
 g3 <- g1a +
-  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ01 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, -Inf, criticalZ01 ), geom="area", color=PaletteCritical[1], fill=PaletteCriticalLight[6], n=calculatedPointCount, na.rm=T) +
   annotate("segment", x=criticalZ01, xend=-xLimitBuffer, y=dnorm(criticalZ01)+.02+.03, yend=dnorm(criticalZ01)+.02+.03, color=PaletteCritical[6], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="FF") +
 
   annotate(geom="text", x=-xLimitBuffer+.05, y=dnorm(criticalZ01)+.06+.03, label="1-alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[6]) +
@@ -117,10 +117,10 @@ g3 <- g1a +
 
   annotate(geom="text", x=criticalZ01+.05, y=dnorm(criticalZ01)+.06, label="alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[3]) +
   annotate(geom="text", x=criticalZ01+.05, y=dnorm(criticalZ01)+.06, label=".01", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[3]) +
-  annotate(geom="text", x=criticalZ01, y=0, label=round(criticalZ01, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[3], size=5) +
+  annotate(geom="text", x=criticalZ01, y=0, label=round(criticalZ01, 3), hjust=.5, vjust=1.2, color=PaletteCritical[3], size=5) +
 
   annotate("text", label=criticalM01Pretty, x=criticalZ01, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[3]) +
-  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", color=PaletteCritical[3], fill=PaletteCriticalLight[3], n=calculatedPointCount)
+  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", color=PaletteCritical[3], fill=PaletteCriticalLight[3], n=calculatedPointCount, na.rm=T)
 
 DrawWithoutPanelClipping(g3 +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
@@ -147,8 +147,8 @@ g4 <- g1a +
   annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
 
   annotate("text", label=criticalM05Pretty, x=criticalZ05, y=parallelLineHeight, size=4, vjust=1.05, color=PaletteCritical[2]) +
-  stat_function(fun=dnorm19, n=calculatedPointCount, color=PaletteCritical[5], size=.5) +
-  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount)
+  stat_function(fun=dnorm19, n=calculatedPointCount, color=PaletteCritical[5], size=.5, na.rm=T) +
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", color=PaletteCritical[2], fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T)
 
 DrawWithoutPanelClipping(g4 +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
@@ -161,7 +161,7 @@ shadedExplanation <- "Green shaded area:\nprobability of\na Type II error"
 g5 <- g4 +
   annotate("segment", x=-1.2, xend=1, y=.3, yend=.15, color=PaletteCriticalLight[5], size=1) +
   annotate("text", x=-2.2, y=.3, label=shadedExplanation, color=PaletteCritical[5], vjust=.5, size=5, lineheight=.8) +
-  stat_function(fun=LimitRange(dnorm19, -Inf, criticalZ05), geom="area", color=NA, fill=PaletteCriticalLight[5], n=calculatedPointCount)
+  stat_function(fun=LimitRange(dnorm19, -Inf, criticalZ05), geom="area", color=NA, fill=PaletteCriticalLight[5], n=calculatedPointCount, na.rm=T)
 
 DrawWithoutPanelClipping(g5 +
                            scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
@@ -185,10 +185,10 @@ g6 <- ggplot(data.frame(f=c(-2.9, 4.9)), aes(x=f)) +
   annotate("segment", x=criticalZ05, xend=criticalZ05, y=-.03, yend=parallelLineHeight, color=PaletteCriticalLight[5]) +
 
   stat_function(fun=LimitRange(dnorm, -2.9, 4.9), geom="line", color=PaletteCritical[1], n=calculatedPointCount, na.rm=T) +
-  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
 
   stat_function(fun=LimitRange(dnorm27, -2.9, 4.9), n=calculatedPointCount, color=PaletteCritical[5], size=.5) +
-  stat_function(fun=LimitRange(dnorm27, -2.9, criticalZ05), geom="area", fill=PaletteCriticalLight[5], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm27, -2.9, criticalZ05), geom="area", fill=PaletteCriticalLight[5], n=calculatedPointCount, na.rm=T) +
 
   annotate("segment", x=criticalZ05+.1, xend=criticalZ05+1, y=-.045, yend=-.045, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.5, "cm")), size=2) +
   annotate("text", x=criticalZ05+1.1, y=-.045, label="Reject Null", hjust=0, color=PaletteCritical[2], size=5) +
@@ -218,10 +218,10 @@ g9A <- ggplot(data.frame(z=xLimits), aes(x=z)) +
 
   annotate(geom="text", x=criticalZ05+.05, y=dnorm(criticalZ05)+.09, label="alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[2]) +
   annotate(geom="text", x=criticalZ05+.05, y=dnorm(criticalZ05)+.09, label=".05", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[2]) +
-  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[2], size=5) +
+  annotate(geom="text", x=criticalZ05, y=0, label=round(criticalZ05, 3), hjust=.5, vjust=1.2, color=PaletteCritical[2], size=5) +
 
-  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1]) +
+  stat_function(fun=LimitRange(dnorm, criticalZ05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1], na.rm=T) +
   scale_x_continuous(breaks=-3:3, labels=c(-3, -2, -1, 0, "", "", 3)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
@@ -236,10 +236,10 @@ g9B <- ggplot(data.frame(z=xLimits), aes(x=z)) +
 
   annotate(geom="text", x=criticalZ01+.05, y=dnorm(criticalZ01)+.09, label="alpha==phantom(0)", hjust=0, vjust=-.15, parse=TRUE, color=PaletteCritical[3]) +
   annotate(geom="text", x=criticalZ01+.05, y=dnorm(criticalZ01)+.09, label=".01", hjust=0, vjust=1.15, parse=F, color=PaletteCritical[3]) +
-  annotate(geom="text", x=criticalZ01, y=0, label=round(criticalZ01, 3), hjust=.5, vjust=1.2, fill="blue", color=PaletteCritical[3], size=5) +
+  annotate(geom="text", x=criticalZ01, y=0, label=round(criticalZ01, 3), hjust=.5, vjust=1.2, color=PaletteCritical[3], size=5) +
 
-  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount) +
-  stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1]) +
+  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount, na.rm=T) +
+  stat_function(fun=dnorm, n=calculatedPointCount, color=PaletteCritical[1], na.rm=T) +
   scale_x_continuous(breaks=-3:3, labels=c(-3, -2, -1, 0, 1, "", 3)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
@@ -266,10 +266,10 @@ g10 <- ggplot(data.frame(f=c(-2.9, 4.9)), aes(x=f)) +
   annotate("segment", x=criticalZ01, xend=criticalZ01, y=-.03, yend=parallelLineHeight, color=PaletteCriticalLight[5]) +
 
   stat_function(fun=LimitRange(dnorm, -2.9, 4.9), geom="line", color=PaletteCritical[1], n=calculatedPointCount, na.rm=T) +
-  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm, criticalZ01, Inf), geom="area", fill=PaletteCriticalLight[3], n=calculatedPointCount, na.rm=T) +
 
-  stat_function(fun=LimitRange(dnorm27, -2.9, 4.9), n=calculatedPointCount, color=PaletteCritical[5], size=.5) +
-  stat_function(fun=LimitRange(dnorm27, -2.9, criticalZ01), geom="area", fill=PaletteCriticalLight[5], n=calculatedPointCount) +
+  stat_function(fun=LimitRange(dnorm27, -2.9, 4.9), n=calculatedPointCount, color=PaletteCritical[5], size=.5, na.rm=T) +
+  stat_function(fun=LimitRange(dnorm27, -2.9, criticalZ01), geom="area", fill=PaletteCriticalLight[5], n=calculatedPointCount, na.rm=T) +
 
   annotate("segment", x=criticalZ01+.1, xend=criticalZ01+1, y=-.045, yend=-.045, color=PaletteCritical[3], arrow=arrow(length=grid::unit(0.5, "cm")), size=2) +
   annotate("text", x=criticalZ01+1.1, y=-.045, label="Reject Null", hjust=0, color=PaletteCritical[3], size=5) +

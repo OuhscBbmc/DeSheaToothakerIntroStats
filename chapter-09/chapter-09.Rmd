@@ -8,12 +8,12 @@ Chapter 09 Graphs
 This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
-```{r, echo=TRUE, message=F} 
+```{r, echo=F, message=F} 
 knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
-```{r set-options, echo=TRUE}
+```{r set-options, echo=F}
 library(knitr)
 opts_chunk$set(
   results = 'show',
@@ -78,10 +78,10 @@ read_chunk("./chapter-09/chapter-09.R")
 ```
 
 ## Figure 9-7
-<img src="./../Chapter08/figure_rmd/Figure08_07-1.png" alt="TwoTails" style="width: 550px;"/>
+<img src="./../chapter-08/figure-png/figure-08-07-1.png" alt="TwoTails" style="width: 550px;"/>
 
 ## Figure 9-8
-<img src="./../Chapter08/figure_rmd/Figure08_02-1.png" alt="TwoTails" style="width: 550px;"/>
+<img src="./../chapter-08/figure-png/figure-08-07-1.png" alt="TwoTails" style="width: 550px;"/>
 
 ## Figure 9-9
 ```{r figure-09-09, echo=echoChunks, fig.height=2}

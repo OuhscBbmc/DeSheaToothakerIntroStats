@@ -36,19 +36,16 @@ dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 ## No longer true: Figure07_01 is linked to the first histogram in Chapter 03.
 xLimits <- c(0, 36)
 gSample <- ggplot(dsPregnancy, aes(x=T1Lifts)) +
-#   scale_x_continuous(expand=c(0,0)) +
   coord_cartesian(xlim=xLimits, ylim=c(0, 17.5)) +
   labs(x="Number of Lifts in 1 min", y="Frequency")
 
 gSample +
-#   geom_histogram(binwidth=2.5, fill="#94583C", color="#FFF7B6", alpha=.6) + #http://colrd.com/palette/23827/
-  geom_histogram(binwidth=2.5, fill="#94583CAA", color="#601600") + #http://colrd.com/palette/23827/
-#   scale_y_continuous(expand=c(0,0)) +
+  geom_histogram(binwidth=2.5, fill="#94583CAA", color="#601600", na.rm=T) + #http://colrd.com/palette/23827/
   chapterTheme
 
 # ---- figure-07-02 ------------------------------------------------------
 gSampleShrunk <- gSample +
-  geom_histogram(binwidth=2.5, fill="#94583CAA", color="#94583C") +
+  geom_histogram(binwidth=2.5, fill="#94583CAA", color="#94583C", na.rm=T) +
   scale_y_continuous(labels=NULL) +
   labs(x=NULL, y=NULL) +
   NoGridOrYLabelsTheme

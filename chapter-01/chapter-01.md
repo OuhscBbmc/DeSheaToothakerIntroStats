@@ -3,19 +3,19 @@ Chapter 1 Graphs
 This report displays the chapter figures.  All were created in [Inkscape](http://www.inkscape.org/en/).
 
 ## Figure 1-01
-<img src="./Figure01_01.png" style="width: 550px;"/>
+<img src="./figure-01-01.png" style="width: 550px;"/>
 
 ## Figure 1-02
-<img src="./Figure01_02.png" style="width: 520px;"/>
+<img src="./figure-01-02.png" style="width: 520px;"/>
 
 ## Figure 1-03
-<img src="./Figure01_03.png" style="width: 520px;"/>
+<img src="./figure-01-03.png" style="width: 520px;"/>
 
 ## Figure 1-04
-<img src="./Figure01_04.png" style="width: 445px;"/>
+<img src="./figure-01-04.png" style="width: 445px;"/>
 
 ## Figure 1-05
-<img src="./Figure01_05.png" style="width: 520px;"/>
+<img src="./figure-01-05.png" style="width: 520px;"/>
 
 ---
 

@@ -1,7 +1,7 @@
 data a;
 ***This data set was compiled using information from www dot cdc dot gov and frac dot org;
 ***for DeShea and Toothaker's Introductory Statistics for the Health Sciences;
-***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/data/FoodHardshipObesityReadme.md;
+***The context and details of the dataset are described in https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/data/food-hardship-obesityReadme.md;
 
 input StateName $ 1-18 State $ FoodHardshipRate ObesityRate Location $;
 lines;

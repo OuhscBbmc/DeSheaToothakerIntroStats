@@ -17,9 +17,9 @@ chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsPregnancy <- read.csv("./data/ExercisePregnancy.csv", stringsAsFactors=FALSE)
-dsObesity <- read.csv("./data/FoodHardshipObesity.csv", stringsAsFactors=FALSE)
-dsSmoking <- read.csv("./data/SmokingTax.csv", stringsAsFactors=FALSE)
+dsPregnancy <- read.csv("./data/exercise-pregnancy.csv"    , stringsAsFactors=FALSE)
+dsObesity   <- read.csv("./data/food-hardship-obesity.csv" , stringsAsFactors=FALSE)
+dsSmoking   <- read.csv("./data/smoking-tax.csv"           , stringsAsFactors=FALSE)
 
 # ---- tweak-data ------------------------------------------------------
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000

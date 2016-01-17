@@ -26,7 +26,7 @@ emptyTheme <- theme_minimal() +
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsPregnancy <- read.csv("./data/ExercisePregnancy.csv", stringsAsFactors=FALSE)
+dsPregnancy <- read.csv("./data/exercise-pregnancy.csv", stringsAsFactors=FALSE)
 
 # ---- tweak-data ------------------------------------------------------
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000

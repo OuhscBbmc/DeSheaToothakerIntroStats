@@ -57,7 +57,7 @@ AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsFeed <- read.csv("./data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
-dsCry <- read.csv("./data/InfantCryingFake.csv", stringsAsFactors=FALSE)
+dsCry <- read.csv("./data/infant-crying-fake.csv", stringsAsFactors=FALSE)
 
 # ---- tweak-data ------------------------------------------------------
 dsFeed$Feeding <- factor(dsFeed$Feeding, levels=feedingLevels)

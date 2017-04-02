@@ -125,55 +125,55 @@ This figure will be typeset by the publisher.
 
 ## Figure 12-2
 
-<img src="figure-png/figure-12-02-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-02-1.png" width="400px" />
 
 ## Figure 12-3
 
-<img src="figure-png/figure-12-03-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-03-1.png" width="400px" />
 
 ## Figure 12-4
 
-<img src="figure-png/figure-12-04-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-04-1.png" width="400px" />
 
 ## Figure 12-5
-<img src="figure-png/figure-12-05-1.png" title="" alt="" width="750px" />
+<img src="figure-png/figure-12-05-1.png" width="750px" />
 
 ## Figure 12-6
-<img src="figure-png/figure-12-06-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-06-1.png" width="550px" />
 
 ## Figure 12-7
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-8
-<img src="figure-png/figure-12-08-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-08-1.png" width="550px" />
 
 ## Figure 12-9
-<img src="figure-png/figure-12-09-1.png" title="" alt="" width="400px" />
+<img src="figure-png/figure-12-09-1.png" width="400px" />
 
 ## Figure 12-10
-<img src="figure-png/figure-12-10-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-10-1.png" width="550px" />
 
 ## Figure 12-11
-<img src="figure-png/figure-12-11-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-11-1.png" width="550px" />
 
 ## Figure 12-12
-<img src="figure-png/figure-12-12-1.png" title="" alt="" width="550px" />
+<img src="figure-png/figure-12-12-1.png" width="550px" />
 
 ## Figure 12-13
-<img src="figure-png/figure-12-13-1.png" title="" alt="" width="300px" />
+<img src="figure-png/figure-12-13-1.png" width="300px" />
 
 ## Session Info
 For the sake of documentation and reproducibility, the current report was build on a system using the following software.
 
 
 ```
-Report created by wibeasley at 2016-01-17, 01:36 -0600
+Report created by wibeasley at 2017-04-01, 21:25 -0500
 ```
 
 ```
-R version 3.2.3 (2015-12-10)
+R version 3.3.3 (2017-03-06)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 14.04.3 LTS
+Running under: Ubuntu 16.04.2 LTS
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
@@ -184,15 +184,15 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] ggthemes_3.0.1     gridExtra_2.0.0    epade_0.3.8        plotrix_3.6-1      reshape2_1.4.1     scales_0.3.0      
- [7] plyr_1.8.3         RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     wesanderson_0.3.2  ggplot2_2.0.0     
-[13] knitr_1.12        
+[1] RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     ggplot2_2.2.1      scales_0.4.1       plyr_1.8.4        
+[7] knitr_1.15.1      
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.3        Rttf2pt1_1.3.3     magrittr_1.5       munsell_0.4.2      colorspace_1.2-6   stringr_1.0.0.9000
- [7] tools_3.2.3        gtable_0.1.2       extrafontdb_1.0    htmltools_0.3      assertthat_0.1     yaml_2.1.13       
-[13] digest_0.6.9       formatR_1.2.1      rsconnect_0.4.1.4  evaluate_0.8       rmarkdown_0.9.2    labeling_0.3      
-[19] stringi_1.0-1     
+ [1] Rcpp_0.12.10         Rttf2pt1_1.3.4       magrittr_1.5         munsell_0.4.3        colorspace_1.3-2    
+ [6] stringr_1.2.0        tools_3.3.3          gtable_0.2.0         extrafontdb_1.0      htmltools_0.3.5     
+[11] yaml_2.1.14          lazyeval_0.2.0       rprojroot_1.2        digest_0.6.12        tibble_1.3.0        
+[16] reshape2_1.4.2       evaluate_0.10        rmarkdown_1.4.0.9000 labeling_0.3         stringi_1.1.3       
+[21] backports_1.0.5     
 ```
 
 ## License

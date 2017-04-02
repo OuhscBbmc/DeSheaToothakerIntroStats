@@ -5,7 +5,7 @@ reportNames <- c(sprintf("chapter-%02d", chaptersToRender), "tables")
 reportPaths <- sprintf("./%1$s/%1$s.Rmd", reportNames)
 for( reportPath in reportPaths ) {
   print(paste("Rendering", reportPath))
-  rmarkdown::render(reportPath, output_format="all")
+  rmarkdown::render(reportPath, output_format="all", envir=new.env())
 }
 
 # rmarkdown::md_document()

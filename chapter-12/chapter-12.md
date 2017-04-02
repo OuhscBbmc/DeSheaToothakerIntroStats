@@ -162,38 +162,89 @@ Table of Critical *F* values.  Will be produced by publisher.
 ## Figure 12-13
 <img src="figure-png/figure-12-13-1.png" width="300px" />
 
-## Session Info
-For the sake of documentation and reproducibility, the current report was build on a system using the following software.
+## Session Information
+For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
 
-
-```
-Report created by wibeasley at 2017-04-01, 21:25 -0500
-```
+<details>
+  <summary>Environment <span class="glyphicon glyphicon-plus-sign"></span></summary>
 
 ```
-R version 3.3.3 (2017-03-06)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 16.04.2 LTS
-
-locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-
-attached base packages:
-[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
-[1] RColorBrewer_1.1-2 dichromat_2.0-0    extrafont_0.17     ggplot2_2.2.1      scales_0.4.1       plyr_1.8.4        
-[7] knitr_1.15.1      
-
-loaded via a namespace (and not attached):
- [1] Rcpp_0.12.10         Rttf2pt1_1.3.4       magrittr_1.5         munsell_0.4.3        colorspace_1.3-2    
- [6] stringr_1.2.0        tools_3.3.3          gtable_0.2.0         extrafontdb_1.0      htmltools_0.3.5     
-[11] yaml_2.1.14          lazyeval_0.2.0       rprojroot_1.2        digest_0.6.12        tibble_1.3.0        
-[16] reshape2_1.4.2       evaluate_0.10        rmarkdown_1.4.0.9000 labeling_0.3         stringi_1.1.3       
-[21] backports_1.0.5     
+Session info -------------------------------------------------------------------
 ```
+
+```
+ setting  value                       
+ version  R version 3.3.3 (2017-03-06)
+ system   x86_64, linux-gnu           
+ ui       RStudio (1.0.136)           
+ language en_US                       
+ collate  en_US.UTF-8                 
+ tz       America/Chicago             
+ date     2017-04-02                  
+```
+
+```
+Packages -----------------------------------------------------------------------
+```
+
+```
+ package      * version    date       source                            
+ assertthat     0.1        2013-12-06 CRAN (R 3.3.0)                    
+ backports      1.0.5      2017-01-18 CRAN (R 3.3.1)                    
+ colorspace     1.3-2      2016-12-14 CRAN (R 3.3.1)                    
+ devtools       1.12.0     2016-06-24 CRAN (R 3.3.1)                    
+ dichromat    * 2.0-0      2013-01-24 CRAN (R 3.3.0)                    
+ digest         0.6.12     2017-01-27 CRAN (R 3.3.1)                    
+ epade        * 0.3.8      2013-02-22 CRAN (R 3.3.3)                    
+ evaluate       0.10       2016-10-11 CRAN (R 3.3.1)                    
+ extrafont    * 0.17       2014-12-08 CRAN (R 3.3.0)                    
+ extrafontdb    1.0        2012-06-11 CRAN (R 3.3.0)                    
+ ggplot2      * 2.2.1      2016-12-30 CRAN (R 3.3.1)                    
+ ggthemes     * 3.4.0      2017-02-19 CRAN (R 3.3.1)                    
+ gridExtra    * 2.2.1      2016-02-29 CRAN (R 3.3.0)                    
+ gtable         0.2.0      2016-02-26 CRAN (R 3.3.0)                    
+ highr          0.6        2016-05-09 CRAN (R 3.3.0)                    
+ htmltools      0.3.5      2016-03-21 CRAN (R 3.3.0)                    
+ htmlwidgets    0.8        2016-11-09 CRAN (R 3.3.1)                    
+ httpuv         1.3.3      2015-08-04 CRAN (R 3.3.0)                    
+ jsonlite       1.3        2017-02-28 CRAN (R 3.3.1)                    
+ knitr        * 1.15.1     2016-11-22 CRAN (R 3.3.1)                    
+ labeling       0.3        2014-08-23 CRAN (R 3.3.0)                    
+ lazyeval       0.2.0      2016-06-12 CRAN (R 3.3.0)                    
+ magrittr       1.5        2014-11-22 CRAN (R 3.3.0)                    
+ MASS         * 7.3-45     2016-04-21 CRAN (R 3.3.0)                    
+ memoise        1.0.0      2016-01-29 CRAN (R 3.3.0)                    
+ mime           0.5        2016-07-07 CRAN (R 3.3.1)                    
+ mnormt       * 1.5-5      2016-10-15 CRAN (R 3.3.1)                    
+ munsell        0.4.3      2016-02-13 CRAN (R 3.3.0)                    
+ plotrix      * 3.6-4      2016-12-30 CRAN (R 3.3.3)                    
+ plyr         * 1.8.4      2016-06-08 CRAN (R 3.3.0)                    
+ R6             2.2.0      2016-10-05 CRAN (R 3.3.1)                    
+ RColorBrewer * 1.1-2      2014-12-07 CRAN (R 3.3.0)                    
+ Rcpp           0.12.10    2017-03-19 CRAN (R 3.3.1)                    
+ reshape2     * 1.4.2      2016-10-22 CRAN (R 3.3.1)                    
+ rgl          * 0.98.1     2017-03-08 CRAN (R 3.3.1)                    
+ rmarkdown      1.4.0.9000 2017-04-01 Github (rstudio/rmarkdown@5f7cd3c)
+ rprojroot      1.2        2017-01-16 CRAN (R 3.3.1)                    
+ rsconnect      0.7        2016-12-21 CRAN (R 3.3.1)                    
+ rstudioapi     0.6        2016-06-27 CRAN (R 3.3.1)                    
+ Rttf2pt1       1.3.4      2016-05-19 CRAN (R 3.3.0)                    
+ scales       * 0.4.1      2016-11-09 CRAN (R 3.3.1)                    
+ shiny          1.0.1      2017-04-01 CRAN (R 3.3.3)                    
+ stringi        1.1.3      2017-03-21 CRAN (R 3.3.1)                    
+ stringr        1.2.0      2017-02-18 CRAN (R 3.3.1)                    
+ tibble         1.3.0      2017-04-01 CRAN (R 3.3.3)                    
+ wesanderson  * 0.3.2      2015-01-22 CRAN (R 3.3.3)                    
+ withr          1.0.2      2016-06-20 CRAN (R 3.3.0)                    
+ xtable         1.8-2      2016-02-05 CRAN (R 3.3.0)                    
+ yaml           2.1.14     2016-11-12 CRAN (R 3.3.1)                    
+```
+</details>
+
+
+
+Report rendered by wibeasley at 2017-04-02, 00:19 -0500 in 16 seconds.
+
 
 ## License
 

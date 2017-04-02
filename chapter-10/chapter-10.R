@@ -35,7 +35,7 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
   annotate(geom="text", x=3.5, y=.1, label="(italic(df)==3)", vjust=1.15, parse=TRUE, color=paletteZTDark[2], size=4) +
   scale_x_continuous(expand=c(0,0)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
-  expand_limits(x= 1.05 * c(-5, 5), y=dnorm(0) * 1.05) +
+  expand_limits(x=c(-5, 5) * 1.05, y=dnorm(0) * 1.05) +
   chapterTheme +
   labs(x=NULL, y=NULL)
 

@@ -1,14 +1,10 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-library(grid)
-library(gridExtra)
-library(ggplot2)
-library(ggthemes)
-library(reshape2) #For converting wide to long
+library(magrittr) #Pipes
+library(ggplot2) #For graphing
+requireNamespace("readr")
+requireNamespace("RColorBrewer")
+requireNamespace("gridExtra")
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -22,11 +18,11 @@ emptyTheme <- theme_minimal() +
   theme(axis.title = element_blank()) +
   theme(panel.grid = element_blank()) +
   theme(panel.border = element_blank()) +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+  theme(axis.ticks = element_blank())
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsFibromyalgia <- read.csv("./data/fibromyalgia-tai-chi.csv", stringsAsFactors=FALSE)
+dsFibromyalgia <- readr::read_csv("./data/fibromyalgia-tai-chi.csv")
 
 # ---- tweak-data ------------------------------------------------------
 
@@ -77,7 +73,7 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
   annotate("segment", x=singleScore, xend=singleScore, y=arrowHeight, yend=tickRadius*.1,
            arrow = grid::arrow(length = unit(.4,"cm"), type="open"), color=colorSingleLight, size=2, lineend="round") +
 
-  annotate("segment", x=groupMean, xend=groupMean, y=0, ,yend=yZ, color=colorMeanLight, linetype=2, size=1) +
+  annotate("segment", x=groupMean, xend=groupMean, y=0, yend=yZ, color=colorMeanLight, linetype=2, size=1) +
   annotate("segment", x=singleScore, xend=singleScore, y=0, yend=yZ, color=colorSingleLight, linetype=2, size=1) +
 
   geom_segment(aes(x=12, xend=17.5, y=0, yend=0), color=grayLight) + #The PSQI line
@@ -146,10 +142,10 @@ histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   theme(panel.grid.major.x=element_blank()) +
   labs(x=expression(italic(z)~Score~of~Baseline~PQSI), y=NULL)
 
-grid.arrange(
+gridExtra::grid.arrange(
   histogramXInset,
   histogramZInset,
-  left = textGrob(label="Number Of Participants", rot=90, gp=gpar(col="gray40")) #Sync this color with BookTheme
+  left = grid::textGrob(label="Number Of Participants", rot=90, gp=grid::gpar(col="gray40")) #Sync this color with BookTheme
 )
 
 rm(breaksX, breaksZ, histogramX, histogramXInset, histogramZInset)
@@ -226,7 +222,7 @@ zTableTheme <- theme_minimal() +
   theme(axis.text.x = element_text(size=30, color="dodgerblue4")) +
   theme(panel.border = element_blank()) +
   theme(plot.margin = grid::unit( c(0,0,.1,0), "lines")) +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+  theme(axis.ticks = element_blank())
 
 ConstructTableHeader <- function( leftBoundary, rightBoundary, singleZ, label ) {
 #   singleZ <- ifelse(abs(leftBoundary)==Inf, rightBoundary, leftBoundary)
@@ -242,7 +238,7 @@ ConstructTableHeader <- function( leftBoundary, rightBoundary, singleZ, label ) 
     labs(x=NULL, y=NULL)
 }
 
-grid.arrange(
+gridExtra::grid.arrange(
 #   heights = unit(c(1.5,.5), "null"),
   ConstructTableHeader(0, 1.5, 1.5, "z"),
   ConstructTableHeader(1.5, Inf, 1.5, "z"),
@@ -304,10 +300,10 @@ gt8Left <- ggplot_gtable(ggplot_build(g8Left))
 
 gt8Right$layout$clip[gt8Right$layout$name == "panel"] <- "off"
 gt8Left$layout$clip[gt8Left$layout$name == "panel"] <- "off"
-grid.newpage()
-grid.draw(gt8Right)
-grid.newpage()
-grid.draw(gt8Left)
+grid::grid.newpage()
+grid::grid.draw(gt8Right)
+grid::grid.newpage()
+grid::grid.draw(gt8Left)
 
 # ---- figure-04-09 ------------------------------------------------------
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
@@ -329,7 +325,7 @@ gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 gt <- ggplot_gtable(ggplot_build(gSingle))
 
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
-grid.draw(gt)
+grid::grid.draw(gt)
 
 rm(singleZ, gSingle, gt)
 
@@ -347,7 +343,7 @@ g4 %+%
   labs(x=expression(italic(X)), y="Density")
 
 # ---- unused-variants-figure-04-08 ------------------------------------------------------
-grid.arrange(
+gridExtra::grid.arrange(
   gt8Right,
   gt8Left,
   ncol=2

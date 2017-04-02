@@ -1,17 +1,12 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-# library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-# library(grid)
-# library(gridExtra)
-library(ggplot2)
-# library(ggthemes)
-library(MASS)
-library(mnormt)
-library(rgl)
+library(magrittr) #Pipes
+library(ggplot2) #For graphing
+# requireNamespace("dplyr")
+requireNamespace("scales")
+requireNamespace("readr")
+requireNamespace("rgl")
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -43,9 +38,9 @@ colorAxes <- "black"
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsObesity <- read.csv("./data/food-hardship-obesity.csv", stringsAsFactors=FALSE)
-# dsFeed <- read.csv("./data/BreastfeedingSleepFake.csv", stringsAsFactors=FALSE)
-# dsCry <- read.csv("./data/infant-crying-fake.csv", stringsAsFactors=FALSE)
+dsObesity <- readr::read_csv("./data/food-hardship-obesity.csv")
+# dsFeed <- readr::read_csv("./data/breastfeeding-sleep-fake.csv")
+# dsCry <- readr::read_csv("./data/infant-crying-fake.csv")
 
 # ---- tweak-data ------------------------------------------------------
 
@@ -204,7 +199,7 @@ gObesityWithLine +
 
 # ---- not-used-13-01 ------------------------------------------------------
 # library(MASS)
-library(mnormt)
+# library(mnormt)
 
 # open3d() # New window
 Graph3DMVNorm <- function( rho=0, theta=0, phi=-35 ) {
@@ -221,13 +216,13 @@ Graph3DMVNorm <- function( rho=0, theta=0, phi=-35 ) {
   zMatrix <- matrix(dsMVGrid$Z, nrow=length(points))
   zScale <- 10
 
-  clear3d("all") # clear scene
-  rgl.viewpoint(theta=theta, phi=phi, zoom=1) #A zoom smaller than one enlarges the graph's relative size.
+  rgl::clear3d("all") # clear scene
+  rgl::rgl.viewpoint(theta=theta, phi=phi, zoom=1) #A zoom smaller than one enlarges the graph's relative size.
   # bg3d(color="#887777")
-  light3d()
-  terrain3d(points, points, zMatrix * zScale, color=palettePlacidSeas[3], front="lines", back="fill")
-  axis3d("x-", col=colorTheme)
-  axis3d("y-", col=colorTheme)
+  rgl::light3d()
+  rgl::terrain3d(points, points, zMatrix * zScale, color=palettePlacidSeas[3], front="lines", back="fill")
+  rgl::axis3d("x-", col=colorTheme)
+  rgl::axis3d("y-", col=colorTheme)
   rgl::mtext3d(text="X", edge="x-", labels=TRUE, line=2)
   rgl::mtext3d(text="Y", edge="y-", labels=TRUE, line=2)
   #   rgl.lines(x=c(-boundary,boundary), y=c(0,0), z=c(0,0), color=palettePlacidSeas[5], lwd=3)
@@ -239,7 +234,7 @@ Graph3DMVNorm()
 # Graph3DMVNorm(theta=5, phi=-85)
 
 # ---- not-used-13-02 ------------------------------------------------------
-open3d() # New window
+rgl::open3d() # New window
 Graph3DMVNorm(rho=0.6)
 # set.seed(3242) #Set seed so plots are consistent overtime.
 #

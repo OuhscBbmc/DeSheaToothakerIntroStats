@@ -1,15 +1,11 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-library(grid)
-library(gridExtra)
+library(magrittr)
 library(ggplot2)
-library(ggthemes)
-library(reshape2) #For converting wide to long
+requireNamespace("tidyr")
+requireNamespace("gridExtra")
+# library(reshape2) #For converting wide to long
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -20,14 +16,14 @@ pathFPValues <- "./tables/f-p-values.csv"
 pathChiSquarePValues <- "./tables/chi-square-p-values.csv"
 
 chapterTheme <- BookTheme + 
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+  theme(axis.ticks = element_blank())
 
 emptyTheme <- theme_minimal() +
   theme(axis.text = element_blank()) +
   theme(axis.title = element_blank()) +
   theme(panel.grid = element_blank()) +
   theme(panel.border = element_blank()) +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+  theme(axis.ticks = element_blank())
 
 # ---- load-data ------------------------------------------------------
 
@@ -78,7 +74,7 @@ write.csv(dsTTable, file=pathTPValues, row.names=FALSE)
 numeratorDF <- c(seq(from=1, to=12, by=1), 14, 16, 20)
 denominatorDF <- c(seq(from=1, to=30, by=1), seq(from=32, to=50, by=2), 55, 60, 70, 80, 100, 125, 150, 200, 400, 1000, 10000000)
 alpha <- c(.05, .01)
-dsFTableLong <- expand.grid(NumeratorDF=numeratorDF, DenominatorDF=denominatorDF, Alpha=alpha)
+dsFTableLong <- base::expand.grid(NumeratorDF=numeratorDF, DenominatorDF=denominatorDF, Alpha=alpha)
 dsFTableLong$Crit <- qf(p=dsFTableLong$Alpha, df1=dsFTableLong$NumeratorDF, df2=dsFTableLong$DenominatorDF, lower.tail=FALSE)
 
 dsFTableLong$Crit <- ifelse(dsFTableLong$DenominatorDF>1,
@@ -86,8 +82,14 @@ dsFTableLong$Crit <- ifelse(dsFTableLong$DenominatorDF>1,
                             format(round(dsFTableLong$Crit, digits=0)))
 # head(dsFTableLong, 20)
 
-dsFTableWide <- reshape2::dcast(dsFTableLong, DenominatorDF + Alpha ~ NumeratorDF,  value.var="Crit")
-dsFTableWide <- dsFTableWide[order(dsFTableWide$DenominatorDF, -dsFTableWide$Alpha), ] # Put the alpha=.05 on top of the alpha=.01
+dsFTableWide <- dsFTableLong %>% 
+  dplyr::select(NumeratorDF, DenominatorDF, Crit, Alpha) %>%
+  tidyr::spread(key=NumeratorDF, value=Crit) %>% 
+  dplyr::arrange(DenominatorDF, -Alpha)
+
+
+# dsFTableWide <- reshape2::dcast(dsFTableLong, DenominatorDF + Alpha ~ NumeratorDF,  value.var="Crit")
+# dsFTableWide <- dsFTableWide[order(dsFTableWide$DenominatorDF, -dsFTableWide$Alpha), ] # Put the alpha=.05 on top of the alpha=.01
 # head(dsFTableWide, 20) 
 
 knitr::kable(dsFTableWide, row.names=FALSE, format="markdown", align="r")

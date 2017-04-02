@@ -1,14 +1,15 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-library(ggplot2)
-library(reshape2) #For convertin wide to long
-library(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
-library(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
+library(magrittr) #Pipes
+library(ggplot2) #For graphing
+requireNamespace("plyr")
+requireNamespace("dplyr")
+requireNamespace("scales")
+requireNamespace("readr")
+
+requireNamespace("plotrix") #For the 3D pie chart (Please notice that this package includes much more than this feature.)
+requireNamespace("epade") #For the 3D bar chart (Please notice that this package includes more than this feature.)
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -17,29 +18,42 @@ chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsPregnancy <- read.csv("./data/exercise-pregnancy.csv"    , stringsAsFactors=FALSE)
-dsObesity   <- read.csv("./data/food-hardship-obesity.csv" , stringsAsFactors=FALSE)
-dsSmoking   <- read.csv("./data/smoking-tax.csv"           , stringsAsFactors=FALSE)
+dsPregnancy <- readr::read_csv("./data/exercise-pregnancy.csv"    )
+dsObesity   <- readr::read_csv("./data/food-hardship-obesity.csv" )
+dsSmoking   <- readr::read_csv("./data/smoking-tax.csv"           )
 
 # ---- tweak-data ------------------------------------------------------
 dsPregnancy$BabyWeightInKG <- dsPregnancy$BabyWeightInG / 1000
 
-dsPregnancySummarized <- ddply(dsPregnancy, .variables="DeliveryMethod", summarize, Count=length(SubjectID))
-dsPregnancySummarized$Proportion = dsPregnancySummarized$Count/sum(dsPregnancySummarized$Count)
-dsPregnancySummarized$Percentage <- paste0(round(dsPregnancySummarized$Proportion*100), "%")
-dsPregnancySummarized$Dummy <- c(1,1)
+dsPregnancySummarized     <- dsPregnancy %>% 
+  dplyr::group_by(DeliveryMethod) %>% 
+  dplyr::summarize(
+    Count       = length(SubjectID)
+  ) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::mutate(
+    Proportion          = Count/sum(Count),
+    Percentage          = paste0(round(Proportion*100), "%"),
+    Dummy               = 1L
+  )
+
+dsPregnancyLong     <- dsPregnancy %>% 
+  dplyr::select(SubjectID, Group, T1Lifts, T2Lifts, T3Lifts, T4Lifts, T5Lifts) %>% 
+  tidyr::gather(key=TimePoint, value=LiftCount, -SubjectID, -Group) %>% 
+  dplyr::mutate(
+    TimePoint   = as.integer(gsub(pattern="T(\\d)Lifts", "\\1", TimePoint, perl=T))
+  )
+
+dsPregnancyLongSummarized <- dsPregnancyLong %>% 
+  dplyr::group_by(TimePoint, Group) %>% 
+  dplyr::summarize(
+    CountMean     = mean(LiftCount, na.rm=T)
+  ) %>% 
+  dplyr::ungroup()
 
 matPregnancy <- as.matrix((table(dsPregnancy$DeliveryMethod)))
 # dsPregnancyMatrix <- cbind(dsPregnancyMatrix, c(1, 2), c(1,1))[, c(2,3,1)]
 # matPregnancy
-
-dsPregnancyLong <- reshape2::melt(dsPregnancy, id.vars=c("SubjectID", "Group"),
-                                  measure.vars=paste0("T", 1:5, "Lifts"),
-                                  variable.name="TimePoint", value.name="LiftCount")
-#                                   dsPregnancy$SubjectID
-dsPregnancyLong$TimePoint <- as.integer(gsub(pattern="T(\\d)Lifts", "\\1", dsPregnancyLong$TimePoint, perl=T))
-
-dsPregnancyLongSummarized <- plyr::ddply(dsPregnancyLong, .variables=c("TimePoint", "Group"), summarize, CountMean=mean(LiftCount, na.rm=T))
 
 # ---- figure-03-01 ------------------------------------------------------
 # cat("The two rotations demonstrate that the nonzero angle favors some slices more than others.")
@@ -153,14 +167,21 @@ ggplot(dsObesity, aes(x=ObesityRate)) +
   labs(x="Obesity Rate (in 2011)", y="Number of States")
 
 # ---- figure-03-12 ------------------------------------------------------
+# dsPregnancyLongSummarizedFakeTable <- dsPregnancyLongSummarized %>% 
+#   dplyr::group_by(TimePoint, Group) %>% 
+#   dplyr::summarize(
+#     
+#   ) %>% 
+#   dplyr::ungroup()
+
 CreateFakeMeans <- function( d ) {
   data.frame(
     TimePoint = rep(d$TimePoint, times=d$CountMean),
     Group = rep(d$Group, times=d$CountMean)
 )}
-dsPregnancyLongSummarizedFakeTable <- ddply(dsPregnancyLongSummarized, .variables=c("TimePoint", "Group"), CreateFakeMeans)
+dsPregnancyLongSummarizedFakeTable <- plyr::ddply(dsPregnancyLongSummarized, .variables=c("TimePoint", "Group"), CreateFakeMeans)
 oldPar <- par(mar=c(2,2,0,0))
-bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3, alpha=.5, legendon="top", ylim=c(0, 30))
+epade::bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3, alpha=.5, legendon="top", ylim=c(0, 30))
 par(oldPar)
 
 # ---- figure-03-13 ------------------------------------------------------

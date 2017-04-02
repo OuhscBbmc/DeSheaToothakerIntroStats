@@ -35,7 +35,7 @@ grob
 # # str(k)
 # kk <- k[[1]]$`99_e636769b6861785e935e2a6171810ca0`
 # # str(kk)
-# # gpar(kk[4][[1]][[3]]) <- gpar(col="red")
+# # gpar(kk[4][[1]][[3]]) <- grid::gpar(col="red")
 # 
 # str(kk[4][[1]][[3]])
 # class(kk[4][[1]][[3]]$gp$col)
@@ -55,9 +55,9 @@ grob
 # 
 # windowsFonts(Verdana="TT Verdana") 
 # 
-# # grid.gedit("GRID.text",gp=gpar(fontfamily="Verdana", col="red"))
+# # grid.gedit("GRID.text",gp=grid::gpar(fontfamily="Verdana", col="red"))
 # 
-# grid.gedit("axis", gp=gpar(color="red"))
-# grid.gedit("guide-box", gp=gpar(fill="red"))
+# grid.gedit("axis", gp=grid::gpar(color="red"))
+# grid.gedit("guide-box", gp=grid::gpar(fill="red"))
 # 
-# grid.gedit("guide-box", gp=gpar(cex=20))
+# grid.gedit("guide-box", gp=grid::gpar(cex=20))

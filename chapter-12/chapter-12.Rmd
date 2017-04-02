@@ -8,7 +8,7 @@ Chapter 12 Graphs
 This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
-```{r, echo=F, message=F} 
+```{r, echo=F, message=F}
 library(knitr)
 knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
@@ -17,32 +17,32 @@ knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other ch
 ```{r set-options, echo=F}
 report_render_start_time <- Sys.time()
 opts_chunk$set(
-  results = 'show', 
+  results = 'show',
   message = TRUE,
-  comment = NA, 
+  comment = NA,
   tidy = FALSE,
-  fig.width = 5.5, 
-  fig.height = 4, 
+  fig.width = 5.5,
+  fig.height = 4,
   out.width = "550px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
-  fig.path = 'figure-png/',     
+  fig.path = 'figure-png/',
   dev = "png",
   dpi = 400
-  # fig.path = 'figure-pdf/',     
+  # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
 echoChunks <- FALSE
 options(width=80) # Default width
-read_chunk("./chapter-12/chapter-12.R") 
+read_chunk("./chapter-12/chapter-12.R")
 ```
-<!-- Load the packages.  Suppress the output when loading packages. --> 
+<!-- Load the packages.  Suppress the output when loading packages. -->
 ```{r load-packages, echo=echoChunks, message=FALSE}
 ```
 
-<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
 ```{r declare-globals, echo=echoChunks, message=FALSE}
 ```
 
-<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 ```{r, echo=echoChunks, message=FALSE}
 ```
 
@@ -107,27 +107,6 @@ Table of Critical *F* values.  Will be produced by publisher.
 ```{r figure-12-13, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
 ```
 
-## Session Information
-For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
-
-<details>
-  <summary>Environment <span class="glyphicon glyphicon-plus-sign"></span></summary>
-```{r session-info, echo=FALSE}
-if( requireNamespace("devtools", quietly = TRUE) ) {
-  devtools::session_info()
-} else {
-  sessionInfo()
-} 
+<!-- The footer that's common to all reports. -->
+```{r, child = "../common-code/footer.Rmd"}
 ```
-</details>
-
-```{r session-duration, echo=FALSE}
-report_render_duration_in_seconds <- round(as.numeric(difftime(Sys.time(), report_render_start_time, units="secs")))
-```
-
-Report rendered by `r Sys.info()["user"]` at `r strftime(Sys.time(), "%Y-%m-%d, %H:%M %z")` in `r report_render_duration_in_seconds` seconds.
-
-
-## License
-
-<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.

@@ -1,16 +1,10 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-# library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-# library(grid)
-# library(gridExtra)
-library(ggplot2)
-# library(ggthemes)
-# library(reshape2) #For converting wide to long
-# library(effects) #For extracting useful info from a linear model
+library(magrittr) #Pipes
+library(ggplot2) #For graphing
+requireNamespace("dplyr")
+requireNamespace("readr")
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -57,8 +51,8 @@ AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsFeed <- read.csv("./data/breastfeeding-sleep-fake.csv", stringsAsFactors=FALSE)
-dsCry <- read.csv("./data/infant-crying-fake.csv", stringsAsFactors=FALSE)
+dsFeed    <- readr::read_csv("./data/breastfeeding-sleep-fake.csv"  )
+dsCry     <- readr::read_csv("./data/infant-crying-fake.csv"        )
 
 # ---- tweak-data ------------------------------------------------------
 dsFeed$Feeding <- factor(dsFeed$Feeding, levels=feedingLevels)
@@ -83,13 +77,33 @@ mNoIntScenario1 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ] )
 mNoIntScenario2 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ] )
 # summary(mNoIntScenario1)
 # summary(mNoIntScenario2)
-dsScenarioFeeding <- plyr::ddply(dsFeed, .variables=c("Scenario", "ScenarioID", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
-dsScenarioFeeding$LabelM <- paste0("italic(M)==", round(dsScenarioFeeding$M))
-dsScenarioFeeding$LabelSD <- paste0("italic(SD)==", round(dsScenarioFeeding$SD))
+# dsScenarioFeeding <- plyr::ddply(dsFeed, .variables=c("Scenario", "ScenarioID", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
+# dsScenarioFeeding$LabelM <- paste0("italic(M)==", round(dsScenarioFeeding$M))
+# dsScenarioFeeding$LabelSD <- paste0("italic(SD)==", round(dsScenarioFeeding$SD))
 
-dsCrySummary <- plyr::ddply(dsCry, .variables=c("Group", "GroupID"), .fun=summarise, M=mean(CryingDuration), SD=sd(CryingDuration))
-dsCrySummary$LabelM <- paste0("italic(M)==", round(dsCrySummary$M))
-dsCrySummary$LabelSD <- paste0("italic(SD)==", round(dsCrySummary$SD))
+dsScenarioFeeding <- dsFeed %>% 
+  dplyr::group_by(Scenario, ScenarioID, Feeding) %>% 
+  dplyr::summarize(
+    M     = mean(Sleep),
+    SD    = sd(Sleep)
+  ) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::mutate(
+    LabelM    = paste0("italic(M)==", round(M)),
+    LabelSD   = paste0("italic(SD)==", round(SD))
+  )
+
+dsCrySummary <- dsCry %>% 
+  dplyr::group_by(Group, GroupID) %>% 
+  dplyr::summarize(
+    M     = mean(CryingDuration),
+    SD    = sd(CryingDuration)
+  ) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::mutate(
+    LabelM    = paste0("italic(M)==", round(M)),
+    LabelSD   = paste0("italic(SD)==", round(SD))
+  )
 
 # ---- figure-12-02 ------------------------------------------------------
 
@@ -157,7 +171,7 @@ criticalF01 <- qf(p=.99, df1=f3DfModel, df2=f3DfError)
 ###
 ### Together
 ###
-grid.newpage()
+grid::grid.newpage()
 gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF01, xend=criticalF01, y=0, yend=Inf, color=PaletteCritical[3]) +
@@ -192,7 +206,7 @@ DrawWithoutPanelClipping(gCritical)
 # ###
 # ### Just .05
 # ###
-# grid.newpage()
+# grid::grid.newpage()
 # gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
 #   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
 #   stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCritical[2], n=calculatedPointCount) +
@@ -212,7 +226,7 @@ DrawWithoutPanelClipping(gCritical)
 # ###
 # ### Just .01
 # ###
-# grid.newpage()
+# grid::grid.newpage()
 # gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
 #   annotate("segment", x=criticalF01, xend=criticalF01, y=0, yend=Inf, color=PaletteCritical[3]) +
 #   stat_function(fun=LimitRange(f3, criticalF01, Inf), geom="area", fill=PaletteCritical[3],n=calculatedPointCount) +
@@ -250,7 +264,7 @@ ggplot(dsCry, aes(x=1, y=CryingDuration, color=Group, fill=Group)) +
 
 # ---- figure-12-10 ------------------------------------------------------
 cryMeanOverall <- mean(dsCry$CryingDuration)
-cryMeanControl <- mean(dsCry[dsCry$GroupID==3, "CryingDuration"])
+cryMeanControl <- mean(dsCry$CryingDuration[dsCry$GroupID==3])
 cryMax <- max(dsCry$CryingDuration)
 
 dsCryCeiling <- dsCry[dsCry$CryingDuration == cryMax, ]
@@ -318,7 +332,7 @@ DrawWithoutPanelClipping(gCrying4)
 f2_80 <- function( x ) { return( df(x, df1=2, df2=80) ) }
 criticalF05 <- qf(p=.95, df1=2, df2=80)
 
-grid.newpage()
+grid::grid.newpage()
 gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   stat_function(fun=LimitRange(f2_80, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +

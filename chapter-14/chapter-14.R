@@ -1,15 +1,8 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-# library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-# library(grid)
-# library(gridExtra)
 library(ggplot2)
-# library(ggthemes)
-library(wesanderson)
+requireNamespace("wesanderson")
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -57,8 +50,8 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 DrawWithoutPanelClipping(g1)
 
 # ---- figure-14-03 ------------------------------------------------------
-fPaletteDark <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
-fPaletteLight <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.3)
+fPaletteDark  <- adjustcolor(wesanderson::wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
+fPaletteLight <- adjustcolor(wesanderson::wes_palette("Darjeeling", 5), alpha.f=.3)
 
 f1 <- function( x ) dchisq(x, df=2)
 f2 <- function( x ) dchisq(x, df=3)
@@ -94,7 +87,7 @@ criticalF05 <- qchisq(p=.95, df=6)
 chiObs <- 14.53
 pObsPretty <- ".0242" #1- pchisq(q=chiObs, df=6)
 
-grid.newpage()
+grid::grid.newpage()
 g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF05, xend=19.5, y=fDf6(criticalF05)+.02, yend=fDf6(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
@@ -132,7 +125,7 @@ criticalF05 <- qchisq(p=.95, df=2)
 # chiObs <- 14.53
 # pObsPretty <- ".0242" #1- pchisq(q=chiObs, df=6)
 
-grid.newpage()
+grid::grid.newpage()
 g5 <- ggplot(data.frame(f=c(0, 9.9)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF05, xend=9.7, y=fDf2(criticalF05)+.02, yend=fDf2(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +

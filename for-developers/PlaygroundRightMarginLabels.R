@@ -1,6 +1,5 @@
 library(gtable)
 library(ggplot2)
-library(plyr)
 
 #This was copied from a ggplot Stack Overflow response by by Auguié Baptiste: http://stackoverflow.com/questions/17492230/how-to-place-grobs-with-annotation-custom-at-precise-areas-of-the-plot-region
 
@@ -41,5 +40,5 @@ index <- subset(g$layout, name == "panel")
 g <- gtable_add_cols(g, unit(1, "strwidth", "line # 1") + unit(1, "cm"))
 g <- gtable_add_grob(g, gl, t = index$t, l=ncol(g), 
                      b=index$b, r=ncol(g))
-grid.newpage()
-grid.draw(g)
+grid::grid.newpage()
+grid::grid.draw(g)

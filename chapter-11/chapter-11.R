@@ -1,16 +1,7 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-# library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-# library(grid)
-# library(gridExtra)
 library(ggplot2)
-# library(ggthemes)
-# library(reshape2) #For converting wide to long
-# library(effects) #For extracting useful info from a linear model
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")

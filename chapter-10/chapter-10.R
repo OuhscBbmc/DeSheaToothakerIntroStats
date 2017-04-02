@@ -1,16 +1,11 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-# library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-# library(grid)
-# library(gridExtra)
-library(ggplot2)
-# library(ggthemes)
-# library(reshape2) #For converting wide to long
-# library(effects) #For extracting useful info from a linear model
+library(magrittr) #Pipes
+library(ggplot2) #For graphing
+requireNamespace("dplyr")
+requireNamespace("scales")
+requireNamespace("readr")
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -20,7 +15,7 @@ chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
-dsTaiChi <- read.csv("./data/fibromyalgia-tai-chi.csv", stringsAsFactors=FALSE)
+dsTaiChi <- readr::read_csv("./data/fibromyalgia-tai-chi.csv")
 
 # ---- tweak-data ------------------------------------------------------
 
@@ -65,11 +60,26 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
 DrawWithoutPanelClipping(gCritical)
 
 # ---- figure-10-04 ------------------------------------------------------
-dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
-dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
-dsTaiChiSummary$Crit <- qt(p=.975, df=dsTaiChiSummary$Count-1)
-dsTaiChiSummary$Upper <- dsTaiChiSummary$M + dsTaiChiSummary$Crit * dsTaiChiSummary$SE
-dsTaiChiSummary$Lower <- dsTaiChiSummary$M - dsTaiChiSummary$Crit * dsTaiChiSummary$SE
+dsTaiChiSummary     <- dsTaiChi %>% 
+  dplyr::group_by(Group) %>% 
+  dplyr::summarize(
+    M         = mean(FiqT2), 
+    SD        = sd(FiqT2), 
+    Count     = sum(!is.na(FiqT2))
+  ) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::mutate(
+    SE        = SD / sqrt(Count),
+    Crit      = qt(p=.975, df=Count-1),
+    Upper     = M + Crit * SE,
+    Lower     = M - Crit * SE
+  )
+
+# dsTaiChiSummary <- plyr::ddply(dsTaiChi, .variables="Group", summarize, M=mean(FiqT2), SD=sd(FiqT2), Count=sum(!is.na(FiqT2)))
+# dsTaiChiSummary$SE <- dsTaiChiSummary$SD / sqrt(dsTaiChiSummary$Count)
+# dsTaiChiSummary$Crit <- qt(p=.975, df=dsTaiChiSummary$Count-1)
+# dsTaiChiSummary$Upper <- dsTaiChiSummary$M + dsTaiChiSummary$Crit * dsTaiChiSummary$SE
+# dsTaiChiSummary$Lower <- dsTaiChiSummary$M - dsTaiChiSummary$Crit * dsTaiChiSummary$SE
 
 paletteTaiChiDark <- c(Control="#447c69", Treatment="#e16552") #http://colrd.com/palette/28063/
 paletteTaiChiLight <- c(Control="#74c49388", Treatment="#f1967088") #http://colrd.com/palette/28063/

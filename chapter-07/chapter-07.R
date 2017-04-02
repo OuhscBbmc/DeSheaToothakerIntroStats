@@ -1,15 +1,22 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-library(grid)
-library(gridExtra)
-library(ggplot2)
-library(ggthemes)
-library(reshape2) #For converting wide to long
+library(magrittr) #Pipes
+library(ggplot2) #For graphing
+requireNamespace("dplyr")
+requireNamespace("scales")
+requireNamespace("readr")
+requireNamespace("gridExtra")
+# 
+# library(knitr)
+# library(RColorBrewer)
+# library(plyr)
+# library(scales) #For formating values in graphs
+# library(grid)
+# library(gridExtra)
+# library(ggplot2)
+# library(ggthemes)
+# library(reshape2) #For converting wide to long
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -22,7 +29,7 @@ emptyTheme <- theme_minimal() +
   theme(axis.title = element_blank()) +
   theme(panel.grid = element_blank()) +
   theme(panel.border = element_blank()) +
-  theme(axis.ticks.length = grid::unit(0, "cm"))
+  theme(axis.ticks = element_blank())
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
@@ -65,7 +72,7 @@ gMeanPopulation <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
   NoGridOrYLabelsTheme
 # gMeanPopulation
 
-grid.arrange(
+gridExtra::grid.arrange(
   gSampleShrunk,
   gMeanSample,
   gMeanPopulation,

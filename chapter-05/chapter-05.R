@@ -1,15 +1,12 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-library(grid)
-library(gridExtra)
-library(ggplot2)
-library(ggthemes)
-library(reshape2) #For converting wide to long
+library(magrittr) #Pipes
+library(ggplot2) #For graphing
+requireNamespace("dplyr")
+requireNamespace("scales")
+requireNamespace("readr")
+
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -17,19 +14,21 @@ source("./common-code/book-theme.R")
 chapterTheme <- BookTheme
 
 # ---- load-data ------------------------------------------------------
-# 'ds' stands for 'datasets'
-dsObesity                  <- read.csv("./data/food-hardship-obesity.csv"          , stringsAsFactors=FALSE)
-dsPerfectPositive          <- read.csv("./data/chapter-05-perfect-positive.csv"    , stringsAsFactors=FALSE)
-dsPerfectNegative          <- read.csv("./data/chapter-05-perfect-negative.csv"    , stringsAsFactors=FALSE)
-dsStateBirthDeathRates     <- read.csv("./data/state-birth-death-rates.csv"        , stringsAsFactors=FALSE)
-dsWorldMaternalMortality   <- read.csv("./data/world-maternal-mortality.csv"       , stringsAsFactors=FALSE)
-dsStork                    <- read.csv("./data/stork-birth.csv"                    , stringsAsFactors=FALSE)
-dsWorldBirthDeathRates     <- read.csv("./data/world-crude-births-deaths-cia.csv"  , stringsAsFactors=FALSE)
-dsSmoking                  <- read.csv("./data/smoking-tax.csv"                    , stringsAsFactors=FALSE)
-
+dsObesity                  <- readr::read_csv("./data/food-hardship-obesity.csv"          )
+dsPerfectPositive          <- readr::read_csv("./data/chapter-05-perfect-positive.csv"    )
+dsPerfectNegative          <- readr::read_csv("./data/chapter-05-perfect-negative.csv"    )
+dsStateBirthDeathRates     <- readr::read_csv("./data/state-birth-death-rates.csv"        )
+dsWorldMaternalMortality   <- readr::read_csv("./data/world-maternal-mortality.csv"       )
+dsStork                    <- readr::read_csv("./data/stork-birth.csv"                    )
+dsWorldBirthDeathRates     <- readr::read_csv("./data/world-crude-births-deaths-cia.csv"  )
+dsSmoking                  <- readr::read_csv("./data/smoking-tax.csv"                    )
 # ---- tweak-data ------------------------------------------------------
-dsWorldBirthDeathRates <- dsWorldBirthDeathRates[!is.na(dsWorldBirthDeathRates$BirthsPer1000Pop) & !is.na(dsWorldBirthDeathRates$DeathsPer1000Pop), ]
-dsWorldBirthDeathRates$Omitted <- (dsWorldBirthDeathRates$BirthsPer1000Pop >= 30)
+dsWorldBirthDeathRates <- dsWorldBirthDeathRates %>% 
+  tidyr::drop_na(BirthsPer1000Pop) %>% 
+  tidyr::drop_na(DeathsPer1000Pop) %>% 
+  dplyr::mutate(
+    Omitted   = (BirthsPer1000Pop >= 30)
+  )
 
 dsSmoking$Omitted <- (dsSmoking$TaxCentsPerPack >= 100)
 
@@ -66,8 +65,6 @@ ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010))
   labs(x="Birth Rate Per 1,000 Population (in 2010)", y="Age-Adjusted Death Rate\nper 100,000 Population (in 2010)")
 
 # ---- figure-05-05 ------------------------------------------------------
-#TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, the lines aren't dotted anymore.
-
 #See Recipe 5.9 in Chang, 2013 for writing the lm equations in the graph.
 dsPlot <- dsObesity
 xName <- "FoodHardshipRate"
@@ -83,16 +80,15 @@ yName <- "ObesityRate"
 # ))
 gObesity +
 #   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
-  annotate("text", label="Mean of\nHardship", x=mean(dsPlot[, xName], na.rm=T), y=Inf, hjust=.5, vjust=1.1, parse=F, size=4, color="orange") +
-  annotate("text", label="Mean of\nObesity", x=Inf, y=mean(dsPlot[, yName], na.rm=T), hjust=1.1, vjust=.5, parse=F, size=4, color="orange") +
-  geom_vline(xintercept=mean(dsPlot[, xName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
-  geom_hline(yintercept=mean(dsPlot[, yName], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) #+
+  annotate("text", label="Mean of\nHardship", x=mean(dsPlot[[xName]], na.rm=T), y=Inf, hjust=.5, vjust=1.1, parse=F, size=4, color="orange") +
+  annotate("text", label="Mean of\nObesity", x=Inf, y=mean(dsPlot[[yName]], na.rm=T), hjust=1.1, vjust=.5, parse=F, size=4, color="orange") +
+  geom_vline(xintercept=mean(dsPlot[[xName]], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) +
+  geom_hline(yintercept=mean(dsPlot[[yName]], na.rm=T), color=rgb(.3, .3, .1, .2), size=2) #+
 #   geom_smooth(method="lm", color="orange", fill="orange", alpha=.2, na.rm=T)
 
 rm(gObesity, xName, yName)
 
 # ---- figure-05-06 ------------------------------------------------------
-#TODO: Lise, if you like this graph, some of the text's description will need to change.  For instance, there are linear & nonlinear lines overlayed.
 #Set seed so the jittering is consistent across versions
 set.seed(789)
 dsPlot <- dsWorldMaternalMortality
@@ -103,7 +99,7 @@ eqn <- as.character(as.expression(
   substitute(italic(y)==a + b * italic(x) * ", " ~ ~italic(r) ~ "=" ~ rV,
              list(a=format(coef(m)[1], digits=2),#The intercept
                   b=format(coef(m)[2], digits=2), #The slope
-                  rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
+                  rV=round(cor(dsPlot[[xName]], dsPlot[[yName]]), digits=3)))
 ))
 ggplot(dsPlot,  aes_string(x=xName, y=yName)) +
 #   annotate("text", label=eqn, x=Inf, y=Inf, hjust=1.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
@@ -134,7 +130,7 @@ eqn <- as.character(as.expression(
   substitute(italic(y)==a + b * italic(x) * ", " ~ ~italic(r) ~ "=" ~ rV,
              list(a=format(coef(mWithOutlier)[1], digits=2),#The intercept
                   b=format(coef(mWithOutlier)[2], digits=2), #The slope
-                  rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
+                  rV=round(cor(dsPlot[[xName]], dsPlot[[yName]]), digits=3)))
 ))
 ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
 #   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color=colorExtreme[2]) +
@@ -158,7 +154,7 @@ eqn <- as.character(as.expression(
   substitute(italic(y)==a + b * italic(x) * ", " ~ ~italic(r) ~ "=" ~ rV,
              list(a=format(coef(mWithoutOutlier)[1], digits=2),#The intercept
                   b=format(coef(mWithoutOutlier)[2], digits=2), #The slope
-                  rV=round(cor(dsPlot[, xName], dsPlot[, yName]), digits=3)))
+                  rV=round(cor(dsPlot[[xName]], dsPlot[[yName]]), digits=3)))
 ))
 ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
 #   annotate("text", label=eqn, x=-Inf, y=Inf, hjust=-.1, vjust=1.5, parse=TRUE, size=5, color="orange") +
@@ -170,7 +166,7 @@ ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fil
   scale_y_continuous(label=scales::comma) +
   scale_color_manual(guide=FALSE, values=colorExtreme) +
   scale_fill_manual(guide=FALSE, values=fillExtreme) +
-  coord_cartesian(xlim=c(-200, 1.1*max(dsPlotWithoutOutliers[, xName])), ylim=c(-5, 1.05*max(dsPlotWithoutOutliers[, yName]))) +
+  coord_cartesian(xlim=c(-200, 1.1*max(dsPlotWithoutOutliers[[xName]])), ylim=c(-5, 1.05*max(dsPlotWithoutOutliers[[yName]]))) +
   chapterTheme +
   labs(x="Number of Stork Pairs", y="Number of Human Births (in thousands)")
 

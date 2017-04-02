@@ -1,15 +1,8 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(knitr)
-# library(RColorBrewer)
-library(plyr)
-library(scales) #For formating values in graphs
-# library(grid)
-# library(gridExtra)
 library(ggplot2)
-# library(ggthemes)
-library(wesanderson)
+requireNamespace("wesanderson")
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -57,8 +50,8 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 DrawWithoutPanelClipping(g1)
 
 # ---- figure-14-03 ------------------------------------------------------
-fPaletteDark <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
-fPaletteLight <- adjustcolor(wes_palette("Darjeeling", 5), alpha.f=.3)
+fPaletteDark  <- adjustcolor(wesanderson::wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
+fPaletteLight <- adjustcolor(wesanderson::wes_palette("Darjeeling", 5), alpha.f=.3)
 
 f1 <- function( x ) dchisq(x, df=2)
 f2 <- function( x ) dchisq(x, df=3)

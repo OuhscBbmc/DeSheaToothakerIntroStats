@@ -17,6 +17,7 @@ source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
 chapterTheme <- BookTheme
+closed_boundary     <- "left"
 
 feedingLevels <- c("Breast", "Bottle", "Both")
 # paletteFeedingFull <- c("#ea573d", "#d292cd", "#fb9a62", "#fbc063", "#70af81", "#64b0bc", "#446699", "#615b70") #http://colrd.com/palette/28063/
@@ -67,19 +68,19 @@ rangeSleep <- c(220, 580) - 50
 dsCry$Group <- factor(dsCry$Group, levels=cryGroupLevels)
 
 cat("#####  ANOVAs for Feeding dataset #####")
-mScenario1 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ], )
-mScenario2 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ], )
-mScenario3 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==3, ], )
+mScenario1 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ] )
+mScenario2 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ] )
+mScenario3 <- lm(Sleep ~ 1 + Feeding, data=dsFeed[dsFeed$ScenarioID==3, ] )
 summary(mScenario1)
 summary(mScenario2)
 summary(mScenario3)
 
 cat("##### ANOVAs for Crying dataset #####")
-mCry <- lm(CryingDuration ~ 1 + Group, data=dsCry, )
+mCry <- lm(CryingDuration ~ 1 + Group, data=dsCry )
 summary(mCry)
 
-mNoIntScenario1 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ], )
-mNoIntScenario2 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ], )
+mNoIntScenario1 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==1, ] )
+mNoIntScenario2 <- lm(Sleep ~ 0 + Feeding, data=dsFeed[dsFeed$ScenarioID==2, ] )
 # summary(mNoIntScenario1)
 # summary(mNoIntScenario2)
 dsScenarioFeeding <- plyr::ddply(dsFeed, .variables=c("Scenario", "ScenarioID", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
@@ -260,10 +261,11 @@ purplish <- "#544A8C"
 cushion <- 3
 height1 <- 14.5
 height2 <- 13
+breaks_crying    <- seq.int(20, 90, by=5) 
 
 gCrying1 <- ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
-  geom_histogram(data=dsCryCeiling, binwidth=5, fill=paletteCryHistogram[3], color=paletteCryHistogram[1]) +
-  geom_histogram(binwidth=5, fill=paletteCryHistogram[6], color=paletteCryHistogram[4]) +
+  geom_histogram(data=dsCryCeiling, breaks=breaks_crying, closed=closed_boundary, fill=paletteCryHistogram[3], color=paletteCryHistogram[1]) +
+  geom_histogram(breaks=breaks_crying, closed=closed_boundary, fill=paletteCryHistogram[6], color=paletteCryHistogram[4]) +
   annotate("segment", x=cryMeanOverall, xend=cryMeanOverall, y=0, yend=Inf, color=paletteCryHistogram[7], size=3, alpha=1) +
   annotate("segment", x=cryMeanControl, xend=cryMeanControl, y=0, yend=Inf, color=paletteCryHistogram[5], size=3, alpha=1, linetype="61") +
 #   annotate("segment", x=cryMax, xend=cryMax, y=0, yend=Inf, color=paletteCryHistogram[1], size=3, alpha=1, linetype="11") +

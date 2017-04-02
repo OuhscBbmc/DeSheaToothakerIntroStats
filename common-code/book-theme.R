@@ -6,11 +6,11 @@
 # extrafont::font_import()
 # extrafont::fonts() #This just lists the available fonts for you to read; similar to extrafont::fonttable()
 
-library(extrafont) 
-library(grid)
-library(ggplot2)
-library(dichromat)
-library(RColorBrewer)
+requireNamespace("extrafont") 
+requireNamespace("grid")
+requireNamespace("ggplot2")
+requireNamespace("dichromat")
+requireNamespace("RColorBrewer")
 
 # ---------------------------------------------------------------------------------------------
 # Define theme elements for ggplot2 graphs
@@ -39,15 +39,15 @@ transformColor <- function( palette ) {
 # Also see The Color Oracle application (http://colororacle.org/)
 }
 
-PalettePregancyDelivery             <- transformColor(adjustcolor(brewer.pal(3, "Accent"), alpha.f=1)[1:2])
+PalettePregancyDelivery             <- transformColor(adjustcolor(RColorBrewer::brewer.pal(3, "Accent"), alpha.f=1)[1:2])
 PalettePregancyDeliveryBad          <- transformColor( c("#FF0000CC", "#00FFFFCC")) #Translucent red & cyan
 
-PalettePregancyGroup                <- transformColor(adjustcolor(brewer.pal(3, "Dark2"), alpha.f=1)[1:2])
+PalettePregancyGroup                <- transformColor(adjustcolor(RColorBrewer::brewer.pal(3, "Dark2"), alpha.f=1)[1:2])
 PalettePregancyGroupLight           <- adjustcolor(PalettePregancyGroup, alpha.f=.2)
 PalettePregancyGroupBad             <- transformColor(adjustcolor(c("blue", "maroon"), alpha.f=.7))
 
-PaletteObesityState                 <- transformColor(adjustcolor(brewer.pal(5, "Set1"))[c(1,2)])
-PaletteObesityState                 <- transformColor(adjustcolor(brewer.pal(5, "Dark2"))[c(2,3)])
+PaletteObesityState                 <- transformColor(adjustcolor(RColorBrewer::brewer.pal(5, "Set1"))[c(1,2)])
+PaletteObesityState                 <- transformColor(adjustcolor(RColorBrewer::brewer.pal(5, "Dark2"))[c(2,3)])
 
 PaletteWorldDeathsRestricted        <- transformColor(c("#497862", "#A54891")) #Hand-picked
 PaletteWorldDeathsRestrictedFaint   <- transformColor(adjustcolor(PaletteWorldDeathsRestricted, alpha.f=.2))
@@ -66,8 +66,8 @@ greenish               <- "#097168" #http://colrd.com/palette/22444/
 PaletteCritical        <- c("#544A8C", "#ce2b18", "#F37615", bluish, greenish, "gray60") #Adapted from http://colrd.com/palette/17511/ (I made the purple lighter, the orange darker, and added the blue.)
 PaletteCriticalLight   <- adjustcolor(PaletteCritical, alpha.f=.5)
 rm(bluish, greenish)
-# palettePregancy           <- RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
-# PaletteObesityState       <- adjustcolor(brewer.pal(4, "Set2"))[3:4]
+# palettePregancy           <- RColorBrewer::RColorBrewer::brewer.pal(n=4, name="Set2")[3:4]
+# PaletteObesityState       <- adjustcolor(RColorBrewer::brewer.pal(4, "Set2"))[3:4]
 # PaletteObesityStateBad    <- adjustcolor(c("green", "red"), alpha.f=.7)
 
 #Named colors in R:
@@ -88,7 +88,7 @@ LimitRange <- function( fun, min, max ) {
 DrawWithoutPanelClipping <- function( g ) {
   gt <- ggplot_gtable(ggplot_build(g))
   gt$layout$clip[gt$layout$name == "panel"] <- "off"
-  grid.draw(gt)
+  grid::grid.draw(gt)
 }
 
 TukeyBoxplot <- function(y, width=.9, na.rm = FALSE, coef = 1.5, ...) {

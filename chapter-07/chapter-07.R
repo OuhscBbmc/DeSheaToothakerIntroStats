@@ -67,7 +67,7 @@ gridExtra::grid.arrange(
   gMeanSample,
   gMeanPopulation,
   ncol = 3L,
-  left = textGrob(label="Frequency", rot=90, gp=gpar(col="gray40")) #Sync this color with BookTheme
+  left = grid::textGrob(label="Frequency", rot=90, gp=grid::gpar(col="gray40")) #Sync this color with BookTheme
 )
 rm(gSample, gSampleShrunk, gMeanSample, gMeanPopulation)
 

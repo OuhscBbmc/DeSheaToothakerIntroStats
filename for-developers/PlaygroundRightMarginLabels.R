@@ -40,5 +40,5 @@ index <- subset(g$layout, name == "panel")
 g <- gtable_add_cols(g, unit(1, "strwidth", "line # 1") + unit(1, "cm"))
 g <- gtable_add_grob(g, gl, t = index$t, l=ncol(g), 
                      b=index$b, r=ncol(g))
-grid.newpage()
-grid.draw(g)
+grid::grid.newpage()
+grid::grid.draw(g)

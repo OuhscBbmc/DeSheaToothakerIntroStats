@@ -87,7 +87,7 @@ criticalF05 <- qchisq(p=.95, df=6)
 chiObs <- 14.53
 pObsPretty <- ".0242" #1- pchisq(q=chiObs, df=6)
 
-grid.newpage()
+grid::grid.newpage()
 g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF05, xend=19.5, y=fDf6(criticalF05)+.02, yend=fDf6(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +
@@ -125,7 +125,7 @@ criticalF05 <- qchisq(p=.95, df=2)
 # chiObs <- 14.53
 # pObsPretty <- ".0242" #1- pchisq(q=chiObs, df=6)
 
-grid.newpage()
+grid::grid.newpage()
 g5 <- ggplot(data.frame(f=c(0, 9.9)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF05, xend=9.7, y=fDf2(criticalF05)+.02, yend=fDf2(criticalF05)+.02, color=PaletteCritical[2], arrow=arrow(length=grid::unit(0.2, "cm"), type="open"), lineend="round", linetype="F2") +

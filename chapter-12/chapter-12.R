@@ -171,7 +171,7 @@ criticalF01 <- qf(p=.99, df1=f3DfModel, df2=f3DfError)
 ###
 ### Together
 ###
-grid.newpage()
+grid::grid.newpage()
 gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   annotate("segment", x=criticalF01, xend=criticalF01, y=0, yend=Inf, color=PaletteCritical[3]) +
@@ -206,7 +206,7 @@ DrawWithoutPanelClipping(gCritical)
 # ###
 # ### Just .05
 # ###
-# grid.newpage()
+# grid::grid.newpage()
 # gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
 #   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
 #   stat_function(fun=LimitRange(f3, criticalF05, Inf), geom="area", fill=PaletteCritical[2], n=calculatedPointCount) +
@@ -226,7 +226,7 @@ DrawWithoutPanelClipping(gCritical)
 # ###
 # ### Just .01
 # ###
-# grid.newpage()
+# grid::grid.newpage()
 # gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
 #   annotate("segment", x=criticalF01, xend=criticalF01, y=0, yend=Inf, color=PaletteCritical[3]) +
 #   stat_function(fun=LimitRange(f3, criticalF01, Inf), geom="area", fill=PaletteCritical[3],n=calculatedPointCount) +
@@ -332,7 +332,7 @@ DrawWithoutPanelClipping(gCrying4)
 f2_80 <- function( x ) { return( df(x, df1=2, df2=80) ) }
 criticalF05 <- qf(p=.95, df1=2, df2=80)
 
-grid.newpage()
+grid::grid.newpage()
 gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   annotate("segment", x=criticalF05, xend=criticalF05, y=0, yend=Inf, color=PaletteCritical[2]) +
   stat_function(fun=LimitRange(f2_80, criticalF05, Inf), geom="area", fill=PaletteCriticalLight[2], n=calculatedPointCount, na.rm=T) +

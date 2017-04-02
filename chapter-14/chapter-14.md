@@ -71,12 +71,12 @@ Packages -----------------------------------------------------------------------
  colorspace     1.3-2      2016-12-14 CRAN (R 3.3.1)                    
  DBI            0.6        2017-03-09 CRAN (R 3.3.1)                    
  devtools       1.12.0     2016-06-24 CRAN (R 3.3.1)                    
- dichromat    * 2.0-0      2013-01-24 CRAN (R 3.3.0)                    
+ dichromat      2.0-0      2013-01-24 CRAN (R 3.3.0)                    
  digest         0.6.12     2017-01-27 CRAN (R 3.3.1)                    
  dplyr          0.5.0      2016-06-24 CRAN (R 3.3.3)                    
  epade        * 0.3.8      2013-02-22 CRAN (R 3.3.3)                    
  evaluate       0.10       2016-10-11 CRAN (R 3.3.1)                    
- extrafont    * 0.17       2014-12-08 CRAN (R 3.3.0)                    
+ extrafont      0.17       2014-12-08 CRAN (R 3.3.0)                    
  extrafontdb    1.0        2012-06-11 CRAN (R 3.3.0)                    
  ggplot2      * 2.2.1      2016-12-30 CRAN (R 3.3.1)                    
  gridExtra      2.2.1      2016-02-29 CRAN (R 3.3.0)                    
@@ -92,6 +92,7 @@ Packages -----------------------------------------------------------------------
  magrittr     * 1.5        2014-11-22 CRAN (R 3.3.0)                    
  memoise        1.0.0      2016-01-29 CRAN (R 3.3.0)                    
  mime           0.5        2016-07-07 CRAN (R 3.3.1)                    
+ mnormt         1.5-5      2016-10-15 CRAN (R 3.3.1)                    
  munsell        0.4.3      2016-02-13 CRAN (R 3.3.0)                    
  plotrix      * 3.6-4      2016-12-30 CRAN (R 3.3.3)                    
  plyr           1.8.4      2016-06-08 CRAN (R 3.3.0)                    
@@ -120,7 +121,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 15:09 -0500 in 6 seconds.
+Report rendered by wibeasley at 2017-04-02, 15:46 -0500 in 6 seconds.
 
 
 ## License

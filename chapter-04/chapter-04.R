@@ -145,7 +145,7 @@ histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
 gridExtra::grid.arrange(
   histogramXInset,
   histogramZInset,
-  left = textGrob(label="Number Of Participants", rot=90, gp=gpar(col="gray40")) #Sync this color with BookTheme
+  left = grid::textGrob(label="Number Of Participants", rot=90, gp=grid::gpar(col="gray40")) #Sync this color with BookTheme
 )
 
 rm(breaksX, breaksZ, histogramX, histogramXInset, histogramZInset)
@@ -300,10 +300,10 @@ gt8Left <- ggplot_gtable(ggplot_build(g8Left))
 
 gt8Right$layout$clip[gt8Right$layout$name == "panel"] <- "off"
 gt8Left$layout$clip[gt8Left$layout$name == "panel"] <- "off"
-grid.newpage()
-grid.draw(gt8Right)
-grid.newpage()
-grid.draw(gt8Left)
+grid::grid.newpage()
+grid::grid.draw(gt8Right)
+grid::grid.newpage()
+grid::grid.draw(gt8Left)
 
 # ---- figure-04-09 ------------------------------------------------------
 #For using stat_function to draw theoretical curves, see Recipes 13.2 & 13.3 in Chang (2013)
@@ -325,7 +325,7 @@ gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
 gt <- ggplot_gtable(ggplot_build(gSingle))
 
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
-grid.draw(gt)
+grid::grid.draw(gt)
 
 rm(singleZ, gSingle, gt)
 

@@ -92,10 +92,11 @@ Packages -----------------------------------------------------------------------
  knitr        * 1.15.1     2016-11-22 CRAN (R 3.3.1)                    
  labeling       0.3        2014-08-23 CRAN (R 3.3.0)                    
  lazyeval       0.2.0      2016-06-12 CRAN (R 3.3.0)                    
- magrittr     * 1.5        2014-11-22 CRAN (R 3.3.0)                    
+ magrittr       1.5        2014-11-22 CRAN (R 3.3.0)                    
  memoise        1.0.0      2016-01-29 CRAN (R 3.3.0)                    
  mime           0.5        2016-07-07 CRAN (R 3.3.1)                    
  munsell        0.4.3      2016-02-13 CRAN (R 3.3.0)                    
+ pacman         0.4.1      2016-03-30 CRAN (R 3.3.3)                    
  plotrix        3.6-4      2016-12-30 CRAN (R 3.3.3)                    
  plyr           1.8.4      2016-06-08 CRAN (R 3.3.0)                    
  R6             2.2.0      2016-10-05 CRAN (R 3.3.1)                    
@@ -123,7 +124,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 16:39 -0500 in 7 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:49 -0500 in 6 seconds.
 
 
 ## License

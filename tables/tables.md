@@ -331,6 +331,7 @@ Packages -----------------------------------------------------------------------
  memoise        1.0.0      2016-01-29 CRAN (R 3.3.0)                    
  mime           0.5        2016-07-07 CRAN (R 3.3.1)                    
  munsell        0.4.3      2016-02-13 CRAN (R 3.3.0)                    
+ pacman         0.4.1      2016-03-30 CRAN (R 3.3.3)                    
  plotrix        3.6-4      2016-12-30 CRAN (R 3.3.3)                    
  plyr           1.8.4      2016-06-08 CRAN (R 3.3.0)                    
  R6             2.2.0      2016-10-05 CRAN (R 3.3.1)                    
@@ -358,7 +359,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 16:39 -0500 in 1 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:49 -0500 in 1 seconds.
 
 
 ## License

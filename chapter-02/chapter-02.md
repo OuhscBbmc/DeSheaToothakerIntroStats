@@ -77,6 +77,7 @@ Packages -----------------------------------------------------------------------
  magrittr       1.5        2014-11-22 CRAN (R 3.3.0)                    
  memoise        1.0.0      2016-01-29 CRAN (R 3.3.0)                    
  munsell        0.4.3      2016-02-13 CRAN (R 3.3.0)                    
+ pacman         0.4.1      2016-03-30 CRAN (R 3.3.3)                    
  plyr           1.8.4      2016-06-08 CRAN (R 3.3.0)                    
  RColorBrewer   1.1-2      2014-12-07 CRAN (R 3.3.0)                    
  Rcpp           0.12.10    2017-03-19 CRAN (R 3.3.1)                    
@@ -95,7 +96,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 16:37 -0500 in 3 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:47 -0500 in 3 seconds.
 
 
 ## License

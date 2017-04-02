@@ -9,12 +9,13 @@ This report creates the chapter graphs.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of only one directory.-->
 ```{r, echo=F, message=F} 
+library(knitr)
 knitr::opts_knit$set(root.dir='../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 ```{r set-options, echo=F}
-library(knitr)
+report_render_start_time <- Sys.time()
 opts_chunk$set(
   results = 'show', 
   message = TRUE,
@@ -30,7 +31,7 @@ opts_chunk$set(
   # dev = "pdf"
 )
 echoChunks <- FALSE
-options(width=120) #So the output is 50% wider than the default.
+options(width=80) # Default width
 read_chunk("./chapter-08/chapter-08.R") 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. --> 
@@ -109,14 +110,27 @@ read_chunk("./chapter-08/chapter-08.R")
 ```{r figure-08-14, echo=echoChunks, fig.height=1.5}
 ```
 
-## Session Info
-For the sake of documentation and reproducibility, the current report was build on a system using the following software.
+## Session Information
+For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
 
+<details>
+  <summary>Environment <span class="glyphicon glyphicon-plus-sign"></span></summary>
 ```{r session-info, echo=FALSE}
-cat("Report created by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
-sessionInfo()
+if( requireNamespace("devtools", quietly = TRUE) ) {
+  devtools::session_info()
+} else {
+  sessionInfo()
+} 
 ```
+</details>
+
+```{r session-duration, echo=FALSE}
+report_render_duration_in_seconds <- round(as.numeric(difftime(Sys.time(), report_render_start_time, units="secs")))
+```
+
+Report rendered by `r Sys.info()["user"]` at `r strftime(Sys.time(), "%Y-%m-%d, %H:%M %z")` in `r report_render_duration_in_seconds` seconds.
+
 
 ## License
 
-<!--<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br/>-->This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.

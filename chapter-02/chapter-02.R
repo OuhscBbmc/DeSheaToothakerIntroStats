@@ -1,8 +1,8 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(wesanderson) #See https://github.com/karthik/wesanderson
 library(ggplot2) #For graphing
+requireNamespace("wesanderson") #See https://github.com/karthik/wesanderson
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -10,7 +10,7 @@ chapterTheme <- BookTheme +
   theme(axis.title.y=element_blank()) +
   theme(panel.grid.minor=element_blank())
 
-paletteDark <- wes_palette(name="Zissou", n=5, type="continuous")[c(5,2,1)]
+paletteDark <- wesanderson::wes_palette(name="Zissou", n=5, type="continuous")[c(5,2,1)]
 paletteLight <- adjustcolor(paletteDark, alpha.f=.5)
 
 # ---- load-data ------------------------------------------------------

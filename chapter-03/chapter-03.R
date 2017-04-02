@@ -1,17 +1,15 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
 # ---- load-packages ------------------------------------------------------
-library(RColorBrewer)
-library(ggplot2)
-library(plotrix) #For the 3D pie chart (Please notice that this package includes much more than this feature.)
-library(epade) #For the 3D bar chart (Please notice that this package includes more than this feature.)
-
 library(magrittr) #Pipes
 library(ggplot2) #For graphing
 requireNamespace("plyr")
 requireNamespace("dplyr")
 requireNamespace("scales")
 requireNamespace("readr")
+
+requireNamespace("plotrix") #For the 3D pie chart (Please notice that this package includes much more than this feature.)
+requireNamespace("epade") #For the 3D bar chart (Please notice that this package includes more than this feature.)
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
@@ -183,7 +181,7 @@ CreateFakeMeans <- function( d ) {
 )}
 dsPregnancyLongSummarizedFakeTable <- plyr::ddply(dsPregnancyLongSummarized, .variables=c("TimePoint", "Group"), CreateFakeMeans)
 oldPar <- par(mar=c(2,2,0,0))
-bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3, alpha=.5, legendon="top", ylim=c(0, 30))
+epade::bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3, alpha=.5, legendon="top", ylim=c(0, 30))
 par(oldPar)
 
 # ---- figure-03-13 ------------------------------------------------------

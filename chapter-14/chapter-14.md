@@ -74,7 +74,7 @@ Packages -----------------------------------------------------------------------
  dichromat      2.0-0      2013-01-24 CRAN (R 3.3.0)                    
  digest         0.6.12     2017-01-27 CRAN (R 3.3.1)                    
  dplyr          0.5.0      2016-06-24 CRAN (R 3.3.3)                    
- epade        * 0.3.8      2013-02-22 CRAN (R 3.3.3)                    
+ epade          0.3.8      2013-02-22 CRAN (R 3.3.3)                    
  evaluate       0.10       2016-10-11 CRAN (R 3.3.1)                    
  extrafont      0.17       2014-12-08 CRAN (R 3.3.0)                    
  extrafontdb    1.0        2012-06-11 CRAN (R 3.3.0)                    
@@ -92,12 +92,11 @@ Packages -----------------------------------------------------------------------
  magrittr     * 1.5        2014-11-22 CRAN (R 3.3.0)                    
  memoise        1.0.0      2016-01-29 CRAN (R 3.3.0)                    
  mime           0.5        2016-07-07 CRAN (R 3.3.1)                    
- mnormt         1.5-5      2016-10-15 CRAN (R 3.3.1)                    
  munsell        0.4.3      2016-02-13 CRAN (R 3.3.0)                    
- plotrix      * 3.6-4      2016-12-30 CRAN (R 3.3.3)                    
+ plotrix        3.6-4      2016-12-30 CRAN (R 3.3.3)                    
  plyr           1.8.4      2016-06-08 CRAN (R 3.3.0)                    
  R6             2.2.0      2016-10-05 CRAN (R 3.3.1)                    
- RColorBrewer * 1.1-2      2014-12-07 CRAN (R 3.3.0)                    
+ RColorBrewer   1.1-2      2014-12-07 CRAN (R 3.3.0)                    
  Rcpp           0.12.10    2017-03-19 CRAN (R 3.3.1)                    
  readr          1.1.0      2017-03-22 CRAN (R 3.3.3)                    
  reshape2       1.4.2      2016-10-22 CRAN (R 3.3.1)                    
@@ -112,7 +111,7 @@ Packages -----------------------------------------------------------------------
  stringr        1.2.0      2017-02-18 CRAN (R 3.3.1)                    
  tibble         1.3.0      2017-04-01 CRAN (R 3.3.3)                    
  tidyr          0.6.1      2017-01-10 CRAN (R 3.3.1)                    
- wesanderson  * 0.3.2      2015-01-22 CRAN (R 3.3.3)                    
+ wesanderson    0.3.2      2015-01-22 CRAN (R 3.3.3)                    
  withr          1.0.2      2016-06-20 CRAN (R 3.3.0)                    
  xtable         1.8-2      2016-02-05 CRAN (R 3.3.0)                    
  yaml           2.1.14     2016-11-12 CRAN (R 3.3.1)                    
@@ -121,7 +120,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 15:46 -0500 in 6 seconds.
+Report rendered by wibeasley at 2017-04-02, 15:56 -0500 in 6 seconds.
 
 
 ## License

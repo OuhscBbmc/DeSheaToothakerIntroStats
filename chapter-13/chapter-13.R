@@ -97,7 +97,7 @@ gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
 
   scale_x_continuous(expand=c(0,.01), breaks=c(-1, -.75, -.5, -.25, 0, .25, .5, .75, 1)) + #, labels=c(-1, -.75, -.5, "", 0, "", .5, .75, 1)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
-  expand_limits(y=max(dsRho$PriorR) * 1.2) +
+  expand_limits(x=c(-1, 1) * 1.05, y=max(dsRho$PriorR) * 1.2) +
 
   chapterTheme +
   labs(x=expression(italic(r)), y=NULL)

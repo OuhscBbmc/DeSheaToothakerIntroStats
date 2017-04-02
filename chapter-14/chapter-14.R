@@ -84,7 +84,7 @@ ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
   annotate(geom="text", x=6.5, y=f5(6.5), label="italic(chi)[8]^2", hjust=-.5, vjust=-.5, parse=TRUE, color=fPaletteDark[5], size=7) +
   scale_x_continuous(expand=c(0,0)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
-  expand_limits(y=f1(0) * 1.05) +
+  expand_limits(x=c(0, 10.5) -.1, y= f1(0) * 1.05) +
   chapterTheme +
   labs(x=expression(italic(chi^2)), y=NULL)
 

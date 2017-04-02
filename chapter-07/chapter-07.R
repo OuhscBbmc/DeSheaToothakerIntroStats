@@ -77,7 +77,7 @@ rm(gSample, gSampleShrunk, gMeanSample, gMeanPopulation)
 # ---- figure-07-03 ------------------------------------------------------
 dsNorm <- data.frame(X=21 + -3:3)
 ggplot(dsNorm, aes(x=X)) +
-  stat_function(fun=dnorm, arg=list(mean=21, sd=1), color="#DD9954", size=1, n=calculatedPointCount) +
+  stat_function(fun=dnorm, args=list(mean=21, sd=1), color="#DD9954", size=1, n=calculatedPointCount) +
   scale_x_continuous(breaks=18:24) +
   scale_y_continuous(expand=c(0,0), labels=NULL) +
   expand_limits(y=max(dnorm(0)*1.07)) +
@@ -118,7 +118,7 @@ ggplot(dsUniform, aes(x=X, y=Y)) +
 # ---- figure-07-06 ------------------------------------------------------
 dsNorm <- data.frame(X=-3:3)
 ggplot(dsNorm, aes(x=X)) +
-  stat_function(fun=dnorm, arg=list(mean=0, sd=1), color="#601600", size=1, n=calculatedPointCount) +
+  stat_function(fun=dnorm, args=list(mean=0, sd=1), color="#601600", size=1, n=calculatedPointCount) +
   #scale_x_continuous(breaks=-2:2, labels=rep("", 5)) +
   scale_x_continuous(breaks=-2:2, labels=c("", "", expression(italic(z)==0), "", "")) +
   scale_y_continuous(expand=c(0,0), labels=NULL) +

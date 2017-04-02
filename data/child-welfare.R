@@ -1,31 +1,32 @@
 rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 #####################################
 ## @knitr LoadPackages
-# library(knitr)
-library(plyr)
-# library(ggplot2)
+requireNamespace("readr")
+requireNamespace("dplyr")
 
 ############################
 ## @knitr DeclareGlobals
-pathInput <- "./UnsharedMaterial/data/ChildWelfareSubjectLevel.csv"
+pathInput <- "./unshared-material/data/ChildWelfareSubjectLevel.csv"
 pathOutput <- "./data/ChildWelfare.csv"
 
 ############################
 ## @knitr LoadData
-dsSubject <- read.csv(file=pathInput, stringsAsFactors=FALSE)
+dsSubject <- readr::read_csv(file=pathInput)
+
 ############################
 ## @knitr TweakData
 
 #Rename some variables to meet the same convention
-dsSubject <- plyr::rename(dsSubject, replace=c(
-  "County" = "CountyID",
-  "EDUC" = "EducationLevel", 
-  "EMPL" = "Employed", 
-  "age" = "Age", 
-  "priors_all" = "PriorOffenseCount", 
-  "frs" = "Frs", 
-  "bdi" = "Bdi"
-))
+dsSubject <- dsSubject %>% 
+  plyr::rename_(
+    "CountyID"            = "County",
+    "EducationLevel"      = "EDUC", 
+    "Employed"            = "EMPL", 
+    "Age"                 = "age", 
+    "PriorOffenseCount"   = "priors_all", 
+    "Frs"                 = "frs", 
+    "Bdi"                 = "bdi"
+  )
 
 #Remove unnecessary variable
 dsSubject$id <- NULL

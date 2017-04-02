@@ -1,6 +1,5 @@
 library(gtable)
 library(ggplot2)
-library(plyr)
 
 #This was copied from a ggplot Stack Overflow response by by Auguié Baptiste: http://stackoverflow.com/questions/17492230/how-to-place-grobs-with-annotation-custom-at-precise-areas-of-the-plot-region
 

@@ -1,13 +1,16 @@
 rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 #####################################
 ## @knitr LoadPackages
-# library(knitr)
-library(plyr)
+library(magrittr)
+requireNamespace("plyr")
+requireNamespace("dplyr")
+requireNamespace("readr")
+
 # library(ggplot2)
 
 ############################
 ## @knitr DeclareGlobals
-pathOutput <- "./data/BreastfeedingSleepFake.csv"
+pathOutput <- "./data/breastfeeding-sleep-fake.csv"
 
 scenarioCount <- 3
 subjectsPerGroup <- 15
@@ -41,7 +44,12 @@ ds$Scenario <- paste0("Scenario 12-", LETTERS[ds$ScenarioID])
 ds$Deviates <- rep(rnorm(n=groupCount*subjectsPerGroup, mean=0, sd=1), times=scenarioCount)
 
 #Further sanitize so they're scaled within each cell
-ds <- plyr::ddply(ds, .variables=c("Scenario", "Feeding"), transform, Deviates=scale(Deviates))
+ds <- ds %>% 
+  dplyr::group_by(Scenario, Feeding) %>% 
+  dplyr::mutate(
+    Deviates    = as.numeric(scale(Deviates))
+  ) %>% 
+  dplyr::ungroup()
 
 AppendScores <- function( d ) {
   groupMean <- groupPopulationMeans[, d$ScenarioID][d$FeedingID]
@@ -53,16 +61,16 @@ AppendScores <- function( d ) {
 }
 ds <- plyr::ddply(ds, .variables="ScenarioID", AppendScores)
 
-plyr::ddply(ds, .variables=c("Scenario", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
+# plyr::ddply(ds, .variables=c("Scenario", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
 
 
-mScenario1 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==1, ], )
-mScenario2 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==2, ], )
-mScenario3 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==3, ], )
+mScenario1 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==1, ])
+mScenario2 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==2, ])
+mScenario3 <- lm(Sleep ~ 1 + Feeding, data=ds[ds$ScenarioID==3, ])
 summary(mScenario1)
 summary(mScenario2)
 summary(mScenario3)
 
 ############################
 ## @knitr WriteToDisk
-write.csv(ds, file=pathOutput, row.names=F)
+readr::write_csv(ds, path=pathOutput)

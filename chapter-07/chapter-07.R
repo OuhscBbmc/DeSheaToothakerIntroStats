@@ -7,16 +7,6 @@ requireNamespace("dplyr")
 requireNamespace("scales")
 requireNamespace("readr")
 requireNamespace("gridExtra")
-# 
-# library(knitr)
-# library(RColorBrewer)
-# library(plyr)
-# library(scales) #For formating values in graphs
-# library(grid)
-# library(gridExtra)
-# library(ggplot2)
-# library(ggthemes)
-# library(reshape2) #For converting wide to long
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")

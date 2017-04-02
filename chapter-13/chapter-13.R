@@ -8,18 +8,6 @@ requireNamespace("scales")
 requireNamespace("readr")
 requireNamespace("rgl")
 
-# library(knitr)
-# # library(RColorBrewer)
-# library(plyr)
-# library(scales) #For formating values in graphs
-# # library(grid)
-# # library(gridExtra)
-# library(ggplot2)
-# # library(ggthemes)
-# library(MASS)
-# library(mnormt)
-# library(rgl)
-
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
@@ -51,7 +39,7 @@ colorAxes <- "black"
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
 dsObesity <- readr::read_csv("./data/food-hardship-obesity.csv")
-# dsFeed <- readr::read_csv("./data/BreastfeedingSleepFake.csv")
+# dsFeed <- readr::read_csv("./data/breastfeeding-sleep-fake.csv")
 # dsCry <- readr::read_csv("./data/infant-crying-fake.csv")
 
 # ---- tweak-data ------------------------------------------------------

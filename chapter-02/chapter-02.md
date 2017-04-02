@@ -31,7 +31,10 @@ This report creates the chapter graphs.
 ## Figure 2-3
 <img src="figure-png/figure-02-03-1.png" width="550px" />
 
+<!-- The footer that's common to all reports. -->
+
 ## Session Information
+
 For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
 
 <details>
@@ -92,7 +95,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 15:54 -0500 in 3 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:33 -0500 in 4 seconds.
 
 
 ## License

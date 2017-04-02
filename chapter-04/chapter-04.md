@@ -7,13 +7,13 @@ This report creates the chapter graphs.
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
-<!-- Load the packages.  Suppress the output when loading packages. --> 
+<!-- Load the packages.  Suppress the output when loading packages. -->
 
 
-<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
 
 
-<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 
 
 <!-- Load the datasets.   -->
@@ -53,7 +53,10 @@ See Table A: Standard normal distribution.
 <img src="figure-png/unused-variants-figure-04-04-1.png" width="550px" /><img src="figure-png/unused-variants-figure-04-04-2.png" width="550px" /><img src="figure-png/unused-variants-figure-04-04-3.png" width="550px" />
 <img src="figure-png/unused-variants-figure-04-08-1.png" width="550px" />
 
+<!-- The footer that's common to all reports. -->
+
 ## Session Information
+
 For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
 
 <details>
@@ -126,7 +129,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 15:54 -0500 in 12 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:34 -0500 in 14 seconds.
 
 
 ## License

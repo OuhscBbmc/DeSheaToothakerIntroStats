@@ -273,8 +273,10 @@ read_chunk("./tables/tables.R")
 | 60|   74.40|   79.08|   88.38|    99.61|
 | 70|   85.53|   90.53|  100.43|   112.32|
 
+<!-- The footer that's common to all reports. -->
 
 ## Session Information
+
 For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
 
 <details>
@@ -356,7 +358,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 15:56 -0500 in 1 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:35 -0500 in 1 seconds.
 
 
 ## License

@@ -7,13 +7,13 @@ This report creates the chapter graphs.
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
-<!-- Load the packages.  Suppress the output when loading packages. --> 
+<!-- Load the packages.  Suppress the output when loading packages. -->
 
 
-<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
 
 
-<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 
 
 <!-- Load the datasets. -->
@@ -60,7 +60,10 @@ F-statistic:  27.6 on 1 and 64 DF,  p-value: 1.822e-06
 2 Treatment 35.10441 18.76076    33 3.265830 2.036933 41.75669 28.45213
 ```
 
+<!-- The footer that's common to all reports. -->
+
 ## Session Information
+
 For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
 
 <details>
@@ -133,7 +136,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 15:55 -0500 in 2 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:35 -0500 in 2 seconds.
 
 
 ## License

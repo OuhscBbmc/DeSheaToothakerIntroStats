@@ -7,13 +7,13 @@ This report creates the chapter graphs.
 
 <!-- Set the report-wide options, and point to the external code file. -->
 
-<!-- Load the packages.  Suppress the output when loading packages. --> 
+<!-- Load the packages.  Suppress the output when loading packages. -->
 
 
-<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
 
 
-<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 
 
 <!-- Load the datasets. -->
@@ -64,7 +64,10 @@ This report creates the chapter graphs.
 ## Figure 8-14
 <img src="figure-png/figure-08-14-1.png" width="550px" />
 
+<!-- The footer that's common to all reports. -->
+
 ## Session Information
+
 For the sake of documentation and reproducibility, the current report was rendered in the following environment.  Click the line below to expand.
 
 <details>
@@ -137,7 +140,7 @@ Packages -----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2017-04-02, 15:55 -0500 in 19 seconds.
+Report rendered by wibeasley at 2017-04-02, 16:34 -0500 in 20 seconds.
 
 
 ## License

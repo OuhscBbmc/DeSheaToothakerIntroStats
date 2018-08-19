@@ -10,7 +10,7 @@ chapterTheme <- BookTheme +
   theme(axis.title.y=element_blank()) +
   theme(panel.grid.minor=element_blank())
 
-paletteDark <- wesanderson::wes_palette(name="Zissou", n=5, type="continuous")[c(5,2,1)]
+paletteDark <- wesanderson::wes_palette(name="Zissou1", n=5, type="continuous")[c(5,2,1)]
 paletteLight <- adjustcolor(paletteDark, alpha.f=.5)
 
 # ---- load-data ------------------------------------------------------

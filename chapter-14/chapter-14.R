@@ -50,8 +50,8 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
 DrawWithoutPanelClipping(g1)
 
 # ---- figure-14-03 ------------------------------------------------------
-fPaletteDark  <- adjustcolor(wesanderson::wes_palette("Darjeeling", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
-fPaletteLight <- adjustcolor(wesanderson::wes_palette("Darjeeling", 5), alpha.f=.3)
+fPaletteDark  <- adjustcolor(wesanderson::wes_palette("Darjeeling1", 5), alpha.f=.8) #https://github.com/karthik/wesanderson#wes-anderson-palettes
+fPaletteLight <- adjustcolor(wesanderson::wes_palette("Darjeeling1", 5), alpha.f=.3)
 
 f1 <- function( x ) dchisq(x, df=2)
 f2 <- function( x ) dchisq(x, df=3)

@@ -25,16 +25,14 @@ emptyTheme <- theme_minimal() +
 dsFibromyalgia <- readr::read_csv("./data/fibromyalgia-tai-chi.csv")
 
 # ---- tweak-data ------------------------------------------------------
-
-dsFibromyalgiaT1Control <- dsFibromyalgia[dsFibromyalgia$Group=="Control", "PsqiT1", drop=FALSE]
-dsFibromyalgiaT1Control <- plyr::rename(dsFibromyalgiaT1Control, replace=c("PsqiT1"="X"))
-biasedSDPsqiT1 <- sd(dsFibromyalgiaT1Control$X) * sqrt((length(dsFibromyalgiaT1Control$X)-1)/length(dsFibromyalgiaT1Control$X))
-dsFibromyalgiaT1Control$Z <- scale(dsFibromyalgiaT1Control$X, scale=biasedSDPsqiT1)
-dsFibromyalgiaT1Control <- dsFibromyalgiaT1Control[order(dsFibromyalgiaT1Control$X), ,drop=F]
-
-# dsFibromyalgiaT1Control$ID <- row.names(dsFibromyalgiaT1Control)
-# dsFibromyalgiaT1ControlLong <- reshape2::melt(dsFibromyalgiaT1Control,id.vars="ID")
-# dsFibromyalgiaT1ControlLong <- plyr::rename(dsFibromyalgiaT1ControlLong, replace=c("variable"="Scale", "value"="Value"))
+dsFibromyalgiaT1Control <- dsFibromyalgia %>% 
+  dplyr::filter(dsFibromyalgia$Group=="Control") %>% 
+  dplyr::select(X=PsqiT1) %>% 
+  dplyr::mutate(
+    biasedSDPsqiT1  = sd(X) * sqrt((n()-1) / n()),
+    Z               = scale(x=.data$X, center=0, scale=min(.data$biasedSDPsqiT1))
+  ) %>% 
+  dplyr::arrange(X)
 
 # ---- figure-04-01 ------------------------------------------------------
 breaksX <- seq(from=7, to=23, by=1)
@@ -110,8 +108,8 @@ rm(tickRadius, yZ, groupMean, singleScore, singleZ, scaleSD, arrowHeight, zTicks
 #The real way gets the two versions a little bit different, because of the scores sitting on a histogram bin boundary.
 #breaksXSparse <- breaksX[c(2,4,6,8,10,12,14,16)]
 breaksXSparse <- breaksX[c(1,3,5,7,9,11,13,15,17)]
-breaksZ <- as.numeric(scale(breaksX-.01, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
-breaksZSparse <- as.numeric(scale(breaksXSparse-.05, center=mean(dsFibromyalgiaT1Control$X), scale=biasedSDPsqiT1))
+breaksZ <- as.numeric(scale(breaksX-.01, center=mean(dsFibromyalgiaT1Control$X), scale=min(dsFibromyalgiaT1Control$biasedSDPsqiT1)))
+breaksZSparse <- as.numeric(scale(breaksXSparse-.05, center=mean(dsFibromyalgiaT1Control$X), scale=min(dsFibromyalgiaT1Control$biasedSDPsqiT1)))
 histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(x="Control Group's Baseline PSQI", y=NULL)
 # histogramZInset %+% aes(x=Z)
 

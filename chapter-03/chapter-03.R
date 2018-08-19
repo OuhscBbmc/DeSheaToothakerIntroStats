@@ -3,7 +3,6 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 # ---- load-packages ------------------------------------------------------
 library(magrittr) #Pipes
 library(ggplot2) #For graphing
-requireNamespace("plyr")
 requireNamespace("dplyr")
 requireNamespace("scales")
 requireNamespace("readr")
@@ -167,19 +166,14 @@ ggplot(dsObesity, aes(x=ObesityRate)) +
   labs(x="Obesity Rate (in 2011)", y="Number of States")
 
 # ---- figure-03-12 ------------------------------------------------------
-# dsPregnancyLongSummarizedFakeTable <- dsPregnancyLongSummarized %>% 
-#   dplyr::group_by(TimePoint, Group) %>% 
-#   dplyr::summarize(
-#     
-#   ) %>% 
-#   dplyr::ungroup()
+dsPregnancyLongSummarizedFakeTable <- dsPregnancyLongSummarized %>% 
+  dplyr::do(
+    tibble::tibble(
+      TimePoint = rep(.$TimePoint, times=.$CountMean),
+      Group     = rep(.$Group    , times=.$CountMean)
+    )
+  )
 
-CreateFakeMeans <- function( d ) {
-  data.frame(
-    TimePoint = rep(d$TimePoint, times=d$CountMean),
-    Group = rep(d$Group, times=d$CountMean)
-)}
-dsPregnancyLongSummarizedFakeTable <- plyr::ddply(dsPregnancyLongSummarized, .variables=c("TimePoint", "Group"), CreateFakeMeans)
 oldPar <- par(mar=c(2,2,0,0))
 epade::bar.plot.ade(x="TimePoint", y="Group", data=dsPregnancyLongSummarizedFakeTable, form="c", b2=3, alpha=.5, legendon="top", ylim=c(0, 30))
 par(oldPar)

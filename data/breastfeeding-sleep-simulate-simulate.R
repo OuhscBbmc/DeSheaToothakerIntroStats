@@ -1,15 +1,13 @@
 rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
-#####################################
-## @knitr LoadPackages
+
+# ---- load-packages ------------------------------------------------------
 library(magrittr)
-requireNamespace("plyr")
 requireNamespace("dplyr")
 requireNamespace("readr")
 
 # library(ggplot2)
 
-############################
-## @knitr DeclareGlobals
+# ---- declare-globals ------------------------------------------------------
 pathOutput <- "./data/breastfeeding-sleep-fake.csv"
 
 scenarioCount <- 3
@@ -28,8 +26,14 @@ sdScenarioC <- 130
 scenarioSD <- c(sdScenarioA, sdScenarioB, sdScenarioC)
 
 set.seed(3291) #Set the random number generator seed so the points are consistent across generations
-############################
-## @knitr Simulate
+
+# ---- load-data ------------------------------------------------------
+
+# ---- tweak-data ------------------------------------------------------
+
+
+# ---- simulate ----------------------------------------------------------------
+
 ds <- data.frame(
 #   SubjectID = seq_len(subjectsPerGroup * groupCount),
   ScenarioID = rep(x=seq_len(scenarioCount), each=subjectsPerGroup* groupCount),
@@ -52,14 +56,19 @@ ds <- ds %>%
   dplyr::ungroup()
 
 AppendScores <- function( d ) {
-  groupMean <- groupPopulationMeans[, d$ScenarioID][d$FeedingID]
-  scenarioSD <- scenarioSD[d$ScenarioID]
-  d$GroupMean <- groupMean 
-  d$ScenarioSD <-  scenarioSD
-  d$Sleep <- groupMean + d$Deviates * scenarioSD
+  # browser()
+  groupMean     <- groupPopulationMeans[, d$ScenarioID][d$FeedingID]
+  scenarioSD    <- scenarioSD[d$ScenarioID]
+  d$GroupMean   <- groupMean 
+  d$ScenarioSD  <- scenarioSD
+  d$Sleep       <- groupMean + d$Deviates * scenarioSD
   return( d )
 }
 ds <- plyr::ddply(ds, .variables="ScenarioID", AppendScores)
+ds %>% 
+  dplyr::group_by(ScenarioID) %>% 
+  dplyr::do(AppendScores(.)) %>% 
+  dplyr::ungroup()
 
 # plyr::ddply(ds, .variables=c("Scenario", "Feeding"), .fun=summarise, M=mean(Sleep), SD=sd(Sleep))
 
@@ -71,6 +80,5 @@ summary(mScenario1)
 summary(mScenario2)
 summary(mScenario3)
 
-############################
-## @knitr WriteToDisk
+# ---- write-to-disk -----------------------------------------------------------
 readr::write_csv(ds, path=pathOutput)

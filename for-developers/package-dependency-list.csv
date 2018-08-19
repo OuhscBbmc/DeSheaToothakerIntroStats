@@ -16,7 +16,7 @@ MASS,TRUE,TRUE,,"for generating multivariate normal distributions, among other t
 mnormt,TRUE,TRUE,,"For calculating density of multivariate normal distribution"
 pacman,TRUE,TRUE,,"Package Management Tool"
 plotrix,TRUE,TRUE,,"Has extra graphing functions"
-plyr,TRUE,TRUE,,"Important for most of our data manipulation."
+plyr,TRUE,FALSE,,"Important for most of our data manipulation."
 RColorBrewer,TRUE,TRUE,,"Explicit control over the Color Brewer colors.  See http://colorbrewer2.org/."
 reshape2,TRUE,TRUE,,"Data manipulation not covered in plyr."
 rgl,TRUE,TRUE,,"3D plotting."

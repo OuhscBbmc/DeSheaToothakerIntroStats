@@ -1,31 +1,27 @@
 rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
-#####################################
-## @knitr LoadPackages
+
+# ---- load-packages ------------------------------------------------------
 requireNamespace("readr")
 requireNamespace("dplyr")
 
-############################
-## @knitr DeclareGlobals
+# ---- declare-globals ------------------------------------------------------
 pathInput <- "./unshared-material/data/ChildWelfareSubjectLevel.csv"
 pathOutput <- "./data/ChildWelfare.csv"
 
-############################
-## @knitr LoadData
+# ---- load-data ------------------------------------------------------
 dsSubject <- readr::read_csv(file=pathInput)
 
-############################
-## @knitr TweakData
-
+# ---- tweak-data ------------------------------------------------------
 #Rename some variables to meet the same convention
 dsSubject <- dsSubject %>% 
-  plyr::rename_(
-    "CountyID"            = "County",
-    "EducationLevel"      = "EDUC", 
-    "Employed"            = "EMPL", 
-    "Age"                 = "age", 
-    "PriorOffenseCount"   = "priors_all", 
-    "Frs"                 = "frs", 
-    "Bdi"                 = "bdi"
+  dplyr::rename_(
+    "County"      = "CountyID"         ,
+    "EDUC"        = "EducationLevel"   , 
+    "EMPL"        = "Employed"         , 
+    "age"         = "Age"              , 
+    "priors_all"  = "PriorOffenseCount", 
+    "frs"         = "Frs"              , 
+    "bdi"         = "Bdi"              
   )
 
 #Remove unnecessary variable
@@ -38,6 +34,7 @@ dsSubject$Employed <- as.logical(dsSubject$Employed)
 dsSubject$Date <- as.Date(dsSubject$Date,format="%m/%d/%Y")
 
 #Convert missing values
+# If I were doing this again, I'd probably use `dplyr::mutate_at()` and `dplyr::na_if`
 columnsWith9999s <- c("EducationLevel", "Frs", "Bdi")
 for( column in columnsWith9999s ) {
   dsSubject[, column] <- ifelse(dsSubject[, column]=="-9999", NA, dsSubject[, column])
@@ -52,6 +49,6 @@ dsSubject$CountyID <- as.integer(gsub(pattern="[A-Za-z]{1,}", replacement="", x=
 # table(dsSubject$CountyID)
 # cat(dsSubject$CountyID)
 
-############################
-## @knitr WriteToDisk
-# write.csv(ds, file=pathOutput, row.names=F)
+
+# ---- write-to-disk -----------------------------------------------------------
+write.csv(ds, file=pathOutput, row.names=F)

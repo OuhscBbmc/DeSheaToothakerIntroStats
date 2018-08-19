@@ -10,7 +10,7 @@ requireNamespace("readr")
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 closed_boundary     <- "left"
 
 feedingLevels <- c("Breast", "Bottle", "Both")
@@ -44,7 +44,7 @@ AnovaSingleScenario <- function( scenarioID, scenarioName, yLimit=4.8 ) {
     scale_fill_manual(values=paletteFeedingLight) +
     coord_cartesian(xlim=rangeSleep) +
     facet_grid(Feeding ~ .) +
-    chapterTheme +
+    theme_chapter +
     theme(legend.position="none") +
     labs(x="Minutes of sleep in 24 hours", y="Frequency", title=scenarioName)
 }
@@ -127,7 +127,7 @@ ggplot(dsFeed, aes(x=Sleep, color=Feeding, fill=Feeding)) +
   scale_fill_manual(values=paletteFeedingLight) +
   coord_cartesian(xlim=rangeSleep) +
   facet_grid(Feeding ~ Scenario) +
-  chapterTheme +
+  theme_chapter +
   theme(legend.position="none") +
   labs(x="Minutes of sleep in 24 hours", y="Frequency", title=NULL)
 
@@ -157,7 +157,7 @@ ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   scale_x_continuous(expand=c(0,0)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f1(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(F)), y=NULL)
 
 # ---- figure-12-08 ------------------------------------------------------
@@ -197,7 +197,7 @@ gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, 3, "")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f3(.4) * 1.1) +
-  chapterTheme +
+  theme_chapter +
   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
   labs(x=expression(italic(F)), y=NULL)
 
@@ -217,7 +217,7 @@ DrawWithoutPanelClipping(gCritical)
 #   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, 3, "")) +
 #   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
 #   expand_limits(y=f3(.4) * 1.05) +
-#   chapterTheme +
+#   theme_chapter +
 #   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
 #   labs(x=expression(italic(F)), y=NULL)
 #
@@ -237,7 +237,7 @@ DrawWithoutPanelClipping(gCritical)
 #   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, 3, "")) +
 #   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
 #   expand_limits(y=f3(.4) * 1.05) +
-#   chapterTheme +
+#   theme_chapter +
 #   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
 #   labs(x=expression(italic(F)), y=NULL)
 #
@@ -258,7 +258,7 @@ ggplot(dsCry, aes(x=1, y=CryingDuration, color=Group, fill=Group)) +
   scale_fill_manual(values=paletteCryBoxLight) +
   facet_grid(Group ~ .) +
   coord_flip() + #xlim=c(.65, 1.4)) + #ylim=rangeSleep
-  chapterTheme +
+  theme_chapter +
   theme(legend.position="none") +
   labs(x=NULL, y="Crying Duration")
 
@@ -293,7 +293,7 @@ gCrying1 <- ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
   annotate(geom="text", x=cryMeanControl, y=Inf, label="Control Group\nMean", hjust=.5, vjust=-.2, color=paletteCryHistogram[5], size=4, lineheight=.8) +
 #   annotate(geom="text", x=cryMax, y=Inf, label="Baby Who\nCried Most", hjust=.5, vjust=-.1, color=paletteCryHistogram[1], size=4, lineheight=.8) +
   scale_y_continuous(limits=c(0, 15.2), expand=c(0,0)) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Crying Duration", y="Frequency", title="")
 
 #This used to be figure 12_10 (but was deleted)
@@ -345,7 +345,7 @@ gCritical <- ggplot(data.frame(f=c(0, 4.5)), aes(x=f)) +
   scale_x_continuous(expand=c(0,0), breaks=0:4, labels=c(0, 1, 2, "", 4)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=f2_80(.5) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
   labs(x=expression(italic(F)), y=NULL)
 

@@ -7,7 +7,7 @@ library(ggplot2)
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
@@ -35,7 +35,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   scale_x_continuous(expand=c(0,0), breaks=-4:4, labels=c("-4", "-3", "2", "-1", "0", "1", "", "3", "")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t70(0) * 1.2) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)
@@ -68,7 +68,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   scale_x_continuous(expand=c(0,0), breaks=-4:4, labels=c("", "-3", "", "-1", "0", "1", "", "3", "")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t60(0) * 1.2) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)
@@ -92,7 +92,7 @@ gCritical <- ggplot(data.frame(t=-4.5:4.5), aes(x=t)) +
   annotate("text", label="italic(H)[0]: mu[control] - mu[treatment] <= 0", x=0, y=Inf, parse=T, size=5, vjust=1.08, color="gray40") +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t60(0) * 1.2) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)

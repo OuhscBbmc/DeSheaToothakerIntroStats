@@ -11,7 +11,7 @@ requireNamespace("readr")
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
 # ---- load-data ------------------------------------------------------
 dsObesity                  <- readr::read_csv("./data/food-hardship-obesity.csv"          )
@@ -39,7 +39,7 @@ gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
   coord_fixed() +
-  chapterTheme +
+  theme_chapter +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 
 gObesity
@@ -48,20 +48,20 @@ gObesity
 ggplot(dsPerfectPositive, aes(x=NumberOfLitersBought, y=Price)) +
   geom_point(shape=21, size=3, color="#68663D", fill="#9BA47533") + #http://colrd.com/palette/17498/
   scale_y_continuous(label=scales::dollar) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Number of Liters of Hand Sanitizer Purchased", y="Total Price (excluding taxes & shipping)")
 
 # ---- figure-05-03 ------------------------------------------------------
 ggplot(dsPerfectNegative, aes(x=NumberScreened, y=GiftCardBudgetRemaining)) +
   geom_point(shape=21, size=3, color="#68663D", fill="#9BA47533") + #http://colrd.com/palette/17498/
   scale_y_continuous(label=scales::dollar) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Number of Adults Screened for Hypertension", y="Amount Remaining in Gift-Card Budget")
 
 # ---- figure-05-04 ------------------------------------------------------
 ggplot(dsStateBirthDeathRates, aes(x=BirthRate2010, y=DeathRateAgeAdjusted2010)) +
   geom_point(shape=21, size=3, color="#8C96FF", fill="#8C96FF22") + #Adapted from http://colrd.com/palette/18974/
-  chapterTheme +
+  theme_chapter +
   labs(x="Birth Rate Per 1,000 Population (in 2010)", y="Age-Adjusted Death Rate\nper 100,000 Population (in 2010)")
 
 # ---- figure-05-05 ------------------------------------------------------
@@ -110,7 +110,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName)) +
   geom_point(shape=21, size=3, na.rm=T, color="#88419D", fill="#88419D11", position=position_jitter(w=.4, h=0)) +
   scale_x_continuous() +
   scale_y_continuous(label=scales::comma) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Life Expectancy at Birth (in 2011)", y="Maternal Mortality per 100,000 Births (in 2010)")
 
 rm(m, eqn, xName, yName)
@@ -142,7 +142,7 @@ ggplot(dsPlot,  aes_string(x=xName, y=yName, color=colorName, fill=colorName)) +
   scale_fill_manual(guide=FALSE, values=fillExtreme) +
   coord_cartesian(xlim=c(-500, 1.1*max(dsPlot[, xName])), ylim=c(-5, 1.05*max(dsPlot[, yName]))) +
 
-  chapterTheme +
+  theme_chapter +
   labs(x="Number of Stork Pairs", y="Number of Human Births (in thousands)")
 
 rm(eqn)
@@ -167,7 +167,7 @@ ggplot(dsPlotWithoutOutliers,  aes_string(x=xName, y=yName, color=colorName, fil
   scale_color_manual(guide=FALSE, values=colorExtreme) +
   scale_fill_manual(guide=FALSE, values=fillExtreme) +
   coord_cartesian(xlim=c(-200, 1.1*max(dsPlotWithoutOutliers[[xName]])), ylim=c(-5, 1.05*max(dsPlotWithoutOutliers[[yName]]))) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Number of Stork Pairs", y="Number of Human Births (in thousands)")
 
 rm(mWithOutlier, mWithoutOutlier, eqn, xName, yName, colorName, colorExtreme, fillExtreme)
@@ -182,7 +182,7 @@ ggplot(dsWorldRestricted, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color=Omit
   scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop, na.rm=T)) +
   scale_colour_manual(values=PaletteWorldDeathsRestricted, guide=FALSE) +
   scale_fill_manual(values=PaletteWorldDeathsRestrictedFaint, guide=FALSE) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(dsWorldRestricted, eqn)
 
@@ -196,7 +196,7 @@ ggplot(dsWorldBirthDeathRates, aes(x=BirthsPer1000Pop, y=DeathsPer1000Pop, color
   scale_x_continuous(limits=range(dsWorldBirthDeathRates$BirthsPer1000Pop, na.rm=T)) +
   scale_colour_manual(values=PaletteWorldDeathsRestricted, guide=FALSE) +
   scale_fill_manual(values=PaletteWorldDeathsRestrictedFaint, guide=FALSE) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Births Per 1,000 Population (in 2012)", y="Deaths Per 1,000 Population (in 2012)")
 rm(eqn)
 
@@ -215,7 +215,7 @@ ggplot(dsSmoking, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Omitted, fil
   scale_y_continuous(label=scales::percent) +
   scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
   scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +
-  chapterTheme +
+  theme_chapter +
   labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Prevalence (in 2009)")
 rm(eqn)
 
@@ -230,6 +230,6 @@ ggplot(dsSmokingRestricted, aes(x=TaxCentsPerPack, y=YouthCigaretteUse, color=Om
   scale_y_continuous(label=scales::percent) +
   scale_colour_manual(values=paletteSmokingRestrictedDark, guide=FALSE) +
   scale_fill_manual(values=paletteSmokingRestrictedLight, guide=FALSE) +
-  chapterTheme +
+  theme_chapter +
   labs(x="State Excise Tax, Cents Per Pack (in 2010)", y="Youth Cigarette Smoking Pervalence (in 2009)")
 rm(eqn)

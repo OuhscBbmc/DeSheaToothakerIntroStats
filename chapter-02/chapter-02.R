@@ -6,7 +6,7 @@ requireNamespace("wesanderson") #See https://github.com/karthik/wesanderson
 
 # ---- declare-globals ------------------------------------------------------
 source("./common-code/book-theme.R")
-chapterTheme <- BookTheme +
+theme_chapter <- theme_book +
   theme(axis.title.y=element_blank()) +
   theme(panel.grid.minor=element_blank())
 
@@ -28,7 +28,7 @@ ggplot(dsSkewZero, aes(x=Systolic)) +
   geom_dotplot(binwidth=1, fill=paletteLight[1], color=paletteDark[1], method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewZero$Systolic), to=max(dsSkewZero$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Systolic Blood Pressure")
 
 # ---- figure-02-02 ------------------------------------------------------
@@ -36,7 +36,7 @@ ggplot(dsSkewPositive, aes(x=Systolic)) +
   geom_dotplot(binwidth=1, fill=paletteLight[2], color=paletteDark[2], method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewPositive$Systolic), to=max(dsSkewPositive$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Diastolic Blood Pressure")
 
 # ---- figure-02-03 ------------------------------------------------------
@@ -44,5 +44,5 @@ ggplot(dsSkewNegative, aes(x=Systolic)) +
   geom_dotplot(binwidth=1, fill=paletteLight[3], color=paletteDark[3], method="dotdensity") +
   scale_x_continuous(breaks=seq(from=min(dsSkewNegative$Systolic), to=max(dsSkewNegative$Systolic), by=1)) +
   scale_y_continuous(breaks=NULL) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Heart Rate")

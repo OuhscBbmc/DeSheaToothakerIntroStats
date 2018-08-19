@@ -4,7 +4,7 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
   scale_y_continuous(label=scales::percent) +
   scale_color_manual(values=PaletteObesityState) +
   coord_fixed() + 
-  chapterTheme +
+  theme_chapter +
   theme(legend.position=c(0, 1), legend.justification=c(0, 1)) +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)") +
   theme(legend.title=element_text(colour="gray40"), legend.text=element_text(colour="gray40"))  

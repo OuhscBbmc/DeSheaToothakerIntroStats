@@ -6,7 +6,7 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
 LimitRangeOfPoints <- function( y, min, max ) { 
   function( x ) {
@@ -105,4 +105,4 @@ ggplot(dsRho, aes(x=rhoPossible, y=PriorR)) + #, fill=TailLower
   geom_area(data=dsRho[dsRho$TailLower, ], aes(x=RhoPossible, y=PriorR), fill="tomato") +
   geom_area(data=dsRho[dsRho$TailUpper, ], aes(x=RhoPossible, y=PriorR), fill="tomato") +
   geom_line() +
-  chapterTheme
+  theme_chapter

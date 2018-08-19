@@ -8,7 +8,7 @@ requireNamespace("wesanderson")
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
 # ---- load-data ------------------------------------------------------
 
@@ -44,7 +44,7 @@ g1 <- ggplot(data.frame(f=xLimits), aes(x=f)) +
   scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c(-3, "", -1, 0, 1, "", 3)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   coord_cartesian(xlim=c(-3.9, 3.9), ylim=c(0, dnorm(0)*1.10))  +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(z)), y=NULL)
 
 DrawWithoutPanelClipping(g1)
@@ -78,7 +78,7 @@ ggplot(data.frame(f=c(0, 10.5)), aes(x=f)) +
   scale_x_continuous(expand=c(0,0)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(x=c(0, 10.5) -.1, y= f1(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(chi^2)), y=NULL)
 
 # ---- figure-14-04 ------------------------------------------------------
@@ -102,7 +102,7 @@ g3 <- ggplot(data.frame(f=c(0, 19.9)), aes(x=f)) +
   scale_x_continuous(expand=c(0,0), breaks=seq(0, 20, 2), labels=c(0, 2, 4, 6, 8, 10, "", 14, 16, 18, 20)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=fDf6(4) * 1.1) +
-  chapterTheme +
+  theme_chapter +
   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
   labs(x=expression(italic(chi^2)), y=NULL)
 
@@ -140,7 +140,7 @@ g5 <- ggplot(data.frame(f=c(0, 9.9)), aes(x=f)) +
   scale_x_continuous(expand=c(0,0), breaks=0:6*2, labels=c(0, 2, 4, "", 8, 10, 12)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=fDf2(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   theme(axis.text = element_text(colour="gray60")) + #Lighten so the critical values aren't interfered with
   labs(x=expression(italic(chi^2)), y=NULL)
 

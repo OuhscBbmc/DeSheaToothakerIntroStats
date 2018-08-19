@@ -15,10 +15,10 @@ pathTPValues <- "./tables/t-p-values.csv"
 pathFPValues <- "./tables/f-p-values.csv"
 pathChiSquarePValues <- "./tables/chi-square-p-values.csv"
 
-chapterTheme <- BookTheme + 
+theme_chapter <- theme_book + 
   theme(axis.ticks = element_blank())
 
-emptyTheme <- theme_minimal() +
+theme_empty <- theme_minimal() +
   theme(axis.text = element_blank()) +
   theme(axis.title = element_blank()) +
   theme(panel.grid = element_blank()) +

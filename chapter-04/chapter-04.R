@@ -11,9 +11,9 @@ source("./common-code/book-theme.R")
 
 calculatedPointCount <- 401
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
-emptyTheme <- theme_minimal() +
+theme_empty <- theme_minimal() +
   theme(axis.text = element_blank()) +
   theme(axis.title = element_blank()) +
   theme(panel.grid = element_blank()) +
@@ -25,20 +25,20 @@ emptyTheme <- theme_minimal() +
 dsFibromyalgia <- readr::read_csv("./data/fibromyalgia-tai-chi.csv")
 
 # ---- tweak-data ------------------------------------------------------
-dsFibromyalgiaT1Control <- dsFibromyalgia %>% 
-  dplyr::filter(dsFibromyalgia$Group=="Control") %>% 
-  dplyr::select(X=PsqiT1) %>% 
+dsFibromyalgiaT1Control <- dsFibromyalgia %>%
+  dplyr::filter(dsFibromyalgia$Group=="Control") %>%
+  dplyr::select(X=PsqiT1) %>%
   dplyr::mutate(
     biasedSDPsqiT1  = sd(X) * sqrt((n()-1) / n()),
     Z               = scale(x=.data$X, center=0, scale=min(.data$biasedSDPsqiT1))
-  ) %>% 
+  ) %>%
   dplyr::arrange(X)
 
 # ---- figure-04-01 ------------------------------------------------------
 breaksX <- seq(from=7, to=23, by=1)
 histogramX <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   geom_histogram(breaks=breaksX, fill=PaletteControlPsqiLight[1], color=PaletteControlPsqiDark[2], alpha=.6) +
-  chapterTheme +
+  theme_chapter +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank()) +
   labs(x="Control Group's Baseline PSQI", y="Number of Participants")
@@ -99,7 +99,7 @@ ggplot(dsPsqi, aes(x=X, xend=XEnd, y=Y, yend=YEnd,label=Label, group=1)) +
 
   scale_x_continuous(expand=c(0,0), limits=c(12, 18.1)) +
   scale_y_continuous(limits=c((yZ -tickRadius)*1.15, arrowHeight*1.3)) +
-  emptyTheme
+  theme_empty
 
 rm(tickRadius, yZ, groupMean, singleScore, singleZ, scaleSD, arrowHeight, zTicks,
    colorMeanDark, colorMeanLight, colorSingleDark, colorSingleLight, grayDark, grayLight)
@@ -116,7 +116,7 @@ histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(
 # histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=Z)) +
 #   geom_histogram(breaks=breaksZ, fill=PaletteControlPsqiLight[2], color="gray95", alpha=.6) +
 #   labs(x="Z", y=NULL) +
-#   chapterTheme +
+#   theme_chapter +
 #   theme(panel.grid.minor=element_blank()) +
 #   theme(panel.grid.major.x=element_blank()) +
 #   labs(x="Z Score for Baseline PSQI", y=NULL)
@@ -126,7 +126,7 @@ histogramXInset <- histogramX + scale_x_continuous(breaks=breaksXSparse) + labs(
 #   geom_histogram(breaks=breaksX-.01, fill=PaletteControlPsqiLight[2], color="gray95", alpha=.6) +
 # #   scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 2)) +
 #   labs(x="Z", y=NULL) +
-#   chapterTheme +
+#   theme_chapter +
 #   theme(panel.grid.minor=element_blank()) +
 #   theme(panel.grid.major.x=element_blank()) +
 #   labs(x="Z Score for Baseline PSQI", y=NULL)
@@ -135,7 +135,7 @@ histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
   #   geom_histogram(breaks=breaksX, fill="#037995", color="gray95", alpha=.6) +
   geom_histogram(breaks=breaksX, fill=PaletteControlPsqiLight[2], color=PaletteControlPsqiDark[2], alpha=.6) +
   scale_x_continuous(breaks=breaksXSparse, labels=round(breaksZSparse, 2)) +
-  chapterTheme +
+  theme_chapter +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank()) +
   labs(x=expression(italic(z)~Score~of~Baseline~PQSI), y=NULL)
@@ -143,7 +143,7 @@ histogramZInset <- ggplot(dsFibromyalgiaT1Control, aes(x=X)) +
 gridExtra::grid.arrange(
   histogramXInset,
   histogramZInset,
-  left = grid::textGrob(label="Number Of Participants", rot=90, gp=grid::gpar(col="gray40")) #Sync this color with BookTheme
+  left = grid::textGrob(label="Number Of Participants", rot=90, gp=grid::gpar(col="gray40")) #Sync this color with theme_book
 )
 
 rm(breaksX, breaksZ, histogramX, histogramXInset, histogramZInset)
@@ -176,7 +176,7 @@ g4 <- ggplot(dsNorm, aes(x=Mean, xend=Mean, y=Mode, yend=0, color=Color)) +
   scale_x_continuous(limits=c(-3, 5)) +
   scale_color_identity() +
   scale_y_continuous(limits=c(0, max(dsNorm$Mode)*1.11), expand=c(0,0)) +
-  NoGridOrYLabelsTheme +
+  theme_no_grid_or_y_labels +
   theme(axis.title.y=element_blank()) +
   theme(axis.text.y=element_blank())
 g4
@@ -195,7 +195,7 @@ g1SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   scale_x_continuous(breaks=-2:2, labels=-2:2*sigma+mu) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Height (in inches)", y=NULL)
 
 g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
@@ -206,7 +206,7 @@ g2SD <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   scale_x_continuous(breaks=-2:2, labels=-2:2*sigma+mu) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Height (in inches)", y=NULL)
 
 #Position the two graphs side by side in the same plot
@@ -215,7 +215,7 @@ gridExtra::grid.arrange(g1SD, g2SD, ncol=2)
 rm(paletteZ, g1SD, g2SD)
 
 # ---- figure-04-07 ------------------------------------------------------
-zTableTheme <- theme_minimal() +
+them_z_table <- theme_minimal() +
   theme(panel.grid = element_blank()) +
   theme(axis.text.x = element_text(size=30, color="dodgerblue4")) +
   theme(panel.border = element_blank()) +
@@ -232,7 +232,7 @@ ConstructTableHeader <- function( leftBoundary, rightBoundary, singleZ, label ) 
     scale_x_continuous(breaks=c(0, singleZ), labels=c(0, label)) +
     scale_y_continuous(breaks=NULL, expand=c(0,0)) +
     expand_limits(y=dnorm(0) * 1.05) +
-    zTableTheme +
+    them_z_table +
     labs(x=NULL, y=NULL)
 }
 
@@ -270,7 +270,7 @@ g8Right <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(.05,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   theme(axis.text.x=element_blank()) +
   theme(panel.border = element_blank()) +
   labs(x=NULL, y=NULL)
@@ -287,7 +287,7 @@ g8Left <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(.05,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   theme(axis.text.x=element_blank()) +
   theme(panel.border = element_blank()) +
 #   theme(plot.margin=unit(c(.1,.2,.4,0), "lines")) +
@@ -317,7 +317,7 @@ gSingle <- ggplot(data.frame(z=-3:3), aes(x=z)) +
   scale_x_continuous(breaks=-2:2) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=dnorm(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(z)), y=NULL)
 
 gt <- ggplot_gtable(ggplot_build(gSingle))
@@ -337,7 +337,7 @@ g4 %+%
 g4 %+%
   aes(label=Label1) +
   geom_text(parse=TRUE, vjust=-.1) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(X)), y="Density")
 
 # ---- unused-variants-figure-04-08 ------------------------------------------------------

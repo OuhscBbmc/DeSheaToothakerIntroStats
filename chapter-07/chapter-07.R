@@ -12,9 +12,9 @@ requireNamespace("gridExtra")
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
-emptyTheme <- theme_minimal() +
+theme_empty <- theme_minimal() +
   theme(axis.text = element_blank()) +
   theme(axis.title = element_blank()) +
   theme(panel.grid = element_blank()) +
@@ -37,21 +37,21 @@ gSample <- ggplot(dsPregnancy, aes(x=T1Lifts)) +
 
 gSample +
   geom_histogram(binwidth=2.5, fill="#94583CAA", color="#601600", na.rm=T) + #http://colrd.com/palette/23827/
-  chapterTheme
+  theme_chapter
 
 # ---- figure-07-02 ------------------------------------------------------
 gSampleShrunk <- gSample +
   geom_histogram(binwidth=2.5, fill="#94583CAA", color="#94583C", na.rm=T) +
   scale_y_continuous(labels=NULL) +
   labs(x=NULL, y=NULL) +
-  NoGridOrYLabelsTheme
+  theme_no_grid_or_y_labels
 
 gMeanSample <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
   geom_blank() +
   scale_x_continuous(breaks=19.41) +
   scale_y_continuous(labels=NULL) +
   labs(x=NULL, y=NULL) +
-  NoGridOrYLabelsTheme
+  theme_no_grid_or_y_labels
 # gMeanSample
 
 gMeanPopulation <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
@@ -59,7 +59,7 @@ gMeanPopulation <- ggplot(data.frame(X=xLimits, Y=0:1), aes(x=X, y=Y)) +
   scale_x_continuous(breaks=21) +
   scale_y_continuous(labels=NULL) +
   labs(x=NULL, y=NULL) +
-  NoGridOrYLabelsTheme
+  theme_no_grid_or_y_labels
 # gMeanPopulation
 
 gridExtra::grid.arrange(
@@ -67,7 +67,7 @@ gridExtra::grid.arrange(
   gMeanSample,
   gMeanPopulation,
   ncol = 3L,
-  left = grid::textGrob(label="Frequency", rot=90, gp=grid::gpar(col="gray40")) #Sync this color with BookTheme
+  left = grid::textGrob(label="Frequency", rot=90, gp=grid::gpar(col="gray40")) #Sync this color with theme_book
 )
 rm(gSample, gSampleShrunk, gMeanSample, gMeanPopulation)
 
@@ -79,7 +79,7 @@ ggplot(dsNorm, aes(x=X)) +
   scale_y_continuous(expand=c(0,0), labels=NULL) +
   expand_limits(y=max(dnorm(0)*1.07)) +
   labs(x=expression(mu), y=NULL) +
-  NoGridOrYLabelsTheme
+  theme_no_grid_or_y_labels
 rm(dsNorm)
 
 # ---- figure-07-04 ------------------------------------------------------
@@ -93,7 +93,7 @@ ggplot(dsUniform, aes(x=X)) +##############################
   scale_y_continuous(breaks=0:2) +
   labs(title=NULL, x="Scores", y="Frequency") +
   #labs(title="\nPopulation of 12 Scores", x="Scores", y="Frequency") +
-  chapterTheme +
+  theme_chapter +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())
 
@@ -108,7 +108,7 @@ ggplot(dsUniform, aes(x=X, y=Y)) +
   labs(title=NULL, x="Mean of Two Scores", y="Frequency") +
   #labs(title="All Possible Means (N=2)\nfrom Limited Population", x="Sum of Two Scores", y="Frequency") +
   #labs(title=expression(atop(All*phantom(1)*Possible*phantom(1)*Means*phantom(1)*(italic(N)==2),from*phantom(1)*Limited*phantom(1)*Population)), x="Sum of Two Scores", y="Frequency") +
-  chapterTheme +
+  theme_chapter +
   theme(panel.grid.minor=element_blank()) +
   theme(panel.grid.major.x=element_blank())
 
@@ -121,6 +121,6 @@ ggplot(dsNorm, aes(x=X)) +
   scale_y_continuous(expand=c(0,0), labels=NULL) +
   expand_limits(y=max(dnorm(0)*1.07)) +
   labs(x=NULL, y=NULL) +
-  NoGridOrYLabelsTheme +
+  theme_no_grid_or_y_labels +
   theme(axis.text.x=element_text(size=16))
 rm(dsNorm)

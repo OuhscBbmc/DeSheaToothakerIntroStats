@@ -12,7 +12,7 @@ requireNamespace("rgl")
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
 feedingLevels <- c("Breast", "Bottle", "Both")
 # paletteFeedingFull <- c("#ea573d", "#d292cd", "#fb9a62", "#fbc063", "#70af81", "#64b0bc", "#446699", "#615b70") #http://colrd.com/palette/28063/
@@ -33,7 +33,7 @@ paletteCryBoxLight <- adjustcolor(paletteCryBox, alpha.f=.2)
 palettePlacidSeas <- c("#fefefe","#1c5f83","#7ebea5","#f3d6a8","#3c765f","#5cbddd","#986a46") #http://colrd.com/image-dna/23557/
 palettePlacidSeasMedium <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.4)
 palettePlacidSeasLight <- grDevices::adjustcolor(palettePlacidSeas, alpha.f=.1)
-colorTheme <- "gray40"
+theme_color <- "gray40"
 colorAxes <- "black"
 
 # ---- load-data ------------------------------------------------------
@@ -50,7 +50,7 @@ gObesity <- ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate)) +
   scale_x_continuous(label=scales::percent) +
   scale_y_continuous(label=scales::percent) +
   coord_fixed(xlim=c(.09, .27), ylim=c(.19, .37)) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Food Hardship Rate (in 2011)", y="Obesity Rate (in 2011)")
 
 gObesity
@@ -94,7 +94,7 @@ gCriticalR <- ggplot(dsRho, aes(x=RhoPossible, y=PriorR)) + #, fill=TailLower
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(x=c(-1, 1) * 1.05, y=max(dsRho$PriorR) * 1.2) +
 
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(r)), y=NULL)
 
 DrawWithoutPanelClipping(gCriticalR)
@@ -108,7 +108,7 @@ gStraightUp <- ggplot(dsStairsUp, aes(x=X, y=Y)) +
   scale_x_continuous(breaks=dsStairsUp$X) +
   scale_y_continuous(breaks=dsStairsUp$Y) +
   coord_equal() +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(X)), y=expression(italic(Y)), parse=T)
 gStraightUp
 
@@ -130,7 +130,7 @@ gStraightDown <- ggplot(dsStairsDown, aes(x=X, y=Y)) +
   geom_point(shape=21, size=3, color=palettePlacidSeas[5], fill=palettePlacidSeasMedium[5]) +
   scale_y_continuous(labels=scales::dollar) +
   coord_equal(xlim=c(-1, 21), ylim=c(-1, 21)) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Number of Newspapers Picked Up", y="Amount Left in Fund")
 gStraightDown
 
@@ -154,7 +154,7 @@ ggplot(dsNewspaperDelay, aes(x=X, y=Y)) +
   scale_x_continuous(breaks=seq(0, 10, by=2)) +
   scale_y_continuous(breaks=seq(-2, 8, by=2)) +
   coord_equal(xlim=c(-1, 10.5), ylim=c(-3, 8.5)) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Number of Days Out of Town", y="Number of Newspapers Picked Up")
 
 # ---- figure-13-10 ------------------------------------------------------
@@ -169,7 +169,7 @@ ggplot(dsBarb, aes(x=X, y=Y)) +
   scale_x_continuous(breaks=seq(0, 8, by=2)) +
   scale_y_continuous(breaks=seq(0, 60, by=10), labels=scales::dollar) +
   coord_cartesian(ylim=c(-1, 61)) +
-  chapterTheme +
+  theme_chapter +
   labs(x="Number of Days Out of Town", y="Amount Owed to Barb")
 
 # ---- figure-13-11 ------------------------------------------------------
@@ -221,8 +221,8 @@ Graph3DMVNorm <- function( rho=0, theta=0, phi=-35 ) {
   # bg3d(color="#887777")
   rgl::light3d()
   rgl::terrain3d(points, points, zMatrix * zScale, color=palettePlacidSeas[3], front="lines", back="fill")
-  rgl::axis3d("x-", col=colorTheme)
-  rgl::axis3d("y-", col=colorTheme)
+  rgl::axis3d("x-", col=theme_color)
+  rgl::axis3d("y-", col=theme_color)
   rgl::mtext3d(text="X", edge="x-", labels=TRUE, line=2)
   rgl::mtext3d(text="Y", edge="y-", labels=TRUE, line=2)
   #   rgl.lines(x=c(-boundary,boundary), y=c(0,0), z=c(0,0), color=palettePlacidSeas[5], lwd=3)
@@ -245,5 +245,5 @@ Graph3DMVNorm(rho=0.6)
 #   geom_vline(color=palettePlacidSeas[5], size=1) +
 #   geom_point(shape=21, size=3, color=palettePlacidSeasMedium[3], fill=palettePlacidSeasLight[3]) +
 #   coord_equal(xlim=c(-2.5, 2.5), ylim=c(-2.5, 2.5)) +
-#   chapterTheme +
+#   theme_chapter +
 #   labs(x=expression(italic(X)), y=expression(italic(Y)), parse=T)

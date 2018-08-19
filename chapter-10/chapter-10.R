@@ -11,7 +11,7 @@ requireNamespace("readr")
 source("./common-code/book-theme.R")
 calculatedPointCount <- 401*4
 
-chapterTheme <- BookTheme
+theme_chapter <- theme_book
 
 # ---- load-data ------------------------------------------------------
 # 'ds' stands for 'datasets'
@@ -31,7 +31,7 @@ ggplot(data.frame(z=-5:5), aes(x=z)) +
   scale_x_continuous(expand=c(0,0)) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(x=c(-5, 5) * 1.05, y=dnorm(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   labs(x=NULL, y=NULL)
 
 # ---- figure-10-03 ------------------------------------------------------
@@ -54,7 +54,7 @@ gCritical <- ggplot(data.frame(t=-3.5:3.5), aes(x=t)) +
   scale_x_continuous(expand=c(0,0), breaks=-3:3, labels=c("-3", "", "-1", "0", "1", "", "3")) +
   scale_y_continuous(breaks=NULL, expand=c(0,0)) +
   expand_limits(y=t30(0) * 1.05) +
-  chapterTheme +
+  theme_chapter +
   labs(x=expression(italic(t)), y=NULL)
 
 DrawWithoutPanelClipping(gCritical)
@@ -90,7 +90,7 @@ ggplot(dsTaiChiSummary, aes(x=Group, y=M, color=Group, fill=Group, ymin=Lower, y
   scale_color_manual(values=paletteTaiChiDark) +
   scale_fill_manual(values= paletteTaiChiLight) +
   coord_cartesian(ylim=c(0, max(dsTaiChiSummary$Upper) *1.05)) +
-  chapterTheme +
+  theme_chapter +
   theme(legend.position="none") +
   labs(x=NULL, y="Mean Week 24 FIQ")
 

@@ -2,11 +2,11 @@
 # before installing the `extrafont` package.
 #Run the following three lines of code once per machine (not once per session).
 # install.packages("extrafont")
-# library(extrafont) 
+# library(extrafont)
 # extrafont::font_import()
 # extrafont::fonts() #This just lists the available fonts for you to read; similar to extrafont::fonttable()
 
-requireNamespace("extrafont") 
+requireNamespace("extrafont")
 requireNamespace("grid")
 requireNamespace("ggplot2")
 requireNamespace("dichromat")
@@ -16,14 +16,14 @@ requireNamespace("RColorBrewer")
 # Define theme elements for ggplot2 graphs
 
 # Documentation for modifiable theme elements can be found at http://docs.ggplot2.org/current/theme.html
-BookTheme <- theme_bw() +
+theme_book <- theme_bw() +
   theme(axis.ticks.length     = grid::unit(0, "cm")) +
   theme(axis.text             = element_text(colour="gray40")) +
   theme(axis.title            = element_text(colour="gray40")) +
   theme(panel.border          = element_rect(colour="gray80")) +
   theme(axis.ticks            = element_line(colour="gray80"))
 
-NoGridOrYLabelsTheme <- BookTheme  + 
+theme_no_grid_or_y_labels <- theme_book  + 
   theme(axis.ticks.y          = element_blank()) +
   theme(panel.grid            = element_blank()) +
   theme(plot.margin           = unit(c(.1,.2,.2,0), "lines"))
@@ -77,7 +77,7 @@ rm(bluish, greenish)
 # Declare functions used in multiple chapters
 
 #This function is directly from Recipe 13.3 in Chang (2013).
-LimitRange <- function( fun, min, max ) { 
+LimitRange <- function( fun, min, max ) {
   function( x ) {
     y <- fun(x)
     y[(x < min) | (max < x)] <- NA
@@ -96,17 +96,17 @@ TukeyBoxplot <- function(y, width=.9, na.rm = FALSE, coef = 1.5, ...) {
   qs <- c(0, 0.25, 0.5, 0.75, 1)
   stats <- as.numeric(quantile(y, qs, type=5))
   names(stats) <- c("ymin", "lower", "middle", "upper", "ymax")
-  
+
   iqr <- diff(stats[c(2, 4)])
-  
+
   outliers <- y < (stats[2] - coef * iqr) | y > (stats[4] + coef * iqr)
-  if (any(outliers)) stats[c(1, 5)] <- range(c(stats[2:4], y[!outliers]), na.rm=TRUE)    
-  
+  if (any(outliers)) stats[c(1, 5)] <- range(c(stats[2:4], y[!outliers]), na.rm=TRUE)
+
   df <- as.data.frame(as.list(stats))
   df$outliers <- I(list(y[outliers]))
-  
-  n <- sum(!is.na(y)) 
-  
+
+  n <- sum(!is.na(y))
+
   df$notchupper <- df$middle + 1.58 * iqr / sqrt(n)
   df$notchlower <- df$middle - 1.58 * iqr / sqrt(n)
   df$width <- width
@@ -123,10 +123,10 @@ RemoveLeadingZero <- function( x ) {
 
 WrapColumns <- function( d, wrapCount=3L ) {
   rowCountOriginal <- nrow(d)
-  columnCountOriginal <- ncol(d)  
+  columnCountOriginal <- ncol(d)
   pad <- ((rowCountOriginal %% wrapCount) > 0)
   rowCount <- (rowCountOriginal %/% wrapCount) + as.integer(pad)
-  
+
   dt <- matrix(NA, nrow=rowCount, ncol=columnCountOriginal*wrapCount)
   for( wrapIndex in seq_len(wrapCount) ) {
     columnIndices <- (wrapIndex-1)*columnCountOriginal + seq_len(columnCountOriginal)
@@ -145,7 +145,7 @@ WrapColumns <- function( d, wrapCount=3L ) {
 ## These three lines will use a nondefault font.
 # extrafont::loadfonts() #Run this once per session.
 # Sys.setenv(R_GSCMD = "C:/Program Files/gs/gs9.10/bin/gswin64c.exe")
-# BookTheme <- BookTheme +  theme(text = element_text(family="Times New Roman"))
+# theme_book <- theme_book +  theme(text = element_text(family="Times New Roman"))
 
 # ---------------------------------------------------------------------------------------------
 # Internal notes

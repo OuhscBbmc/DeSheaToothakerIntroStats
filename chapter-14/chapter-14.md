@@ -65,7 +65,7 @@ Session info ------------------------------------------------------------------
  language (EN)                        
  collate  en_US.UTF-8                 
  tz       America/Chicago             
- date     2018-08-18                  
+ date     2018-08-19                  
 ```
 
 ```
@@ -109,11 +109,9 @@ Packages ----------------------------------------------------------------------
  knitr            * 1.20       2018-02-20 CRAN (R 3.5.1)                  
  labeling           0.3        2014-08-23 CRAN (R 3.5.1)                  
  later              0.7.3      2018-06-08 CRAN (R 3.5.1)                  
- lattice            0.20-35    2017-03-25 CRAN (R 3.5.0)                  
  lazyeval           0.2.1      2017-10-29 CRAN (R 3.5.1)                  
  magrittr           1.5        2014-11-22 CRAN (R 3.5.1)                  
  manipulateWidget   0.10.0     2018-06-11 cran (@0.10.0)                  
- Matrix             1.2-14     2018-04-09 CRAN (R 3.5.0)                  
  memoise            1.1.0      2017-04-21 CRAN (R 3.5.1)                  
  methods          * 3.5.1      2018-07-03 local                           
  mime               0.5        2016-07-07 CRAN (R 3.5.1)                  
@@ -159,7 +157,7 @@ Packages ----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2018-08-18, 16:54 -0500 in 10 seconds.
+Report rendered by wibeasley at 2018-08-19, 22:37 -0500 in 15 seconds.
 
 
 ## License

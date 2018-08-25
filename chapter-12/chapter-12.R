@@ -294,6 +294,8 @@ gCrying1 <- ggplot(dsCryNotCeiling, aes(x=CryingDuration)) +
 #   annotate(geom="text", x=cryMax, y=Inf, label="Baby Who\nCried Most", hjust=.5, vjust=-.1, color=paletteCryHistogram[1], size=4, lineheight=.8) +
   scale_y_continuous(limits=c(0, 15.2), expand=c(0,0)) +
   theme_chapter +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(panel.grid.minor.x = element_blank()) +
   labs(x="Crying Duration", y="Frequency", title="")
 
 #This used to be figure 12_10 (but was deleted)

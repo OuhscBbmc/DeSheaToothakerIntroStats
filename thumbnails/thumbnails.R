@@ -7,12 +7,6 @@ library(magrittr)
 url_repo      <- "https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master"
 image_width   <- 300L
 
-display <- function( path ) {
-  # cat(path, "\n\n")
-  # cat(sprintf("[![%s](%s)](%s)\n\n", basename(path), path, "path"))
-  cat(sprintf("![%s](../%s)\n\n", basename(path), path))
-}
-
 # ---- load-data ------------------------------------------------------
 files <- list.files(
   recursive = T,
@@ -31,17 +25,22 @@ ds <- files[1:20] %>%
     path_remote   = file.path(url_repo, file)
   ) %>% 
   dplyr::mutate(
-    link = sprintf(
+    link_image = sprintf(
       '<a href="%s"><img border="0" alt="%s" src="%s" width="%i"></a>',
       path_remote,
       caption,
       path_local,
       image_width
     )
-    # md            = sprintf("![%s](%s)\n\n", caption, path),
-    # entry     = md
+  ) %>% 
+  dplyr::mutate(
+    link_caption = sprintf(
+      "[%s](%s)",
+      caption,
+      path_remote
+    )
   )
-ds
+# ds
 # <a href="https://www.w3schools.com"><img border="0" alt="W3Schools" src="logo_w3s.gif" width="100"></a>
 
 # ---- tweak-data ------------------------------------------------------
@@ -49,12 +48,9 @@ ds
 
 
 # ---- display ----------------------------------------------------------
-
-# ds$entry[1:15] %>%
-#   # dplyr::slice(1:15) %>%
-#   purrr::pwalk(function(x) cat(x, "\n"))
-cat(ds$link[1:15], sep="\n")
-# purrr::pwalk(~cat(., "\n"))
-
-# files[1:10] %>% 
-#   purrr::walk(display)
+ds %>% 
+  dplyr::select(
+    name    = link_caption, 
+    image   = link_image
+  ) %>% 
+  knitr::kable()

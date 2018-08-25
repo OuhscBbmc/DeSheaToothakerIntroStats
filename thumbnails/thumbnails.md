@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+    self_contained: false
 ---
 
 All Figures in Book
@@ -245,7 +246,7 @@ Packages ----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2018-08-24, 22:46 -0500 in 2 seconds.
+Report rendered by wibeasley at 2018-08-24, 23:21 -0500 in 3 seconds.
 
 
 ## License

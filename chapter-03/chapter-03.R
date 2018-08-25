@@ -89,6 +89,7 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   coord_flip() +
   theme_bw() +
   theme(legend.position = "none") +
+  theme(panel.grid.major.y = element_blank()) +
   labs(x=NULL, y="Number of Participants")
 
 # ---- figure-03-05 ------------------------------------------------------
@@ -100,6 +101,7 @@ ggplot(dsPregnancySummarized, aes(x=DeliveryMethod, y=Count, fill=DeliveryMethod
   theme_chapter +
   theme(legend.position = "none") +
   theme(axis.text.y=element_text(size=14)) +
+  theme(panel.grid.major.y = element_blank()) +
   labs(x=NULL, y="Number of Participants")
 
 # ---- figure-03-07 ------------------------------------------------------
@@ -112,7 +114,7 @@ ggplot(dsObesity[dsObesity$Location=="South", ], aes(x=ObesityRate, y=State)) +
   geom_point(size=3, shape=21, color=PaletteObesityState[2], fill=adjustcolor(PaletteObesityState[2], alpha.f=.5)) +
   scale_x_continuous(label=scales::percent) +
   theme_chapter +
-  theme(panel.grid.major.y= element_blank()) +
+  theme(panel.grid.major.y = element_blank()) +
   labs(title="Obesity Rate in 2011", x="Percent of Residents in a State", y=NULL)
 
 # ---- figure-03-08 ------------------------------------------------------
@@ -156,6 +158,8 @@ ggplot(dsObesity, aes(x=FoodHardshipRate, y=ObesityRate, label=State, color=Loca
 ggplot(dsPregnancy, aes(x=T5Lifts)) +
   geom_histogram(binwidth=2.5, fill="coral3", color="coral4", alpha=.6, na.rm=T) + #Be a little darker than the previous boxplot
   theme_chapter +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(panel.grid.minor.x = element_blank()) +
   labs(x="Number of Lifts in 1 min (at Time 5)", y="Number of Participants")
 
 # ---- figure-03-11 ------------------------------------------------------
@@ -163,6 +167,8 @@ ggplot(dsObesity, aes(x=ObesityRate)) +
   geom_histogram(binwidth=.01, fill="salmon2", color="salmon3", alpha=.6) + #Be a little darker than the previous boxplot
   scale_x_continuous(label=scales::percent) +
   theme_chapter +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(panel.grid.minor.x = element_blank()) +
   labs(x="Obesity Rate (in 2011)", y="Number of States")
 
 # ---- figure-03-12 ------------------------------------------------------
@@ -227,6 +233,7 @@ ggplot(dsPregnancy, aes(x=Group, y=BabyWeightInKG, fill=Group)) +
   scale_fill_manual(values=PalettePregancyGroup) +
   theme_chapter +
   theme(legend.position="none") +
+  theme(panel.grid.major.x = element_blank()) +
   labs(x=NULL, y="Baby Birth Weight (in kg)")
 
 # ---- figure-03-18 ------------------------------------------------------
@@ -235,6 +242,7 @@ g <- ggplot(dsPregnancy, aes(x=DeliveryMethod, y=BabyWeightInKG, fill=DeliveryMe
   stat_summary(fun.data=TukeyBoxplot, geom='boxplot', outlier.shape=1, outlier.size=4, alpha=.5) +
   scale_fill_manual(values=PalettePregancyDelivery) +
   theme_chapter +
+  theme(panel.grid.major.x = element_blank()) +
   theme(legend.position="none") + labs(x=NULL, y="Baby Birth Weight (in kg)")
 g
 #
@@ -262,6 +270,7 @@ g03_19 <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group)) +
   scale_fill_manual(values=PalettePregancyGroup) +
   theme_chapter +
   theme(legend.position="none") +
+  theme(panel.grid.major.y = element_blank()) +
   labs(x=NULL, y="Mean Number of Lifts (at Time 1)")
 
 g03_19 + coord_flip(ylim = c(18, 21))
@@ -284,6 +293,7 @@ ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   theme_chapter +
   theme(legend.position="none") +
+  theme(panel.grid.major.y = element_blank()) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
 
 # ---- figure-03-22 ------------------------------------------------------
@@ -302,6 +312,7 @@ gBox <- ggplot(dsPregnancy, aes(x=Group, y=T1Lifts, fill=Group, color=Group)) +
   coord_flip(ylim = c(0, 1.05*max(dsPregnancy$T1Lifts, na.rm=T))) +
   theme_chapter +
   theme(legend.position="none") +
+  theme(panel.grid.major.y = element_blank()) +
   labs(x=NULL, y="Number of Lifts (at Time 1)")
 gBox
 

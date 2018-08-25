@@ -92,8 +92,10 @@ ggplot(dsTaiChiSummary, aes(x=Group, y=M, color=Group, fill=Group, ymin=Lower, y
   coord_cartesian(ylim=c(0, max(dsTaiChiSummary$Upper) *1.05)) +
   theme_chapter +
   theme(legend.position="none") +
+  theme(panel.grid.major.x = element_blank()) +
   labs(x=NULL, y="Mean Week 24 FIQ")
 
 m <- lm(FiqT2 ~ 1 + Group, data=dsTaiChi )
 summary(m)
 dsTaiChiSummary
+

@@ -2,9 +2,11 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 
 # ---- load-packages ------------------------------------------------------
 library(magrittr)
+library(rlang)
 
 # ---- declare-globals ------------------------------------------------------
 url_repo      <- "https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master"
+pattern_code  <- "^(https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/.+?/).+$"
 image_width   <- 300L
 
 # ---- load-data ------------------------------------------------------
@@ -22,7 +24,8 @@ ds <- files[1:20] %>%
   dplyr::mutate(
     caption       = basename(file),
     path_local    = paste0("../", file),
-    path_remote   = file.path(url_repo, file)
+    path_remote   = file.path(url_repo, file),
+    path_code     = sub(pattern_code, "\\1", .data$path_remote)
   ) %>% 
   dplyr::mutate(
     link_image = sprintf(
@@ -37,7 +40,7 @@ ds <- files[1:20] %>%
     link_caption = sprintf(
       "[%s](%s)",
       caption,
-      path_remote
+      path_code
     )
   )
 # ds

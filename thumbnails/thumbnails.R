@@ -17,7 +17,7 @@ files <- list.files(
   pattern   = "*.png"
 )
 
-ds <- files[1:20] %>% 
+ds <- files %>% 
   tibble::tibble(
     file = .
   ) %>% 

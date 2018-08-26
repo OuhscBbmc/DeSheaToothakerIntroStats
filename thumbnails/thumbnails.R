@@ -56,4 +56,6 @@ ds %>%
     name    = link_caption, 
     image   = link_image
   ) %>% 
-  knitr::kable()
+  knitr::kable(
+    format = "markdown" # Force markdown (not pandoc) tables, in order to display better in GitHub
+  )

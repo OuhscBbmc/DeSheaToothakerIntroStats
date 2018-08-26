@@ -8,6 +8,9 @@ This repository contain graphing code to accompany the book, [*Introductory Stat
 ---
 
 ## View the graphs
+
+[Thumbnails](thumbails/thumbnails.md) of all chapters.
+
 | Chapter| Title (click below to see a chapter's graphs) |
 |---:|:----|
 | 1 | [The Frontier Between Knowledge and Ignorance](https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/chapter-01/chapter-01.md) |

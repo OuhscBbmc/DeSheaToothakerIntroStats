@@ -57,7 +57,7 @@ Session info ------------------------------------------------------------------
  language (EN)                        
  collate  en_US.UTF-8                 
  tz       America/Chicago             
- date     2018-08-19                  
+ date     2018-08-25                  
 ```
 
 ```
@@ -77,7 +77,7 @@ Packages ----------------------------------------------------------------------
  datasets     * 3.5.1   2018-07-03 local         
  devtools       1.13.6  2018-06-27 CRAN (R 3.5.1)
  dichromat      2.0-0   2013-01-24 CRAN (R 3.5.1)
- digest         0.6.15  2018-01-28 CRAN (R 3.5.1)
+ digest         0.6.16  2018-08-22 CRAN (R 3.5.1)
  dplyr          0.7.6   2018-06-29 CRAN (R 3.5.1)
  evaluate       0.11    2018-07-17 CRAN (R 3.5.1)
  extrafont      0.17    2014-12-08 CRAN (R 3.5.1)
@@ -124,7 +124,7 @@ Packages ----------------------------------------------------------------------
 
 
 
-Report rendered by wibeasley at 2018-08-19, 22:31 -0500 in 6 seconds.
+Report rendered by wibeasley at 2018-08-25, 19:54 -0500 in 6 seconds.
 
 
 ## License

@@ -9,7 +9,7 @@ This repository contain graphing code to accompany the book, [*Introductory Stat
 
 ## View the graphs
 
-[Thumbnails](thumbails/thumbnails.md) of all chapters.
+[Thumbnails](thumbnails/thumbnails.md) of all chapters.
 
 | Chapter| Title (click below to see a chapter's graphs) |
 |---:|:----|

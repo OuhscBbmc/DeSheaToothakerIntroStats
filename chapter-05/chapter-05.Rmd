@@ -30,76 +30,76 @@ opts_chunk$set(
   # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
-echoChunks <- FALSE
+echo_chunks <- FALSE
 options(width=80) # Default width
 read_chunk("./chapter-05/chapter-05.R")
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
-```{r load-packages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
-```{r declare-globals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load the datasets.   -->
-```{r load-data, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r tweak-data, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echo_chunks, message=FALSE}
 ```
 
 ## Figure 5-1
-```{r figure-05-01, echo=echoChunks}
+```{r figure-05-01, echo=echo_chunks}
 ```
 
 ## Figure 5-2
-```{r figure-05-02, echo=echoChunks}
+```{r figure-05-02, echo=echo_chunks}
 ```
 
 ## Figure 5-3
-```{r figure-05-03, echo=echoChunks}
+```{r figure-05-03, echo=echo_chunks}
 ```
 
 ## Figure 5-4
-```{r figure-05-04, echo=echoChunks}
+```{r figure-05-04, echo=echo_chunks}
 ```
 
 ## Figure 5-5
-```{r figure-05-05, echo=echoChunks}
+```{r figure-05-05, echo=echo_chunks}
 ```
 
 ## Figure 5-6
-```{r figure-05-06, echo=echoChunks}
+```{r figure-05-06, echo=echo_chunks}
 ```
 
 ## Figure 5-7
-```{r figure-05-07, echo=echoChunks}
+```{r figure-05-07, echo=echo_chunks}
 ```
 
 ## Figure 5-8
-```{r figure-05-08, echo=echoChunks}
+```{r figure-05-08, echo=echo_chunks}
 ```
 
 ## Figure 5-9
-```{r figure-05-09, echo=echoChunks}
+```{r figure-05-09, echo=echo_chunks}
 ```
 
 ## Figure 5-10
-```{r figure-05-10, echo=echoChunks}
+```{r figure-05-10, echo=echo_chunks}
 ```
 
 ## Figure 5-11
-```{r figure-05-11, echo=echoChunks}
+```{r figure-05-11, echo=echo_chunks}
 ```
 
 ## Figure 5-12
-```{r figure-05-12, echo=echoChunks}
+```{r figure-05-12, echo=echo_chunks}
 ```
 
 ## Figure 5-13

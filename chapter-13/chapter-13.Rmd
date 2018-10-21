@@ -32,93 +32,93 @@ opts_chunk$set(
 )
 # knit_hooks$set(webgl = hook_webgl)
 
-echoChunks <- FALSE
+echo_chunks <- FALSE
 options(width=80) # Default width
 read_chunk("./chapter-13/chapter-13.R")
 
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
-```{r load-packages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
-```{r declare-globals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load the datasets. -->
-```{r load-data, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r tweak-data, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echo_chunks, message=FALSE}
 ```
 
 ## Figure 13-1
-```{r figure-13-01, echo=echoChunks}
+```{r figure-13-01, echo=echo_chunks}
 ```
 
 ## Figure 13-2
-```{r figure-13-02, echo=echoChunks, fig.height=2, fig.width=5.5,  out.width="550px"}
+```{r figure-13-02, echo=echo_chunks, fig.height=2, fig.width=5.5,  out.width="550px"}
 ```
 
 ## Figure 13-3
-```{r figure-13-03, echo=echoChunks}
+```{r figure-13-03, echo=echo_chunks}
 ```
 
 ## Figure 13-4
-```{r figure-13-04, echo=echoChunks}
+```{r figure-13-04, echo=echo_chunks}
 ```
 
 ## Figure 13-5
-```{r figure-13-05, echo=echoChunks}
+```{r figure-13-05, echo=echo_chunks}
 ```
 
 ## Figure 13-6
-```{r figure-13-06, echo=echoChunks}
+```{r figure-13-06, echo=echo_chunks}
 ```
 
 ## Figure 13-7
-```{r figure-13-07, echo=echoChunks}
+```{r figure-13-07, echo=echo_chunks}
 ```
 
 ## Figure 13-8
-```{r figure-13-08, echo=echoChunks}
+```{r figure-13-08, echo=echo_chunks}
 ```
 
 ## Figure 13-09
-```{r figure-13-09, echo=echoChunks}
+```{r figure-13-09, echo=echo_chunks}
 ```
 
 ## Figure 13-10
-```{r figure-13-10, echo=echoChunks}
+```{r figure-13-10, echo=echo_chunks}
 ```
 
 ## Figure 13-11
-```{r figure-13-11, echo=echoChunks}
+```{r figure-13-11, echo=echo_chunks}
 ```
 
 ## Figure 13-12
-```{r figure-13-12, echo=echoChunks}
+```{r figure-13-12, echo=echo_chunks}
 ```
 
 ## Figure 13-13
-```{r figure-13-13, echo=echoChunks}
+```{r figure-13-13, echo=echo_chunks}
 ```
 
 ## Figure 13-14
-```{r figure-13-14, echo=echoChunks}
+```{r figure-13-14, echo=echo_chunks}
 ```
 
 ## Not used #1
-```{r NotUsed13_01, echo=echoChunks, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
+```{r NotUsed13_01, echo=echo_chunks, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
 ```
 
 ## Not used #2
-```{r NotUsed13_02, echo=echoChunks, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
+```{r NotUsed13_02, echo=echo_chunks, webgl=TRUE, out.width = "600px", fig.width= 1, fig.height = 1}
 ```
 
 <!-- The footer that's common to all reports. -->

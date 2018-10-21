@@ -32,31 +32,31 @@ opts_chunk$set(
   # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
-echoChunks <- FALSE
+echo_chunks <- FALSE
 options(width=80) # Default width
 read_chunk("./thumbnails/thumbnails.R")
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
-```{r load-packages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
-```{r declare-globals, echo=echoChunks, results='show', message=FALSE}
+```{r declare-globals, echo=echo_chunks, results='show', message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load the datasets.   -->
-```{r load-data, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r tweak-data, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echo_chunks, message=FALSE}
 ```
 
-```{r display, echo=echoChunks, results='asis'}
+```{r display, echo=echo_chunks, results='asis'}
 ```
 
 <!-- The footer that's common to all reports. -->

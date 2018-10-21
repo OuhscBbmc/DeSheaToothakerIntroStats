@@ -30,40 +30,40 @@ opts_chunk$set(
   # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
-echoChunks <- FALSE
+echo_chunks <- FALSE
 options(width=80) # Default width
 read_chunk("./chapter-10/chapter-10.R")
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
-```{r load-packages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
-```{r declare-globals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load the datasets. -->
-```{r load-data, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r tweak-data, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echo_chunks, message=FALSE}
 ```
 
 ## Figure 10-1
-```{r figure-10-01, echo=echoChunks}
+```{r figure-10-01, echo=echo_chunks}
 ```
 
 ## Figure 10-3
-```{r figure-10-03, echo=echoChunks}
+```{r figure-10-03, echo=echo_chunks}
 ```
 
 ## Figure 10-4
-```{r figure-10-04, echo=echoChunks, fig.width=3, out.width="300px"}
+```{r figure-10-04, echo=echo_chunks, fig.width=3, out.width="300px"}
 ```
 
 <!-- The footer that's common to all reports. -->

@@ -31,69 +31,69 @@ opts_chunk$set(
   # dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
-echoChunks <- FALSE
+echo_chunks <- FALSE
 options(width=80) # Default width
 read_chunk("./chapter-04/chapter-04.R")
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
-```{r load-packages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
-```{r declare-globals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load the datasets.   -->
-```{r load-data, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets.   -->
-```{r tweak-data, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echo_chunks, message=FALSE}
 ```
 
 ## Figure 4-1
-```{r figure-04-01, echo=echoChunks, fig.height=3}
+```{r figure-04-01, echo=echo_chunks, fig.height=3}
 ```
 
 ## Figure 4-2
-```{r figure-04-02, echo=echoChunks, fig.height=3}
+```{r figure-04-02, echo=echo_chunks, fig.height=3}
 ```
 
 ## Figure 4-3
-```{r figure-04-03, echo=echoChunks, fig.height=6}
+```{r figure-04-03, echo=echo_chunks, fig.height=6}
 ```
 
 ## Figure 4-4
-```{r figure-04-04, echo=echoChunks, fig.height=3}
+```{r figure-04-04, echo=echo_chunks, fig.height=3}
 ```
 
 ## Figure 4-5
-```{r figure-04-05, echo=echoChunks, fig.height=2, out.width="550px"}
+```{r figure-04-05, echo=echo_chunks, fig.height=2, out.width="550px"}
 ```
 
 ## Figure 4-6
 See Table A: Standard normal distribution.
 
 ## Figures 4-7
-```{r figure-04-07, echo=echoChunks, fig.height=3, fig.width=4.5, out.width="300px"}
+```{r figure-04-07, echo=echo_chunks, fig.height=3, fig.width=4.5, out.width="300px"}
 ```
 
 ## Figure 4-8
-```{r figure-04-08, echo=echoChunks, fig.width=3.5, fig.height=1.5, out.width="350px"}
+```{r figure-04-08, echo=echo_chunks, fig.width=3.5, fig.height=1.5, out.width="350px"}
 ```
 
 ## Figure 4-9
-```{r figure-04-09, echo=echoChunks, fig.height=3}
+```{r figure-04-09, echo=echo_chunks, fig.height=3}
 ```
 
 ## Unused Graphics
-```{r unused-variants-figure-04-04, echo=echoChunks, fig.height=3}
+```{r unused-variants-figure-04-04, echo=echo_chunks, fig.height=3}
 ```
-```{r unused-variants-figure-04-08, echo=echoChunks, fig.height=1.5}
+```{r unused-variants-figure-04-08, echo=echo_chunks, fig.height=1.5}
 ```
 
 <!-- The footer that's common to all reports. -->

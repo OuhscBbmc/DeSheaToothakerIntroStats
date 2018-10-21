@@ -30,28 +30,28 @@ opts_chunk$set(
   # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
-echoChunks <- FALSE
+echo_chunks <- FALSE
 options(width=80) # Default width
 read_chunk("./chapter-12/chapter-12.R")
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
-```{r load-packages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
-```{r declare-globals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load the datasets. -->
-```{r load-data, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r tweak-data, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echo_chunks, message=FALSE}
 ```
 
 ## Figure 12-1
@@ -59,52 +59,52 @@ This figure will be typeset by the publisher.
 
 ## Figure 12-2
 
-```{r figure-12-02, echo=echoChunks, fig.width=4, out.width="400px"}
+```{r figure-12-02, echo=echo_chunks, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-3
 
-```{r figure-12-03, echo=echoChunks, fig.width=4, out.width="400px"}
+```{r figure-12-03, echo=echo_chunks, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-4
 
-```{r figure-12-04, echo=echoChunks, fig.width=4, out.width="400px"}
+```{r figure-12-04, echo=echo_chunks, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-5
-```{r figure-12-05, echo=echoChunks, fig.width=7.5, out.width="750px"}
+```{r figure-12-05, echo=echo_chunks, fig.width=7.5, out.width="750px"}
 ```
 
 ## Figure 12-6
-```{r figure-12-06, echo=echoChunks}
+```{r figure-12-06, echo=echo_chunks}
 ```
 
 ## Figure 12-7
 Table of Critical *F* values.  Will be produced by publisher.
 
 ## Figure 12-8
-```{r figure-12-08, echo=echoChunks}
+```{r figure-12-08, echo=echo_chunks}
 ```
 
 ## Figure 12-9
-```{r figure-12-09, echo=echoChunks,  fig.height = 2.5, fig.width=4, out.width="400px"}
+```{r figure-12-09, echo=echo_chunks,  fig.height = 2.5, fig.width=4, out.width="400px"}
 ```
 
 ## Figure 12-10
-```{r figure-12-10, echo=echoChunks}
+```{r figure-12-10, echo=echo_chunks}
 ```
 
 ## Figure 12-11
-```{r figure-12-11, echo=echoChunks}
+```{r figure-12-11, echo=echo_chunks}
 ```
 
 ## Figure 12-12
-```{r figure-12-12, echo=echoChunks}
+```{r figure-12-12, echo=echo_chunks}
 ```
 
 ## Figure 12-13
-```{r figure-12-13, echo=echoChunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
+```{r figure-12-13, echo=echo_chunks, fig.width=3.0, fig.height=2.0, out.width="300px"}
 ```
 
 <!-- The footer that's common to all reports. -->

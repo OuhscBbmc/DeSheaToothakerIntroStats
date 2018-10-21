@@ -30,52 +30,52 @@ opts_chunk$set(
   # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
-echoChunks <- FALSE
+echo_chunks <- FALSE
 options(width=80) # Default width
 read_chunk("./chapter-09/chapter-09.R")
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
-```{r load-packages, echo=echoChunks, message=FALSE}
+```{r load-packages, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
-```{r declare-globals, echo=echoChunks, message=FALSE}
+```{r declare-globals, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
-```{r, echo=echoChunks, message=FALSE}
+```{r, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Load the datasets. -->
-```{r load-data, echo=echoChunks, message=FALSE}
+```{r load-data, echo=echo_chunks, message=FALSE}
 ```
 
 <!-- Tweak the datasets. -->
-```{r tweak-data, echo=echoChunks, message=FALSE}
+```{r tweak-data, echo=echo_chunks, message=FALSE}
 ```
 
 ## Figure 9-1
-```{r figure-09-01, echo=echoChunks}
+```{r figure-09-01, echo=echo_chunks}
 ```
 
 ## Figure 9-2
-```{r figure-09-02, echo=echoChunks}
+```{r figure-09-02, echo=echo_chunks}
 ```
 
 ## Figure 9-3
-```{r figure-09-03, echo=echoChunks}
+```{r figure-09-03, echo=echo_chunks}
 ```
 
 ## Figure 9-4
-```{r figure-09-04, echo=echoChunks}
+```{r figure-09-04, echo=echo_chunks}
 ```
 
 ## Figure 9-5
-```{r figure-09-05, echo=echoChunks}
+```{r figure-09-05, echo=echo_chunks}
 ```
 
 ## Figure 9-6
-```{r figure-09-06, echo=echoChunks}
+```{r figure-09-06, echo=echo_chunks}
 ```
 
 ## Figure 9-7
@@ -85,15 +85,15 @@ read_chunk("./chapter-09/chapter-09.R")
 <img src="./../chapter-08/figure-png/figure-08-07-1.png" alt="TwoTails" style="width: 550px;"/>
 
 ## Figure 9-9
-```{r figure-09-09, echo=echoChunks, fig.height=2}
+```{r figure-09-09, echo=echo_chunks, fig.height=2}
 ```
 
 ## Figure 9-10
-```{r figure-09-10, echo=echoChunks}
+```{r figure-09-10, echo=echo_chunks}
 ```
 
 ## Figure 9-11
-```{r figure-09-11, echo=echoChunks, fig.height=1.5}
+```{r figure-09-11, echo=echo_chunks, fig.height=1.5}
 ```
 
 <!-- The footer that's common to all reports. -->

@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+    code_folding: hide
 ---
 Chapter 09 Graphs
 =================================================
@@ -30,7 +31,7 @@ opts_chunk$set(
   # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
-echo_chunks <- FALSE
+echo_chunks <- TRUE
 options(width=80) # Default width
 read_chunk("./chapter-09/chapter-09.R")
 ```

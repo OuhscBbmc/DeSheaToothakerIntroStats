@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+    code_folding: hide
 ---
 Chapter 14 Graphs
 =================================================
@@ -34,7 +35,7 @@ opts_chunk$set(
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
 
-echo_chunks <- FALSE
+echo_chunks <- TRUE
 options(width=80) # Default width
 read_chunk("./chapter-14/chapter-14.R")
 

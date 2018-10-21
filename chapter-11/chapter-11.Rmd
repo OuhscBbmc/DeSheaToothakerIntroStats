@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+    code_folding: hide
 ---
 Chapter 11 Graphs
 =================================================
@@ -22,7 +23,7 @@ opts_chunk$set(
   comment = NA,
   tidy = FALSE,
   fig.height = 2,
-  fig.width = 4,  
+  fig.width = 4,
   out.width = "400px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
   fig.path = 'figure-png/',
   dev = "png",
@@ -30,7 +31,7 @@ opts_chunk$set(
   # fig.path = 'figure-pdf/',
   # dev = "pdf"
 )
-echo_chunks <- FALSE
+echo_chunks <- TRUE
 options(width=80) # Default width
 read_chunk("./chapter-11/chapter-11.R")
 ```

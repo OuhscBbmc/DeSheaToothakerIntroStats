@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+    code_folding: hide
 ---
 Tables
 =================================================
@@ -22,7 +23,7 @@ opts_chunk$set(
   comment = NA,
   tidy = FALSE
 )
-echo_chunks <- FALSE
+echo_chunks <- TRUE
 options(width=80) # Default width
 read_chunk("./tables/tables.R")
 ```

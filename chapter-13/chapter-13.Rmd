@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+    code_folding: hide
 ---
 Chapter 13 Graphs
 =================================================
@@ -32,7 +33,7 @@ opts_chunk$set(
 )
 # knit_hooks$set(webgl = hook_webgl)
 
-echo_chunks <- FALSE
+echo_chunks <- TRUE
 options(width=80) # Default width
 read_chunk("./chapter-13/chapter-13.R")
 

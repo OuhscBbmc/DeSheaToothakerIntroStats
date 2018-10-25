@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+    code_folding: hide
 ---
 Tables
 =================================================
@@ -24,15 +25,40 @@ opts_chunk$set(
   comment = NA,
   tidy = FALSE
 )
-echoChunks <- FALSE
+echo_chunks <- TRUE
 options(width=80) # Default width
 read_chunk("./tables/tables.R")
 ```
 <!-- Load the packages.  Suppress the output when loading packages. -->
 
+```r
+library(magrittr)
+library(ggplot2)
+requireNamespace("tidyr")
+requireNamespace("gridExtra")
+# library(reshape2) #For converting wide to long
+```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
 
+```r
+source("./common-code/book-theme.R")
+
+pathZPValues <- "./tables/z-p-values.csv"
+pathTPValues <- "./tables/t-p-values.csv"
+pathFPValues <- "./tables/f-p-values.csv"
+pathChiSquarePValues <- "./tables/chi-square-p-values.csv"
+
+theme_chapter <- theme_book + 
+  theme(axis.ticks = element_blank())
+
+theme_empty <- theme_minimal() +
+  theme(axis.text = element_blank()) +
+  theme(axis.title = element_blank()) +
+  theme(panel.grid = element_blank()) +
+  theme(panel.border = element_blank()) +
+  theme(axis.ticks = element_blank())
+```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 
@@ -44,6 +70,32 @@ read_chunk("./tables/tables.R")
 
 
 ## Table A.1: Standard normal distribution
+
+```r
+fiveDigitThreshold <- 3.255
+zColumn <- c(seq(from=0, to=3.25, by=.01), seq(from=3.30, to=3.45, by=.05), seq(from=3.5, to=4.0, by=.1))  #The resolution gets progressively coarser.
+dsZTable <- data.frame(Z=zColumn, Inside=NA_real_, Outside=NA_real_)
+dsZTable$Outside <- pnorm(q=-dsZTable$Z)
+dsZTable$Inside <- (.5 - dsZTable$Outside)
+
+#The rest is just cosmetics
+roundingDigitCount <- ifelse(dsZTable$Z >= fiveDigitThreshold, 5L, 4L)
+dsZTable$Z <- format(dsZTable$Z, 3)
+
+dsZTable$Outside <- base::round(dsZTable$Outside, digits=roundingDigitCount) #This will have a fifth digit that's zero for the 4 digits rows.
+dsZTable$Outside <- format(x=dsZTable$Outside, trim=FALSE, digits=roundingDigitCount, width=roundingDigitCount, scientific=FALSE)
+dsZTable$Outside <- RemoveLeadingZero(dsZTable$Outside)
+dsZTable$Outside <- substr(dsZTable$Outside, 1, roundingDigitCount+1) #Add one for the decimal.
+
+dsZTable$Inside <- base::round(dsZTable$Inside, digits=roundingDigitCount) #This will have a fifth digit that's zero for the 4 digits rows.
+dsZTable$Inside <- format(x=dsZTable$Inside, trim=FALSE, digits=roundingDigitCount+1, width=roundingDigitCount, scientific=FALSE)
+dsZTable$Inside <- RemoveLeadingZero(dsZTable$Inside)
+dsZTable$Inside <- substr(dsZTable$Inside, 1, roundingDigitCount+1) #Add one for the decimal.
+
+knitr::kable(WrapColumns(dsZTable, wrapCount=9), row.names=FALSE, format="markdown")
+```
+
+
 
 |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |Z    |Inside |Outside |
 |:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|:----|:------|:-------|
@@ -86,7 +138,30 @@ read_chunk("./tables/tables.R")
 |0.36 |.1406  |.3594   |0.74 |.2704  |.2296   |1.12 |.3686  |.1314   |1.50 |.4332  |.0668   |1.88 |.4699  |.0301   |2.26 |.4881  |.0119   |2.64 |.4959  |.0041   |3.02 |.4987  |.0013   |     |       |        |
 |0.37 |.1443  |.3557   |0.75 |.2734  |.2266   |1.13 |.3708  |.1292   |1.51 |.4345  |.0655   |1.89 |.4706  |.0294   |2.27 |.4884  |.0116   |2.65 |.4960  |.0040   |3.03 |.4988  |.0012   |     |       |        |
 
+```r
+write.csv(dsZTable, file=pathZPValues, row.names=FALSE)
+```
+
 ## Table B.1: Critical values for *t* distributions
+
+```r
+dfColumn <- c(seq(from=1, to=30, by=1), seq(from=35, to=60, by=5), 70, 80, 90, 120, 100000)  #The resolution gets progressively coarser.
+dsTTable <- data.frame(df=dfColumn, Alpha10=NA_real_, Alpha05=NA_real_, Alpha025=NA_real_, Alpha01=NA_real_, Alpha005=NA_real_, Alpha0005=NA_real_)
+
+dsTTable$Alpha10 <- qt(p=1-.10, df=dsTTable$df)
+dsTTable$Alpha05 <- qt(p=1-.05, df=dsTTable$df)
+dsTTable$Alpha025 <- qt(p=1-.025, df=dsTTable$df)
+dsTTable$Alpha01 <- qt(p=1-.01, df=dsTTable$df)
+dsTTable$Alpha005 <- qt(p=1-.005, df=dsTTable$df)
+dsTTable$Alpha0005 <- qt(p=1-.0005, df=dsTTable$df)
+
+#The rest is just cosmetics
+dsTTable[, -1] <- base::round(dsTTable[, -1], 3)
+
+knitr::kable(dsTTable, row.names=FALSE, format="markdown")
+```
+
+
 
 |     df| Alpha10| Alpha05| Alpha025| Alpha01| Alpha005| Alpha0005|
 |------:|-------:|-------:|--------:|-------:|--------:|---------:|
@@ -132,7 +207,38 @@ read_chunk("./tables/tables.R")
 |    120|   1.289|   1.658|    1.980|   2.358|    2.617|     3.373|
 | 100000|   1.282|   1.645|    1.960|   2.326|    2.576|     3.291|
 
+```r
+write.csv(dsTTable, file=pathTPValues, row.names=FALSE)
+```
+
 ## Table C.1: Critical values for *F* distributions
+
+```r
+numeratorDF <- c(seq(from=1, to=12, by=1), 14, 16, 20)
+denominatorDF <- c(seq(from=1, to=30, by=1), seq(from=32, to=50, by=2), 55, 60, 70, 80, 100, 125, 150, 200, 400, 1000, 10000000)
+alpha <- c(.05, .01)
+dsFTableLong <- base::expand.grid(NumeratorDF=numeratorDF, DenominatorDF=denominatorDF, Alpha=alpha)
+dsFTableLong$Crit <- qf(p=dsFTableLong$Alpha, df1=dsFTableLong$NumeratorDF, df2=dsFTableLong$DenominatorDF, lower.tail=FALSE)
+
+dsFTableLong$Crit <- ifelse(dsFTableLong$DenominatorDF>1,
+                            format(round(dsFTableLong$Crit, digits=2)),
+                            format(round(dsFTableLong$Crit, digits=0)))
+# head(dsFTableLong, 20)
+
+dsFTableWide <- dsFTableLong %>% 
+  dplyr::select(NumeratorDF, DenominatorDF, Crit, Alpha) %>%
+  tidyr::spread(key=NumeratorDF, value=Crit) %>% 
+  dplyr::arrange(DenominatorDF, -Alpha)
+
+
+# dsFTableWide <- reshape2::dcast(dsFTableLong, DenominatorDF + Alpha ~ NumeratorDF,  value.var="Crit")
+# dsFTableWide <- dsFTableWide[order(dsFTableWide$DenominatorDF, -dsFTableWide$Alpha), ] # Put the alpha=.05 on top of the alpha=.01
+# head(dsFTableWide, 20) 
+
+knitr::kable(dsFTableWide, row.names=FALSE, format="markdown", align="r")
+```
+
+
 
 | DenominatorDF| Alpha|     1|     2|     3|     4|     5|     6|     7|     8|     9|    10|    11|    12|    14|    16|    20|
 |-------------:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
@@ -239,7 +345,28 @@ read_chunk("./tables/tables.R")
 |      10000000|  0.05|  3.84|  3.00|  2.60|  2.37|  2.21|  2.10|  2.01|  1.94|  1.88|  1.83|  1.79|  1.75|  1.69|  1.64|  1.57|
 |      10000000|  0.01|  6.63|  4.61|  3.78|  3.32|  3.02|  2.80|  2.64|  2.51|  2.41|  2.32|  2.25|  2.18|  2.08|  2.00|  1.88|
 
+```r
+write.csv(dsFTableWide, file=pathFPValues, row.names=FALSE)
+```
+
 ## Table D.1: Critical values for χ^2 distributions
+
+```r
+dfColumn <- c(seq(from=1, to=30, by=1), 40, 50, 60, 70)  #The resolution gets progressively coarser.
+dsChiTable <- data.frame(df=dfColumn, Alpha10=NA_real_, Alpha05=NA_real_, Alpha01=NA_real_, Alpha001=NA_real_)
+
+dsChiTable$Alpha10 <- qchisq(p=1-.10, df=dsChiTable$df)
+dsChiTable$Alpha05 <- qchisq(p=1-.05, df=dsChiTable$df)
+dsChiTable$Alpha01 <- qchisq(p=1-.01, df=dsChiTable$df)
+dsChiTable$Alpha001 <- qchisq(p=1-.001, df=dsChiTable$df)
+
+#The rest is just cosmetics
+dsChiTable[, -1] <- base::round(dsChiTable[, -1], 2)
+
+knitr::kable(dsChiTable, row.names=FALSE, format="markdown")
+```
+
+
 
 | df| Alpha10| Alpha05| Alpha01| Alpha001|
 |--:|-------:|-------:|-------:|--------:|
@@ -278,6 +405,10 @@ read_chunk("./tables/tables.R")
 | 60|   74.40|   79.08|   88.38|    99.61|
 | 70|   85.53|   90.53|  100.43|   112.32|
 
+```r
+write.csv(dsChiTable, file=pathChiSquarePValues, row.names=FALSE)
+```
+
 <!-- The footer that's common to all reports. -->
 
 ## Session Information
@@ -288,111 +419,112 @@ For the sake of documentation and reproducibility, the current report was render
   <summary>Environment <span class="glyphicon glyphicon-plus-sign"></span></summary>
 
 ```
-Session info ------------------------------------------------------------------
-```
+- Session info ---------------------------------------------------------------
+ setting  value                                      
+ version  R version 3.5.1 Patched (2018-09-10 r75281)
+ os       Windows >= 8 x64                           
+ system   x86_64, mingw32                            
+ ui       RStudio                                    
+ language (EN)                                       
+ collate  English_United States.1252                 
+ ctype    English_United States.1252                 
+ tz       America/Chicago                            
+ date     2018-10-25                                 
 
-```
- setting  value                       
- version  R version 3.5.1 (2018-07-02)
- system   x86_64, linux-gnu           
- ui       RStudio (1.2.830)           
- language (EN)                        
- collate  en_US.UTF-8                 
- tz       America/Chicago             
- date     2018-08-25                  
-```
+- Packages -------------------------------------------------------------------
+ package          * version    date       lib source                          
+ assertthat         0.2.0      2017-04-11 [1] CRAN (R 3.5.0)                  
+ backports          1.1.2      2017-12-13 [1] CRAN (R 3.5.0)                  
+ base64enc          0.1-3      2015-07-28 [1] CRAN (R 3.5.0)                  
+ bindr              0.1.1      2018-03-13 [1] CRAN (R 3.5.0)                  
+ bindrcpp           0.2.2      2018-03-29 [1] CRAN (R 3.5.0)                  
+ callr              3.0.0      2018-08-24 [1] CRAN (R 3.5.1)                  
+ cli                1.0.1      2018-09-25 [1] CRAN (R 3.5.1)                  
+ colorspace         1.3-2      2016-12-14 [1] CRAN (R 3.5.0)                  
+ crayon             1.3.4      2017-09-16 [1] CRAN (R 3.5.0)                  
+ crosstalk          1.0.0      2016-12-21 [1] CRAN (R 3.5.0)                  
+ debugme            1.1.0      2017-10-22 [1] CRAN (R 3.5.0)                  
+ desc               1.2.0      2018-05-01 [1] CRAN (R 3.5.0)                  
+ devtools           2.0.0      2018-10-19 [1] CRAN (R 3.5.1)                  
+ dichromat          2.0-0      2013-01-24 [1] CRAN (R 3.5.0)                  
+ digest             0.6.18     2018-10-10 [1] CRAN (R 3.5.1)                  
+ dplyr              0.7.7      2018-10-16 [1] CRAN (R 3.5.1)                  
+ epade              0.3.8      2013-02-22 [1] CRAN (R 3.5.1)                  
+ evaluate           0.12       2018-10-09 [1] CRAN (R 3.5.1)                  
+ extrafont          0.17       2014-12-08 [1] CRAN (R 3.5.0)                  
+ extrafontdb        1.0        2012-06-11 [1] CRAN (R 3.5.0)                  
+ fansi              0.4.0      2018-10-05 [1] CRAN (R 3.5.1)                  
+ fs                 1.2.6      2018-08-23 [1] CRAN (R 3.5.1)                  
+ ggplot2          * 3.0.0      2018-07-03 [1] CRAN (R 3.5.1)                  
+ glue               1.3.0      2018-07-17 [1] CRAN (R 3.5.1)                  
+ gridExtra          2.3        2017-09-09 [1] CRAN (R 3.5.0)                  
+ gtable             0.2.0      2016-02-26 [1] CRAN (R 3.5.0)                  
+ highr              0.7        2018-06-09 [1] CRAN (R 3.5.0)                  
+ hms                0.4.2.9001 2018-08-09 [1] Github (tidyverse/hms@979286f)  
+ htmltools          0.3.6      2017-04-28 [1] CRAN (R 3.5.0)                  
+ htmlwidgets        1.3        2018-09-30 [1] CRAN (R 3.5.1)                  
+ httpuv             1.4.5      2018-07-19 [1] CRAN (R 3.5.1)                  
+ jsonlite           1.5        2017-06-01 [1] CRAN (R 3.5.0)                  
+ knitr            * 1.20       2018-02-20 [1] CRAN (R 3.5.0)                  
+ labeling           0.3        2014-08-23 [1] CRAN (R 3.5.0)                  
+ later              0.7.5      2018-09-18 [1] CRAN (R 3.5.1)                  
+ lazyeval           0.2.1      2017-10-29 [1] CRAN (R 3.5.0)                  
+ magrittr         * 1.5        2014-11-22 [1] CRAN (R 3.5.0)                  
+ manipulateWidget   0.10.0     2018-06-11 [1] CRAN (R 3.5.0)                  
+ memoise            1.1.0      2017-04-21 [1] CRAN (R 3.5.0)                  
+ mime               0.6        2018-10-05 [1] CRAN (R 3.5.1)                  
+ miniUI             0.1.1.1    2018-05-18 [1] CRAN (R 3.5.0)                  
+ munsell            0.5.0      2018-06-12 [1] CRAN (R 3.5.0)                  
+ packrat            0.4.9-3    2018-06-01 [1] CRAN (R 3.5.0)                  
+ pacman             0.5.0      2018-10-22 [1] CRAN (R 3.5.1)                  
+ pillar             1.3.0      2018-07-14 [1] CRAN (R 3.5.1)                  
+ pkgbuild           1.0.2      2018-10-16 [1] CRAN (R 3.5.1)                  
+ pkgconfig          2.0.2      2018-08-16 [1] CRAN (R 3.5.1)                  
+ pkgload            1.0.1      2018-10-11 [1] CRAN (R 3.5.1)                  
+ plotrix            3.7-4      2018-10-03 [1] CRAN (R 3.5.1)                  
+ plyr               1.8.4      2016-06-08 [1] CRAN (R 3.5.0)                  
+ prettyunits        1.0.2      2015-07-13 [1] CRAN (R 3.5.0)                  
+ processx           3.2.0      2018-08-16 [1] CRAN (R 3.5.1)                  
+ promises           1.0.1      2018-04-13 [1] CRAN (R 3.5.0)                  
+ ps                 1.2.0      2018-10-16 [1] CRAN (R 3.5.1)                  
+ purrr              0.2.5      2018-05-29 [1] CRAN (R 3.5.0)                  
+ R6                 2.3.0      2018-10-04 [1] CRAN (R 3.5.1)                  
+ RColorBrewer       1.1-2      2014-12-07 [1] CRAN (R 3.5.0)                  
+ Rcpp               0.12.19    2018-10-01 [1] CRAN (R 3.5.1)                  
+ readr              1.2.0      2018-10-25 [1] Github (tidyverse/readr@69c9fd3)
+ remotes            2.0.1      2018-10-19 [1] CRAN (R 3.5.1)                  
+ reshape2           1.4.3      2017-12-11 [1] CRAN (R 3.5.0)                  
+ rgl                0.99.16    2018-03-28 [1] CRAN (R 3.5.0)                  
+ rlang              0.3.0.1    2018-10-25 [1] CRAN (R 3.5.1)                  
+ rmarkdown          1.10       2018-06-11 [1] CRAN (R 3.5.0)                  
+ rprojroot          1.3-2      2018-01-03 [1] CRAN (R 3.5.0)                  
+ Rttf2pt1           1.3.7      2018-06-29 [1] CRAN (R 3.5.0)                  
+ scales             1.0.0      2018-08-09 [1] CRAN (R 3.5.1)                  
+ sessioninfo        1.1.0      2018-09-25 [1] CRAN (R 3.5.1)                  
+ shiny              1.1.0      2018-05-17 [1] CRAN (R 3.5.0)                  
+ stringi            1.2.4      2018-07-20 [1] CRAN (R 3.5.1)                  
+ stringr            1.3.1      2018-05-10 [1] CRAN (R 3.5.0)                  
+ testthat           2.0.1      2018-10-13 [1] CRAN (R 3.5.1)                  
+ tibble             1.4.2      2018-01-22 [1] CRAN (R 3.5.0)                  
+ tidyr              0.8.1      2018-05-18 [1] CRAN (R 3.5.0)                  
+ tidyselect         0.2.5      2018-10-11 [1] CRAN (R 3.5.1)                  
+ usethis            1.4.0      2018-08-14 [1] CRAN (R 3.5.1)                  
+ utf8               1.1.4      2018-05-24 [1] CRAN (R 3.5.0)                  
+ webshot            0.5.1      2018-09-28 [1] CRAN (R 3.5.1)                  
+ wesanderson        0.3.6      2018-04-20 [1] CRAN (R 3.5.1)                  
+ withr              2.1.2      2018-03-15 [1] CRAN (R 3.5.0)                  
+ xtable             1.8-3      2018-08-29 [1] CRAN (R 3.5.1)                  
+ yaml               2.2.0      2018-07-25 [1] CRAN (R 3.5.1)                  
 
-```
-Packages ----------------------------------------------------------------------
-```
-
-```
- package          * version    date       source                          
- assertthat         0.2.0      2017-04-11 CRAN (R 3.5.1)                  
- backports          1.1.2      2017-12-13 CRAN (R 3.5.1)                  
- base             * 3.5.1      2018-07-03 local                           
- bindr              0.1.1      2018-03-13 CRAN (R 3.5.1)                  
- bindrcpp           0.2.2      2018-03-29 CRAN (R 3.5.1)                  
- cli                1.0.0      2017-11-05 CRAN (R 3.5.1)                  
- colorspace         1.3-2      2016-12-14 CRAN (R 3.5.1)                  
- compiler           3.5.1      2018-07-03 local                           
- crayon             1.3.4      2017-09-16 CRAN (R 3.5.1)                  
- crosstalk          1.0.0      2016-12-21 CRAN (R 3.5.1)                  
- datasets         * 3.5.1      2018-07-03 local                           
- devtools           1.13.6     2018-06-27 CRAN (R 3.5.1)                  
- dichromat          2.0-0      2013-01-24 CRAN (R 3.5.1)                  
- digest             0.6.16     2018-08-22 CRAN (R 3.5.1)                  
- dplyr              0.7.6      2018-06-29 CRAN (R 3.5.1)                  
- epade              0.3.8      2013-02-22 CRAN (R 3.5.1)                  
- evaluate           0.11       2018-07-17 CRAN (R 3.5.1)                  
- extrafont          0.17       2014-12-08 CRAN (R 3.5.1)                  
- extrafontdb        1.0        2012-06-11 CRAN (R 3.5.1)                  
- fansi              0.3.0      2018-08-13 CRAN (R 3.5.1)                  
- ggplot2          * 3.0.0      2018-07-03 CRAN (R 3.5.1)                  
- glue               1.3.0      2018-07-17 CRAN (R 3.5.1)                  
- graphics         * 3.5.1      2018-07-03 local                           
- grDevices        * 3.5.1      2018-07-03 local                           
- grid               3.5.1      2018-07-03 local                           
- gridExtra          2.3        2017-09-09 CRAN (R 3.5.1)                  
- gtable             0.2.0      2016-02-26 CRAN (R 3.5.1)                  
- highr              0.7        2018-06-09 CRAN (R 3.5.1)                  
- hms                0.4.2.9001 2018-08-18 Github (tidyverse/hms@979286f)  
- htmltools          0.3.6      2017-04-28 CRAN (R 3.5.1)                  
- htmlwidgets        1.2        2018-04-19 CRAN (R 3.5.1)                  
- httpuv             1.4.5      2018-07-19 CRAN (R 3.5.1)                  
- jsonlite           1.5        2017-06-01 CRAN (R 3.5.1)                  
- knitr            * 1.20       2018-02-20 CRAN (R 3.5.1)                  
- labeling           0.3        2014-08-23 CRAN (R 3.5.1)                  
- later              0.7.3      2018-06-08 CRAN (R 3.5.1)                  
- lazyeval           0.2.1      2017-10-29 CRAN (R 3.5.1)                  
- magrittr         * 1.5        2014-11-22 CRAN (R 3.5.1)                  
- manipulateWidget   0.10.0     2018-06-11 cran (@0.10.0)                  
- memoise            1.1.0      2017-04-21 CRAN (R 3.5.1)                  
- methods          * 3.5.1      2018-07-03 local                           
- mime               0.5        2016-07-07 CRAN (R 3.5.1)                  
- miniUI             0.1.1.1    2018-05-18 CRAN (R 3.5.1)                  
- munsell            0.5.0      2018-06-12 CRAN (R 3.5.1)                  
- packrat            0.4.9-3    2018-06-01 CRAN (R 3.5.1)                  
- pacman             0.4.6      2017-05-14 CRAN (R 3.5.1)                  
- pillar             1.3.0      2018-07-14 CRAN (R 3.5.1)                  
- pkgconfig          2.0.2      2018-08-16 CRAN (R 3.5.1)                  
- plotrix            3.7-2      2018-05-27 CRAN (R 3.5.1)                  
- plyr               1.8.4      2016-06-08 CRAN (R 3.5.1)                  
- promises           1.0.1      2018-04-13 CRAN (R 3.5.1)                  
- purrr              0.2.5      2018-05-29 CRAN (R 3.5.1)                  
- R6                 2.2.2      2017-06-17 CRAN (R 3.5.1)                  
- RColorBrewer       1.1-2      2014-12-07 CRAN (R 3.5.1)                  
- Rcpp               0.12.18    2018-07-23 CRAN (R 3.5.1)                  
- readr              1.2.0      2018-08-18 Github (tidyverse/readr@4b2e93a)
- reshape2           1.4.3      2017-12-11 CRAN (R 3.5.1)                  
- rgl                0.99.16    2018-03-28 cran (@0.99.16)                 
- rlang              0.2.2      2018-08-16 CRAN (R 3.5.1)                  
- rmarkdown          1.10       2018-06-11 CRAN (R 3.5.1)                  
- rprojroot          1.3-2      2018-01-03 CRAN (R 3.5.1)                  
- rstudioapi         0.7        2017-09-07 CRAN (R 3.5.1)                  
- Rttf2pt1           1.3.7      2018-06-29 CRAN (R 3.5.1)                  
- scales             1.0.0      2018-08-09 CRAN (R 3.5.1)                  
- shiny              1.1.0      2018-05-17 CRAN (R 3.5.1)                  
- stats            * 3.5.1      2018-07-03 local                           
- stringi            1.2.4      2018-07-20 CRAN (R 3.5.1)                  
- stringr            1.3.1      2018-05-10 CRAN (R 3.5.1)                  
- tibble             1.4.2      2018-01-22 CRAN (R 3.5.1)                  
- tidyr              0.8.1      2018-05-18 CRAN (R 3.5.1)                  
- tidyselect         0.2.4      2018-02-26 CRAN (R 3.5.1)                  
- tools              3.5.1      2018-07-03 local                           
- utf8               1.1.4      2018-05-24 CRAN (R 3.5.1)                  
- utils            * 3.5.1      2018-07-03 local                           
- webshot            0.5.0      2017-11-29 cran (@0.5.0)                   
- wesanderson        0.3.6      2018-04-20 CRAN (R 3.5.1)                  
- withr              2.1.2      2018-03-15 CRAN (R 3.5.1)                  
- xtable             1.8-2      2016-02-05 CRAN (R 3.5.1)                  
- yaml               2.2.0      2018-07-25 CRAN (R 3.5.1)                  
+[1] D:/Projects/RLibraries
+[2] D:/Users/Will/Documents/R/win-library/3.5
+[3] C:/Program Files/R/R-3.5.1patched/library
 ```
 </details>
 
 
 
-Report rendered by wibeasley at 2018-08-25, 19:57 -0500 in 1 seconds.
+Report rendered by Will at 2018-10-25, 13:04 -0500 in 1 seconds.
 
 
 ## License
